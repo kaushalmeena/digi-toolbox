@@ -1,99 +1,122 @@
 import {
   Button,
   ButtonGroup,
-  Classes,
   Divider,
   Icon,
   Navbar,
   NavbarGroup,
   NavbarHeading
 } from "@blueprintjs/core";
+import Link from "next/link";
 import React, { Component, ReactNode } from "react";
-import { getTheme, setTheme } from "./utils";
+import styled, { ThemeProvider } from "styled-components";
+import { DARK_THEME, LIGHT_THEME } from "../../constants/themes";
+import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
   children?: ReactNode;
 };
 
 type LayoutState = {
-  theme: string;
+  darkMode: boolean;
 };
 
 class Layout extends Component<LayoutProps, LayoutState> {
   constructor(props: LayoutProps) {
     super(props);
     this.state = {
-      theme: null
+      darkMode: false
     };
   }
 
   componentDidMount(): void {
-    const theme = getTheme();
-    if (theme) {
+    const value = fetchDarkMode();
+    if (value !== this.state.darkMode) {
       this.setState({
-        theme
+        darkMode: value
       });
     }
   }
 
   setDarkMode = (value: boolean): void => {
-    const theme = value ? Classes.DARK : null;
-    this.setState({
-      theme
-    });
-    setTheme(theme);
+    if (value !== this.state.darkMode) {
+      storeDarkMode(value);
+      this.setState({
+        darkMode: value
+      });
+    }
   };
 
   render(): JSX.Element {
-    const darkMode = this.state.theme === Classes.DARK;
-    const darkClass = `.${Classes.DARK}`;
-
+    const theme = this.state.darkMode ? DARK_THEME : LIGHT_THEME;
     return (
-      <div className={this.state.theme}>
-        <Navbar>
-          <NavbarGroup>
-            <NavbarHeading>
-              <Icon icon="wrench" /> <strong>GetThatTool</strong>
-            </NavbarHeading>
-          </NavbarGroup>
-          <NavbarGroup align="right">
-            <Divider />
-            <ButtonGroup>
-              <Button
-                icon="moon"
-                active={darkMode}
-                onClick={() => this.setDarkMode(true)}
-              />
-              <Button
-                icon="flash"
-                active={!darkMode}
-                onClick={() => this.setDarkMode(false)}
-              />
-            </ButtonGroup>
-          </NavbarGroup>
-        </Navbar>
-        <main className="main">{this.props.children}</main>
-        <footer className="footer">Made with &#9829; in NextJS</footer>
-        <style jsx>{`
-          .main {
-            background-color: #f5f8fa;
-            min-height: calc(100vh - 90px);
-          }
-          .footer {
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-          }
-          ${darkClass} .main {
-            background-color: #30404d;
-          }
-          ${darkClass} .footer {
-            background-color: #293742;
-          }
-        `}</style>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={theme.blueprintjsClass}>
+          <Navbar>
+            <NavbarGroup>
+              <NavbarHeading>
+                <Link href="/">
+                  <LogoContainer>
+                    <LogoIcon icon="wrench" iconSize={18} />
+                    <LogoText>GetThatTool</LogoText>
+                  </LogoContainer>
+                </Link>
+              </NavbarHeading>
+            </NavbarGroup>
+            <NavbarGroup align="right">
+              <Divider />
+              <ButtonGroup>
+                <Button
+                  icon="moon"
+                  active={this.state.darkMode}
+                  onClick={() => this.setDarkMode(true)}
+                />
+                <Button
+                  icon="flash"
+                  active={!this.state.darkMode}
+                  onClick={() => this.setDarkMode(false)}
+                />
+              </ButtonGroup>
+            </NavbarGroup>
+          </Navbar>
+          <Main>{this.props.children}</Main>
+          <Footer>Made with &#9829; in NextJS</Footer>
+        </div>
+      </ThemeProvider>
     );
   }
 }
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  & :hover {
+    opacity: 0.3;
+  }
+`;
+
+const LogoIcon = styled(Icon)`
+  margin-right: 5px;
+`;
+
+const LogoText = styled.span`
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+const Main = styled.main`
+  padding: 20px;
+  background-color: ${(props) => props.theme.gray[4]};
+  min-height: calc(100vh - 88px);
+`;
+
+const Footer = styled.footer`
+  padding: 10px;
+  text-align: center;
+  background-color: ${(props) => props.theme.gray[5]};
+`;
 
 export default Layout;

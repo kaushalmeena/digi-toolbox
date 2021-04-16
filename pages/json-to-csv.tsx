@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import JSONToCSVPage from "../screens/Tools/JSON/json-to-csv";
+import JSONToCSVPage from "../screens/Tools/JSON/JSONToCSV";
 
 const JSONToCSV: FunctionComponent = () => (
   <>
