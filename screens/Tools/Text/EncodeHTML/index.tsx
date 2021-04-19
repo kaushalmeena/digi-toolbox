@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/ConvertPage";
+import Page from "../../../common/Page/Convert";
 import { encodeHTML } from "../utils";
 
-const EncodeHTML: FunctionComponent = () => {
+const EncodeHTMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Encode HTML"
@@ -14,4 +14,4 @@ const EncodeHTML: FunctionComponent = () => {
   );
 };
 
-export default EncodeHTML;
+export default EncodeHTMLPage;

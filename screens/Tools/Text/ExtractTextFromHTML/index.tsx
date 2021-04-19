@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/ConvertPage";
+import Page from "../../../common/Page/Convert";
 import { extractTextFromHTML } from "../utils";
 
-const ExtractTextFromHTML: FunctionComponent = () => {
+const ExtractTextFromHTMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Extract Text from HTML"
@@ -14,4 +14,4 @@ const ExtractTextFromHTML: FunctionComponent = () => {
   );
 };
 
-export default ExtractTextFromHTML;
+export default ExtractTextFromHTMLPage;

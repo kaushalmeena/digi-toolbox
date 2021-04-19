@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/ConvertPage";
+import Page from "../../../common/Page/Convert";
 import { encodeURL } from "../utils";
 
-const EncodeURL: FunctionComponent = () => {
+const EncodeURLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Encode URL"
@@ -14,4 +14,4 @@ const EncodeURL: FunctionComponent = () => {
   );
 };
 
-export default EncodeURL;
+export default EncodeURLPage;

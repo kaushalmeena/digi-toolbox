@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/ConvertPage";
+import Page from "../../../common/Page/Convert";
 import { encodeBase64 } from "../utils";
 
-const EncodeBase64: FunctionComponent = () => {
+const EncodeBase64Page: FunctionComponent = () => {
   return (
     <Page
       heading="Encode Base64"
@@ -14,4 +14,4 @@ const EncodeBase64: FunctionComponent = () => {
   );
 };
 
-export default EncodeBase64;
+export default EncodeBase64Page;

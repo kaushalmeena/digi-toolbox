@@ -4,7 +4,7 @@ import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
 import { TOOLS } from "../../constants/tools";
 import { ITool } from "../../types/tool";
-import { MainContainer, TopContainer } from "../common/ConvertPage";
+import { MainContainer, TopContainer } from "../common/Page/Convert";
 import { itemPredicate, itemRenderer } from "./utils";
 
 const ToolSelect = Select.ofType<ITool>();

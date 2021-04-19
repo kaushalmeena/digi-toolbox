@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/ConvertPage";
+import Page from "../../../common/Page/Convert";
 import { encodeHex } from "../utils";
 
-const StringToHex: FunctionComponent = () => {
+const StringToHexPage: FunctionComponent = () => {
   return (
     <Page
       heading="String to Hex"
@@ -14,4 +14,4 @@ const StringToHex: FunctionComponent = () => {
   );
 };
 
-export default StringToHex;
+export default StringToHexPage;

@@ -3,7 +3,7 @@ import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
 import { loadFile, copyData, saveFile } from "./utils";
 import styled from "styled-components";
-import Toast from "../toast";
+import Toast from "../../toast";
 
 type ConvertPageProps = {
   router: NextRouter;
@@ -45,9 +45,16 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
   };
 
   handleInputConvert = () => {
-    const value = this.state.input;
-    const convertedValue = this.props.convertFunc(value);
-    this.setOutput(convertedValue);
+    let output = "";
+
+    try {
+      output = this.props.convertFunc(this.state.input);
+    } catch (err) {
+      console.error(err);
+      output = "Invalid input detected.";
+    }
+
+    this.setOutput(output);
   };
 
   handleInputClear = () => {
