@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { DARK_THEME, LIGHT_THEME } from "../../constants/themes";
+import { DARK_THEME, LIGHT_THEME } from "../../../constants/themes";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
@@ -109,8 +109,8 @@ const LogoText = styled.span`
 
 const Main = styled.main`
   padding: 20px;
-  background-color: ${(props) => props.theme.gray[4]};
   min-height: calc(100vh - 88px);
+  background-color: ${(props) => props.theme.gray[4]};
 `;
 
 const Footer = styled.footer`

@@ -1,20 +1,7 @@
 import { MenuItem } from "@blueprintjs/core";
 import { ItemPredicate, ItemRenderer } from "@blueprintjs/select";
 import React from "react";
-
-export interface ITool {
-  name: string;
-  category: string;
-  url: string;
-}
-
-export const TOOLS: ITool[] = [
-  {
-    name: "JSON to CSV",
-    category: "JSON Tools",
-    url: "/json-to-csv"
-  }
-];
+import { ITool } from "../../types/tool";
 
 export const itemRenderer: ItemRenderer<ITool> = (
   tool,

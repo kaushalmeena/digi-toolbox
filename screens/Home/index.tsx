@@ -2,8 +2,10 @@ import { Button, H1, H3, MenuItem } from "@blueprintjs/core";
 import { Select } from "@blueprintjs/select";
 import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import { MainContainer, TopContainer } from "../common/StyledComponents";
-import { itemPredicate, itemRenderer, ITool, TOOLS } from "./utils";
+import { TOOLS } from "../../constants/tools";
+import { ITool } from "../../types/tool";
+import { MainContainer, TopContainer } from "../common/Page";
+import { itemPredicate, itemRenderer } from "./utils";
 
 const ToolSelect = Select.ofType<ITool>();
 
