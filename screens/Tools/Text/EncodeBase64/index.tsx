@@ -6,7 +6,7 @@ const EncodeBase64Page: FunctionComponent = () => {
   return (
     <Page
       heading="Encode Base64"
-      subHeading="Encode String to Base64 Converter"
+      subHeading="Encode Text to Base64 Converter"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={encodeBase64}

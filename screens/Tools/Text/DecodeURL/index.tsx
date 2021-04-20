@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { encodeURL } from "../utils";
+import { decodeURL } from "../utils";
 
-const EncodeURLPage: FunctionComponent = () => {
+const DecodeURLPage: FunctionComponent = () => {
   return (
     <Page
-      heading="Encode URL"
-      subHeading="Encode to URL-encoded format"
+      heading="Decode URL"
+      subHeading="Decode from URL-encoded format"
       fileExtension="txt"
       fileType="plain/text"
-      convertFunc={encodeURL}
+      convertFunc={decodeURL}
     />
   );
 };
 
-export default EncodeURLPage;
+export default DecodeURLPage;

@@ -2,8 +2,8 @@ import { Button, H1, H3, MenuItem } from "@blueprintjs/core";
 import { Select } from "@blueprintjs/select";
 import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import { TOOLS } from "../../constants/tools";
-import { ITool } from "../../types/tool";
+import { TOOLS } from "../../constants";
+import { ITool } from "../../types";
 import { MainContainer, TopContainer } from "../common/Page/Convert";
 import { itemPredicate, itemRenderer } from "./utils";
 

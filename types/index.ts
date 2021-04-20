@@ -3,3 +3,8 @@ export interface ITool {
   category: string;
   url: string;
 }
+
+export interface IOption {
+  label: string;
+  value: string;
+}

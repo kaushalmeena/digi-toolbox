@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import HexToStringPage from "../screens/Tools/Text/HexToString";
+import HexToTextPage from "../screens/Tools/Text/HexToText";
 
-const HexToString: FunctionComponent = () => (
+const HexToText: FunctionComponent = () => (
   <>
     <Head>
       <title key="title">Convert Hex into Text Online</title>
@@ -12,8 +12,8 @@ const HexToString: FunctionComponent = () => (
         content="Convert hex code to plain text easily."
       />
     </Head>
-    <HexToStringPage />
+    <HexToTextPage />
   </>
 );
 
-export default HexToString;
+export default HexToText;

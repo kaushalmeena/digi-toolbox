@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { DARK_THEME, LIGHT_THEME } from "../../../constants/themes";
+import { DARK_THEME, LIGHT_THEME } from "../../../constants";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {

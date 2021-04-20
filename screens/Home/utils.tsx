@@ -1,7 +1,7 @@
 import { MenuItem } from "@blueprintjs/core";
 import { ItemPredicate, ItemRenderer } from "@blueprintjs/select";
 import React from "react";
-import { ITool } from "../../types/tool";
+import { ITool } from "../../types";
 
 export const itemRenderer: ItemRenderer<ITool> = (
   tool,

@@ -6,7 +6,7 @@ const DecodeBase64Page: FunctionComponent = () => {
   return (
     <Page
       heading="Decode Base64"
-      subHeading="Decode from Base64 to String Converter"
+      subHeading="Decode from Base64 to Text Converter"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={decodeBase64}

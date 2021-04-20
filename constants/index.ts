@@ -1,4 +1,29 @@
-import { ITool } from "../types/tool";
+import { Classes } from "@blueprintjs/core";
+import { ITool } from "../types";
+
+export const DARK_THEME = {
+  id: "dark-theme",
+  blueprintjsClass: Classes.DARK,
+  gray: {
+    1: "#182026",
+    2: "#202B33",
+    3: "#293742",
+    4: "#30404D",
+    5: "#394B59"
+  }
+};
+
+export const LIGHT_THEME = {
+  id: "light-theme",
+  blueprintjsClass: null,
+  gray: {
+    1: "#CED9E0",
+    2: "#D8E1E8",
+    3: "#E1E8ED",
+    4: "#EBF1F5",
+    5: "#F5F8FA"
+  }
+};
 
 export const TOOLS: ITool[] = [
   {
@@ -42,13 +67,18 @@ export const TOOLS: ITool[] = [
     url: "/extract-text-from-html"
   },
   {
-    name: "Hex to String",
+    name: "Hex to Text",
     category: "Text Utilities",
-    url: "/hex-to-string"
+    url: "/hex-to-text"
   },
   {
-    name: "String to Hex",
+    name: "Text to Hex",
     category: "Text Utilities",
-    url: "/string-to-hex"
+    url: "/text-to-hex"
+  },
+  {
+    name: "Convert Text Case",
+    category: "Text Utilities",
+    url: "/case-converter"
   }
 ];

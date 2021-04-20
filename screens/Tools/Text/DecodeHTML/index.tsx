@@ -6,7 +6,7 @@ const DecodeHTMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Decode HTML"
-      subHeading="Decode HTML to String online"
+      subHeading="Decode HTML to Text online"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={decodeHTML}

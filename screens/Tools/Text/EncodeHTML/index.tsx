@@ -6,7 +6,7 @@ const EncodeHTMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Encode HTML"
-      subHeading="Encode HTML to String online"
+      subHeading="Encode HTML to Text online"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={encodeHTML}

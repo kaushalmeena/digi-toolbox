@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import StringToHexPage from "../screens/Tools/Text/StringToHex";
+import TextToHexPage from "../screens/Tools/Text/TextToHex";
 
-const StringToHex: FunctionComponent = () => (
+const TextToHex: FunctionComponent = () => (
   <>
     <Head>
       <title key="title">Convert Text to Hex Online</title>
@@ -12,8 +12,8 @@ const StringToHex: FunctionComponent = () => (
         content="Convert plain text to hex code online."
       />
     </Head>
-    <StringToHexPage />
+    <TextToHexPage />
   </>
 );
 
-export default StringToHex;
+export default TextToHex;

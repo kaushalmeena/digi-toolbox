@@ -2,11 +2,11 @@ import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
 import { decodeHex } from "../utils";
 
-const HexToStringPage: FunctionComponent = () => {
+const HexToTextPage: FunctionComponent = () => {
   return (
     <Page
-      heading="Hex to String"
-      subHeading="Convert Hexadecimal to String online"
+      heading="Hex to Text"
+      subHeading="Convert Hexadecimal to Text online"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={decodeHex}
@@ -14,4 +14,4 @@ const HexToStringPage: FunctionComponent = () => {
   );
 };
 
-export default HexToStringPage;
+export default HexToTextPage;
