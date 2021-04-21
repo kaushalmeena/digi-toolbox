@@ -37,6 +37,16 @@ export const TOOLS: ITool[] = [
     url: "/json-to-yaml"
   },
   {
+    name: "Stringify JSON",
+    category: "JSON Tools",
+    url: "/stringify-json"
+  },
+  {
+    name: "Unstringify JSON",
+    category: "JSON Tools",
+    url: "/unstringify-json"
+  },
+  {
     name: "Encode Base64",
     category: "Text Utilities",
     url: "/encode-base64"

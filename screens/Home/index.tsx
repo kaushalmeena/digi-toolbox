@@ -27,10 +27,7 @@ class Home extends Component<HomeProps> {
       <>
         <TopContainer>
           <H1>Every tool you could want at one place</H1>
-          <H3>
-            Every tool you need to use PDFs, at your fingertips. All are 100%
-            FREE and easy to use!
-          </H3>
+          <H3>Every tool you need to use, at your fingertips!</H3>
         </TopContainer>
         <MainContainer>
           <ToolSelect

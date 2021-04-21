@@ -1,4 +1,4 @@
-export const CASE_OPTIONS = [
+export const caseOptions = [
   {
     label: "to upper-case",
     value: "upper-case"

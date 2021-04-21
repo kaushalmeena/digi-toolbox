@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const convertJSONToYAML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
@@ -8,7 +7,8 @@ export const convertJSONToYAML = (data: string): string => {
   return result.join("\n");
 };
 
-function convert(obj: any, res: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function convert(obj: any, res: any[]) {
   const type = getType(obj);
 
   switch (type) {
@@ -33,7 +33,8 @@ function convert(obj: any, res: any) {
   }
 }
 
-function convertArray(obj: any, res: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function convertArray(obj: any, res: any[]) {
   if (obj.length === 0) {
     res.push("[]");
   }
@@ -47,13 +48,14 @@ function convertArray(obj: any, res: any) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function convertObject(obj: any, res: any[]) {
   for (const k in obj) {
     const recurse = [];
     if (obj.hasOwnProperty(k)) {
-      const ele = obj[k];
-      convert(ele, recurse);
-      const type = getType(ele);
+      const val = obj[k];
+      convert(val, recurse);
+      const type = getType(val);
       if (
         type == "string" ||
         type == "null" ||
@@ -71,6 +73,7 @@ function convertObject(obj: any, res: any[]) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function convertString(str: string, res: any[]) {
   res.push(normalizeString(str));
 }
@@ -90,6 +93,7 @@ function normalizeString(str: string) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getType(obj: any) {
   const type = typeof obj;
   if (obj instanceof Array) {
