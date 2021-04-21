@@ -1,1 +1,1 @@
-export const encodeURL = (data: string): string => encodeURIComponent(data);
+export const encodeURL = (data: string): string => encodeURI(data);
