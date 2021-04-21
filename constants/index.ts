@@ -32,6 +32,11 @@ export const TOOLS: ITool[] = [
     url: "/json-to-csv"
   },
   {
+    name: "JSON to YAML",
+    category: "JSON Tools",
+    url: "/json-to-yaml"
+  },
+  {
     name: "Encode Base64",
     category: "Text Utilities",
     url: "/encode-base64"
