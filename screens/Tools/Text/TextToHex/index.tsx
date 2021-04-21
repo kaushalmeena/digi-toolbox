@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { encodeHex } from "../utils";
+import { convertTextToHex } from "./utils";
 
 const TextToHexPage: FunctionComponent = () => {
   return (
@@ -9,7 +9,7 @@ const TextToHexPage: FunctionComponent = () => {
       subHeading="Convert Text to Hexadecimal online"
       fileExtension="txt"
       fileType="plain/text"
-      convertFunc={encodeHex}
+      convertFunc={convertTextToHex}
     />
   );
 };

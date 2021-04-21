@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { encodeHTML } from "../utils";
+import { encodeHTML } from "./utils";
 
 const EncodeHTMLPage: FunctionComponent = () => {
   return (

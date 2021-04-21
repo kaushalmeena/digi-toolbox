@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { decodeURL } from "../utils";
+import { decodeURL } from "./utils";
 
 const DecodeURLPage: FunctionComponent = () => {
   return (

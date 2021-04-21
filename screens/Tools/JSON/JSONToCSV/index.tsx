@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { convertJSONToCSV } from "../utils";
+import { convertJSONToCSV } from "./utils";
 
 const JSONToCSVPage: FunctionComponent = () => {
   return (

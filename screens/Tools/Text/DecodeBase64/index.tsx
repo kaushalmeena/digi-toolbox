@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { decodeBase64 } from "../utils";
+import { decodeBase64 } from "./utils";
 
 const DecodeBase64Page: FunctionComponent = () => {
   return (

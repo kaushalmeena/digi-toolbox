@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { convertCase } from "../utils";
-import { CASE_OPTIONS } from "../constants";
+import { convertCase } from "./utils";
+import { CASE_OPTIONS } from "./constants";
 
 const CaseConverterPage: FunctionComponent = () => {
   return (

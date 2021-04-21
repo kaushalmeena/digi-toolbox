@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { extractTextFromHTML } from "../utils";
+import { extractTextFromHTML } from "./utils";
 
 const ExtractTextFromHTMLPage: FunctionComponent = () => {
   return (
