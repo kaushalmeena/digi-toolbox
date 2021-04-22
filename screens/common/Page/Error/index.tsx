@@ -22,7 +22,7 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = (
   </ErrorContainer>
 );
 
-export const ErrorContainer = styled.div`
+const ErrorContainer = styled.div`
   padding: 20px;
   text-align: center;
   position: absolute;
@@ -31,7 +31,7 @@ export const ErrorContainer = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   padding: 20px;
 `;
 

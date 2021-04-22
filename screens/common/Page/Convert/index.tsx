@@ -106,7 +106,7 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
           <H3>{this.props.subHeading}</H3>
         </TopContainer>
         <MainContainer>
-          <BoxContainer>
+          <IOContainer>
             <TextArea
               fill
               rows={16}
@@ -143,8 +143,8 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
                 onClick={this.handleInputClear}
               />
             </ButtonContainer>
-          </BoxContainer>
-          <BoxContainer>
+          </IOContainer>
+          <IOContainer>
             <TextArea readOnly fill rows={16} value={this.state.output} />
             <ButtonContainer>
               <Button large text="Copy" onClick={this.handleOutputCopy} />
@@ -155,19 +155,19 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
                 onClick={this.handleOutputDownload}
               />
             </ButtonContainer>
-          </BoxContainer>
+          </IOContainer>
         </MainContainer>
       </>
     );
   }
 }
 
-export const TopContainer = styled.div`
+const TopContainer = styled.div`
   padding: 20px;
   text-align: center;
 `;
 
-export const MainContainer = styled.div`
+const MainContainer = styled.div`
   padding: 20px 10px 60px 10px;
   display: flex;
   flex-direction: row;
@@ -175,13 +175,13 @@ export const MainContainer = styled.div`
   justify-content: center;
 `;
 
-export const BoxContainer = styled.div`
+const IOContainer = styled.div`
   margin: 20px;
   min-width: 300px;
   flex: 1;
 `;
 
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   margin-top: 10px;
   display: flex;
   align-items: center;
