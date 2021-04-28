@@ -37,6 +37,16 @@ export const TOOLS: ITool[] = [
     url: "/json-to-yaml"
   },
   {
+    name: "Prettify JSON",
+    category: "JSON",
+    url: "/prettify-json"
+  },
+  {
+    name: "Minify JSON",
+    category: "JSON",
+    url: "/minify-json"
+  },
+  {
     name: "Stringify JSON",
     category: "JSON",
     url: "/stringify-json"

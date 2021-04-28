@@ -43,7 +43,7 @@ function convertArray(obj: any, res: any[]) {
     const recurse = [];
     convert(ele, recurse);
     for (let j = 0; j < recurse.length; j++) {
-      res.push((j == 0 ? "- " : "  ") + recurse[j]);
+      res.push((j == 0 ? "- " : "   ") + recurse[j]);
     }
   }
 }
@@ -82,14 +82,7 @@ function normalizeString(str: string) {
   if (str.match(/^[\w]+$/)) {
     return str;
   } else {
-    return (
-      '"' +
-      escape(str)
-        .replace(/%u/g, "\\u")
-        .replace(/%U/g, "\\U")
-        .replace(/%/g, "\\x") +
-      '"'
-    );
+    return JSON.stringify(str);
   }
 }
 
