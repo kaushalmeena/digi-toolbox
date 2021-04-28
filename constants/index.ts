@@ -32,6 +32,11 @@ export const TOOLS: ITool[] = [
     url: "/json-to-csv"
   },
   {
+    name: "JSON to XML",
+    category: "JSON",
+    url: "/json-to-xml"
+  },
+  {
     name: "JSON to YAML",
     category: "JSON",
     url: "/json-to-yaml"

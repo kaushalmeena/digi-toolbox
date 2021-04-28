@@ -1,28 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const convertJSONToYAML = (data: string): string => {
+export const convertJSONToXML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
 
+  result.push('<?xml version="1.0" encoding="UTF-8" ?>');
+  result.push("<root>");
+
   convert(tempObj, result);
+
+  result.push("</root>");
 
   return result.join("\n");
 };
 
-function convert(obj: any, res: any[]) {
+function convert(obj: any, res: any[], key?: any) {
   const type = getType(obj);
 
   switch (type) {
     case "array":
-      convertArray(obj, res);
+      convertArray(obj, res, key);
       break;
     case "string":
       convertString(obj, res);
       break;
     case "object":
       convertObject(obj, res);
-      break;
-    case "null":
-      res.push("null");
       break;
     case "number":
       res.push(obj.toString());
@@ -33,17 +35,19 @@ function convert(obj: any, res: any[]) {
   }
 }
 
-function convertArray(obj: any, res: any[]) {
+function convertArray(obj: any, res: any[], key = "row") {
   if (obj.length === 0) {
-    res.push("[]");
+    return;
   }
   for (let i = 0; i < obj.length; i++) {
     const val = obj[i];
     const recurse = [];
     convert(val, recurse);
+    res.push(`  <${key}>`);
     for (let j = 0; j < recurse.length; j++) {
-      res.push((j == 0 ? "- " : "   ") + recurse[j]);
+      res.push(`    ` + recurse[j]);
     }
+    res.push(`  </${key}>`);
   }
 }
 
@@ -54,16 +58,12 @@ function convertObject(obj: any, res: any[]) {
       const val = obj[k];
       const type = getType(val);
       const key = normalizeString(k);
-      convert(val, recurse);
-      if (
-        type == "string" ||
-        type == "null" ||
-        type == "number" ||
-        type == "boolean"
-      ) {
-        res.push(key + ": " + recurse[0]);
+      convert(val, recurse, key);
+      if (type == "null") {
+        res.push(`<${key} />`);
+      } else if (type == "string" || type == "number" || type == "boolean") {
+        res.push(`<${key}>${recurse[0]}</${key}>`);
       } else {
-        res.push(key + ": ");
         for (let i = 0; i < recurse.length; i++) {
           res.push("  " + recurse[i]);
         }
