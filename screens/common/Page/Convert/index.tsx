@@ -179,6 +179,9 @@ const IOContainer = styled.div`
   margin: 20px;
   min-width: 300px;
   flex: 1;
+  & textarea {
+    font-family: monospace;
+  }
 `;
 
 const ButtonContainer = styled.div`
