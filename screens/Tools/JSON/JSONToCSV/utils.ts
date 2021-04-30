@@ -1,9 +1,8 @@
 export const convertJSONToCSV = (data: string): string => {
   let result = "";
-  const tempData = JSON.parse(data);
-  const tempArray = findArray(tempData);
+  const tempArray = JSON.parse(data);
 
-  if (!tempArray) {
+  if (!(Array.isArray(tempArray) && tempArray[0] instanceof Object)) {
     throw new Error("JSON input in not array of objects.");
   }
 
@@ -16,23 +15,10 @@ export const convertJSONToCSV = (data: string): string => {
       if (line != "") {
         line += ",";
       }
-      line += tempArray[i][key];
+      line += `"${tempArray[i][key]}"`;
     }
     result += line + "\r\n";
   }
 
   return result;
 };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function findArray(obj: any) {
-  if (Array.isArray(obj) && obj[0] instanceof Object) {
-    return obj;
-  }
-  if (obj instanceof Object) {
-    const keys = Object.keys(obj);
-    const tempObj = obj[keys[0]];
-    return findArray(tempObj);
-  }
-  return null;
-}

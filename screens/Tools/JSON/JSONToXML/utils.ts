@@ -1,3 +1,5 @@
+import { getType } from "../../../../utils";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const convertJSONToXML = (data: string): string => {
   const result = [];
@@ -15,16 +17,15 @@ export const convertJSONToXML = (data: string): string => {
 
 function convert(obj: any, res: any[], key?: any) {
   const type = getType(obj);
-
   switch (type) {
     case "array":
       convertArray(obj, res, key);
       break;
-    case "string":
-      convertString(obj, res);
-      break;
     case "object":
       convertObject(obj, res);
+      break;
+    case "string":
+      res.push(obj);
       break;
     case "number":
       res.push(obj.toString());
@@ -55,9 +56,9 @@ function convertObject(obj: any, res: any[]) {
   for (const k in obj) {
     const recurse = [];
     if (obj.hasOwnProperty(k)) {
+      const key = k.trim();
       const val = obj[k];
       const type = getType(val);
-      const key = normalizeString(k);
       convert(val, recurse, key);
       if (type == "null") {
         res.push(`<${key} />`);
@@ -69,34 +70,5 @@ function convertObject(obj: any, res: any[]) {
         }
       }
     }
-  }
-}
-
-function convertString(str: string, res: any[]) {
-  res.push(normalizeString(str));
-}
-
-function normalizeString(str: string) {
-  if (str.match(/^[\w]+$/)) {
-    return str;
-  } else {
-    return JSON.stringify(str);
-  }
-}
-
-function getType(obj: any) {
-  const type = typeof obj;
-  if (obj instanceof Array) {
-    return "array";
-  } else if (obj instanceof Object) {
-    return "object";
-  } else if (type == "string") {
-    return "string";
-  } else if (type == "boolean") {
-    return "boolean";
-  } else if (type == "number") {
-    return "number";
-  } else {
-    return "null";
   }
 }

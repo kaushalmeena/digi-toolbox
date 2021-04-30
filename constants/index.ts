@@ -27,6 +27,21 @@ export const LIGHT_THEME = {
 
 export const TOOLS: ITool[] = [
   {
+    name: "CSV to JSON",
+    category: "CSV",
+    url: "/csv-to-json"
+  },
+  {
+    name: "CSV to XML",
+    category: "CSV",
+    url: "/csv-to-xml"
+  },
+  {
+    name: "CSV to YAML",
+    category: "CSV",
+    url: "/csv-to-yaml"
+  },
+  {
     name: "JSON to CSV",
     category: "JSON",
     url: "/json-to-csv"
