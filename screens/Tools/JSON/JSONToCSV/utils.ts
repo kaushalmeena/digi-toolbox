@@ -16,7 +16,7 @@ export const convertJSONToCSV = (data: string): string => {
       if (line != "") {
         line += ",";
       }
-      line += `"${tempArray[i][key]}"`;
+      line += convertString(tempArray[i][key]);
     }
     result += line + "\r\n";
   }
@@ -34,4 +34,16 @@ function findArray(item: any) {
     return findArray(tempObj);
   }
   return null;
+}
+
+function convertString(str: string) {
+  if (isUnsafeString(str)) {
+    return JSON.stringify(str);
+  } else {
+    return str;
+  }
+}
+
+function isUnsafeString(str: string) {
+  return /[\W]/.test(str);
 }

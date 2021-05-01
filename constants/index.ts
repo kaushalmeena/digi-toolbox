@@ -97,6 +97,16 @@ export const TOOLS: ITool[] = [
     url: "/decode-html"
   },
   {
+    name: "Encode Text",
+    category: "TEXT",
+    url: "/encode-text"
+  },
+  {
+    name: "Decode Text",
+    category: "TEXT",
+    url: "/decode-text"
+  },
+  {
     name: "Encode URL",
     category: "TEXT",
     url: "/encode-url"
@@ -110,6 +120,11 @@ export const TOOLS: ITool[] = [
     name: "Extract text from HTML",
     category: "TEXT",
     url: "/extract-text-from-html"
+  },
+  {
+    name: "Extract text from XML",
+    category: "TEXT",
+    url: "/extract-text-from-xml"
   },
   {
     name: "Hex to Text",
