@@ -67,16 +67,6 @@ export const TOOLS: ITool[] = [
     url: "/minify-json"
   },
   {
-    name: "Stringify JSON",
-    category: "JSON",
-    url: "/stringify-json"
-  },
-  {
-    name: "Unstringify JSON",
-    category: "JSON",
-    url: "/unstringify-json"
-  },
-  {
     name: "Encode Base64",
     category: "TEXT",
     url: "/encode-base64"
@@ -115,6 +105,16 @@ export const TOOLS: ITool[] = [
     name: "Decode URL",
     category: "TEXT",
     url: "/decode-url"
+  },
+  {
+    name: "Escape Text",
+    category: "TEXT",
+    url: "/escape-text"
+  },
+  {
+    name: "Unescape Text",
+    category: "TEXT",
+    url: "/unescape-text"
   },
   {
     name: "Extract text from HTML",
