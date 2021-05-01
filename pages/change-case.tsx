@@ -5,7 +5,7 @@ import ChangeCasePage from "../screens/Tools/Text/ChangeCase";
 const ChangeCase: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Change Case - Online Text Tools</title>
+      <title key="title">Change Case - GetThatTool</title>
       <meta
         key="description"
         name="description"

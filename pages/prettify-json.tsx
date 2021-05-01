@@ -5,7 +5,7 @@ import PrettifyJSONPage from "../screens/Tools/JSON/PrettifyJSON";
 const PrettifyJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Prettify JSON - Online JSON Tools</title>
+      <title key="title">Prettify JSON - GetThatTool</title>
       <meta
         key="description"
         name="description"

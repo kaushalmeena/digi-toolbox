@@ -5,7 +5,7 @@ import HTMLDecodePage from "../screens/Tools/Text/HTMLDecode";
 const HTMLDecode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">HTML-decode Text - Online Text Tools</title>
+      <title key="title">HTML-decode Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

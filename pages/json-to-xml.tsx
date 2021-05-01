@@ -5,7 +5,7 @@ import JSONToXMLPage from "../screens/Tools/JSON/JSONToXML";
 const JSONToXML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert JSON to XML - Online JSON Tools</title>
+      <title key="title">Convert JSON to XML - GetThatTool</title>
       <meta
         key="description"
         name="description"

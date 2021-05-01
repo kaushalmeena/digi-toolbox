@@ -5,7 +5,7 @@ import CSVToJSONPage from "../screens/Tools/CSV/CSVToJSON";
 const CSVToJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert CSV to JSON - Online CSV Tools</title>
+      <title key="title">Convert CSV to JSON - GetThatTool</title>
       <meta
         key="description"
         name="description"

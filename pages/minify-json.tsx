@@ -5,7 +5,7 @@ import MinifyJSONPage from "../screens/Tools/JSON/MinifyJSON";
 const MinifyJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Minify JSON - Online JSON Tools</title>
+      <title key="title">Minify JSON - GetThatTool</title>
       <meta
         key="description"
         name="description"

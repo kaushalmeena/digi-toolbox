@@ -5,7 +5,7 @@ import CSVToYAMLPage from "../screens/Tools/CSV/CSVToYAML";
 const CSVToYAML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert CSV to YAML - Online CSV Tools</title>
+      <title key="title">Convert CSV to YAML - GetThatTool</title>
       <meta
         key="description"
         name="description"

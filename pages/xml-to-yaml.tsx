@@ -5,7 +5,7 @@ import XMLToYAMLPage from "../screens/Tools/XML/XMLToYAML";
 const XMLToYAML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert XML to YAML - Online XML Tools</title>
+      <title key="title">Convert XML to YAML - GetThatTool</title>
       <meta
         key="description"
         name="description"

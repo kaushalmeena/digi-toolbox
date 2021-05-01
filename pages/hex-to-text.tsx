@@ -5,7 +5,7 @@ import HexToTextPage from "../screens/Tools/Text/HexToText";
 const HexToText: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert Hexadecimal to Text - Online Text Tools</title>
+      <title key="title">Convert Hexadecimal to Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

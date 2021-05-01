@@ -5,7 +5,7 @@ import SlashEscapePage from "../screens/Tools/Text/SlashEscape";
 const SlashEscape: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Slash-escape Text - Online Text Tools</title>
+      <title key="title">Slash-escape Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

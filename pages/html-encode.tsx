@@ -5,7 +5,7 @@ import HTMLEncodePage from "../screens/Tools/Text/HTMLEncode";
 const HTMLEncode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">HTML-encode Text - Online Text Tools</title>
+      <title key="title">HTML-encode Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

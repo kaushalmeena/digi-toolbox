@@ -5,7 +5,7 @@ import CSVToXMLPage from "../screens/Tools/CSV/CSVToXML";
 const CSVToXML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert CSV to XML - Online CSV Tools</title>
+      <title key="title">Convert CSV to XML - GetThatTool</title>
       <meta
         key="description"
         name="description"

@@ -5,7 +5,7 @@ import SlashUnescapePage from "../screens/Tools/Text/SlashUnescape";
 const SlashUnescape: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Slash-unescape Text - Online Text Tools</title>
+      <title key="title">Slash-unescape Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

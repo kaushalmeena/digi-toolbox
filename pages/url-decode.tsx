@@ -5,7 +5,7 @@ import URLDecodePage from "../screens/Tools/Text/URLDecode";
 const URLDecode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">URL-decode Text - Online Text Tools</title>
+      <title key="title">URL-decode Text - GetThatTool</title>
       <meta
         key="description"
         name="description"

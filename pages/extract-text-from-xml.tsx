@@ -5,7 +5,7 @@ import ExtractTextFromXMLPage from "../screens/Tools/Text/ExtractTextFromXML";
 const ExtractTextFromXML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Extract Text from XML - Online Text Tools</title>
+      <title key="title">Extract Text from XML - GetThatTool</title>
       <meta
         key="description"
         name="description"

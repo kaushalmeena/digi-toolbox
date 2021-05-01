@@ -5,7 +5,7 @@ import ExtractTextFromHTMLPage from "../screens/Tools/Text/ExtractTextFromHTML";
 const ExtractTextFromHTML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Extract Text from HTML - Online Text Tools</title>
+      <title key="title">Extract Text from HTML - GetThatTool</title>
       <meta
         key="description"
         name="description"

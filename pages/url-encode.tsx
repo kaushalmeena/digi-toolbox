@@ -5,7 +5,7 @@ import URLEncodePage from "../screens/Tools/Text/URLEncode";
 const URLEncode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">URL-encode Text - Online Text Tools</title>
+      <title key="title">URL-encode Text - GetThatTool</title>
       <meta
         key="description"
         name="description"
