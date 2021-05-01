@@ -5,11 +5,11 @@ import SlashUnescapePage from "../screens/Tools/Text/SlashUnescape";
 const SlashUnescape: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title"> Unescaper Tool for Encoding Online</title>
+      <title key="title">Slash-unescape Text - Online Text Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert plain /string to  Unescaped easily."
+        content="Super simple, free and fast browser-based utility for slash-unescaping text."
       />
     </Head>
     <SlashUnescapePage />

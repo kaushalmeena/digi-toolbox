@@ -5,11 +5,11 @@ import XMLToJSONPage from "../screens/Tools/XML/XMLToJSON";
 const XMLToJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert XML to JSON Online</title>
+      <title key="title">Convert XML to JSON - Online XML Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert XML to JSON online easily."
+        content="Simple, free and easy to use online tool that converts XML to JSON."
       />
     </Head>
     <XMLToJSONPage />

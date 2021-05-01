@@ -11,7 +11,7 @@ const Home: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="GetThatTool is webapp that lets you have all common tools like, convertors, calculators at one place."
+        content="GetThatTool is app that lets you have all common tools at one place."
       />
     </Head>
     <HomePage />

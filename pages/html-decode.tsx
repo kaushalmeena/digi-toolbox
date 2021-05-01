@@ -5,11 +5,11 @@ import HTMLDecodePage from "../screens/Tools/Text/HTMLDecode";
 const HTMLDecode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Decode HTML Code to String Online</title>
+      <title key="title">HTML-decode Text - Online Text Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert html encoded text to plain text easily."
+        content="Super simple, free and fast browser-based utility for HTML-decoding text."
       />
     </Head>
     <HTMLDecodePage />

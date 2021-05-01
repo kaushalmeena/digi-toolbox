@@ -5,11 +5,11 @@ import SlashEscapePage from "../screens/Tools/Text/SlashEscape";
 const SlashEscape: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Text SlashEscaper Tool for Text Encoding Online</title>
+      <title key="title">Slash-escape Text - Online Text Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert plain text/string to Text SlashEscaped easily."
+        content="Super simple, free and fast browser-based utility for slash-escaping text."
       />
     </Head>
     <SlashEscapePage />

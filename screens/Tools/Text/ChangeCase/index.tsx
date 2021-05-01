@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/Convert";
-import { convertCase } from "./utils";
+import { changeCase } from "./utils";
 import { caseOptions } from "./constants";
 
-const CaseConverterPage: FunctionComponent = () => {
+const ChangeCasePage: FunctionComponent = () => {
   return (
     <Page
-      heading="Convert Converter"
+      heading="Change Case"
       subHeading="Quickly switch between various letter cases in text"
       fileExtension="txt"
       fileType="plain/text"
       options={caseOptions}
-      convertFunc={convertCase}
+      convertFunc={changeCase}
     />
   );
 };
 
-export default CaseConverterPage;
+export default ChangeCasePage;

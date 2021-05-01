@@ -5,11 +5,11 @@ import JSONToCSVPage from "../screens/Tools/JSON/JSONToCSV";
 const JSONToCSV: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert JSON to CSV Online</title>
+      <title key="title">Convert JSON to CSV - Online JSON Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert JSON to CSV online easily."
+        content="Simple, free and easy to use online tool that converts JSON to CSV."
       />
     </Head>
     <JSONToCSVPage />

@@ -5,11 +5,11 @@ import MinifyJSONPage from "../screens/Tools/JSON/MinifyJSON";
 const MinifyJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Minify/Uglify JSON Online</title>
+      <title key="title">Minify JSON - Online JSON Tools</title>
       <meta
         key="description"
         name="description"
-        content="Minify JSON online easily."
+        content="Simple, free and easy to use online tool that minifies JSON."
       />
     </Head>
     <MinifyJSONPage />

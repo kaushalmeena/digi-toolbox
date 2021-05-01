@@ -5,11 +5,11 @@ import JSONToYAMLPage from "../screens/Tools/JSON/JSONToYAML";
 const JSONToYAML: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert JSON to YAML Online</title>
+      <title key="title">Convert JSON to YAML - Online JSON Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert JSON to YAML online easily."
+        content="Simple, free and easy to use online tool that converts JSON to YAML."
       />
     </Head>
     <JSONToYAMLPage />

@@ -5,11 +5,11 @@ import TextToHexPage from "../screens/Tools/Text/TextToHex";
 const TextToHex: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Convert Text to Hex Online</title>
+      <title key="title">Convert Text to Hexadecimal - Online Text Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert plain text to hex code online."
+        content="Super simple, free and fast browser-based utility for converting text to hexadecimal."
       />
     </Head>
     <TextToHexPage />

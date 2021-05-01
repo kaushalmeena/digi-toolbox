@@ -5,11 +5,11 @@ import Base64EncodePage from "../screens/Tools/Text/Base64Encode";
 const Base64Encode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Encode Text to Base64 Converter Online</title>
+      <title key="title">Base64-encode Text - GetThatTool</title>
       <meta
         key="description"
         name="description"
-        content="Convert plain text to base64 string easily."
+        content="Super simple, free and fast browser-based utility for converting text to base64."
       />
     </Head>
     <Base64EncodePage />

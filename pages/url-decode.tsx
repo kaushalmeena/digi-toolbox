@@ -5,11 +5,11 @@ import URLDecodePage from "../screens/Tools/Text/URLDecode";
 const URLDecode: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">URL Decoder Tool for URL Decoding Online</title>
+      <title key="title">URL-decode Text - Online Text Tools</title>
       <meta
         key="description"
         name="description"
-        content="Convert url encoded string to plain text easily."
+        content="Super simple, free and fast browser-based utility for URL-unescaping text."
       />
     </Head>
     <URLDecodePage />

@@ -1,4 +1,4 @@
-export const convertCase = (data: string, option: string): string => {
+export const changeCase = (data: string, option: string): string => {
   let result = "";
 
   switch (option) {

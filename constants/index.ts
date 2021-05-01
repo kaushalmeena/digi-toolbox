@@ -77,9 +77,9 @@ export const TOOLS: ITool[] = [
     url: "/base64-decode"
   },
   {
-    name: "Case Converter",
+    name: "Change Case",
     category: "TEXT",
-    url: "/case-converter"
+    url: "/change-case"
   },
   {
     name: "Extract text from HTML",

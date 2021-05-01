@@ -5,11 +5,11 @@ import PrettifyJSONPage from "../screens/Tools/JSON/PrettifyJSON";
 const PrettifyJSON: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Prettify JSON Online</title>
+      <title key="title">Prettify JSON - Online JSON Tools</title>
       <meta
         key="description"
         name="description"
-        content="Prettify JSON online easily."
+        content="Simple, free and easy to use online tool that prettifies JSON."
       />
     </Head>
     <PrettifyJSONPage />
