@@ -6,7 +6,7 @@ const PrettifyJSONPage: FunctionComponent = () => {
   return (
     <Page
       heading="Prettify JSON"
-      subHeading="Format JSON to look pretty"
+      subHeading="Quickly beautify a JSON data structure"
       fileExtension="txt"
       fileType="text/plain"
       convertFunc={prettifyJSON}

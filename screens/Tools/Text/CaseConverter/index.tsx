@@ -6,8 +6,8 @@ import { caseOptions } from "./constants";
 const CaseConverterPage: FunctionComponent = () => {
   return (
     <Page
-      heading="Convert Text Case"
-      subHeading="Title/Upper/Lower/Sentence Case Converter Tool"
+      heading="Convert Converter"
+      subHeading="Quickly switch between various letter cases in text"
       fileExtension="txt"
       fileType="plain/text"
       options={caseOptions}

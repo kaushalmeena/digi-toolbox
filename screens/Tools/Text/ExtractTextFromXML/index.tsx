@@ -6,7 +6,7 @@ const ExtractTextFromXMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="Extract Text from XML"
-      subHeading="Extract Text Values from XML online"
+      subHeading="Quickly extract text content from XML code"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={extractTextFromXML}

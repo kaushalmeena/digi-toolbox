@@ -6,7 +6,7 @@ const CSVToYAMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="CSV to YAML"
-      subHeading="Convert your CSV to YAML data"
+      subHeading="Quickly convert a CSV file to a YAML file"
       fileExtension="yaml"
       fileType="text/yaml"
       convertFunc={convertCSVToYAML}

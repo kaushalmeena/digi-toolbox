@@ -6,7 +6,7 @@ const TextToHexPage: FunctionComponent = () => {
   return (
     <Page
       heading="Text to Hex"
-      subHeading="Convert Text to Hexadecimal online"
+      subHeading="Quickly convert plain text to hexadecimal values"
       fileExtension="txt"
       fileType="plain/text"
       convertFunc={convertTextToHex}

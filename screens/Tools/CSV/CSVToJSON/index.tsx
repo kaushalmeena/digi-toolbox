@@ -6,7 +6,7 @@ const CSVToJSONPage: FunctionComponent = () => {
   return (
     <Page
       heading="CSV to JSON"
-      subHeading="Convert your CSV to JSON data"
+      subHeading="Quickly convert a CSV file to a JSON data structure"
       fileExtension="json"
       fileType="text/json"
       convertFunc={convertCSVToJSON}

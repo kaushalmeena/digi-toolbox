@@ -6,7 +6,7 @@ const XMLToYAMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="XML to YAML"
-      subHeading="Convert your XML to YAML data"
+      subHeading="Quickly convert an XML data structure to YAML markup"
       fileExtension="yaml"
       fileType="text/yaml"
       convertFunc={convertXMLToYAML}

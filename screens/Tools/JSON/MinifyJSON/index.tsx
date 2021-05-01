@@ -6,7 +6,7 @@ const MinifyJSON: FunctionComponent = () => {
   return (
     <Page
       heading="Minify JSON"
-      subHeading="Minify JSON to remove whitespace"
+      subHeading="Quickly compress a JSON file"
       fileExtension="txt"
       fileType="text/plain"
       convertFunc={minifyJSON}

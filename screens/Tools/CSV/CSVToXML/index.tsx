@@ -6,7 +6,7 @@ const CSVToXMLPage: FunctionComponent = () => {
   return (
     <Page
       heading="CSV to XML"
-      subHeading="Convert your CSV to XML data"
+      subHeading="Quickly convert a CSV file to an XML file"
       fileExtension="xml"
       fileType="text/xml"
       convertFunc={convertCSVToXML}

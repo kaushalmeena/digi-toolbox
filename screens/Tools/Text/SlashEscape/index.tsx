@@ -1,0 +1,17 @@
+import React, { FunctionComponent } from "react";
+import Page from "../../../common/Page/Convert";
+import { escapeSlash } from "./utils";
+
+const SlashEscapePage: FunctionComponent = () => {
+  return (
+    <Page
+      heading="Slash Escape"
+      subHeading="Quickly escape special symbols in text with slashes"
+      fileExtension="txt"
+      fileType="plain/text"
+      convertFunc={escapeSlash}
+    />
+  );
+};
+
+export default SlashEscapePage;

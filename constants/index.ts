@@ -57,64 +57,29 @@ export const TOOLS: ITool[] = [
     url: "/json-to-yaml"
   },
   {
-    name: "Prettify JSON",
-    category: "JSON",
-    url: "/prettify-json"
-  },
-  {
     name: "Minify JSON",
     category: "JSON",
     url: "/minify-json"
   },
   {
-    name: "Encode Base64",
-    category: "TEXT",
-    url: "/encode-base64"
+    name: "Prettify JSON",
+    category: "JSON",
+    url: "/prettify-json"
   },
   {
-    name: "Decode Base64",
+    name: "Base64 Encode",
     category: "TEXT",
-    url: "/decode-base64"
+    url: "/base64-encode"
   },
   {
-    name: "Encode HTML",
+    name: "Base64 Decode",
     category: "TEXT",
-    url: "/encode-html"
+    url: "/base64-decode"
   },
   {
-    name: "Decode HTML",
+    name: "Case Converter",
     category: "TEXT",
-    url: "/decode-html"
-  },
-  {
-    name: "Encode Text",
-    category: "TEXT",
-    url: "/encode-text"
-  },
-  {
-    name: "Decode Text",
-    category: "TEXT",
-    url: "/decode-text"
-  },
-  {
-    name: "Encode URL",
-    category: "TEXT",
-    url: "/encode-url"
-  },
-  {
-    name: "Decode URL",
-    category: "TEXT",
-    url: "/decode-url"
-  },
-  {
-    name: "Escape Text",
-    category: "TEXT",
-    url: "/escape-text"
-  },
-  {
-    name: "Unescape Text",
-    category: "TEXT",
-    url: "/unescape-text"
+    url: "/case-converter"
   },
   {
     name: "Extract text from HTML",
@@ -127,6 +92,36 @@ export const TOOLS: ITool[] = [
     url: "/extract-text-from-xml"
   },
   {
+    name: "HTML Encode",
+    category: "TEXT",
+    url: "/html-encode"
+  },
+  {
+    name: "HTML Decode",
+    category: "TEXT",
+    url: "/html-decode"
+  },
+  {
+    name: "URL Encode",
+    category: "TEXT",
+    url: "/url-encode"
+  },
+  {
+    name: "URL Decode",
+    category: "TEXT",
+    url: "/url-decode"
+  },
+  {
+    name: "Slash Escape",
+    category: "TEXT",
+    url: "/slash-escape"
+  },
+  {
+    name: "Slash Unescape",
+    category: "TEXT",
+    url: "/slash-unescape"
+  },
+  {
     name: "Hex to Text",
     category: "TEXT",
     url: "/hex-to-text"
@@ -135,11 +130,6 @@ export const TOOLS: ITool[] = [
     name: "Text to Hex",
     category: "TEXT",
     url: "/text-to-hex"
-  },
-  {
-    name: "Convert Text Case",
-    category: "TEXT",
-    url: "/case-converter"
   },
   {
     name: "XML to CSV",
