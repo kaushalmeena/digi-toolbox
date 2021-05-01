@@ -1,8 +1,9 @@
 export const convertJSONToCSV = (data: string): string => {
   let result = "";
-  const tempArray = JSON.parse(data);
+  const tempData = JSON.parse(data);
+  const tempArray = findArray(tempData);
 
-  if (!(Array.isArray(tempArray) && tempArray[0] instanceof Object)) {
+  if (!tempArray) {
     throw new Error("JSON input in not array of objects.");
   }
 
@@ -22,3 +23,15 @@ export const convertJSONToCSV = (data: string): string => {
 
   return result;
 };
+
+function findArray(item: any) {
+  if (Array.isArray(item) && item[0] instanceof Object) {
+    return item;
+  }
+  if (item instanceof Object) {
+    const keys = Object.keys(item);
+    const tempObj = item[keys[0]];
+    return findArray(tempObj);
+  }
+  return null;
+}

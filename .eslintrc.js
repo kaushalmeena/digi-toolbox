@@ -18,5 +18,7 @@ module.exports = {
       version: "detect"
     }
   },
-  rules: {}
+  rules: {
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 };

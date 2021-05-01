@@ -179,7 +179,7 @@ const IOContainer = styled.div`
   margin: 20px;
   min-width: 300px;
   flex: 1;
-  & textarea {
+  & > textarea {
     font-family: monospace;
   }
 `;

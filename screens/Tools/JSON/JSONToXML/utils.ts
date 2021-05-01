@@ -1,6 +1,3 @@
-import { getType } from "../../../../utils";
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export const convertJSONToXML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
@@ -15,33 +12,33 @@ export const convertJSONToXML = (data: string): string => {
   return result.join("\n");
 };
 
-function convert(obj: any, res: any[], key?: any) {
-  const type = getType(obj);
+function convert(item: any, res: any[], key?: any) {
+  const type = getType(item);
   switch (type) {
     case "array":
-      convertArray(obj, res, key);
+      convertArray(item, res, key);
       break;
     case "object":
-      convertObject(obj, res);
+      convertObject(item, res);
       break;
     case "string":
-      res.push(obj);
+      res.push(item);
       break;
     case "number":
-      res.push(obj.toString());
+      res.push(item.toString());
       break;
     case "boolean":
-      res.push(obj ? "true" : "false");
+      res.push(item ? "true" : "false");
       break;
   }
 }
 
-function convertArray(obj: any, res: any[], key = "row") {
-  if (obj.length === 0) {
+function convertArray(item: any, res: any[], key = "row") {
+  if (item.length === 0) {
     return;
   }
-  for (let i = 0; i < obj.length; i++) {
-    const val = obj[i];
+  for (let i = 0; i < item.length; i++) {
+    const val = item[i];
     const recurse = [];
     convert(val, recurse);
     res.push(`  <${key}>`);
@@ -52,12 +49,11 @@ function convertArray(obj: any, res: any[], key = "row") {
   }
 }
 
-function convertObject(obj: any, res: any[]) {
-  for (const k in obj) {
+function convertObject(item: any, res: any[]) {
+  for (const key in item) {
     const recurse = [];
-    if (obj.hasOwnProperty(k)) {
-      const key = k.trim();
-      const val = obj[k];
+    if (item.hasOwnProperty(key)) {
+      const val = item[key];
       const type = getType(val);
       convert(val, recurse, key);
       if (type == "null") {
@@ -70,5 +66,21 @@ function convertObject(obj: any, res: any[]) {
         }
       }
     }
+  }
+}
+
+function getType(item: any) {
+  if (item instanceof Array) {
+    return "array";
+  } else if (item instanceof Object) {
+    return "object";
+  } else if (typeof item == "string") {
+    return "string";
+  } else if (typeof item == "boolean") {
+    return "boolean";
+  } else if (typeof item == "number") {
+    return "number";
+  } else {
+    return "null";
   }
 }

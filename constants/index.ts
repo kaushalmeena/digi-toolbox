@@ -125,5 +125,20 @@ export const TOOLS: ITool[] = [
     name: "Convert Text Case",
     category: "TEXT",
     url: "/case-converter"
+  },
+  {
+    name: "XML to CSV",
+    category: "XML",
+    url: "/xml-to-csv"
+  },
+  {
+    name: "XML to JSON",
+    category: "XML",
+    url: "/xml-to-json"
+  },
+  {
+    name: "XML to YAML",
+    category: "XML",
+    url: "/xml-to-yaml"
   }
 ];

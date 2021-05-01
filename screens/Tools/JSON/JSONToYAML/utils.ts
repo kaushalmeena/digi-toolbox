@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { escapeString, getType } from "../../../../utils";
-
 export const convertJSONToYAML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
@@ -10,23 +7,23 @@ export const convertJSONToYAML = (data: string): string => {
   return result.join("\n");
 };
 
-function convert(obj: any, res: any[]) {
-  const type = getType(obj);
+function convert(item: any, res: any[]) {
+  const type = getType(item);
   switch (type) {
     case "array":
-      convertArray(obj, res);
+      convertArray(item, res);
       break;
     case "object":
-      convertObject(obj, res);
+      convertObject(item, res);
       break;
     case "string":
-      res.push(escapeString(obj));
+      res.push(escapeString(item));
       break;
     case "number":
-      res.push(obj.toString());
+      res.push(item.toString());
       break;
     case "boolean":
-      res.push(obj ? "true" : "false");
+      res.push(item ? "true" : "false");
       break;
     case "null":
       res.push("null");
@@ -34,12 +31,12 @@ function convert(obj: any, res: any[]) {
   }
 }
 
-function convertArray(obj: any, res: any[]) {
-  if (obj.length === 0) {
+function convertArray(item: any, res: any[]) {
+  if (item.length === 0) {
     res.push("[]");
   }
-  for (let i = 0; i < obj.length; i++) {
-    const val = obj[i];
+  for (let i = 0; i < item.length; i++) {
+    const val = item[i];
     const recurse = [];
     convert(val, recurse);
     for (let j = 0; j < recurse.length; j++) {
@@ -48,12 +45,12 @@ function convertArray(obj: any, res: any[]) {
   }
 }
 
-function convertObject(obj: any, res: any[]) {
-  for (const k in obj) {
+function convertObject(item: any, res: any[]) {
+  for (const k in item) {
     const recurse = [];
-    if (obj.hasOwnProperty(k)) {
+    if (item.hasOwnProperty(k)) {
       const key = escapeString(k);
-      const val = obj[k];
+      const val = item[k];
       const type = getType(val);
       convert(val, recurse);
       if (
@@ -71,4 +68,24 @@ function convertObject(obj: any, res: any[]) {
       }
     }
   }
+}
+
+function getType(item: any) {
+  if (item instanceof Array) {
+    return "array";
+  } else if (item instanceof Object) {
+    return "object";
+  } else if (typeof item == "string") {
+    return "string";
+  } else if (typeof item == "boolean") {
+    return "boolean";
+  } else if (typeof item == "number") {
+    return "number";
+  } else {
+    return "null";
+  }
+}
+
+function escapeString(str: string) {
+  return JSON.stringify(str);
 }

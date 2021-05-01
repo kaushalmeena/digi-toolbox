@@ -1,14 +1,12 @@
-import { removeQuotes } from "../../../../utils";
-
 export const convertCSVToJSON = (data: string): string => {
   const result = [];
 
   const tempArray = data.split("\n");
-  const headers = tempArray[0].split(",").map(removeQuotes);
+  const headers = tempArray[0].split(",").map(formatString);
 
   for (let i = 1; i < tempArray.length; i++) {
     const obj = {};
-    const line = tempArray[i].split(",").map(removeQuotes);
+    const line = tempArray[i].split(",").map(formatString);
 
     for (let j = 0; j < headers.length; j++) {
       obj[headers[j]] = line[j];
@@ -17,5 +15,9 @@ export const convertCSVToJSON = (data: string): string => {
     result.push(obj);
   }
 
-  return JSON.stringify(result);
+  return JSON.stringify(result, undefined, 2);
 };
+
+function formatString(str: string) {
+  return str.trim().replace(/^\"|\"$/g, "");
+}
