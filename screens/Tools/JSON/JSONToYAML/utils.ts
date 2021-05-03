@@ -17,7 +17,7 @@ function convert(item: any, res: any[]) {
       convertObject(item, res);
       break;
     case "string":
-      res.push(escapeString(item));
+      res.push(convertString(item));
       break;
     case "number":
       res.push(item.toString());
@@ -49,7 +49,7 @@ function convertObject(item: any, res: any[]) {
   for (const k in item) {
     const recurse = [];
     if (item.hasOwnProperty(k)) {
-      const key = escapeString(k);
+      const key = convertString(k);
       const val = item[k];
       const type = getType(val);
       convert(val, recurse);
@@ -86,6 +86,14 @@ function getType(item: any) {
   }
 }
 
-function escapeString(str: string) {
-  return JSON.stringify(str);
+function convertString(str: string) {
+  if (isUnsafeString(str)) {
+    return JSON.stringify(str);
+  } else {
+    return str;
+  }
+}
+
+function isUnsafeString(str: string) {
+  return /[\W]/.test(str);
 }

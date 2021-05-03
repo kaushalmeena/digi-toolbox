@@ -145,5 +145,20 @@ export const TOOLS: ITool[] = [
     name: "XML to YAML",
     category: "XML",
     url: "/xml-to-yaml"
+  },
+  {
+    name: "YAML to CSV",
+    category: "YAML",
+    url: "/yaml-to-csv"
+  },
+  {
+    name: "YAML to JSON",
+    category: "YAML",
+    url: "/yaml-to-json"
+  },
+  {
+    name: "YAML to XML",
+    category: "YAML",
+    url: "/yaml-to-xml"
   }
 ];
