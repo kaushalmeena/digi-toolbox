@@ -9,6 +9,7 @@ const URLEncodePage: FunctionComponent = () => {
       subHeading="Quickly URL-escape text"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/url-decode"
       convertFunc={encodeURL}
     />
   );

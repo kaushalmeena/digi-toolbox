@@ -9,6 +9,7 @@ const YAMLToCSVPage: FunctionComponent = () => {
       subHeading="Quickly convert YAML data to CSV data"
       fileExtension="csv"
       fileType="text/csv"
+      switchURL="/csv-to-yaml"
       convertFunc={convertYAMLToCSV}
     />
   );

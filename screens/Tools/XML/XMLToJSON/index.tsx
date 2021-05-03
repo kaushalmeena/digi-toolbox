@@ -9,6 +9,7 @@ const XMLToJSONPage: FunctionComponent = () => {
       subHeading="Quickly convert an XML document to a JSON document"
       fileExtension="json"
       fileType="text/json"
+      switchURL="/json-to-xml"
       convertFunc={convertXMLToJSON}
     />
   );

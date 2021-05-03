@@ -88,6 +88,7 @@ const CardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   & > div {
+    min-width: 200px;
     margin-right: 10px;
     margin-bottom: 10px;
   }

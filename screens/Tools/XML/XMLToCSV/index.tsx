@@ -9,6 +9,7 @@ const XMLToCSVPage: FunctionComponent = () => {
       subHeading="Quickly convert an XML document to a CSV document"
       fileExtension="csv"
       fileType="text/csv"
+      switchURL="/csv-to-xml"
       convertFunc={convertXMLToCSV}
     />
   );

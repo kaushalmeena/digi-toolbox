@@ -9,6 +9,7 @@ const XMLToYAMLPage: FunctionComponent = () => {
       subHeading="Quickly convert an XML data structure to YAML markup"
       fileExtension="yaml"
       fileType="text/yaml"
+      switchURL="/yaml-to-xml"
       convertFunc={convertXMLToYAML}
     />
   );

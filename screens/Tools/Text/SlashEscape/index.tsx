@@ -9,6 +9,7 @@ const SlashEscapePage: FunctionComponent = () => {
       subHeading="Quickly escape special symbols in text with slashes"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/slash-unescape"
       convertFunc={escapeSlash}
     />
   );

@@ -9,6 +9,7 @@ const CSVToJSONPage: FunctionComponent = () => {
       subHeading="Quickly convert a CSV file to a JSON data structure"
       fileExtension="json"
       fileType="text/json"
+      switchURL="/json-to-csv"
       convertFunc={convertCSVToJSON}
     />
   );

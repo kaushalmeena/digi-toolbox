@@ -10,7 +10,17 @@ const ChangeCasePage: FunctionComponent = () => {
       subHeading="Quickly switch between various letter cases in text"
       fileExtension="txt"
       fileType="plain/text"
-      options={caseOptions}
+      defaultSecondaryInputsValues={{
+        case: "upper-case"
+      }}
+      options={[
+        {
+          name: "case",
+          label: "Select case",
+          type: "SELECT",
+          options: caseOptions
+        }
+      ]}
       convertFunc={changeCase}
     />
   );

@@ -9,6 +9,7 @@ const EncodeHTMLPage: FunctionComponent = () => {
       subHeading="Quickly convert all plain text characters to HTML entities"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/html-decode"
       convertFunc={encodeHTML}
     />
   );

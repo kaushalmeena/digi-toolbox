@@ -9,6 +9,7 @@ const YAMLToJSONPage: FunctionComponent = () => {
       subHeading="Quickly convert a YAML config to a JSON config"
       fileExtension="json"
       fileType="text/json"
+      switchURL="/json-to-yaml"
       convertFunc={convertYAMLToJSON}
     />
   );

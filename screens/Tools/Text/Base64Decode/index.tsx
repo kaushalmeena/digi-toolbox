@@ -9,6 +9,7 @@ const Base64DecodePage: FunctionComponent = () => {
       subHeading="Quickly decode base64-encoded text"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/base64-encode"
       convertFunc={decodeBase64}
     />
   );

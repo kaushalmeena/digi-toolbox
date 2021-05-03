@@ -1,7 +1,9 @@
-export const changeCase = (data: string, option: string): string => {
+import { ISecondaryInputs } from "../../../../types";
+
+export const changeCase = (data: string, option?: ISecondaryInputs): string => {
   let result = "";
 
-  switch (option) {
+  switch (option.case) {
     case "upper-case":
       result = data.toUpperCase();
       break;

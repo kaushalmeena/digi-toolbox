@@ -9,6 +9,7 @@ const TextToHexPage: FunctionComponent = () => {
       subHeading="Quickly convert plain text to hexadecimal values"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/hex-to-text"
       convertFunc={convertTextToHex}
     />
   );

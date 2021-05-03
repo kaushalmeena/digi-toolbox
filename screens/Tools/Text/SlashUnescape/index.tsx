@@ -9,6 +9,7 @@ const SlashUnescapePage: FunctionComponent = () => {
       subHeading="Quickly remove slashes from previously slash-escaped text"
       fileExtension="txt"
       fileType="plain/text"
+      switchURL="/slash-escape"
       convertFunc={unescapeSlash}
     />
   );
