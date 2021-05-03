@@ -1,3 +1,5 @@
+import { getType } from "../../../../utils";
+
 export const convertJSONToXML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
@@ -66,21 +68,5 @@ function convertObject(item: any, res: any[]) {
         }
       }
     }
-  }
-}
-
-function getType(item: any) {
-  if (item instanceof Array) {
-    return "array";
-  } else if (item instanceof Object) {
-    return "object";
-  } else if (typeof item == "string") {
-    return "string";
-  } else if (typeof item == "boolean") {
-    return "boolean";
-  } else if (typeof item == "number") {
-    return "number";
-  } else {
-    return "null";
   }
 }

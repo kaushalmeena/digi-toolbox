@@ -1,3 +1,5 @@
+import { getSafeString, getType } from "../../../../utils";
+
 export const convertJSONToYAML = (data: string): string => {
   const result = [];
   const tempObj = JSON.parse(data);
@@ -17,7 +19,7 @@ function convert(item: any, res: any[]) {
       convertObject(item, res);
       break;
     case "string":
-      res.push(convertString(item));
+      res.push(getSafeString(item));
       break;
     case "number":
       res.push(item.toString());
@@ -49,7 +51,7 @@ function convertObject(item: any, res: any[]) {
   for (const k in item) {
     const recurse = [];
     if (item.hasOwnProperty(k)) {
-      const key = convertString(k);
+      const key = getSafeString(k);
       const val = item[k];
       const type = getType(val);
       convert(val, recurse);
@@ -68,32 +70,4 @@ function convertObject(item: any, res: any[]) {
       }
     }
   }
-}
-
-function getType(item: any) {
-  if (item instanceof Array) {
-    return "array";
-  } else if (item instanceof Object) {
-    return "object";
-  } else if (typeof item == "string") {
-    return "string";
-  } else if (typeof item == "boolean") {
-    return "boolean";
-  } else if (typeof item == "number") {
-    return "number";
-  } else {
-    return "null";
-  }
-}
-
-function convertString(str: string) {
-  if (isUnsafeString(str)) {
-    return JSON.stringify(str);
-  } else {
-    return str;
-  }
-}
-
-function isUnsafeString(str: string) {
-  return /[\W]/.test(str);
 }

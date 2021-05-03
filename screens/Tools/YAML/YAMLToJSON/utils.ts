@@ -1,3 +1,5 @@
+import { formatString, parseString } from "../../../../utils";
+
 export const convertYAMLToJSON = (data: string): string => {
   const tempArray = data.split("\n").filter(Boolean);
 
@@ -44,32 +46,4 @@ function convert(arr: string[], index: number, indent: number) {
   }
 
   return obj;
-}
-
-function formatString(str: string) {
-  return str.trim().replace(/^\"|\"$/g, "");
-}
-
-function parseString(str: string) {
-  if (isBoolean(str)) {
-    return str === "true";
-  } else if (isFloat(str)) {
-    return Number.parseFloat(str);
-  } else if (isInteger(str)) {
-    return Number.parseInt(str);
-  } else {
-    return str;
-  }
-}
-
-function isBoolean(str: string) {
-  return /^(true|false)$/.test(str);
-}
-
-function isFloat(str: string) {
-  return /^[-+]?[0-9]*\.[0-9]+$/.test(str);
-}
-
-function isInteger(str: string) {
-  return /^\d+$/.test(str);
 }

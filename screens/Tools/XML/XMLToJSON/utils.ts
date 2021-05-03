@@ -1,3 +1,5 @@
+import { parseString } from "../../../../utils";
+
 export const convertXMLToJSON = (data: string): string => {
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(data, "text/xml");
@@ -25,31 +27,7 @@ function convert(doc: any) {
       }
     }
   } else {
-    obj = convertString(doc.textContent);
+    obj = parseString(doc.textContent);
   }
   return obj;
-}
-
-function convertString(str: string) {
-  if (isBoolean(str)) {
-    return str === "true";
-  } else if (isFloat(str)) {
-    return Number.parseFloat(str);
-  } else if (isInteger(str)) {
-    return Number.parseInt(str);
-  } else {
-    return str;
-  }
-}
-
-function isBoolean(str: string) {
-  return /^(true|false)$/.test(str);
-}
-
-function isFloat(str: string) {
-  return /^[-+]?[0-9]*\.[0-9]+$/.test(str);
-}
-
-function isInteger(str: string) {
-  return /^\d+$/.test(str);
 }
