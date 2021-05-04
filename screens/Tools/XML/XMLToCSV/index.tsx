@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/Page/Convert";
+import Page from "../../../common/Page/DataConvert";
 import { convertXMLToCSV } from "./utils";
 
 const XMLToCSVPage: FunctionComponent = () => {

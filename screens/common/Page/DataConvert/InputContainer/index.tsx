@@ -23,15 +23,15 @@ const InputContainer: FunctionComponent<InputContainerProps> = (
       <ButtonContainer>
         <Button
           large
-          title="Upload"
-          icon="export"
-          onClick={props.handleInputUpload}
-        />
-        <Button
-          large
           title="Clear"
           icon="refresh"
           onClick={props.handleInputClear}
+        />
+        <Button
+          large
+          title="Upload"
+          icon="export"
+          onClick={props.handleInputUpload}
         />
       </ButtonContainer>
     </IOContainer>

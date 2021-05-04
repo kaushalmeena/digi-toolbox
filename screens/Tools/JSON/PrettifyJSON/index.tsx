@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Page from "../../../common/Page/Convert";
+import Page from "../../../common/Page/DataConvert";
 import { prettifyJSON } from "./utils";
 
 const PrettifyJSONPage: FunctionComponent = () => {
