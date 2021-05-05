@@ -10,7 +10,7 @@ const URLEncodePage: FunctionComponent = () => {
       fileExtension="txt"
       fileType="plain/text"
       switchURL="/url-decode"
-      convertFunc={encodeURL}
+      convertFunction={encodeURL}
     />
   );
 };

@@ -10,7 +10,7 @@ const SlashEscapePage: FunctionComponent = () => {
       fileExtension="txt"
       fileType="plain/text"
       switchURL="/slash-unescape"
-      convertFunc={escapeSlash}
+      convertFunction={escapeSlash}
     />
   );
 };

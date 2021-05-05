@@ -1,9 +1,10 @@
 import { Card, H1, H3, InputGroup } from "@blueprintjs/core";
 import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import styled from "styled-components";
 import { TOOLS } from "../../constants";
 import { ITool } from "../../types";
+import { TopContainer } from "../common/styles";
+import { CardBody, CardContainer, MainContainer } from "./styles";
 
 type HomeProps = {
   router: NextRouter;
@@ -68,35 +69,5 @@ class Home extends Component<HomeProps, HomeState> {
     );
   }
 }
-
-const TopContainer = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
-
-const MainContainer = styled.div`
-  padding: 20px 10px 60px 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const CardContainer = styled.div`
-  padding: 30px 20px 30px 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  & > div {
-    min-width: 200px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-`;
-
-const CardBody = styled.div`
-  font-size: 16;
-  font-weight: bold;
-`;
 
 export default withRouter(Home);

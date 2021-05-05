@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
-import { H1, H3, Button } from "@blueprintjs/core";
+import { Button, H1, H3 } from "@blueprintjs/core";
 import Link from "next/link";
-import styled from "styled-components";
+import React, { FunctionComponent } from "react";
+import { ButtonContainer, Container } from "./styles";
 
 type ErrorPageProps = {
   heading: string;
@@ -11,7 +11,7 @@ type ErrorPageProps = {
 const ErrorPage: FunctionComponent<ErrorPageProps> = (
   props: ErrorPageProps
 ) => (
-  <ErrorContainer>
+  <Container>
     <H1>{props.heading}</H1>
     <H3>{props.subHeading}</H3>
     <ButtonContainer>
@@ -19,20 +19,7 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = (
         <Button large>Go to Home</Button>
       </Link>
     </ButtonContainer>
-  </ErrorContainer>
+  </Container>
 );
-
-const ErrorContainer = styled.div`
-  padding: 20px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const ButtonContainer = styled.div`
-  padding: 20px;
-`;
 
 export default ErrorPage;

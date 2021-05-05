@@ -1,9 +1,9 @@
 import { Button, TextArea } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer, IOContainer } from "../common";
+import { ButtonContainer, IOContainer } from "../styles";
 
 type InputContainerProps = {
-  primaryInput: string;
+  input: string;
   handleInputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleInputUpload: () => void;
   handleInputClear: () => void;
@@ -17,7 +17,7 @@ const InputContainer: FunctionComponent<InputContainerProps> = (
       <TextArea
         fill
         rows={16}
-        value={props.primaryInput}
+        value={props.input}
         onChange={props.handleInputChange}
       />
       <ButtonContainer>

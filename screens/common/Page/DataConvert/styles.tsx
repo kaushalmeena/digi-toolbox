@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 export const IOContainer = styled.div`
   padding: 20px 0px 20px 0px;
   min-width: 300px;

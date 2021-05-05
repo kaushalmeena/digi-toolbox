@@ -10,7 +10,7 @@ const HexToTextPage: FunctionComponent = () => {
       fileExtension="txt"
       fileType="plain/text"
       switchURL="/text-to-hex"
-      convertFunc={convertHexToText}
+      convertFunction={convertHexToText}
     />
   );
 };

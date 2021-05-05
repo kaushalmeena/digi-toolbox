@@ -1,3 +1,5 @@
+import { getSafeString } from "../../../../utils";
+
 export const convertJSONToCSV = (data: string): string => {
   let result = "";
   const tempData = JSON.parse(data);
@@ -16,7 +18,7 @@ export const convertJSONToCSV = (data: string): string => {
       if (line != "") {
         line += ",";
       }
-      line += convertString(tempArray[i][key]);
+      line += getSafeString(tempArray[i][key]);
     }
     result += line + "\r\n";
   }
@@ -34,16 +36,4 @@ function findArray(item: any) {
     return findArray(tempObj);
   }
   return null;
-}
-
-function convertString(str: string) {
-  if (isUnsafeString(str)) {
-    return JSON.stringify(str);
-  } else {
-    return str;
-  }
-}
-
-function isUnsafeString(str: string) {
-  return /[\W]/.test(str);
 }

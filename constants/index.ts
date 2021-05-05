@@ -42,6 +42,21 @@ export const TOOLS: ITool[] = [
     url: "/csv-to-yaml"
   },
   {
+    name: "Base64 to Image",
+    category: "Image",
+    url: "/base64-to-image"
+  },
+  {
+    name: "Image to Base64",
+    category: "Image",
+    url: "/image-to-base64"
+  },
+  {
+    name: "Image color picker",
+    category: "Image",
+    url: "/image-color-picker"
+  },
+  {
     name: "JSON to CSV",
     category: "JSON",
     url: "/json-to-csv"
@@ -75,11 +90,6 @@ export const TOOLS: ITool[] = [
     name: "Base64 Decode",
     category: "TEXT",
     url: "/base64-decode"
-  },
-  {
-    name: "Change Case",
-    category: "TEXT",
-    url: "/change-case"
   },
   {
     name: "Extract text from HTML",

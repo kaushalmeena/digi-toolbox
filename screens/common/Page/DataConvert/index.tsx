@@ -1,102 +1,83 @@
 import { H1, H3 } from "@blueprintjs/core";
-import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import styled from "styled-components";
-import { IOption, ISecondaryInputs } from "../../../../types";
-import Toast from "../../toast";
+import { TopContainer } from "../../styles";
+import SwitchContainer from "../../SwitchContainer";
+import { Toast } from "../../utils";
 import InputContainer from "./InputContainer";
-import MiddleContainer from "./MiddleContainer";
-import OptionsSection from "./OptionsSection";
 import OutputContainer from "./OutputContainer";
+import { MainContainer } from "./styles";
 import { copyData, loadFile, saveFile } from "./utils";
 
-type ConvertPageProps = {
-  router: NextRouter;
+type DataConvertProps = {
   heading: string;
   subHeading: string;
   fileExtension: string;
   fileType: string;
   switchURL?: string;
-  defaultSecondaryInputsValues?: ISecondaryInputs;
-  options?: IOption[];
-  convertFunc: (data: string, options?: ISecondaryInputs) => string;
+  convertFunction: (data: string) => string;
 };
 
-type ConvertPageState = {
-  primaryInput: string;
-  secondaryInputs?: ISecondaryInputs;
+type DataConvertState = {
+  input: string;
   output: string;
 };
 
-class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
-  constructor(props: ConvertPageProps) {
+class DataConvert extends Component<DataConvertProps, DataConvertState> {
+  constructor(props: DataConvertProps) {
     super(props);
     this.state = {
-      primaryInput: "",
-      secondaryInputs: props.defaultSecondaryInputsValues,
+      input: "",
       output: ""
     };
   }
 
-  setInput = (value: string) => {
+  setInput = (value: string): void => {
     this.setState({
-      primaryInput: value
+      input: value
     });
   };
 
-  setOutput = (value: string) => {
+  setOutput = (value: string): void => {
     this.setState({
       output: value
     });
   };
 
-  handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const value = event.target.value;
-    this.setState((prevState) => ({
-      primaryInput: value,
-      output: this.getOutput(value, prevState.secondaryInputs)
-    }));
-  };
-
-  handleSecondaryInputsChange = (name: string, value: string) => {
-    this.setState((prevState) => {
-      const secondaryInputs = { ...prevState.secondaryInputs, [name]: value };
-      return {
-        secondaryInputs,
-        output: this.getOutput(prevState.primaryInput, secondaryInputs)
-      };
+    this.setState({
+      input: value,
+      output: this.getOutput(value)
     });
   };
 
-  handleInputClear = () => {
+  handleInputClear = (): void => {
     this.setInput("");
   };
 
-  handleInputUpload = () => {
+  handleInputUpload = (): void => {
     loadFile().then((result) => this.setInput(result));
   };
 
-  handleOutputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  handleOutputChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     this.setOutput(event.target.value);
   };
 
-  handleOutputCopy = () => {
+  handleOutputCopy = (): void => {
     copyData(this.state.output);
     Toast.show({ message: "Copied to clipboard.", intent: "primary" });
   };
 
-  handleOutputDownload = () => {
+  handleOutputDownload = (): void => {
     saveFile(this.state.output, this.props.fileExtension, this.props.fileType);
   };
 
-  handleSwitchAction = () => {
-    this.props.router.push(this.props.switchURL);
-  };
-
-  getOutput = (primaryInput: string, secondaryInputs: ISecondaryInputs) => {
+  getOutput = (input: string): string => {
     let output = "";
     try {
-      output = this.props.convertFunc(primaryInput, secondaryInputs);
+      output = this.props.convertFunction(input);
     } catch (err) {
       console.error(err);
       output = "Invalid input detected.";
@@ -104,24 +85,21 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
     return output;
   };
 
-  render() {
+  render(): JSX.Element {
     return (
-      <RootContainer>
+      <>
         <TopContainer>
           <H1>{this.props.heading}</H1>
           <H3>{this.props.subHeading}</H3>
         </TopContainer>
         <MainContainer>
           <InputContainer
-            primaryInput={this.state.primaryInput}
+            input={this.state.input}
             handleInputChange={this.handleInputChange}
             handleInputClear={this.handleInputClear}
             handleInputUpload={this.handleInputUpload}
           />
-          <MiddleContainer
-            switchURL={this.props.switchURL}
-            handleSwitchAction={this.handleSwitchAction}
-          />
+          <SwitchContainer switchURL={this.props.switchURL} />
           <OutputContainer
             output={this.state.output}
             handleOutputChange={this.handleOutputChange}
@@ -129,32 +107,9 @@ class ConvertPage extends Component<ConvertPageProps, ConvertPageState> {
             handleOutputDownload={this.handleOutputDownload}
           />
         </MainContainer>
-        {this.props.options ? (
-          <OptionsSection
-            options={this.props.options}
-            secondaryInputs={this.state.secondaryInputs}
-            handleSecondaryInputsChange={this.handleSecondaryInputsChange}
-          />
-        ) : null}
-      </RootContainer>
+      </>
     );
   }
 }
 
-const RootContainer = styled.div`
-  padding: 0px 20px 60px 20px;
-`;
-
-const TopContainer = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
-
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-export default withRouter(ConvertPage);
+export default DataConvert;

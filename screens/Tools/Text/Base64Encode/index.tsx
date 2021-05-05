@@ -10,7 +10,7 @@ const Base64EncodePage: FunctionComponent = () => {
       fileExtension="txt"
       fileType="plain/text"
       switchURL="/base64-decode"
-      convertFunc={encodeBase64}
+      convertFunction={encodeBase64}
     />
   );
 };

@@ -10,7 +10,7 @@ const EncodeHTMLPage: FunctionComponent = () => {
       fileExtension="txt"
       fileType="plain/text"
       switchURL="/html-decode"
-      convertFunc={encodeHTML}
+      convertFunction={encodeHTML}
     />
   );
 };

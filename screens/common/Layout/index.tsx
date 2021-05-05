@@ -2,15 +2,15 @@ import {
   Button,
   ButtonGroup,
   Divider,
-  Icon,
   Navbar,
   NavbarGroup,
   NavbarHeading
 } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { DARK_THEME, LIGHT_THEME } from "../../../constants";
+import { Footer, LogoContainer, LogoIcon, LogoText, Main } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
@@ -86,37 +86,5 @@ class Layout extends Component<LayoutProps, LayoutState> {
     );
   }
 }
-
-const LogoContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  & :hover {
-    opacity: 0.3;
-  }
-`;
-
-const LogoIcon = styled(Icon)`
-  margin-right: 5px;
-`;
-
-const LogoText = styled.span`
-  font-size: 18px;
-  font-weight: 600;
-`;
-
-const Main = styled.main`
-  padding: 20px;
-  min-height: calc(100vh - 88px);
-  background-color: ${(props) => props.theme.gray[4]};
-`;
-
-const Footer = styled.footer`
-  padding: 10px;
-  text-align: center;
-  background-color: ${(props) => props.theme.gray[5]};
-`;
 
 export default Layout;

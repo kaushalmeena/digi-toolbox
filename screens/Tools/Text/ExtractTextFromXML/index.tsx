@@ -9,7 +9,7 @@ const ExtractTextFromXMLPage: FunctionComponent = () => {
       subHeading="Quickly extract text content from XML code"
       fileExtension="txt"
       fileType="plain/text"
-      convertFunc={extractTextFromXML}
+      convertFunction={extractTextFromXML}
     />
   );
 };

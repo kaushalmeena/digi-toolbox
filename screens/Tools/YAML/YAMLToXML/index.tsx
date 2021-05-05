@@ -10,7 +10,7 @@ const YAMLToXMLPage: FunctionComponent = () => {
       fileExtension="XML"
       fileType="text/xml"
       switchURL="/xml-to-yaml"
-      convertFunc={convertYAMLToXML}
+      convertFunction={convertYAMLToXML}
     />
   );
 };

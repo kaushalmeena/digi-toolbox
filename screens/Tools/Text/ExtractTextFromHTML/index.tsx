@@ -9,7 +9,7 @@ const ExtractTextFromHTMLPage: FunctionComponent = () => {
       subHeading="Quickly extract text content from HTML code"
       fileExtension="txt"
       fileType="plain/text"
-      convertFunc={extractTextFromHTML}
+      convertFunction={extractTextFromHTML}
     />
   );
 };

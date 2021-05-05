@@ -9,7 +9,7 @@ const MinifyJSON: FunctionComponent = () => {
       subHeading="Quickly compress a JSON file"
       fileExtension="txt"
       fileType="text/plain"
-      convertFunc={minifyJSON}
+      convertFunction={minifyJSON}
     />
   );
 };
