@@ -1,13 +1,13 @@
-import { Card, H1, H3, InputGroup } from "@blueprintjs/core";
-import { NextRouter, withRouter } from "next/router";
-import React, { Component } from "react";
+import { Card, H1, H2, InputGroup } from "@blueprintjs/core";
+import Link from "next/link";
+import React, { Component, ReactNode } from "react";
 import { TOOLS } from "../../constants";
 import { ITool } from "../../types";
 import { TopContainer } from "../common/styles";
 import { CardBody, CardContainer, MainContainer } from "./styles";
 
 type HomeProps = {
-  router: NextRouter;
+  children?: ReactNode;
 };
 
 type HomeState = {
@@ -24,7 +24,7 @@ class Home extends Component<HomeProps, HomeState> {
     };
   }
 
-  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const input = event.target.value;
     this.setState({
       query: input,
@@ -34,16 +34,12 @@ class Home extends Component<HomeProps, HomeState> {
     });
   };
 
-  handleCardClick = (tool: ITool) => {
-    this.props.router.push(tool.url);
-  };
-
-  render() {
+  render(): JSX.Element {
     return (
       <>
         <TopContainer>
           <H1>Every tool you could want at one place</H1>
-          <H3>Every tool you need to use, at your fingertips!</H3>
+          <H2>Every tool you need to use, at your fingertips!</H2>
         </TopContainer>
         <MainContainer>
           <InputGroup
@@ -54,14 +50,11 @@ class Home extends Component<HomeProps, HomeState> {
           />
           <CardContainer>
             {this.state.tools.map((tool) => (
-              <Card
-                key={tool.name}
-                interactive
-                elevation={2}
-                onClick={() => this.handleCardClick(tool)}
-              >
-                <CardBody>{tool.name}</CardBody>
-              </Card>
+              <Link key={tool.url} href={tool.url}>
+                <Card interactive elevation={2}>
+                  <CardBody>{tool.name}</CardBody>
+                </Card>
+              </Link>
             ))}
           </CardContainer>
         </MainContainer>
@@ -70,4 +63,4 @@ class Home extends Component<HomeProps, HomeState> {
   }
 }
 
-export default withRouter(Home);
+export default Home;

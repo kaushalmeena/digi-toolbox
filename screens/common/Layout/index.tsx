@@ -10,7 +10,8 @@ import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 import { DARK_THEME, LIGHT_THEME } from "../../../constants";
-import { Footer, LogoContainer, LogoIcon, LogoText, Main } from "./styles";
+import Footer from "./Footer";
+import { LogoContainer, LogoIcon, LogoText, Main } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
@@ -80,7 +81,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
             </NavbarGroup>
           </Navbar>
           <Main>{this.props.children}</Main>
-          <Footer>Made with &#9829; in NextJS</Footer>
+          <Footer />
         </div>
       </ThemeProvider>
     );

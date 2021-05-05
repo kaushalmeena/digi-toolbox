@@ -1,5 +1,5 @@
 import { Classes } from "@blueprintjs/core";
-import { ITool } from "../types";
+import { IToolBox } from "../types";
 
 export const DARK_THEME = {
   id: "dark-theme",
@@ -25,150 +25,182 @@ export const LIGHT_THEME = {
   }
 };
 
-export const TOOLS: ITool[] = [
+export const TOOL_BOXES: IToolBox[] = [
   {
-    name: "CSV to JSON",
-    category: "CSV",
-    url: "/csv-to-json"
+    category: "JSON Tools",
+    tools: [
+      {
+        name: "JSON to CSV",
+        url: "/json-to-csv"
+      },
+      {
+        name: "JSON to XML",
+        url: "/json-to-xml"
+      },
+      {
+        name: "JSON to YAML",
+        url: "/json-to-yaml"
+      },
+      {
+        name: "Minify JSON",
+        url: "/minify-json"
+      },
+      {
+        name: "Prettify JSON",
+        url: "/prettify-json"
+      }
+    ]
   },
   {
-    name: "CSV to XML",
-    category: "CSV",
-    url: "/csv-to-xml"
+    category: "CSV Tools",
+    tools: [
+      {
+        name: "CSV to JSON",
+        url: "/csv-to-json"
+      },
+      {
+        name: "CSV to XML",
+        url: "/csv-to-xml"
+      },
+      {
+        name: "CSV to YAML",
+        url: "/csv-to-yaml"
+      }
+    ]
   },
   {
-    name: "CSV to YAML",
-    category: "CSV",
-    url: "/csv-to-yaml"
+    category: "XML Tools",
+    tools: [
+      {
+        name: "XML to CSV",
+        url: "/xml-to-csv"
+      },
+      {
+        name: "XML to JSON",
+        url: "/xml-to-json"
+      },
+      {
+        name: "XML to YAML",
+        url: "/xml-to-yaml"
+      }
+    ]
   },
   {
-    name: "Base64 to Image",
-    category: "Image",
-    url: "/base64-to-image"
+    category: "YAML Tools",
+    tools: [
+      {
+        name: "YAML to CSV",
+        url: "/yaml-to-csv"
+      },
+      {
+        name: "YAML to JSON",
+        url: "/yaml-to-json"
+      },
+      {
+        name: "YAML to XML",
+        url: "/yaml-to-xml"
+      }
+    ]
   },
   {
-    name: "Image to Base64",
-    category: "Image",
-    url: "/image-to-base64"
+    category: "Image Tools",
+    tools: [
+      {
+        name: "Base64 to Image",
+        url: "/base64-to-image"
+      },
+      {
+        name: "Image to Base64",
+        url: "/image-to-base64"
+      },
+      {
+        name: "Image Color Picker",
+        url: "/image-color-picker"
+      }
+    ]
   },
   {
-    name: "Image color picker",
-    category: "Image",
-    url: "/image-color-picker"
+    category: "Color Tools",
+    tools: [
+      {
+        name: "HEX to RGB",
+        url: "/hex-to-rgb"
+      },
+      {
+        name: "HEX to HSL",
+        url: "/hex-to-hsl"
+      },
+      {
+        name: "RGB to HEX",
+        url: "/rgb-to-hex"
+      },
+      {
+        name: "RGB to HSL",
+        url: "/rgb-to-hsl"
+      },
+      {
+        name: "HSL to HEX",
+        url: "/hsl-to-hex"
+      },
+      {
+        name: "HSL to RGB",
+        url: "/hsl-to-rgb"
+      }
+    ]
   },
   {
-    name: "JSON to CSV",
-    category: "JSON",
-    url: "/json-to-csv"
-  },
-  {
-    name: "JSON to XML",
-    category: "JSON",
-    url: "/json-to-xml"
-  },
-  {
-    name: "JSON to YAML",
-    category: "JSON",
-    url: "/json-to-yaml"
-  },
-  {
-    name: "Minify JSON",
-    category: "JSON",
-    url: "/minify-json"
-  },
-  {
-    name: "Prettify JSON",
-    category: "JSON",
-    url: "/prettify-json"
-  },
-  {
-    name: "Base64 Encode",
-    category: "TEXT",
-    url: "/base64-encode"
-  },
-  {
-    name: "Base64 Decode",
-    category: "TEXT",
-    url: "/base64-decode"
-  },
-  {
-    name: "Extract text from HTML",
-    category: "TEXT",
-    url: "/extract-text-from-html"
-  },
-  {
-    name: "Extract text from XML",
-    category: "TEXT",
-    url: "/extract-text-from-xml"
-  },
-  {
-    name: "HTML Encode",
-    category: "TEXT",
-    url: "/html-encode"
-  },
-  {
-    name: "HTML Decode",
-    category: "TEXT",
-    url: "/html-decode"
-  },
-  {
-    name: "URL Encode",
-    category: "TEXT",
-    url: "/url-encode"
-  },
-  {
-    name: "URL Decode",
-    category: "TEXT",
-    url: "/url-decode"
-  },
-  {
-    name: "Slash Escape",
-    category: "TEXT",
-    url: "/slash-escape"
-  },
-  {
-    name: "Slash Unescape",
-    category: "TEXT",
-    url: "/slash-unescape"
-  },
-  {
-    name: "Hex to Text",
-    category: "TEXT",
-    url: "/hex-to-text"
-  },
-  {
-    name: "Text to Hex",
-    category: "TEXT",
-    url: "/text-to-hex"
-  },
-  {
-    name: "XML to CSV",
-    category: "XML",
-    url: "/xml-to-csv"
-  },
-  {
-    name: "XML to JSON",
-    category: "XML",
-    url: "/xml-to-json"
-  },
-  {
-    name: "XML to YAML",
-    category: "XML",
-    url: "/xml-to-yaml"
-  },
-  {
-    name: "YAML to CSV",
-    category: "YAML",
-    url: "/yaml-to-csv"
-  },
-  {
-    name: "YAML to JSON",
-    category: "YAML",
-    url: "/yaml-to-json"
-  },
-  {
-    name: "YAML to XML",
-    category: "YAML",
-    url: "/yaml-to-xml"
+    category: "Text Tools",
+    tools: [
+      {
+        name: "Base64 Encode",
+        url: "/base64-encode"
+      },
+      {
+        name: "Base64 Decode",
+        url: "/base64-decode"
+      },
+      {
+        name: "Extract text from HTML",
+        url: "/extract-text-from-html"
+      },
+      {
+        name: "Extract text from XML",
+        url: "/extract-text-from-xml"
+      },
+      {
+        name: "HTML Encode",
+        url: "/html-encode"
+      },
+      {
+        name: "HTML Decode",
+        url: "/html-decode"
+      },
+      {
+        name: "URL Encode",
+        url: "/url-encode"
+      },
+      {
+        name: "URL Decode",
+        url: "/url-decode"
+      },
+      {
+        name: "Slash Escape",
+        url: "/slash-escape"
+      },
+      {
+        name: "Slash Unescape",
+        url: "/slash-unescape"
+      },
+      {
+        name: "Hex to Text",
+        url: "/hex-to-text"
+      },
+      {
+        name: "Text to Hex",
+        url: "/text-to-hex"
+      }
+    ]
   }
 ];
+
+export const TOOLS = TOOL_BOXES.reduce((acc, cur) => acc.concat(cur.tools), []);

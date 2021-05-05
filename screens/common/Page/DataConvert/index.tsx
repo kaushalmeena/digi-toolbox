@@ -1,4 +1,4 @@
-import { H1, H3 } from "@blueprintjs/core";
+import { H1, H2 } from "@blueprintjs/core";
 import React, { Component } from "react";
 import { TopContainer } from "../../styles";
 import SwitchContainer from "../../SwitchContainer";
@@ -90,7 +90,7 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
       <>
         <TopContainer>
           <H1>{this.props.heading}</H1>
-          <H3>{this.props.subHeading}</H3>
+          <H2>{this.props.subHeading}</H2>
         </TopContainer>
         <MainContainer>
           <InputContainer

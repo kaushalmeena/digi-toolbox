@@ -23,12 +23,5 @@ export const LogoText = styled.span`
 
 export const Main = styled.main`
   padding: 20px 40px 60px 40px;
-  min-height: calc(100vh - 88px);
   background-color: ${(props) => props.theme.gray[4]};
-`;
-
-export const Footer = styled.footer`
-  padding: 10px;
-  text-align: center;
-  background-color: ${(props) => props.theme.gray[5]};
 `;
