@@ -1,10 +1,10 @@
 import { getSafeString, getType } from "../../../../utils";
 
-export const convertJSONToYAML = (data: string): string => {
+export const convertJSONToYAML = (input: string): string => {
   const result = [];
-  const tempObj = JSON.parse(data);
+  const tempData = JSON.parse(input);
 
-  convert(tempObj, result);
+  convert(tempData, result);
 
   return result.join("\n");
 };

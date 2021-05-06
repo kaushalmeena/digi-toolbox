@@ -1,1 +1,1 @@
-export const decodeBase64 = (data: string): string => atob(data);
+export const decodeBase64 = (input: string): string => atob(input);

@@ -1,9 +1,9 @@
 import { formatString } from "../../../../utils";
 
-export const convertCSVToJSON = (data: string): string => {
+export const convertCSVToJSON = (input: string): string => {
   const result = [];
 
-  const tempArray = data.split("\n").filter(Boolean);
+  const tempArray = input.split("\n").filter(Boolean);
   const headers = tempArray[0].split(",").map(formatString);
 
   for (let i = 1; i < tempArray.length; i++) {

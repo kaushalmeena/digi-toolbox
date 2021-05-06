@@ -1,5 +1,5 @@
-export const decodeHTML = (data: string): string => {
+export const decodeHTML = (input: string): string => {
   const div = document.createElement("div");
-  div.innerHTML = data;
+  div.innerHTML = input;
   return div.textContent;
 };

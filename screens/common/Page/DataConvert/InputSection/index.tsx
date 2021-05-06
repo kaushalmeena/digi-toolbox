@@ -2,15 +2,15 @@ import { Button, TextArea } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
 import { ButtonContainer, IOContainer } from "../styles";
 
-type InputContainerProps = {
+type InputSectionProps = {
   input: string;
   handleInputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleInputUpload: () => void;
   handleInputClear: () => void;
 };
 
-const InputContainer: FunctionComponent<InputContainerProps> = (
-  props: InputContainerProps
+const InputSection: FunctionComponent<InputSectionProps> = (
+  props: InputSectionProps
 ) => {
   return (
     <IOContainer>
@@ -38,4 +38,4 @@ const InputContainer: FunctionComponent<InputContainerProps> = (
   );
 };
 
-export default InputContainer;
+export default InputSection;

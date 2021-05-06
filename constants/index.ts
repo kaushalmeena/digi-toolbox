@@ -82,6 +82,14 @@ export const TOOL_BOXES: IToolBox[] = [
       {
         name: "XML to YAML",
         url: "/xml-to-yaml"
+      },
+      {
+        name: "Prettify XML",
+        url: "/prettify-xml"
+      },
+      {
+        name: "Minify XML",
+        url: "/minify-xml"
       }
     ]
   },
@@ -116,35 +124,6 @@ export const TOOL_BOXES: IToolBox[] = [
       {
         name: "Image Color Picker",
         url: "/image-color-picker"
-      }
-    ]
-  },
-  {
-    category: "Color Tools",
-    tools: [
-      {
-        name: "HEX to RGB",
-        url: "/hex-to-rgb"
-      },
-      {
-        name: "HEX to HSL",
-        url: "/hex-to-hsl"
-      },
-      {
-        name: "RGB to HEX",
-        url: "/rgb-to-hex"
-      },
-      {
-        name: "RGB to HSL",
-        url: "/rgb-to-hsl"
-      },
-      {
-        name: "HSL to HEX",
-        url: "/hsl-to-hex"
-      },
-      {
-        name: "HSL to RGB",
-        url: "/hsl-to-rgb"
       }
     ]
   },
@@ -198,6 +177,15 @@ export const TOOL_BOXES: IToolBox[] = [
       {
         name: "Text to Hex",
         url: "/text-to-hex"
+      }
+    ]
+  },
+  {
+    category: "Converters",
+    tools: [
+      {
+        name: "Color Converter",
+        url: "/color-converter"
       }
     ]
   }

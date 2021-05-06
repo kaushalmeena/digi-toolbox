@@ -1,8 +1,8 @@
 import { getSafeString } from "../../../../utils";
 
-export const convertJSONToCSV = (data: string): string => {
+export const convertJSONToCSV = (input: string): string => {
   let result = "";
-  const tempData = JSON.parse(data);
+  const tempData = JSON.parse(input);
   const tempArray = findArray(tempData);
 
   if (!tempArray) {

@@ -1,8 +1,8 @@
 import { parseString } from "../../../../utils";
 
-export const convertXMLToJSON = (data: string): string => {
+export const convertXMLToJSON = (input: string): string => {
   const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(data, "text/xml");
+  const xmlDoc = parser.parseFromString(input, "text/xml");
 
   const result = convert(xmlDoc.childNodes[0]);
 

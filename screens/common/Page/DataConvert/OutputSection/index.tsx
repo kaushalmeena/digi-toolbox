@@ -2,15 +2,15 @@ import { Button, TextArea } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
 import { ButtonContainer, IOContainer } from "../styles";
 
-type OutputContainerProps = {
+type OutputSectionProps = {
   output: string;
   handleOutputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleOutputCopy: () => void;
   handleOutputDownload: () => void;
 };
 
-const OutputContainer: FunctionComponent<OutputContainerProps> = (
-  props: OutputContainerProps
+const OutputSection: FunctionComponent<OutputSectionProps> = (
+  props: OutputSectionProps
 ) => {
   return (
     <IOContainer>
@@ -33,4 +33,4 @@ const OutputContainer: FunctionComponent<OutputContainerProps> = (
   );
 };
 
-export default OutputContainer;
+export default OutputSection;

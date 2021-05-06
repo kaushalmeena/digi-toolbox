@@ -1,7 +1,7 @@
 import { formatString, parseString } from "../../../../utils";
 
-export const convertYAMLToJSON = (data: string): string => {
-  const tempArray = data.split("\n").filter(Boolean);
+export const convertYAMLToJSON = (input: string): string => {
+  const tempArray = input.split("\n").filter(Boolean);
 
   const result = convert(tempArray, 0, 0);
 

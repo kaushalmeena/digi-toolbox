@@ -1,13 +1,13 @@
 import { getType } from "../../../../utils";
 
-export const convertJSONToXML = (data: string): string => {
+export const convertJSONToXML = (input: string): string => {
   const result = [];
-  const tempObj = JSON.parse(data);
+  const tempData = JSON.parse(input);
 
   result.push('<?xml version="1.0" encoding="UTF-8" ?>');
   result.push("<root>");
 
-  convert(tempObj, result);
+  convert(tempData, result);
 
   result.push("</root>");
 

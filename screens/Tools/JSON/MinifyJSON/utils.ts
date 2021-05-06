@@ -1,2 +1,2 @@
-export const minifyJSON = (data: string): string =>
-  JSON.stringify(JSON.parse(data));
+export const minifyJSON = (input: string): string =>
+  JSON.stringify(JSON.parse(input));

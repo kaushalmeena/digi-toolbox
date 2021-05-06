@@ -1,5 +1,5 @@
-export const unescapeSlash = (data: string): string =>
-  data
+export const unescapeSlash = (input: string): string =>
+  input
     .replace(/\\\\/g, "\\")
     .replace(/\\\//g, "/")
     .replace(/\\\b/g, "\b")

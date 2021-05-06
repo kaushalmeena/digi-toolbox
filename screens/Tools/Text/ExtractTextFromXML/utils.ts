@@ -1,5 +1,5 @@
-export const extractTextFromXML = (data: string): string => {
+export const extractTextFromXML = (input: string): string => {
   const parser = new DOMParser();
-  const result = parser.parseFromString(data, "text/xml");
-  return result.documentElement.textContent;
+  const xmlDoc = parser.parseFromString(input, "text/xml");
+  return xmlDoc.documentElement.textContent;
 };

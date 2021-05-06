@@ -7,8 +7,8 @@ const MinifyJSON: FunctionComponent = () => {
     <Page
       heading="Minify JSON"
       subHeading="Quickly compress a JSON file"
-      fileExtension="txt"
-      fileType="text/plain"
+      fileExtension="json"
+      fileType="application/json"
       convertFunction={minifyJSON}
     />
   );
