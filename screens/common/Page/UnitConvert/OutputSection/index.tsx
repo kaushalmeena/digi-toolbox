@@ -1,12 +1,14 @@
-import { Button, TextArea } from "@blueprintjs/core";
+import { HTMLSelect, InputGroup } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer, IOContainer } from "../styles";
+import { ISelectOption } from "../../../../../types";
+import { SelectContainer, IOContainer } from "../styles";
 
 type OutputSectionProps = {
   output: string;
-  handleOutputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  handleOutputCopy: () => void;
-  handleOutputDownload: () => void;
+  to: string;
+  selectOptions: ISelectOption[];
+  handleOutputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleToSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const OutputSection: FunctionComponent<OutputSectionProps> = (
@@ -14,21 +16,20 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
 ) => {
   return (
     <IOContainer>
-      <TextArea readOnly fill rows={16} value={props.output} />
-      <ButtonContainer>
-        <Button
+      <InputGroup
+        large
+        value={props.output}
+        onChange={props.handleOutputChange}
+      />
+      <SelectContainer>
+        <HTMLSelect
+          fill
           large
-          title="Copy"
-          icon="duplicate"
-          onClick={props.handleOutputCopy}
+          options={props.selectOptions}
+          value={props.to}
+          onChange={props.handleToSelectChange}
         />
-        <Button
-          large
-          title="Download"
-          icon="import"
-          onClick={props.handleOutputDownload}
-        />
-      </ButtonContainer>
+      </SelectContainer>
     </IOContainer>
   );
 };

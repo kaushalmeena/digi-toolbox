@@ -4,7 +4,6 @@ import { ButtonContainer, IOContainer } from "../styles";
 
 type OutputSectionProps = {
   output: string;
-  handleOutputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   handleOutputCopy: () => void;
   handleOutputDownload: () => void;
 };

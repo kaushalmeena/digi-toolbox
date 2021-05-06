@@ -101,7 +101,6 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
           <SwitchContainer switchURL={this.props.switchURL} />
           <OutputSection
             output={this.state.output}
-            handleOutputChange={this.handleOutputChange}
             handleOutputCopy={this.handleOutputCopy}
             handleOutputDownload={this.handleOutputDownload}
           />

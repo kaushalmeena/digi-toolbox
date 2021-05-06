@@ -9,7 +9,7 @@ const ColorConverter: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts color between hex, hsl and rgb formats."
+        content="Simple, free and easy to use online tool that converts color between HEX, RGB and HSL formats."
       />
     </Head>
     <ColorConverterPage />

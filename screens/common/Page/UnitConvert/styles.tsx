@@ -11,24 +11,24 @@ export const IOContainer = styled.div`
   padding: 20px 0px 20px 0px;
   min-width: 300px;
   flex: 1;
-  & > textarea {
+  & input {
     font-family: monospace;
   }
 `;
 
-export const ButtonContainer = styled.div`
+export const SelectContainer = styled.div`
   margin-top: 10px;
+`;
+
+export const EqualContainer = styled.div`
+  padding: 20px 20px 70px 20px;
+  min-width: 80px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  & > button {
-    margin-right: 10px;
+  @media (max-width: 760px) {
+    padding: 10px 0px 10px 0px;
+    width: 100%;
   }
-`;
-
-export const SectionContainer = styled.div`
-  margin-top: 10px;
-`;
-
-export const SectionTitle = styled.h2`
-  margin-bottom: 20px;
 `;

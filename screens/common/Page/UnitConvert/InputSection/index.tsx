@@ -1,12 +1,14 @@
-import { Button, TextArea } from "@blueprintjs/core";
+import { HTMLSelect, InputGroup } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer, IOContainer } from "../styles";
+import { ISelectOption } from "../../../../../types";
+import { IOContainer, SelectContainer } from "../styles";
 
 type InputSectionProps = {
   input: string;
-  handleInputChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  handleInputUpload: () => void;
-  handleInputClear: () => void;
+  from: string;
+  selectOptions: ISelectOption[];
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleFromSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const InputSection: FunctionComponent<InputSectionProps> = (
@@ -14,26 +16,20 @@ const InputSection: FunctionComponent<InputSectionProps> = (
 ) => {
   return (
     <IOContainer>
-      <TextArea
-        fill
-        rows={16}
+      <InputGroup
+        large
         value={props.input}
         onChange={props.handleInputChange}
       />
-      <ButtonContainer>
-        <Button
+      <SelectContainer>
+        <HTMLSelect
+          fill
           large
-          title="Clear"
-          icon="refresh"
-          onClick={props.handleInputClear}
+          options={props.selectOptions}
+          value={props.from}
+          onChange={props.handleFromSelectChange}
         />
-        <Button
-          large
-          title="Upload"
-          icon="export"
-          onClick={props.handleInputUpload}
-        />
-      </ButtonContainer>
+      </SelectContainer>
     </IOContainer>
   );
 };

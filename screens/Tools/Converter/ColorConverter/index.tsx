@@ -6,10 +6,23 @@ const ColorConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Color Converter"
-      subHeading="Quickly convert a colors between hex, hsl and rgb formats"
-      fileExtension="xml"
-      fileType="text/xml"
-      switchURL="/xml-to-csv"
+      subHeading="Quickly convert a colors between HEX, RGB and HSL formats"
+      selectOptions={[
+        {
+          label: "HEX",
+          value: "hex"
+        },
+        {
+          label: "RGB",
+          value: "rgb"
+        },
+        {
+          label: "HSL",
+          value: "hsl"
+        }
+      ]}
+      toDefaultValue="hex"
+      fromDefaultValue="rgb"
       convertFunction={convertColor}
     />
   );

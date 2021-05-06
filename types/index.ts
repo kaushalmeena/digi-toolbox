@@ -7,3 +7,8 @@ export interface ITool {
   name: string;
   url: string;
 }
+
+export interface ISelectOption {
+  label: string;
+  value: string;
+}

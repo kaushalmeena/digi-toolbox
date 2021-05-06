@@ -1,82 +1,78 @@
-import { H1, H2 } from "@blueprintjs/core";
+import { H1, H2, Icon } from "@blueprintjs/core";
 import React, { Component } from "react";
+import { ISelectOption } from "../../../../types";
 import { TopContainer } from "../../styles";
-import SwitchContainer from "../../SwitchContainer";
-import { Toast, copyData, loadFile, saveFile } from "../../utils";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
-import { MainContainer } from "./styles";
+import { EqualContainer, MainContainer } from "./styles";
 
-type DataConvertProps = {
+type UnitConvertProps = {
   heading: string;
   subHeading: string;
-  fileExtension: string;
-  fileType: string;
-  switchURL?: string;
-  convertFunction: (input: string) => string;
+  selectOptions: ISelectOption[];
+  fromDefaultValue?: string;
+  toDefaultValue?: string;
+  convertFunction: (input: string, from: string, to: string) => string;
 };
 
-type DataConvertState = {
+type UnitConvertState = {
   input: string;
+  from: string;
+  to: string;
   output: string;
 };
 
-class DataConvert extends Component<DataConvertProps, DataConvertState> {
-  constructor(props: DataConvertProps) {
+class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
+  constructor(props: UnitConvertProps) {
     super(props);
     this.state = {
       input: "",
+      from: props.fromDefaultValue,
+      to: props.toDefaultValue,
       output: ""
     };
   }
 
-  setInput = (value: string): void => {
-    this.setState({
-      input: value
-    });
-  };
-
-  setOutput = (value: string): void => {
-    this.setState({
-      output: value
-    });
-  };
-
-  handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
-    this.setState({
+    this.setState((prevState) => ({
       input: value,
-      output: this.getOutput(value)
-    });
+      output: this.getOutput(value, prevState.from, prevState.to)
+    }));
   };
 
-  handleInputClear = (): void => {
-    this.setInput("");
-  };
-
-  handleInputUpload = (): void => {
-    loadFile().then((result) => this.setInput(result));
-  };
-
-  handleOutputChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
+  handleFromSelectChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
-    this.setOutput(event.target.value);
+    const value = event.target.value;
+    this.setState((prevState) => ({
+      from: value,
+      output: this.getOutput(prevState.input, value, prevState.to)
+    }));
   };
 
-  handleOutputCopy = (): void => {
-    copyData(this.state.output);
-    Toast.show({ message: "Copied to clipboard.", intent: "primary" });
+  handleOutputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = event.target.value;
+    this.setState((prevState) => ({
+      output: value,
+      input: this.getOutput(value, prevState.from, prevState.to)
+    }));
   };
 
-  handleOutputDownload = (): void => {
-    saveFile(this.state.output, this.props.fileExtension, this.props.fileType);
+  handleToSelectChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    const value = event.target.value;
+    this.setState((prevState) => ({
+      to: value,
+      input: this.getOutput(prevState.output, prevState.from, value)
+    }));
   };
 
-  getOutput = (input: string): string => {
+  getOutput = (input: string, from: string, to: string): string => {
     let output = "";
     try {
-      output = this.props.convertFunction(input);
+      output = this.props.convertFunction(input, from, to);
     } catch (err) {
       console.error(err);
       output = "Invalid input detected.";
@@ -94,16 +90,20 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
         <MainContainer>
           <InputSection
             input={this.state.input}
+            from={this.state.from}
+            selectOptions={this.props.selectOptions}
             handleInputChange={this.handleInputChange}
-            handleInputClear={this.handleInputClear}
-            handleInputUpload={this.handleInputUpload}
+            handleFromSelectChange={this.handleFromSelectChange}
           />
-          <SwitchContainer switchURL={this.props.switchURL} />
+          <EqualContainer>
+            <Icon icon="equals" iconSize={28} />
+          </EqualContainer>
           <OutputSection
             output={this.state.output}
+            to={this.state.to}
+            selectOptions={this.props.selectOptions}
             handleOutputChange={this.handleOutputChange}
-            handleOutputCopy={this.handleOutputCopy}
-            handleOutputDownload={this.handleOutputDownload}
+            handleToSelectChange={this.handleToSelectChange}
           />
         </MainContainer>
       </>
@@ -111,4 +111,4 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
   }
 }
 
-export default DataConvert;
+export default UnitConvert;
