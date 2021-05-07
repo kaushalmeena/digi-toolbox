@@ -184,6 +184,10 @@ export const TOOL_BOXES: IToolBox[] = [
     category: "Converters",
     tools: [
       {
+        name: "Angle Converter",
+        url: "/angle-converter"
+      },
+      {
         name: "Color Converter",
         url: "/color-converter"
       }
