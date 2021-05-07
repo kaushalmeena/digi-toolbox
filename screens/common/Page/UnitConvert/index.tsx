@@ -2,9 +2,9 @@ import { H1, H2, Icon } from "@blueprintjs/core";
 import React, { Component } from "react";
 import { ISelectOption } from "../../../../types";
 import { TopContainer } from "../../styles";
+import { MainContainer, MiddleContainer } from "../common/styles";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
-import { EqualContainer, MainContainer } from "./styles";
 
 type UnitConvertProps = {
   heading: string;
@@ -95,9 +95,9 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
             handleInputChange={this.handleInputChange}
             handleFromSelectChange={this.handleFromSelectChange}
           />
-          <EqualContainer>
+          <MiddleContainer>
             <Icon icon="equals" iconSize={28} />
-          </EqualContainer>
+          </MiddleContainer>
           <OutputSection
             output={this.state.output}
             to={this.state.to}

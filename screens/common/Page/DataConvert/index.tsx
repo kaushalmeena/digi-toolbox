@@ -1,13 +1,15 @@
 import { H1, H2 } from "@blueprintjs/core";
+import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
 import { TopContainer } from "../../styles";
-import SwitchContainer from "../../SwitchContainer";
+import SwitchButton from "../../SwitchButton";
 import { Toast, copyData, loadFile, saveFile } from "../../utils";
+import { MainContainer, MiddleContainer } from "../common/styles";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
-import { MainContainer } from "./styles";
 
 type DataConvertProps = {
+  router: NextRouter;
   heading: string;
   subHeading: string;
   fileExtension: string;
@@ -73,6 +75,10 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
     saveFile(this.state.output, this.props.fileExtension, this.props.fileType);
   };
 
+  handleSwitchAction = (): void => {
+    this.props.router.push(this.props.switchURL);
+  };
+
   getOutput = (input: string): string => {
     let output = "";
     try {
@@ -98,7 +104,11 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
             handleInputClear={this.handleInputClear}
             handleInputUpload={this.handleInputUpload}
           />
-          <SwitchContainer switchURL={this.props.switchURL} />
+          <MiddleContainer>
+            {this.props.switchURL ? (
+              <SwitchButton handleSwitchAction={this.handleSwitchAction} />
+            ) : null}
+          </MiddleContainer>
           <OutputSection
             output={this.state.output}
             handleOutputCopy={this.handleOutputCopy}
@@ -110,4 +120,4 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
   }
 }
 
-export default DataConvert;
+export default withRouter(DataConvert);

@@ -1,6 +1,7 @@
 import { Button, TextArea } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer, IOContainer } from "../styles";
+import { IOContainer } from "../../common/styles";
+import { ButtonContainer } from "../styles";
 
 type InputSectionProps = {
   input: string;
