@@ -230,10 +230,6 @@ export const TOOL_BOXES: IToolBox[] = [
       {
         name: "Time Converter",
         url: "/time-converter"
-      },
-      {
-        name: "Volume Converter",
-        url: "/volume-converter"
       }
     ]
   }

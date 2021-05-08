@@ -1,34 +1,22 @@
-export const areaSelectOptions = [
+export const speedSelectOptions = [
   {
-    label: "Square meter",
-    value: "m²"
+    label: "Kilometer/hour",
+    value: "km/h"
   },
   {
-    label: "Square kilometer",
-    value: "km²"
+    label: "Meter/second",
+    value: "m/s"
   },
   {
-    label: "Square mile",
-    value: "mi²"
+    label: "Mile/hour",
+    value: "mi/h"
   },
   {
-    label: "Square yard",
-    value: "yd²"
+    label: "Foot/second",
+    value: "ft/s"
   },
   {
-    label: "Square foot",
-    value: "ft²"
-  },
-  {
-    label: "Square inch",
-    value: "in²"
-  },
-  {
-    label: "Hectare",
-    value: "ha"
-  },
-  {
-    label: "Acre",
-    value: "ac"
+    label: "Knot",
+    value: "kt"
   }
 ];

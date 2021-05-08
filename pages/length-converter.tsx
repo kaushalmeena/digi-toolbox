@@ -9,7 +9,7 @@ const LengthConverter: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts lengths between kilometer, meter, centimeter etc."
+        content="Simple, free and easy to use online tool that converts length between kilometer, foot, yard etc."
       />
     </Head>
     <LengthConverterPage />

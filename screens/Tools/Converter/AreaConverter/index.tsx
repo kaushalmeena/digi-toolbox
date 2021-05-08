@@ -7,7 +7,7 @@ const AreaConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Area Converter"
-      subHeading="Quickly convert a areas between m², mi², ft² etc."
+      subHeading="Quickly convert area between sq. meter, sq mile, sq. foot etc. etc."
       selectOptions={areaSelectOptions}
       fromDefaultValue="km²"
       toDefaultValue="m²"

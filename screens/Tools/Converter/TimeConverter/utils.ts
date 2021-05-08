@@ -1,59 +1,71 @@
-export const convertArea = (input: string, from = "", to = ""): string => {
+export const convertTime = (input: string, from = "", to = ""): string => {
   let result = 0;
-  let tempMeterSquared = 0;
-  const inputNumber = parseFloat(input);
+  let second = 0;
+  const number = parseFloat(input);
 
   switch (from) {
-    case "m²":
-      tempMeterSquared = inputNumber;
+    case "ms":
+      second = number * 0.001;
       break;
-    case "km²":
-      tempMeterSquared = inputNumber * 1e6;
+    case "s":
+      second = number;
       break;
-    case "mi²":
-      tempMeterSquared = inputNumber * 2.59e6;
+    case "min":
+      second = number * 60;
       break;
-    case "yd²":
-      tempMeterSquared = inputNumber * (1 / 1.19);
+    case "h":
+      second = number * 3600;
       break;
-    case "ft²":
-      tempMeterSquared = inputNumber * (1 / 10.764);
+    case "d":
+      second = number * 86400;
       break;
-    case "in²":
-      tempMeterSquared = inputNumber * (1 / 1550);
+    case "wk":
+      second = number * 604800;
       break;
-    case "ha":
-      tempMeterSquared = inputNumber * 10000;
+    case "mon":
+      second = number * 2592000;
       break;
-    case "ac":
-      tempMeterSquared = inputNumber * 4047;
+    case "y":
+      second = number * 31536000;
+      break;
+    case "dec":
+      second = number * 315360000;
+      break;
+    case "cy":
+      second = number * 3153600000;
       break;
   }
 
   switch (to) {
-    case "m²":
-      result = tempMeterSquared;
+    case "ms":
+      result = second * 1000;
       break;
-    case "km²":
-      result = tempMeterSquared * (1 / 1e6);
+    case "s":
+      result = second;
       break;
-    case "mi²":
-      result = tempMeterSquared * (1 / 2.59e6);
+    case "min":
+      result = second * 0.016666666666667;
       break;
-    case "yd²":
-      result = tempMeterSquared * 1.19;
+    case "h":
+      result = second * 0.00027777777777778;
       break;
-    case "ft²":
-      result = tempMeterSquared * 10.764;
+    case "d":
+      result = second * 1.1574074074074e-5;
       break;
-    case "in²":
-      result = tempMeterSquared * 1550;
+    case "wk":
+      result = second * 1.6534391534392e-6;
       break;
-    case "ha":
-      result = tempMeterSquared * (1 / 10000);
+    case "mon":
+      result = second * 3.858024691358e-7;
       break;
-    case "ac":
-      result = tempMeterSquared * (1 / 4047);
+    case "y":
+      result = second * 3.1709791983765e-8;
+      break;
+    case "dec":
+      result = second * 3.1709791983765e-9;
+      break;
+    case "cy":
+      result = second * 3.1709791983765e-10;
       break;
   }
 

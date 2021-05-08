@@ -1,59 +1,47 @@
-export const convertArea = (input: string, from = "", to = ""): string => {
+export const convertPressure = (input: string, from = "", to = ""): string => {
   let result = 0;
-  let tempMeterSquared = 0;
-  const inputNumber = parseFloat(input);
+  let pascal = 0;
+  const number = parseFloat(input);
 
   switch (from) {
-    case "m²":
-      tempMeterSquared = inputNumber;
+    case "bar":
+      pascal = number * 100000;
       break;
-    case "km²":
-      tempMeterSquared = inputNumber * 1e6;
+    case "Pa":
+      pascal = number;
       break;
-    case "mi²":
-      tempMeterSquared = inputNumber * 2.59e6;
+    case "lbf/ft²":
+      pascal = number * 47.880258980405;
       break;
-    case "yd²":
-      tempMeterSquared = inputNumber * (1 / 1.19);
+    case "lbf/in²":
+      pascal = number * 6894.7572931783;
       break;
-    case "ft²":
-      tempMeterSquared = inputNumber * (1 / 10.764);
+    case "atm":
+      pascal = number * 101325;
       break;
-    case "in²":
-      tempMeterSquared = inputNumber * (1 / 1550);
-      break;
-    case "ha":
-      tempMeterSquared = inputNumber * 10000;
-      break;
-    case "ac":
-      tempMeterSquared = inputNumber * 4047;
+    case "Torr":
+      pascal = number * 133.32236842108;
       break;
   }
 
   switch (to) {
-    case "m²":
-      result = tempMeterSquared;
+    case "bar":
+      result = pascal * 0.00001;
       break;
-    case "km²":
-      result = tempMeterSquared * (1 / 1e6);
+    case "Pa":
+      result = pascal;
       break;
-    case "mi²":
-      result = tempMeterSquared * (1 / 2.59e6);
+    case "lbf/ft²":
+      result = pascal * 0.02088543423312;
       break;
-    case "yd²":
-      result = tempMeterSquared * 1.19;
+    case "lbf/in²":
+      result = pascal * 0.00014503773773;
       break;
-    case "ft²":
-      result = tempMeterSquared * 10.764;
+    case "atm":
+      result = pascal * 9.8692326671601e-6;
       break;
-    case "in²":
-      result = tempMeterSquared * 1550;
-      break;
-    case "ha":
-      result = tempMeterSquared * (1 / 10000);
-      break;
-    case "ac":
-      result = tempMeterSquared * (1 / 4047);
+    case "Torr":
+      result = pascal * 0.00750061682704;
       break;
   }
 

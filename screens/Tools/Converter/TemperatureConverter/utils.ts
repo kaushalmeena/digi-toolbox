@@ -1,59 +1,33 @@
-export const convertArea = (input: string, from = "", to = ""): string => {
+export const convertTemperature = (
+  input: string,
+  from = "",
+  to = ""
+): string => {
   let result = 0;
-  let tempMeterSquared = 0;
-  const inputNumber = parseFloat(input);
+  let celsius = 0;
+  const number = parseFloat(input);
 
   switch (from) {
-    case "m²":
-      tempMeterSquared = inputNumber;
+    case "°C":
+      celsius = number;
       break;
-    case "km²":
-      tempMeterSquared = inputNumber * 1e6;
+    case "°F":
+      celsius = (number - 32) * (5 / 9);
       break;
-    case "mi²":
-      tempMeterSquared = inputNumber * 2.59e6;
-      break;
-    case "yd²":
-      tempMeterSquared = inputNumber * (1 / 1.19);
-      break;
-    case "ft²":
-      tempMeterSquared = inputNumber * (1 / 10.764);
-      break;
-    case "in²":
-      tempMeterSquared = inputNumber * (1 / 1550);
-      break;
-    case "ha":
-      tempMeterSquared = inputNumber * 10000;
-      break;
-    case "ac":
-      tempMeterSquared = inputNumber * 4047;
+    case "K":
+      celsius = number - 273.15;
       break;
   }
 
   switch (to) {
-    case "m²":
-      result = tempMeterSquared;
+    case "°C":
+      result = celsius;
       break;
-    case "km²":
-      result = tempMeterSquared * (1 / 1e6);
+    case "°F":
+      result = celsius * (9 / 5) + 32;
       break;
-    case "mi²":
-      result = tempMeterSquared * (1 / 2.59e6);
-      break;
-    case "yd²":
-      result = tempMeterSquared * 1.19;
-      break;
-    case "ft²":
-      result = tempMeterSquared * 10.764;
-      break;
-    case "in²":
-      result = tempMeterSquared * 1550;
-      break;
-    case "ha":
-      result = tempMeterSquared * (1 / 10000);
-      break;
-    case "ac":
-      result = tempMeterSquared * (1 / 4047);
+    case "K":
+      result = celsius + 273.15;
       break;
   }
 

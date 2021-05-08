@@ -1,59 +1,41 @@
-export const convertArea = (input: string, from = "", to = ""): string => {
+export const convertSpeed = (input: string, from = "", to = ""): string => {
   let result = 0;
-  let tempMeterSquared = 0;
-  const inputNumber = parseFloat(input);
+  let meterPerSecond = 0;
+  const number = parseFloat(input);
 
   switch (from) {
-    case "m²":
-      tempMeterSquared = inputNumber;
+    case "km/h":
+      meterPerSecond = number * 0.27777777777778;
       break;
-    case "km²":
-      tempMeterSquared = inputNumber * 1e6;
+    case "m/s":
+      meterPerSecond = number;
       break;
-    case "mi²":
-      tempMeterSquared = inputNumber * 2.59e6;
+    case "mi/h":
+      meterPerSecond = number * 0.44704;
       break;
-    case "yd²":
-      tempMeterSquared = inputNumber * (1 / 1.19);
+    case "ft/s":
+      meterPerSecond = number * 0.3048;
       break;
-    case "ft²":
-      tempMeterSquared = inputNumber * (1 / 10.764);
-      break;
-    case "in²":
-      tempMeterSquared = inputNumber * (1 / 1550);
-      break;
-    case "ha":
-      tempMeterSquared = inputNumber * 10000;
-      break;
-    case "ac":
-      tempMeterSquared = inputNumber * 4047;
+    case "kt":
+      meterPerSecond = number * 0.51444444444444;
       break;
   }
 
   switch (to) {
-    case "m²":
-      result = tempMeterSquared;
+    case "km/h":
+      result = meterPerSecond * 3.6;
       break;
-    case "km²":
-      result = tempMeterSquared * (1 / 1e6);
+    case "m/s":
+      result = meterPerSecond;
       break;
-    case "mi²":
-      result = tempMeterSquared * (1 / 2.59e6);
+    case "mi/h":
+      result = meterPerSecond * 2.2369362920544;
       break;
-    case "yd²":
-      result = tempMeterSquared * 1.19;
+    case "ft/s":
+      result = meterPerSecond * 3.2808398950131;
       break;
-    case "ft²":
-      result = tempMeterSquared * 10.764;
-      break;
-    case "in²":
-      result = tempMeterSquared * 1550;
-      break;
-    case "ha":
-      result = tempMeterSquared * (1 / 10000);
-      break;
-    case "ac":
-      result = tempMeterSquared * (1 / 4047);
+    case "kt":
+      result = meterPerSecond * 1.9438444924406;
       break;
   }
 

@@ -7,7 +7,7 @@ const EnergyConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Energy Converter"
-      subHeading="Quickly convert a engrgy between joule, calorie, electronvolt etc."
+      subHeading="Quickly convert engrgy between joule, calorie, electronvolt etc."
       selectOptions={energySelectOptions}
       fromDefaultValue="kJ"
       toDefaultValue="J"

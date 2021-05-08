@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { areaSelectOptions } from "./constants";
-import { convertArea } from "./utils";
+import { temperatureSelectOptions } from "./constants";
+import { convertTemperature } from "./utils";
 
-const AreaConverter: FunctionComponent = () => {
+const TemperatureConverter: FunctionComponent = () => {
   return (
     <Page
-      heading="Area Converter"
-      subHeading="Quickly convert a areas between m², mi², ft² etc."
-      selectOptions={areaSelectOptions}
-      fromDefaultValue="km²"
-      toDefaultValue="m²"
-      convertFunction={convertArea}
+      heading="Temperature Converter"
+      subHeading="Quickly convert temperatures between Celsius, Fahrenheit, Kelvin etc."
+      selectOptions={temperatureSelectOptions}
+      fromDefaultValue="°C"
+      toDefaultValue="°F"
+      convertFunction={convertTemperature}
     />
   );
 };
 
-export default AreaConverter;
+export default TemperatureConverter;

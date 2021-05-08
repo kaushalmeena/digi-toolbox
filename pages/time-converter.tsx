@@ -1,19 +1,19 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import AngleConverterPage from "../screens/Tools/Converter/AngleConverter";
+import TimeConverterPage from "../screens/Tools/Converter/TimeConverter";
 
-const AngleConverter: FunctionComponent = () => (
+const TimeConverter: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Angle Converter - GetThatTool</title>
+      <title key="title">Time Converter - GetThatTool</title>
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts angle between degree, radians, gradian etc."
+        content="Simple, free and easy to use online tool that converts time between seconds, hour, week etc."
       />
     </Head>
-    <AngleConverterPage />
+    <TimeConverterPage />
   </>
 );
 
-export default AngleConverter;
+export default TimeConverter;

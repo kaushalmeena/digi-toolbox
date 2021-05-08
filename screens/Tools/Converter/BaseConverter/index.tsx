@@ -7,7 +7,7 @@ const BaseConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Base Converter"
-      subHeading="Quickly convert a number between octal, hexadecimal, binary etc."
+      subHeading="Quickly convert number between octal, hexadecimal, binary etc."
       selectOptions={baseSelectOptions}
       fromDefaultValue="base-10"
       toDefaultValue="base-2"

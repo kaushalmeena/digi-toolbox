@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { areaSelectOptions } from "./constants";
-import { convertArea } from "./utils";
+import { timeSelectOptions } from "./constants";
+import { convertTime } from "./utils";
 
-const AreaConverter: FunctionComponent = () => {
+const TimeConverter: FunctionComponent = () => {
   return (
     <Page
-      heading="Area Converter"
-      subHeading="Quickly convert a areas between m², mi², ft² etc."
-      selectOptions={areaSelectOptions}
-      fromDefaultValue="km²"
-      toDefaultValue="m²"
-      convertFunction={convertArea}
+      heading="Time Converter"
+      subHeading="Quickly convert time between seconds, hour, week etc."
+      selectOptions={timeSelectOptions}
+      fromDefaultValue="s"
+      toDefaultValue="ms"
+      convertFunction={convertTime}
     />
   );
 };
 
-export default AreaConverter;
+export default TimeConverter;

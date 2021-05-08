@@ -1,34 +1,26 @@
-export const areaSelectOptions = [
+export const pressureSelectOptions = [
   {
-    label: "Square meter",
-    value: "m²"
+    label: "Bar",
+    value: "bar"
   },
   {
-    label: "Square kilometer",
-    value: "km²"
+    label: "Pascal",
+    value: "Pa"
   },
   {
-    label: "Square mile",
-    value: "mi²"
+    label: "Pounds per square foot",
+    value: "lbf/ft²"
   },
   {
-    label: "Square yard",
-    value: "yd²"
+    label: "Pounds per square inch",
+    value: "lbf/in²"
   },
   {
-    label: "Square foot",
-    value: "ft²"
+    label: "Standard atmosphere",
+    value: "atm"
   },
   {
-    label: "Square inch",
-    value: "in²"
-  },
-  {
-    label: "Hectare",
-    value: "ha"
-  },
-  {
-    label: "Acre",
-    value: "ac"
+    label: "Torr",
+    value: "Torr"
   }
 ];

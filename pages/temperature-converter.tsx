@@ -1,19 +1,19 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import AngleConverterPage from "../screens/Tools/Converter/AngleConverter";
+import TemperatureConverterPage from "../screens/Tools/Converter/TemperatureConverter";
 
-const AngleConverter: FunctionComponent = () => (
+const TemperatureConverter: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Angle Converter - GetThatTool</title>
+      <title key="title">Temperature Converter - GetThatTool</title>
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts angle between degree, radians, gradian etc."
+        content="Simple, free and easy to use online tool that converts temperature between Celsius, Fahrenheit, Kelvin etc."
       />
     </Head>
-    <AngleConverterPage />
+    <TemperatureConverterPage />
   </>
 );
 
-export default AngleConverter;
+export default TemperatureConverter;

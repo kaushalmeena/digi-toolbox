@@ -1,34 +1,42 @@
-export const areaSelectOptions = [
+export const timeSelectOptions = [
   {
-    label: "Square meter",
-    value: "m²"
+    label: "Millisecond",
+    value: "ms"
   },
   {
-    label: "Square kilometer",
-    value: "km²"
+    label: "Second",
+    value: "s"
   },
   {
-    label: "Square mile",
-    value: "mi²"
+    label: "Minute",
+    value: "min"
   },
   {
-    label: "Square yard",
-    value: "yd²"
+    label: "Hour",
+    value: "h"
   },
   {
-    label: "Square foot",
-    value: "ft²"
+    label: "Day",
+    value: "d"
   },
   {
-    label: "Square inch",
-    value: "in²"
+    label: "Week",
+    value: "wk"
   },
   {
-    label: "Hectare",
-    value: "ha"
+    label: "Month",
+    value: "mon"
   },
   {
-    label: "Acre",
-    value: "ac"
+    label: "Year",
+    value: "y"
+  },
+  {
+    label: "Decade",
+    value: "dec"
+  },
+  {
+    label: "Century",
+    value: "cy"
   }
 ];

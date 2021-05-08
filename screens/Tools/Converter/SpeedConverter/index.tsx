@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { areaSelectOptions } from "./constants";
-import { convertArea } from "./utils";
+import { speedSelectOptions } from "./constants";
+import { convertSpeed } from "./utils";
 
-const AreaConverter: FunctionComponent = () => {
+const SpeedConverter: FunctionComponent = () => {
   return (
     <Page
-      heading="Area Converter"
-      subHeading="Quickly convert a areas between m², mi², ft² etc."
-      selectOptions={areaSelectOptions}
-      fromDefaultValue="km²"
-      toDefaultValue="m²"
-      convertFunction={convertArea}
+      heading="Speed Converter"
+      subHeading="Quickly convert speeds between kilometer/hour, meter/second, miles/hour etc."
+      selectOptions={speedSelectOptions}
+      fromDefaultValue="km/h"
+      toDefaultValue="m/s"
+      convertFunction={convertSpeed}
     />
   );
 };
 
-export default AreaConverter;
+export default SpeedConverter;
