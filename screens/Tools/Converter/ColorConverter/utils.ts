@@ -1,4 +1,8 @@
-export const convertColor = (input: string, from = "", to = ""): string => {
+export const convertColor = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = "";
   let RGBArray = null;
 

@@ -1,4 +1,4 @@
-import { HTMLSelect, InputGroup } from "@blueprintjs/core";
+import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
 import { ISelectOption } from "../../../../../types";
 import { IOContainer } from "../../common/styles";
@@ -19,6 +19,7 @@ const InputSection: FunctionComponent<InputSectionProps> = (
     <IOContainer>
       <InputGroup
         large
+        rightElement={<Tag minimal>{props.from}</Tag>}
         value={props.input}
         onChange={props.handleInputChange}
       />

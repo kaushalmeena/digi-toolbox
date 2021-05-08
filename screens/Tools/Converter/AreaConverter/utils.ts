@@ -1,4 +1,8 @@
-export const convertArea = (input: string, from = "", to = ""): string => {
+export const convertArea = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let meterSquared = 0;
   const number = parseFloat(input);

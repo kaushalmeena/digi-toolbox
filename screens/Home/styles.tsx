@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   & > div {
     min-width: 200px;
     margin-right: 10px;

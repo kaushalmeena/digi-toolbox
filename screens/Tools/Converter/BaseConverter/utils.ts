@@ -1,6 +1,10 @@
 import { ISelectOption } from "../../../../types";
 
-export const convertBase = (input: string, from = "", to = ""): string => {
+export const convertBase = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   const fromBase = from.substr(5);
   const toBase = to.substr(5);
 

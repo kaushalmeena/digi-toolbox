@@ -1,4 +1,8 @@
-export const convertEnergy = (input: string, from = "", to = ""): string => {
+export const convertEnergy = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let joule = 0;
   const number = parseFloat(input);

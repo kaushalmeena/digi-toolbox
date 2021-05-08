@@ -1,4 +1,8 @@
-export const convertTime = (input: string, from = "", to = ""): string => {
+export const convertTime = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let second = 0;
   const number = parseFloat(input);

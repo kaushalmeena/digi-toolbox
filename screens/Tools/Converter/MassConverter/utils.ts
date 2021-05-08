@@ -1,4 +1,8 @@
-export const convertMass = (input: string, from = "", to = ""): string => {
+export const convertMass = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let gram = 0;
   const number = parseFloat(input);

@@ -1,4 +1,8 @@
-export const convertPressure = (input: string, from = "", to = ""): string => {
+export const convertPressure = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let pascal = 0;
   const number = parseFloat(input);

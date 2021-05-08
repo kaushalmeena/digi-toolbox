@@ -1,7 +1,7 @@
 export const convertTemperature = (
   input: string,
-  from = "",
-  to = ""
+  from: string,
+  to: string
 ): string => {
   let result = 0;
   let celsius = 0;

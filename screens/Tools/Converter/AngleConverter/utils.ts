@@ -1,4 +1,8 @@
-export const convertAngle = (input: string, from = "", to = ""): string => {
+export const convertAngle = (
+  input: string,
+  from: string,
+  to: string
+): string => {
   let result = 0;
   let degree = 0;
   const number = parseFloat(input);

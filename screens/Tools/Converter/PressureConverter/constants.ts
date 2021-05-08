@@ -8,11 +8,11 @@ export const pressureSelectOptions = [
     value: "Pa"
   },
   {
-    label: "Pounds per square foot",
+    label: "Pounds/sq. foot",
     value: "lbf/ft²"
   },
   {
-    label: "Pounds per square inch",
+    label: "Pounds/sq. inch",
     value: "lbf/in²"
   },
   {
