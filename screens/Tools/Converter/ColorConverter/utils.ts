@@ -1,28 +1,28 @@
 export const convertColor = (input: string, from = "", to = ""): string => {
   let result = "";
-  let tempRGBArray = null;
+  let RGBArray = null;
 
   switch (from) {
     case "hex":
-      tempRGBArray = convertHEXToRGBArray(input);
+      RGBArray = convertHEXToRGBArray(input);
       break;
     case "rgb":
-      tempRGBArray = convertRGBToRGBArray(input);
+      RGBArray = convertRGBToRGBArray(input);
       break;
     case "hsl":
-      tempRGBArray = convertHSLToRGBArray(input);
+      RGBArray = convertHSLToRGBArray(input);
       break;
   }
 
   switch (to) {
     case "hex":
-      result = convertRGBArrayToHex(tempRGBArray);
+      result = convertRGBArrayToHex(RGBArray);
       break;
     case "rgb":
-      result = convertRGBArrayToRGB(tempRGBArray);
+      result = convertRGBArrayToRGB(RGBArray);
       break;
     case "hsl":
-      result = convertRGBArrayToHSL(tempRGBArray);
+      result = convertRGBArrayToHSL(RGBArray);
       break;
   }
 

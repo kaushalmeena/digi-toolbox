@@ -1,19 +1,19 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import AngleConverterPage from "../screens/Tools/Converter/AngleConverter";
+import MassConverterPage from "../screens/Tools/Converter/MassConverter";
 
-const AngleConverter: FunctionComponent = () => (
+const MassConverter: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Angle Converter - GetThatTool</title>
+      <title key="title">Mass Converter - GetThatTool</title>
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts angle between degree, radians, gradian etc."
+        content="Simple, free and easy to use online tool that converts mass between gram, ounce, pound etc."
       />
     </Head>
-    <AngleConverterPage />
+    <MassConverterPage />
   </>
 );
 
-export default AngleConverter;
+export default MassConverter;

@@ -12,19 +12,22 @@ export const convertBase = (input: string, from = "", to = ""): string => {
 
 export const generateSelectOptions = (start = 1, end = 16): ISelectOption[] => {
   const options = [];
+
   const BASE_NAMES = {
-    2: "Binary",
-    8: "Octal",
-    10: "Decimal",
-    16: "Hexadecimal"
+    "02": "Binary",
+    "08": "Octal",
+    "10": "Decimal",
+    "16": "Hexadecimal"
   };
+
   for (let i = start; i <= end; i++) {
-    const paddedBase = String(i).padStart(2, "0");
-    const extraText = BASE_NAMES[i] ? ` (${BASE_NAMES[i]})` : "";
+    const base = String(i).padStart(2, "0");
+    const extraText = BASE_NAMES[base] ? ` (${BASE_NAMES[base]})` : "";
     options.push({
-      label: `Base-${paddedBase}` + extraText,
-      value: `base-${paddedBase}`
+      label: `Base-${base}` + extraText,
+      value: `base-${base}`
     });
   }
+
   return options;
 };

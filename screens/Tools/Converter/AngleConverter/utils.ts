@@ -1,41 +1,41 @@
 export const convertAngle = (input: string, from = "", to = ""): string => {
   let result = 0;
-  let tempDegree = 0;
-  const inputNumber = parseFloat(input);
+  let degree = 0;
+  const number = parseFloat(input);
 
   switch (from) {
     case "deg":
-      tempDegree = inputNumber;
+      degree = number;
       break;
     case "rad":
-      tempDegree = inputNumber * (180 / Math.PI);
+      degree = number * 57.295779513082;
       break;
     case "grad":
-      tempDegree = inputNumber * (180 / 200);
+      degree = number * 0.9;
       break;
     case "arc-minute":
-      tempDegree = inputNumber * (1 / 60);
+      degree = number * 0.016666666666667;
       break;
     case "arc-second":
-      tempDegree = inputNumber * (1 / 3600);
+      degree = number * 0.00027777777777778;
       break;
   }
 
   switch (to) {
     case "deg":
-      result = tempDegree;
+      result = degree;
       break;
     case "rad":
-      result = tempDegree * (Math.PI / 180);
+      result = degree * 0.017453292519943;
       break;
     case "grad":
-      result = tempDegree * (200 / 180);
+      result = degree * 1.1111111111111;
       break;
     case "arc-minute":
-      result = tempDegree * 60;
+      result = degree * 60;
       break;
     case "arc-second":
-      result = tempDegree * 3600;
+      result = degree * 3600;
       break;
   }
 

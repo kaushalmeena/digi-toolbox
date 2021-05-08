@@ -1,59 +1,59 @@
 export const convertArea = (input: string, from = "", to = ""): string => {
   let result = 0;
-  let tempMeterSquared = 0;
-  const inputNumber = parseFloat(input);
+  let meterSquared = 0;
+  const number = parseFloat(input);
 
   switch (from) {
     case "m²":
-      tempMeterSquared = inputNumber;
+      meterSquared = number;
       break;
     case "km²":
-      tempMeterSquared = inputNumber * 1e6;
+      meterSquared = number * 1000000;
       break;
     case "mi²":
-      tempMeterSquared = inputNumber * 2.59e6;
+      meterSquared = number * 2589988.110339;
       break;
     case "yd²":
-      tempMeterSquared = inputNumber * (1 / 1.19);
+      meterSquared = number * 0.83612736000097;
       break;
     case "ft²":
-      tempMeterSquared = inputNumber * (1 / 10.764);
+      meterSquared = number * 0.092903040000107;
       break;
     case "in²":
-      tempMeterSquared = inputNumber * (1 / 1550);
+      meterSquared = number * 0.00064516000000075;
       break;
     case "ha":
-      tempMeterSquared = inputNumber * 10000;
+      meterSquared = number * 10000;
       break;
     case "ac":
-      tempMeterSquared = inputNumber * 4047;
+      meterSquared = number * 4046.8564224047;
       break;
   }
 
   switch (to) {
     case "m²":
-      result = tempMeterSquared;
+      result = meterSquared;
       break;
     case "km²":
-      result = tempMeterSquared * (1 / 1e6);
+      result = meterSquared * 0.000001;
       break;
     case "mi²":
-      result = tempMeterSquared * (1 / 2.59e6);
+      result = meterSquared * 3.86102158542e-7;
       break;
     case "yd²":
-      result = tempMeterSquared * 1.19;
+      result = meterSquared * 1.1959900462997;
       break;
     case "ft²":
-      result = tempMeterSquared * 10.764;
+      result = meterSquared * 10.763910416697;
       break;
     case "in²":
-      result = tempMeterSquared * 1550;
+      result = meterSquared * 1550.0031000044;
       break;
     case "ha":
-      result = tempMeterSquared * (1 / 10000);
+      result = meterSquared * 0.0001;
       break;
     case "ac":
-      result = tempMeterSquared * (1 / 4047);
+      result = meterSquared * 0.00024710538146688;
       break;
   }
 

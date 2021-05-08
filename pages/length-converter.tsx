@@ -1,19 +1,19 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import AngleConverterPage from "../screens/Tools/Converter/AngleConverter";
+import LengthConverterPage from "../screens/Tools/Converter/LengthConverter";
 
-const AngleConverter: FunctionComponent = () => (
+const LengthConverter: FunctionComponent = () => (
   <>
     <Head>
-      <title key="title">Angle Converter - GetThatTool</title>
+      <title key="title">Length Converter - GetThatTool</title>
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts angle between degree, radians, gradian etc."
+        content="Simple, free and easy to use online tool that converts lengths between kilometer, meter, centimeter etc."
       />
     </Head>
-    <AngleConverterPage />
+    <LengthConverterPage />
   </>
 );
 
-export default AngleConverter;
+export default LengthConverter;
