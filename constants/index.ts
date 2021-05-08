@@ -188,8 +188,52 @@ export const TOOL_BOXES: IToolBox[] = [
         url: "/angle-converter"
       },
       {
+        name: "Area Converter",
+        url: "/area-converter"
+      },
+      {
+        name: "Base Converter",
+        url: "/base-converter"
+      },
+      {
         name: "Color Converter",
         url: "/color-converter"
+      },
+      {
+        name: "Energy Converter",
+        url: "/energy-converter"
+      },
+      {
+        name: "Length Converter",
+        url: "/length-converter"
+      },
+      {
+        name: "Mass Converter",
+        url: "/mass-converter"
+      },
+      {
+        name: "Pressure Converter",
+        url: "/pressure-converter"
+      },
+      {
+        name: "Color Converter",
+        url: "/color-converter"
+      },
+      {
+        name: "Speed Converter",
+        url: "/speed-converter"
+      },
+      {
+        name: "Temperature Converter",
+        url: "/temperature-converter"
+      },
+      {
+        name: "Time Converter",
+        url: "/time-converter"
+      },
+      {
+        name: "Volume Converter",
+        url: "/volume-converter"
       }
     ]
   }

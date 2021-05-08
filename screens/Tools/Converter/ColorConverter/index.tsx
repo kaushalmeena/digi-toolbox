@@ -9,8 +9,8 @@ const ColorConverter: FunctionComponent = () => {
       heading="Color Converter"
       subHeading="Quickly convert a colors between HEX, RGB and HSL formats"
       selectOptions={colorSelectOptions}
-      toDefaultValue="hex"
       fromDefaultValue="rgb"
+      toDefaultValue="hex"
       convertFunction={convertColor}
     />
   );

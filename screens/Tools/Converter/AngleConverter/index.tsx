@@ -9,8 +9,8 @@ const AngleConverter: FunctionComponent = () => {
       heading="Angle Converter"
       subHeading="Quickly convert a angles between degree, radian, gradian etc."
       selectOptions={angleSelectOptions}
-      toDefaultValue="deg"
-      fromDefaultValue="rad"
+      fromDefaultValue="deg"
+      toDefaultValue="rad"
       convertFunction={convertAngle}
     />
   );

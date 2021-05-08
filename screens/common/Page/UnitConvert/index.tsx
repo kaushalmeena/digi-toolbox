@@ -47,7 +47,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
     const value = event.target.value;
     this.setState((prevState) => ({
       from: value,
-      output: this.getOutput(prevState.input, value, prevState.to)
+      input: this.getOutput(prevState.output, prevState.to, value)
     }));
   };
 
@@ -65,7 +65,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
     const value = event.target.value;
     this.setState((prevState) => ({
       to: value,
-      input: this.getOutput(prevState.output, value, prevState.to)
+      output: this.getOutput(prevState.input, prevState.from, value)
     }));
   };
 
