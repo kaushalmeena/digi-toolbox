@@ -7,7 +7,7 @@ const LengthConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Length Converter"
-      subHeading="Quickly convert lengths between kilometer, foot, yard etc."
+      subHeading="Quickly convert length between kilometer, foot, yard etc."
       selectOptions={lengthSelectOptions}
       fromDefaultValue="km"
       toDefaultValue="m"

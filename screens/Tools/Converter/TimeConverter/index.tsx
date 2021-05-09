@@ -7,7 +7,7 @@ const TimeConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Time Converter"
-      subHeading="Quickly convert time between seconds, hour, week etc."
+      subHeading="Quickly convert time between second, hour, week etc."
       selectOptions={timeSelectOptions}
       fromDefaultValue="s"
       toDefaultValue="ms"

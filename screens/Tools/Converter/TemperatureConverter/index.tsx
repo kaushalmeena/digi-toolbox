@@ -7,7 +7,7 @@ const TemperatureConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Temperature Converter"
-      subHeading="Quickly convert temperatures between Celsius, Fahrenheit, Kelvin etc."
+      subHeading="Quickly convert temperature between celsius, fahrenheit and kelvin."
       selectOptions={temperatureSelectOptions}
       fromDefaultValue="°C"
       toDefaultValue="°F"

@@ -1,2 +1,2 @@
 export const minifyXML = (input: string): string =>
-  JSON.stringify(JSON.parse(input));
+  input.match(/\<.+\>/g).join("");

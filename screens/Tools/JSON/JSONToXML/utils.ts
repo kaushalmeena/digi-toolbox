@@ -14,7 +14,7 @@ export const convertJSONToXML = (input: string): string => {
   return result.join("\n");
 };
 
-function convert(item: any, res: any[], key?: any) {
+function convert(item: any, res: any[], key?: string) {
   const type = getType(item);
   switch (type) {
     case "array":
@@ -45,7 +45,7 @@ function convertArray(item: any, res: any[], key = "row") {
     convert(val, recurse);
     res.push(`  <${key}>`);
     for (let j = 0; j < recurse.length; j++) {
-      res.push(`    ` + recurse[j]);
+      res.push("    " + recurse[j]);
     }
     res.push(`  </${key}>`);
   }

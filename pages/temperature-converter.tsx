@@ -9,7 +9,7 @@ const TemperatureConverter: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts temperature between Celsius, Fahrenheit, Kelvin etc."
+        content="Simple, free and easy to use online tool that converts temperature between celsius, fahrenheit and kelvin."
       />
     </Head>
     <TemperatureConverterPage />

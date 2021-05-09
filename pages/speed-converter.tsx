@@ -9,7 +9,7 @@ const SpeedConverter: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="Simple, free and easy to use online tool that converts speed between kilometer/hour, meter/second, miles/hour etc."
+        content="Simple, free and easy to use online tool that converts speed between kilometer/hour, meter/second, mile/hour etc."
       />
     </Head>
     <SpeedConverterPage />

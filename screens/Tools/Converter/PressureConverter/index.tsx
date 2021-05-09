@@ -7,7 +7,7 @@ const PressureConverter: FunctionComponent = () => {
   return (
     <Page
       heading="Pressure Converter"
-      subHeading="Quickly convert pressures between bar, pascal, torr etc."
+      subHeading="Quickly convert pressure between bar, pascal, torr etc."
       selectOptions={pressureSelectOptions}
       fromDefaultValue="bar"
       toDefaultValue="Pa"

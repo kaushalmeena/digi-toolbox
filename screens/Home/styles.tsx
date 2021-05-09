@@ -24,4 +24,5 @@ export const CardContainer = styled.div`
 export const CardBody = styled.div`
   font-size: 16;
   font-weight: bold;
+  text-align: center;
 `;
