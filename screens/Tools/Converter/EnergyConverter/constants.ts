@@ -1,4 +1,6 @@
-export const energySelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const EnergySelectOptions: ISelectOption[] = [
   {
     label: "Joule",
     value: "J"

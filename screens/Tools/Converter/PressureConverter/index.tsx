@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { pressureSelectOptions } from "./constants";
+import { PressureSelectOptions } from "./constants";
 import { convertPressure } from "./utils";
 
 const PressureConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const PressureConverter: FunctionComponent = () => {
     <Page
       heading="Pressure Converter"
       subHeading="Quickly convert pressure between bar, pascal, torr etc."
-      selectOptions={pressureSelectOptions}
+      selectOptions={PressureSelectOptions}
       fromDefaultValue="bar"
       toDefaultValue="Pa"
       convertFunction={convertPressure}

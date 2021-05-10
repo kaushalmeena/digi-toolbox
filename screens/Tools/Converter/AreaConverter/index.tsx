@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { areaSelectOptions } from "./constants";
+import { AreaSelectOptions } from "./constants";
 import { convertArea } from "./utils";
 
 const AreaConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const AreaConverter: FunctionComponent = () => {
     <Page
       heading="Area Converter"
       subHeading="Quickly convert area between sq. meter, sq mile, sq. foot etc. etc."
-      selectOptions={areaSelectOptions}
+      selectOptions={AreaSelectOptions}
       fromDefaultValue="km²"
       toDefaultValue="m²"
       convertFunction={convertArea}

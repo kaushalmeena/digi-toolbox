@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { colorSelectOptions } from "./constants";
+import { ColorSelectOptions } from "./constants";
 import { convertColor } from "./utils";
 
 const ColorConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const ColorConverter: FunctionComponent = () => {
     <Page
       heading="Color Converter"
       subHeading="Quickly convert color between HEX, RGB and HSL formats"
-      selectOptions={colorSelectOptions}
+      selectOptions={ColorSelectOptions}
       fromDefaultValue="rgb"
       toDefaultValue="hex"
       convertFunction={convertColor}

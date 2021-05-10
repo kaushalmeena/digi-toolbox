@@ -1,4 +1,6 @@
-export const lengthSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const LengthSelectOptions: ISelectOption[] = [
   {
     label: "Kilometer",
     value: "km"

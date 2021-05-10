@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { massSelectOptions } from "./constants";
+import { MassSelectOptions } from "./constants";
 import { convertMass } from "./utils";
 
 const MassConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const MassConverter: FunctionComponent = () => {
     <Page
       heading="Mass Converter"
       subHeading="Quickly convert mass between gram, ounce, pound etc."
-      selectOptions={massSelectOptions}
+      selectOptions={MassSelectOptions}
       fromDefaultValue="kg"
       toDefaultValue="g"
       convertFunction={convertMass}

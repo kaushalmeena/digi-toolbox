@@ -1,4 +1,6 @@
-export const areaSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const AreaSelectOptions: ISelectOption[] = [
   {
     label: "Square meter",
     value: "m²"

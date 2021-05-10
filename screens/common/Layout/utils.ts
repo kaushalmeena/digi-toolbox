@@ -1,5 +1,5 @@
-export function fetchDarkMode(): boolean {
-  let mode = null;
+export const fetchDarkMode = (): boolean => {
+  let mode = false;
   const value = localStorage.getItem("darkMode");
   if (value) {
     mode = value === "1";
@@ -8,9 +8,9 @@ export function fetchDarkMode(): boolean {
     mode = media.matches;
   }
   return mode;
-}
+};
 
-export function storeDarkMode(mode: boolean): void {
+export const storeDarkMode = (mode: boolean): void => {
   const value = mode ? "1" : "0";
   localStorage.setItem("darkMode", value);
-}
+};

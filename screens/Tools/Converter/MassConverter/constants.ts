@@ -1,4 +1,6 @@
-export const massSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const MassSelectOptions: ISelectOption[] = [
   {
     label: "Kilogram",
     value: "kg"

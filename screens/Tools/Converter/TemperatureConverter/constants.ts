@@ -1,4 +1,6 @@
-export const temperatureSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const TemperatureSelectOptions: ISelectOption[] = [
   {
     label: "Celsius",
     value: "°C"

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { energySelectOptions } from "./constants";
+import { EnergySelectOptions } from "./constants";
 import { convertEnergy } from "./utils";
 
 const EnergyConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const EnergyConverter: FunctionComponent = () => {
     <Page
       heading="Energy Converter"
       subHeading="Quickly convert engrgy between joule, calorie, electronvolt etc."
-      selectOptions={energySelectOptions}
+      selectOptions={EnergySelectOptions}
       fromDefaultValue="kJ"
       toDefaultValue="J"
       convertFunction={convertEnergy}

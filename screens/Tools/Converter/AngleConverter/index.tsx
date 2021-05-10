@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { angleSelectOptions } from "./constants";
+import { AngleSelectOptions } from "./constants";
 import { convertAngle } from "./utils";
 
 const AngleConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const AngleConverter: FunctionComponent = () => {
     <Page
       heading="Angle Converter"
       subHeading="Quickly convert angle between degree, radian, gradian etc."
-      selectOptions={angleSelectOptions}
+      selectOptions={AngleSelectOptions}
       fromDefaultValue="deg"
       toDefaultValue="rad"
       convertFunction={convertAngle}

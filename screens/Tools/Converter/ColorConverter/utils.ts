@@ -34,8 +34,8 @@ export const convertColor = (
 };
 
 function convertHEXToRGBArray(input: string): number[] {
-  const HEX_REGEX = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
-  const match = HEX_REGEX.exec(input);
+  const HEXRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
+  const match = HEXRegex.exec(input);
   if (!match) {
     throw new Error("Invalid HEX color input.");
   }
@@ -52,8 +52,8 @@ function convertRGBArrayToHex(rgbArr: number[]): string {
 }
 
 function convertRGBToRGBArray(input: string): number[] {
-  const RGB_REGEX = /^(?:rgb\()?\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)?$/i;
-  const match = RGB_REGEX.exec(input);
+  const RGBRegex = /^(?:rgb\()?\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)?$/i;
+  const match = RGBRegex.exec(input);
   if (!match) {
     throw new Error("Invalid RGB color input.");
   }
@@ -73,8 +73,8 @@ function convertRGBArrayToRGB(rgbArr: number[]): string {
 }
 
 function convertHSLToRGBArray(input: string): number[] {
-  const HSL_REGEX = /^(?:hsl\()?\s*(\d{1,3})\s*,\s*(\d*(?:\.\d+)?%)\s*,\s*(\d*(?:\.\d+)?%\s*)\)?$/i;
-  const match = HSL_REGEX.exec(input);
+  const HSLRegex = /^(?:hsl\()?\s*(\d{1,3})\s*,\s*(\d*(?:\.\d+)?%)\s*,\s*(\d*(?:\.\d+)?%\s*)\)?$/i;
+  const match = HSLRegex.exec(input);
   if (!match) {
     throw new Error("Invalid HSL color input.");
   }

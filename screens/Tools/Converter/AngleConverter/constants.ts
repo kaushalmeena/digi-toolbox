@@ -1,4 +1,6 @@
-export const angleSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const AngleSelectOptions: ISelectOption[] = [
   {
     label: "Degree",
     value: "deg"

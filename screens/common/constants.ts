@@ -1,4 +1,4 @@
-import { IToolBox } from "./interfaces";
+import { ITool, IToolBox } from "./interfaces";
 
 export const ToolBoxes: IToolBox[] = [
   {
@@ -206,4 +206,7 @@ export const ToolBoxes: IToolBox[] = [
   }
 ];
 
-export const Tools = ToolBoxes.reduce((acc, cur) => acc.concat(cur.tools), []);
+export const Tools: ITool[] = ToolBoxes.reduce(
+  (acc, cur) => acc.concat(cur.tools),
+  []
+);

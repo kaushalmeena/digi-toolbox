@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { lengthSelectOptions } from "./constants";
+import { LengthSelectOptions } from "./constants";
 import { convertLength } from "./utils";
 
 const LengthConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const LengthConverter: FunctionComponent = () => {
     <Page
       heading="Length Converter"
       subHeading="Quickly convert length between kilometer, foot, yard etc."
-      selectOptions={lengthSelectOptions}
+      selectOptions={LengthSelectOptions}
       fromDefaultValue="km"
       toDefaultValue="m"
       convertFunction={convertLength}

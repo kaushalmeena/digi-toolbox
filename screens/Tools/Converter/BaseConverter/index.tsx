@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { baseSelectOptions } from "./constants";
+import { BaseSelectOptions } from "./constants";
 import { convertBase } from "./utils";
 
 const BaseConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const BaseConverter: FunctionComponent = () => {
     <Page
       heading="Base Converter"
       subHeading="Quickly convert number between octal, hexadecimal, binary etc."
-      selectOptions={baseSelectOptions}
+      selectOptions={BaseSelectOptions}
       fromDefaultValue="base-10"
       toDefaultValue="base-2"
       convertFunction={convertBase}

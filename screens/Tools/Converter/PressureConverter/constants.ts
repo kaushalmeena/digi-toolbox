@@ -1,4 +1,6 @@
-export const pressureSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const PressureSelectOptions: ISelectOption[] = [
   {
     label: "Bar",
     value: "bar"

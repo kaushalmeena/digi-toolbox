@@ -1,6 +1,7 @@
 import { Classes } from "@blueprintjs/core";
+import { ITheme } from "./interfaces";
 
-export const DarkTheme = {
+export const DarkTheme: ITheme = {
   id: "dark-theme",
   blueprintjsClass: Classes.DARK,
   gray: {
@@ -12,7 +13,7 @@ export const DarkTheme = {
   }
 };
 
-export const LightTheme = {
+export const LightTheme: ITheme = {
   id: "light-theme",
   blueprintjsClass: null,
   gray: {

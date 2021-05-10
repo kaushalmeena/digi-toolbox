@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../common/Page/UnitConvert";
-import { temperatureSelectOptions } from "./constants";
+import { TemperatureSelectOptions } from "./constants";
 import { convertTemperature } from "./utils";
 
 const TemperatureConverter: FunctionComponent = () => {
@@ -8,7 +8,7 @@ const TemperatureConverter: FunctionComponent = () => {
     <Page
       heading="Temperature Converter"
       subHeading="Quickly convert temperature between celsius, fahrenheit and kelvin."
-      selectOptions={temperatureSelectOptions}
+      selectOptions={TemperatureSelectOptions}
       fromDefaultValue="°C"
       toDefaultValue="°F"
       convertFunction={convertTemperature}

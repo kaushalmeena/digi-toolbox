@@ -17,7 +17,7 @@ export const convertBase = (
 export const generateSelectOptions = (start = 2, end = 16): ISelectOption[] => {
   const options = [];
 
-  const BASE_NAMES = {
+  const BaseNames = {
     "02": "Binary",
     "08": "Octal",
     "10": "Decimal",
@@ -26,7 +26,7 @@ export const generateSelectOptions = (start = 2, end = 16): ISelectOption[] => {
 
   for (let i = start; i <= end; i++) {
     const base = String(i).padStart(2, "0");
-    const extraText = BASE_NAMES[base] ? ` (${BASE_NAMES[base]})` : "";
+    const extraText = BaseNames[base] ? ` (${BaseNames[base]})` : "";
     options.push({
       label: `Base-${base}` + extraText,
       value: `base-${base}`

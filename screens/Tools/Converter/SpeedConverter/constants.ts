@@ -1,4 +1,6 @@
-export const speedSelectOptions = [
+import { ISelectOption } from "../../../common/interfaces";
+
+export const SpeedSelectOptions: ISelectOption[] = [
   {
     label: "Kilometer/hour",
     value: "km/h"

@@ -1,3 +1,3 @@
 import { generateSelectOptions } from "./utils";
 
-export const baseSelectOptions = generateSelectOptions(2, 16);
+export const BaseSelectOptions = generateSelectOptions(2, 16);
