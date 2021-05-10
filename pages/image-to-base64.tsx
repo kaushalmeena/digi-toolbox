@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import ImageToBase64Page from "../screens/Tools/Image/ImageToBase64";
+import ImageToBase64Page from "../screens/Tools/Other/ImageToBase64";
 
 const ImageToBase64: FunctionComponent = () => (
   <>

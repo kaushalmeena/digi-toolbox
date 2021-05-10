@@ -1,7 +1,7 @@
 import { Divider } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
-import { TOOL_BOXES } from "../../constants";
+import { toolBoxes } from "../../constants";
 import {
   Container,
   MessageContainer,
@@ -14,7 +14,7 @@ const Footer: FunctionComponent = () => {
   return (
     <Container>
       <ToolContainer>
-        {TOOL_BOXES.map((box) => (
+        {toolBoxes.map((box) => (
           <ToolBox key={box.category}>
             <ToolCategory>{box.category}</ToolCategory>
             {box.tools.map((link) => (

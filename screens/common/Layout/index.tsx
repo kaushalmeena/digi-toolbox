@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { DARK_THEME, LIGHT_THEME } from "../constants";
+import { darkTheme, lightTheme } from "../constants";
 import Footer from "./Footer";
 import { LogoContainer, LogoIcon, LogoText, Main } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
@@ -49,7 +49,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
   };
 
   render(): JSX.Element {
-    const theme = this.state.darkMode ? DARK_THEME : LIGHT_THEME;
+    const theme = this.state.darkMode ? darkTheme : lightTheme;
     return (
       <ThemeProvider theme={theme}>
         <div className={theme.blueprintjsClass}>

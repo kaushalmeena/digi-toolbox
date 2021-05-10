@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import ImageColorPickerPage from "../screens/Tools/Image/ImageColorPicker";
+import ImageColorPickerPage from "../screens/Tools/Other/ImageColorPicker";
 
 const ImageColorPicker: FunctionComponent = () => (
   <>

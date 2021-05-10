@@ -1,7 +1,7 @@
 import { Classes } from "@blueprintjs/core";
 import { IToolBox } from "./interfaces";
 
-export const DARK_THEME = {
+export const darkTheme = {
   id: "dark-theme",
   blueprintjsClass: Classes.DARK,
   gray: {
@@ -13,7 +13,7 @@ export const DARK_THEME = {
   }
 };
 
-export const LIGHT_THEME = {
+export const lightTheme = {
   id: "light-theme",
   blueprintjsClass: null,
   gray: {
@@ -25,7 +25,7 @@ export const LIGHT_THEME = {
   }
 };
 
-export const TOOL_BOXES: IToolBox[] = [
+export const toolBoxes: IToolBox[] = [
   {
     category: "JSON Tools",
     tools: [
@@ -107,23 +107,6 @@ export const TOOL_BOXES: IToolBox[] = [
       {
         name: "YAML to XML",
         url: "/yaml-to-xml"
-      }
-    ]
-  },
-  {
-    category: "Image Tools",
-    tools: [
-      {
-        name: "Base64 to Image",
-        url: "/base64-to-image"
-      },
-      {
-        name: "Image to Base64",
-        url: "/image-to-base64"
-      },
-      {
-        name: "Image Color Picker",
-        url: "/image-color-picker"
       }
     ]
   },
@@ -216,10 +199,6 @@ export const TOOL_BOXES: IToolBox[] = [
         url: "/pressure-converter"
       },
       {
-        name: "Color Converter",
-        url: "/color-converter"
-      },
-      {
         name: "Speed Converter",
         url: "/speed-converter"
       },
@@ -232,7 +211,28 @@ export const TOOL_BOXES: IToolBox[] = [
         url: "/time-converter"
       }
     ]
+  },
+  {
+    category: "Other Tools",
+    tools: [
+      {
+        name: "Base64 to Image",
+        url: "/base64-to-image"
+      },
+      {
+        name: "Image to Base64",
+        url: "/image-to-base64"
+      },
+      {
+        name: "Image Color Picker",
+        url: "/image-color-picker"
+      },
+      {
+        name: "Diff-Checker",
+        url: "/diff-checker"
+      }
+    ]
   }
 ];
 
-export const TOOLS = TOOL_BOXES.reduce((acc, cur) => acc.concat(cur.tools), []);
+export const tools = toolBoxes.reduce((acc, cur) => acc.concat(cur.tools), []);
