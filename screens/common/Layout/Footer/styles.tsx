@@ -4,7 +4,7 @@ export const Container = styled.footer`
   background-color: ${(props) => props.theme.gray[3]};
 `;
 
-export const ToolContainer = styled.div`
+export const MainContainer = styled.div`
   padding: 30px 20px 30px 20px;
   display: flex;
   flex-direction: row;
@@ -12,7 +12,7 @@ export const ToolContainer = styled.div`
   justify-content: center;
 `;
 
-export const ToolBox = styled.div`
+export const ToolBoxContainer = styled.div`
   padding: 30px;
   display: flex;
   flex-direction: column;

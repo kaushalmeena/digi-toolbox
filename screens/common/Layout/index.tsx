@@ -1,17 +1,9 @@
-import {
-  Button,
-  ButtonGroup,
-  Divider,
-  Navbar,
-  NavbarGroup,
-  NavbarHeading
-} from "@blueprintjs/core";
-import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "../constants";
 import Footer from "./Footer";
-import { LogoContainer, LogoIcon, LogoText, Main } from "./styles";
+import Header from "./Header";
+import { Main } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
@@ -39,7 +31,9 @@ class Layout extends Component<LayoutProps, LayoutState> {
     }
   }
 
-  setDarkMode = (value: boolean): void => {
+  handleDarkModeChange = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    const buttonValue = event.currentTarget.value;
+    const value = buttonValue === "true";
     if (value !== this.state.darkMode) {
       storeDarkMode(value);
       this.setState({
@@ -53,33 +47,10 @@ class Layout extends Component<LayoutProps, LayoutState> {
     return (
       <ThemeProvider theme={theme}>
         <div className={theme.blueprintjsClass}>
-          <Navbar>
-            <NavbarGroup>
-              <NavbarHeading>
-                <Link href="/">
-                  <LogoContainer>
-                    <LogoIcon icon="wrench" iconSize={18} />
-                    <LogoText>GetThatTool</LogoText>
-                  </LogoContainer>
-                </Link>
-              </NavbarHeading>
-            </NavbarGroup>
-            <NavbarGroup align="right">
-              <Divider />
-              <ButtonGroup>
-                <Button
-                  icon="moon"
-                  active={this.state.darkMode}
-                  onClick={() => this.setDarkMode(true)}
-                />
-                <Button
-                  icon="flash"
-                  active={!this.state.darkMode}
-                  onClick={() => this.setDarkMode(false)}
-                />
-              </ButtonGroup>
-            </NavbarGroup>
-          </Navbar>
+          <Header
+            darkMode={this.state.darkMode}
+            handleDarkModeChange={this.handleDarkModeChange}
+          />
           <Main>{this.props.children}</Main>
           <Footer />
         </div>

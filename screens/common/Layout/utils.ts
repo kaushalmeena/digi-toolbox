@@ -1,6 +1,12 @@
 export function fetchDarkMode(): boolean {
+  let mode = null;
   const value = localStorage.getItem("darkMode");
-  const mode = value === "1" ? true : false;
+  if (value) {
+    mode = value === "1";
+  } else {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    mode = media.matches;
+  }
   return mode;
 }
 

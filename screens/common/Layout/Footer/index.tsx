@@ -5,26 +5,26 @@ import { toolBoxes } from "../../constants";
 import {
   Container,
   MessageContainer,
-  ToolBox,
+  ToolBoxContainer,
   ToolCategory,
-  ToolContainer
+  MainContainer
 } from "./styles";
 
 const Footer: FunctionComponent = () => {
   return (
     <Container>
-      <ToolContainer>
+      <MainContainer>
         {toolBoxes.map((box) => (
-          <ToolBox key={box.category}>
+          <ToolBoxContainer key={box.category}>
             <ToolCategory>{box.category}</ToolCategory>
             {box.tools.map((link) => (
               <Link key={link.url} href={link.url}>
                 {link.name}
               </Link>
             ))}
-          </ToolBox>
+          </ToolBoxContainer>
         ))}
-      </ToolContainer>
+      </MainContainer>
       <Divider />
       <MessageContainer>Made with &#9829; in NextJS</MessageContainer>
     </Container>
