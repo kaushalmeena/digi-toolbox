@@ -8,7 +8,7 @@ import {
 } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
-import { LogoContainer, LogoIcon, LogoText } from "../styles";
+import { LogoContainer, LogoIcon, LogoText } from "./styles";
 
 type HeaderProps = {
   darkMode: boolean;

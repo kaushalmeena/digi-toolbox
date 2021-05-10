@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "../constants";
+import { DarkTheme, LightTheme } from "./constants";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Main } from "./styles";
@@ -43,7 +43,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
   };
 
   render(): JSX.Element {
-    const theme = this.state.darkMode ? darkTheme : lightTheme;
+    const theme = this.state.darkMode ? DarkTheme : LightTheme;
     return (
       <ThemeProvider theme={theme}>
         <div className={theme.blueprintjsClass}>

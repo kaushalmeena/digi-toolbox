@@ -1,7 +1,7 @@
 import { Card, H1, H2, InputGroup } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
-import { tools } from "../common/constants";
+import { Tools } from "../common/constants";
 import { ITool } from "../common/interfaces";
 import { TopContainer } from "../common/styles";
 import { CardBody, CardContainer, MainContainer } from "./styles";
@@ -20,7 +20,7 @@ class Home extends Component<HomeProps, HomeState> {
     super(props);
     this.state = {
       query: "",
-      tools: tools
+      tools: Tools
     };
   }
 
@@ -28,7 +28,7 @@ class Home extends Component<HomeProps, HomeState> {
     const input = event.target.value;
     this.setState({
       query: input,
-      tools: tools.filter(
+      tools: Tools.filter(
         (tool) => tool.name.toLowerCase().indexOf(input.toLowerCase()) > -1
       )
     });
