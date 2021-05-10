@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { DARK_THEME, LIGHT_THEME } from "../../../constants";
+import { DARK_THEME, LIGHT_THEME } from "../constants";
 import Footer from "./Footer";
 import { LogoContainer, LogoIcon, LogoText, Main } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";

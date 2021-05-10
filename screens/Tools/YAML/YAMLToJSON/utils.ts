@@ -1,4 +1,4 @@
-import { formatString, parseString } from "../../../../utils";
+import { removeQuotes, parseString } from "../../common/utils";
 
 export const convertYAMLToJSON = (input: string): string => {
   const tempArray = input.split("\n").filter(Boolean);
@@ -28,15 +28,15 @@ function convert(arr: string[], index: number, indent: number) {
         obj = {};
       }
       const tempArr = line.split(":");
-      const key = formatString(tempArr[0]);
-      const val = formatString(tempArr[1]);
+      const key = removeQuotes(tempArr[0]);
+      const val = removeQuotes(tempArr[1]);
       if (val) {
         obj[key] = parseString(val);
       } else {
         obj[key] = convert(arr, i + 1, indent + 2);
       }
     } else {
-      const val = formatString(line);
+      const val = removeQuotes(line);
       obj = parseString(val);
     }
 

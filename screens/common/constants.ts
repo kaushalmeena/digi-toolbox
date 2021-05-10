@@ -1,5 +1,5 @@
 import { Classes } from "@blueprintjs/core";
-import { IToolBox } from "../types";
+import { IToolBox } from "./interfaces";
 
 export const DARK_THEME = {
   id: "dark-theme",

@@ -1,7 +1,7 @@
 import { Divider } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
-import { TOOL_BOXES } from "../../../../constants";
+import { TOOL_BOXES } from "../../constants";
 import {
   Container,
   MessageContainer,

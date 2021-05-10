@@ -1,4 +1,4 @@
-export const isUnsafeString = (str: string): boolean => /[\W]/.test(str);
+export const isUnsafeString = (str: string): boolean => /\W/.test(str);
 
 export const isBoolean = (str: string): boolean => /^(true|false)$/.test(str);
 
@@ -31,8 +31,12 @@ export const getSafeString = (str: string): string => {
   }
 };
 
-export const formatString = (str: string): string => {
-  return str.trim().replace(/^\"|\"$/g, "");
+export const removeQuotes = (str: string): string => {
+  const res = str.trim();
+  if (res.startsWith('"') && res.endsWith('"')) {
+    return res.substring(1, res.length - 1);
+  }
+  return res;
 };
 
 export const parseString = (str: string): string | boolean | number => {
