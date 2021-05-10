@@ -205,10 +205,6 @@ export const toolBoxes: IToolBox[] = [
       {
         name: "Temperature Converter",
         url: "/temperature-converter"
-      },
-      {
-        name: "Time Converter",
-        url: "/time-converter"
       }
     ]
   },
