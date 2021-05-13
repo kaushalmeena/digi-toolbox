@@ -1,25 +1,54 @@
 import { H1, H2 } from "@blueprintjs/core";
-import { NextRouter, withRouter } from "next/router";
-import React, { Component } from "react";
-import { TopContainer } from "../../../common/Page/common/styles";
-import { MainContainer } from "./styles";
+import React, { Component, ReactNode } from "react";
+import { loadFile } from "../../../../utils";
+import InputSection from "../../../common/Page/DataConvert/InputSection";
+import SwitchSection from "../../../common/Page/DataConvert/SwitchSection";
+import { MainContainer, TopContainer } from "../../../common/styles";
+import OutputSection from "./OutputSection";
+import { saveImage } from "./utils";
 
-type Base64ToImagePageProps = {
-  router: NextRouter;
+type Base64ToImageProps = {
+  children?: ReactNode;
 };
 
-type Base64ToImagePageState = {};
+type Base64ToImageState = {
+  input: string;
+};
 
-class Base64ToImagePage extends Component<
-  Base64ToImagePageProps,
-  Base64ToImagePageState
-> {
-  constructor(props: Base64ToImagePageProps) {
+class Base64ToImage extends Component<Base64ToImageProps, Base64ToImageState> {
+  constructor(props: Base64ToImageProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      input: ""
+    };
   }
 
-  render() {
+  setInput = (value: string): void => {
+    this.setState({
+      input: value
+    });
+  };
+
+  handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const value = event.target.value;
+    this.setState({
+      input: value
+    });
+  };
+
+  handleInputClear = (): void => {
+    this.setInput("");
+  };
+
+  handleInputUpload = (): void => {
+    loadFile().then((result) => this.setInput(result));
+  };
+
+  handleOutputDownload = (): void => {
+    saveImage(this.state.input);
+  };
+
+  render(): JSX.Element {
     return (
       <>
         <TopContainer>
@@ -27,11 +56,21 @@ class Base64ToImagePage extends Component<
           <H2>Quickly convert base64-encoded string to image</H2>
         </TopContainer>
         <MainContainer>
-
+          <InputSection
+            input={this.state.input}
+            handleInputChange={this.handleInputChange}
+            handleInputClear={this.handleInputClear}
+            handleInputUpload={this.handleInputUpload}
+          />
+          <SwitchSection switchURL="/image-to-base64" />
+          <OutputSection
+            output={this.state.input}
+            handleOutputDownload={this.handleOutputDownload}
+          />
         </MainContainer>
       </>
     );
   }
 }
 
-export default withRouter(Base64ToImagePage);
+export default Base64ToImage;
