@@ -1,10 +1,10 @@
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { DarkTheme, LightTheme } from "./constants";
+import { DarkTheme, LightTheme } from "../../constants";
+import { fetchDarkMode, storeDarkMode } from "../../utils";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Main } from "./styles";
-import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type LayoutProps = {
   children?: ReactNode;

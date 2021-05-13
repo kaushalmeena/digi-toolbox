@@ -1,4 +1,4 @@
-import { removeQuotes } from "../../common/utils";
+import { removeQuotes } from "../../../common/utils";
 
 export const convertCSVToJSON = (input: string): string => {
   const result = [];

@@ -1,4 +1,4 @@
-import { parseString } from "../../common/utils";
+import { parseString } from "../../../common/utils";
 
 export const convertXMLToJSON = (input: string): string => {
   const parser = new DOMParser();

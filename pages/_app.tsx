@@ -2,7 +2,7 @@ import { FocusStyleManager } from "@blueprintjs/core";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import React, { FunctionComponent } from "react";
-import Layout from "../screens/common/Layout";
+import MainLayout from "../layouts/Main";
 
 import "../styles/index.css";
 
@@ -20,9 +20,9 @@ const MyApp: FunctionComponent<AppProps> = ({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Layout>
+      <MainLayout>
         <Component {...pageProps} />
-      </Layout>
+      </MainLayout>
     </>
   );
 };

@@ -1,7 +1,7 @@
-import { H1, H3 } from "@blueprintjs/core";
+import { H1, H2 } from "@blueprintjs/core";
 import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import { TopContainer } from "../../../common/styles";
+import { TopContainer } from "../../../common/Page/common/styles";
 import { MainContainer } from "./styles";
 
 type Base64ToImagePageProps = {
@@ -24,9 +24,11 @@ class Base64ToImagePage extends Component<
       <>
         <TopContainer>
           <H1>Base64 to Image</H1>
-          <H3>Quickly convert base64-encoded string to image</H3>
+          <H2>Quickly convert base64-encoded string to image</H2>
         </TopContainer>
-        <MainContainer></MainContainer>
+        <MainContainer>
+
+        </MainContainer>
       </>
     );
   }

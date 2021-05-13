@@ -1,4 +1,4 @@
-import { getType } from "../../common/utils";
+import { getType } from "../../../common/utils";
 
 export const convertJSONToXML = (input: string): string => {
   const result = [];

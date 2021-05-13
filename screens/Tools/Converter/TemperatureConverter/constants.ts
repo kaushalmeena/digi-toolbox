@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../common/interfaces";
+import { ISelectOption } from "../../../../interfaces";
 
 export const TemperatureSelectOptions: ISelectOption[] = [
   {

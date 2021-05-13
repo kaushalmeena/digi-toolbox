@@ -1,8 +1,8 @@
 import { Card, H1, H2, InputGroup } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { Component, ReactNode } from "react";
-import { Tools } from "../common/constants";
-import { ITool } from "../common/interfaces";
+import { Tools } from "../../constants";
+import { ITool } from "../../interfaces";
 import { TopContainer } from "../common/styles";
 import { CardBody, CardContainer, MainContainer } from "./styles";
 

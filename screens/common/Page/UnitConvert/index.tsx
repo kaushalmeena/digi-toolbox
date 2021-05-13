@@ -1,8 +1,7 @@
 import { H1, H2, Icon } from "@blueprintjs/core";
 import React, { Component } from "react";
-import { ISelectOption } from "../../interfaces";
-import { TopContainer } from "../../styles";
-import { MainContainer, MiddleContainer } from "../common/styles";
+import { ISelectOption } from "../../../../interfaces";
+import { MainContainer, MiddleContainer, TopContainer } from "../../styles";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
 

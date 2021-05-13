@@ -1,12 +1,11 @@
 import { H1, H2 } from "@blueprintjs/core";
 import { NextRouter, withRouter } from "next/router";
 import React, { Component } from "react";
-import { TopContainer } from "../../styles";
-import SwitchButton from "../../SwitchButton";
-import { Toast, copyData, loadFile, saveFile } from "../../utils";
-import { MainContainer, MiddleContainer } from "../common/styles";
+import { copyData, loadFile, saveFile, Toast } from "../../../../utils";
+import { MainContainer, MiddleContainer, TopContainer } from "../../styles";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
+import SwitchButton from "./SwitchButton";
 
 type DataConvertProps = {
   router: NextRouter;
