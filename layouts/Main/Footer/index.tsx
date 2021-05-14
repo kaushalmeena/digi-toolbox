@@ -5,7 +5,7 @@ import { ToolBoxes } from "../../../constants";
 import {
   Container,
   MessageContainer,
-  ToolBoxContainer,
+  BoxContainer,
   ToolCategory,
   MainContainer
 } from "./styles";
@@ -15,14 +15,14 @@ const Footer: FunctionComponent = () => {
     <Container>
       <MainContainer>
         {ToolBoxes.map((box) => (
-          <ToolBoxContainer key={box.category}>
+          <BoxContainer key={box.category}>
             <ToolCategory>{box.category}</ToolCategory>
             {box.tools.map((link) => (
               <Link key={link.url} href={link.url}>
                 {link.name}
               </Link>
             ))}
-          </ToolBoxContainer>
+          </BoxContainer>
         ))}
       </MainContainer>
       <Divider />

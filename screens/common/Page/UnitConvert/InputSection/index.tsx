@@ -1,8 +1,7 @@
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
 import { ISelectOption } from "../../../../../interfaces";
-import { IOContainer } from "../../../styles";
-import { SelectContainer } from "../styles";
+import { IOContainer, SelectContainer } from "../../../styles";
 
 type InputSectionProps = {
   input: string;

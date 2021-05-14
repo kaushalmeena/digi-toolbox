@@ -35,6 +35,25 @@ export const MiddleContainer = styled.div`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  & button {
+    margin-right: 10px;
+  }
+`;
+
+export const SelectContainer = styled.div`
+  margin-top: 10px;
+`;
+
+export const RotateContainer = styled.div`
+  @media (max-width: 760px) {
+    transform: rotate(90deg);
+  }
+`;
+
 export const CardImage = styled.div`
   min-height: 268px;
   display: flex;

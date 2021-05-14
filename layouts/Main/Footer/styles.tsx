@@ -12,7 +12,7 @@ export const MainContainer = styled.div`
   justify-content: center;
 `;
 
-export const ToolBoxContainer = styled.div`
+export const BoxContainer = styled.div`
   padding: 30px;
   display: flex;
   flex-direction: column;

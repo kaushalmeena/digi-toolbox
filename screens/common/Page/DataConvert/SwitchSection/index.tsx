@@ -1,8 +1,7 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/router";
 import React, { FunctionComponent } from "react";
-import { MiddleContainer } from "../../../styles";
-import { ButtonContainer } from "./styles";
+import { MiddleContainer, RotateContainer } from "../../../styles";
 
 type SwitchSectionProps = {
   switchURL?: string;
@@ -20,14 +19,14 @@ const SwitchSection: FunctionComponent<SwitchSectionProps> = (
   return (
     <MiddleContainer>
       {props.switchURL ? (
-        <ButtonContainer>
+        <RotateContainer>
           <Button
             large
             title="Switch"
             icon="arrows-horizontal"
             onClick={handleSwitchAction}
           />
-        </ButtonContainer>
+        </RotateContainer>
       ) : null}
     </MiddleContainer>
   );

@@ -1,7 +1,10 @@
 import { Button, Card } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer } from "../../../../common/Page/DataConvert/styles";
-import { CardImage, IOContainer } from "../../../../common/styles";
+import {
+  ButtonContainer,
+  CardImage,
+  IOContainer
+} from "../../../../common/styles";
 
 type OutputSectionProps = {
   output: string;
