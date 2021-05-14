@@ -7,21 +7,23 @@ export const isFloat = (str: string): boolean =>
 
 export const isInteger = (str: string): boolean => /^\d+$/.test(str);
 
-export const getType = (item: unknown): string => {
-  if (item instanceof Array) {
-    return "array";
-  } else if (item instanceof Object) {
-    return "object";
-  } else if (typeof item === "string") {
-    return "string";
-  } else if (typeof item === "boolean") {
-    return "boolean";
-  } else if (typeof item === "number") {
-    return "number";
-  } else {
-    return "null";
-  }
-};
+export const isTag = (str: string): boolean => /<[^>!]+>/.test(str);
+
+export const isXMLDeclaration = (str: string): boolean =>
+  /<\?[^?>]+\?>/.test(str);
+
+export const isClosingTag = (str: string): boolean => /<\/+[^>]+>/.test(str);
+
+export const isSelfClosingTag = (str: string): boolean => /<[^>]+\/>/.test(str);
+
+export const isOpeningTag = (str: string): boolean =>
+  isTag(str) &&
+  !isClosingTag(str) &&
+  !isSelfClosingTag(str) &&
+  !isXMLDeclaration(str);
+
+export const splitOnTags = (str: string): string[] =>
+  str.split(/(<\/?[^>]+>)/g).filter((line) => line.trim() !== "");
 
 export const getSafeString = (str: string): string => {
   if (isUnsafeString(str)) {
@@ -48,5 +50,21 @@ export const parseString = (str: string): string | boolean | number => {
     return Number.parseInt(str);
   } else {
     return str;
+  }
+};
+
+export const getType = (item: unknown): string => {
+  if (item instanceof Array) {
+    return "array";
+  } else if (item instanceof Object) {
+    return "object";
+  } else if (typeof item === "string") {
+    return "string";
+  } else if (typeof item === "boolean") {
+    return "boolean";
+  } else if (typeof item === "number") {
+    return "number";
+  } else {
+    return "null";
   }
 };

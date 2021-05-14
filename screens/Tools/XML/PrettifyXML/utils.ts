@@ -1,25 +1,41 @@
-export const prettifyXML = (input: string): string => {
-  const PADDING = " ".repeat(2);
-  let pad = 0;
+import { isClosingTag, isOpeningTag, splitOnTags } from "../../../common/utils";
 
-  return input
-    .replace(/(>)(<)(\/*)/g, "$1\r\n$2$3")
-    .split("\r\n")
-    .map((node) => {
-      let indent = 0;
-      if (node.match(/.+<\/\w[^>]*>$/)) {
-        indent = 0;
-      } else if (node.match(/^<\/\w/) && pad > 0) {
-        pad -= 1;
-      } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
-        indent = 1;
-      } else {
-        indent = 0;
+export const prettifyXML = (input: string): string => {
+  const indent = "  ";
+  let depth = 0;
+  let ignoreMode = false;
+  let deferred = [];
+
+  return splitOnTags(input)
+    .map((item) => {
+      if (item.trim().startsWith("<![CDATA[")) {
+        ignoreMode = true;
+      }
+      if (item.trim().endsWith("]]>")) {
+        ignoreMode = false;
+        deferred.push(item);
+        const cdataBlock = deferred.join("");
+        deferred = [];
+        return cdataBlock;
+      }
+      if (ignoreMode) {
+        deferred.push(item);
+        return null;
       }
 
-      pad += indent;
+      item = item.replace(/^\s+|\s+$/g, "");
 
-      return PADDING.repeat(pad - indent) + node;
+      if (isClosingTag(item)) {
+        depth--;
+      }
+
+      const line = indent.repeat(depth) + item;
+
+      if (isOpeningTag(item)) {
+        depth++;
+      }
+
+      return line;
     })
-    .join("\r\n");
+    .join("\n");
 };
