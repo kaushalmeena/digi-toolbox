@@ -1,11 +1,10 @@
 import { H1, H2 } from "@blueprintjs/core";
 import React, { Component, ReactNode } from "react";
-import { loadFile } from "../../../../utils";
+import { loadFile, saveImage } from "../../../../utils";
 import InputSection from "../../../common/Page/DataConvert/InputSection";
 import SwitchSection from "../../../common/Page/DataConvert/SwitchSection";
 import { MainContainer, TopContainer } from "../../../common/styles";
 import OutputSection from "./OutputSection";
-import { saveImage } from "./utils";
 
 type Base64ToImageProps = {
   children?: ReactNode;

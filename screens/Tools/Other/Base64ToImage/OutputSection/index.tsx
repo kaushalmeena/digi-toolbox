@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import {
   ButtonContainer,
   CardImage,
-  IOContainer
+  ImageIOContainer
 } from "../../../../common/styles";
 
 type OutputSectionProps = {
@@ -15,7 +15,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
   props: OutputSectionProps
 ) => {
   return (
-    <IOContainer>
+    <ImageIOContainer>
       <Card>
         <CardImage>
           {props.output ? <img alt="output-image" src={props.output} /> : null}
@@ -29,7 +29,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
           onClick={props.handleOutputDownload}
         />
       </ButtonContainer>
-    </IOContainer>
+    </ImageIOContainer>
   );
 };
 

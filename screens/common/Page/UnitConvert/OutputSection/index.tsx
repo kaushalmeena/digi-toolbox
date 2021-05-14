@@ -1,7 +1,7 @@
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
 import { ISelectOption } from "../../../../../interfaces";
-import { IOContainer, SelectContainer } from "../../../styles";
+import { TextIOContainer, SelectContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;
@@ -15,7 +15,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
   props: OutputSectionProps
 ) => {
   return (
-    <IOContainer>
+    <TextIOContainer>
       <InputGroup
         large
         value={props.output}
@@ -31,7 +31,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
           onChange={props.handleToSelectChange}
         />
       </SelectContainer>
-    </IOContainer>
+    </TextIOContainer>
   );
 };
 

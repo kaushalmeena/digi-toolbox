@@ -12,7 +12,7 @@ export const MainContainer = styled.div`
   justify-content: center;
 `;
 
-export const IOContainer = styled.div`
+export const TextIOContainer = styled.div`
   padding: 20px 0px 20px 0px;
   min-width: 300px;
   flex: 1;
@@ -20,6 +20,12 @@ export const IOContainer = styled.div`
   textarea {
     font-family: monospace;
   }
+`;
+
+export const ImageIOContainer = styled.div`
+  padding: 20px 0px 20px 0px;
+  min-width: 300px;
+  flex: 1;
 `;
 
 export const MiddleContainer = styled.div`

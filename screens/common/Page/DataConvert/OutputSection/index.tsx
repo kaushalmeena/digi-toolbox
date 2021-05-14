@@ -1,6 +1,6 @@
 import { Button, TextArea } from "@blueprintjs/core";
 import React, { FunctionComponent } from "react";
-import { ButtonContainer, IOContainer } from "../../../styles";
+import { ButtonContainer, TextIOContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;
@@ -12,7 +12,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
   props: OutputSectionProps
 ) => {
   return (
-    <IOContainer>
+    <TextIOContainer>
       <TextArea readOnly fill rows={16} value={props.output} />
       <ButtonContainer>
         <Button
@@ -28,7 +28,7 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
           onClick={props.handleOutputDownload}
         />
       </ButtonContainer>
-    </IOContainer>
+    </TextIOContainer>
   );
 };
 
