@@ -29,10 +29,7 @@ class Base64ToImage extends Component<Base64ToImageProps, Base64ToImageState> {
   };
 
   handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    const value = event.target.value;
-    this.setState({
-      input: value
-    });
+    this.setInput(event.target.value);
   };
 
   handleInputClear = (): void => {

@@ -1,7 +1,7 @@
 import { Button, InputGroup } from "@blueprintjs/core";
 import React, { FunctionComponent, RefObject } from "react";
-import { ButtonContainer } from "../../../../common/styles";
-import { CardBody, CardFooter, Container, CustomCard } from "./styles";
+import { ButtonContainer, NormalIOContainer } from "../../../../common/styles";
+import { CardBody, CardFooter, ColorContainer, CustomCard } from "./styles";
 
 type PickerSectionProps = {
   canvasRef: RefObject<HTMLCanvasElement>;
@@ -15,30 +15,15 @@ const PickerSection: FunctionComponent<PickerSectionProps> = (
   props: PickerSectionProps
 ) => {
   return (
-    <Container>
+    <NormalIOContainer>
       <CustomCard>
         <CardBody>
           <canvas ref={props.canvasRef} height="0" width="0" />
         </CardBody>
         <CardFooter>
-          <div
-            style={{
-              height: 70,
-              backgroundColor: props.currentColor,
-              flex: 0.5
-            }}
-          />
+          <ColorContainer style={{ backgroundColor: props.currentColor }} />
           {props.selectedColor ? (
-            <div
-              style={{
-                height: 70,
-                backgroundColor: props.selectedColor,
-                flex: 0.5,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center"
-              }}
-            >
+            <ColorContainer style={{ backgroundColor: props.selectedColor }}>
               <InputGroup
                 large
                 readOnly
@@ -53,7 +38,7 @@ const PickerSection: FunctionComponent<PickerSectionProps> = (
                   />
                 }
               />
-            </div>
+            </ColorContainer>
           ) : null}
         </CardFooter>
       </CustomCard>
@@ -65,7 +50,7 @@ const PickerSection: FunctionComponent<PickerSectionProps> = (
           onClick={props.handleImageUpload}
         />
       </ButtonContainer>
-    </Container>
+    </NormalIOContainer>
   );
 };
 

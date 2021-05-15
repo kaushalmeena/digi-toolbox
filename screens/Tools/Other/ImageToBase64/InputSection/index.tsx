@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import {
   ButtonContainer,
   CardImage,
-  ImageIOContainer
+  NormalIOContainer
 } from "../../../../common/styles";
 
 type InputSectionProps = {
@@ -15,7 +15,7 @@ const InputSection: FunctionComponent<InputSectionProps> = (
   props: InputSectionProps
 ) => {
   return (
-    <ImageIOContainer>
+    <NormalIOContainer>
       <Card>
         <CardImage>
           {props.input ? <img alt="input-image" src={props.input} /> : null}
@@ -29,7 +29,7 @@ const InputSection: FunctionComponent<InputSectionProps> = (
           onClick={props.handleInputUpload}
         />
       </ButtonContainer>
-    </ImageIOContainer>
+    </NormalIOContainer>
   );
 };
 
