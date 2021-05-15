@@ -48,34 +48,34 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
     event: React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
     const value = event.target.value;
-    this.setState((prevState) => ({
-      leftInput: value,
-      leftOutput:
-        value && prevState.rightInput
-          ? getDiffOutput(value, prevState.rightInput, "R")
-          : prevState.leftOutput,
-      rightOutput:
-        value && prevState.rightInput
-          ? getDiffOutput(prevState.rightInput, value, "G")
-          : prevState.rightOutput
-    }));
+    this.setState((prevState) => {
+      const [leftOutput, rightOutput] = this.getOutput(
+        value,
+        prevState.rightInput
+      );
+      return {
+        leftInput: value,
+        leftOutput,
+        rightOutput
+      };
+    });
   };
 
   handleRightInputChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
     const value = event.target.value;
-    this.setState((prevState) => ({
-      rightInput: value,
-      leftOutput:
-        value && prevState.rightInput
-          ? getDiffOutput(value, prevState.rightInput, "R")
-          : prevState.leftOutput,
-      rightOutput:
-        value && prevState.rightInput
-          ? getDiffOutput(prevState.rightInput, value, "G")
-          : prevState.rightOutput
-    }));
+    this.setState((prevState) => {
+      const [leftOutput, rightOutput] = this.getOutput(
+        value,
+        prevState.leftInput
+      );
+      return {
+        rightInput: value,
+        leftOutput,
+        rightOutput
+      };
+    });
   };
 
   handleLeftInputClear = (): void => {
@@ -92,6 +92,20 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
 
   handleRightInputUpload = (): void => {
     loadFile().then((result) => this.setRightInput(result));
+  };
+
+  getOutput = (
+    original: string,
+    modified: string
+  ): [string[][], string[][]] => {
+    let LOutput = null;
+    let ROutput = null;
+    if (original && modified) {
+      const output = getDiffOutput(original, modified);
+      LOutput = output.filter((item) => item[0] === "N" || item[0] === "G");
+      ROutput = output.filter((item) => item[0] === "N" || item[0] === "R");
+    }
+    return [LOutput, ROutput];
   };
 
   render(): JSX.Element {
