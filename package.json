@@ -1,7 +1,10 @@
 {
-  "name": "getthattool",
-  "version": "0.1.0",
-  "private": true,
+  "name": "myapp-getthattool",
+  "version": "1.0.0",
+  "description": "A web app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
+  "repository": "git@github.com:kaushalmeena/myapp-getthattool.git",
+  "author": "Kaushal Meena <kaushal.meena1996@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

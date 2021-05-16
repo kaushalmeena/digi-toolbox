@@ -11,7 +11,7 @@ const Home: FunctionComponent = () => (
       <meta
         key="description"
         name="description"
-        content="GetThatTool is app that lets you have all common tools at one place."
+        content="GetThatTool is app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place."
       />
     </Head>
     <HomePage />
