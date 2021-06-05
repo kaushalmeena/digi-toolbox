@@ -1,4 +1,5 @@
 import {
+  AnchorButton,
   Button,
   ButtonGroup,
   Divider,
@@ -12,7 +13,7 @@ import { LogoContainer, LogoIcon, LogoText } from "./styles";
 
 type HeaderProps = {
   darkMode: boolean;
-  handleDarkModeChange: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleDarkModeToogle: () => void;
 };
 
 const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
@@ -32,16 +33,16 @@ const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
         <Divider />
         <ButtonGroup>
           <Button
-            icon="moon"
-            active={props.darkMode}
-            value="true"
-            onClick={props.handleDarkModeChange}
+            minimal
+            title="Toogle dark mode"
+            icon={props.darkMode ? "flash" : "moon"}
+            onClick={props.handleDarkModeToogle}
           />
-          <Button
-            icon="flash"
-            active={!props.darkMode}
-            value="false"
-            onClick={props.handleDarkModeChange}
+          <AnchorButton
+            minimal
+            title="Github repository"
+            icon="git-repo"
+            href="https://github.com/kaushalmeena/myapp-getthattool"
           />
         </ButtonGroup>
       </NavbarGroup>

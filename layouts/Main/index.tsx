@@ -25,21 +25,14 @@ class Layout extends Component<LayoutProps, LayoutState> {
   componentDidMount(): void {
     const value = fetchDarkMode();
     if (value !== this.state.darkMode) {
-      this.setState({
-        darkMode: value
-      });
+      this.setState({ darkMode: value });
     }
   }
 
-  handleDarkModeChange = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    const buttonValue = event.currentTarget.value;
-    const value = buttonValue === "true";
-    if (value !== this.state.darkMode) {
-      storeDarkMode(value);
-      this.setState({
-        darkMode: value
-      });
-    }
+  handleDarkModeToogle = (): void => {
+    const value = !this.state.darkMode;
+    this.setState({ darkMode: value });
+    storeDarkMode(value);
   };
 
   render(): JSX.Element {
@@ -49,7 +42,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
         <div className={theme.blueprintjsClass}>
           <Header
             darkMode={this.state.darkMode}
-            handleDarkModeChange={this.handleDarkModeChange}
+            handleDarkModeToogle={this.handleDarkModeToogle}
           />
           <Main>{this.props.children}</Main>
           <Footer />
