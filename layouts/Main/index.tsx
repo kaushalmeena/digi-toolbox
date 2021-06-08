@@ -29,7 +29,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
     }
   }
 
-  handleDarkModeToogle = (): void => {
+  handleDarkModeToggle = (): void => {
     const value = !this.state.darkMode;
     this.setState({ darkMode: value });
     storeDarkMode(value);
@@ -42,7 +42,7 @@ class Layout extends Component<LayoutProps, LayoutState> {
         <div className={theme.blueprintjsClass}>
           <Header
             darkMode={this.state.darkMode}
-            handleDarkModeToogle={this.handleDarkModeToogle}
+            handleDarkModeToggle={this.handleDarkModeToggle}
           />
           <Main>{this.props.children}</Main>
           <Footer />

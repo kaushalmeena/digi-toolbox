@@ -13,7 +13,7 @@ import { LogoContainer, LogoIcon, LogoText } from "./styles";
 
 type HeaderProps = {
   darkMode: boolean;
-  handleDarkModeToogle: () => void;
+  handleDarkModeToggle: () => void;
 };
 
 const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
@@ -34,9 +34,9 @@ const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
         <ButtonGroup>
           <Button
             minimal
-            title="Toogle dark mode"
+            title="Toggle dark mode"
             icon={props.darkMode ? "flash" : "moon"}
-            onClick={props.handleDarkModeToogle}
+            onClick={props.handleDarkModeToggle}
           />
           <AnchorButton
             minimal
