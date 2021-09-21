@@ -1,7 +1,8 @@
 import { H1, H2 } from "@blueprintjs/core";
 import React, { Component, createRef, ReactNode } from "react";
-import { copyData, loadImage, Toast } from "../../../../utils";
+import Toast from "../../../../shared/Toast";
 import { MainContainer, TopContainer } from "../../../../styles";
+import { copyData, loadImage } from "../../../../utils";
 import PickerSection from "./PickerSection";
 
 type ImageColorPickerProps = {
