@@ -1,5 +1,5 @@
 import { Classes } from "@blueprintjs/core";
-import { ITheme, ITool, IToolBox } from "../interfaces";
+import { ITheme, IToolBox } from "../interfaces";
 
 export const DarkTheme: ITheme = {
   id: "dark-theme",
@@ -230,8 +230,3 @@ export const ToolBoxes: IToolBox[] = [
     ]
   }
 ];
-
-export const Tools: ITool[] = ToolBoxes.reduce(
-  (acc, cur) => acc.concat(cur.tools),
-  []
-);
