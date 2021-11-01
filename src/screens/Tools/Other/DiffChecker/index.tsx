@@ -1,14 +1,14 @@
 import { H1, H2 } from "@blueprintjs/core";
 import React, { Component, ReactNode } from "react";
-import { loadFile } from "../../../../utils";
 import InputSection from "../../../../shared/Page/DataConvert/InputSection";
 import {
   MainContainer,
   MiddleContainer,
   TopContainer
 } from "../../../../styles";
+import { loadFile } from "../../../../utils";
 import OutputSection from "./OutputSection";
-import { getDiffOutput } from "./utils";
+import { getLeftAndRightOutput } from "./utils";
 
 type DiffCheckerProps = {
   children?: ReactNode;
@@ -49,7 +49,7 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
   ): void => {
     const value = event.target.value;
     this.setState((prevState) => {
-      const [leftOutput, rightOutput] = this.getOutput(
+      const [leftOutput, rightOutput] = getLeftAndRightOutput(
         value,
         prevState.rightInput
       );
@@ -66,7 +66,7 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
   ): void => {
     const value = event.target.value;
     this.setState((prevState) => {
-      const [leftOutput, rightOutput] = this.getOutput(
+      const [leftOutput, rightOutput] = getLeftAndRightOutput(
         value,
         prevState.leftInput
       );
@@ -92,20 +92,6 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
 
   handleRightInputUpload = (): void => {
     loadFile().then((result) => this.setRightInput(result));
-  };
-
-  getOutput = (
-    original: string,
-    modified: string
-  ): [string[][], string[][]] => {
-    let LOutput = null;
-    let ROutput = null;
-    if (original && modified) {
-      const output = getDiffOutput(original, modified);
-      LOutput = output.filter((item) => item[0] === "N" || item[0] === "G");
-      ROutput = output.filter((item) => item[0] === "N" || item[0] === "R");
-    }
-    return [LOutput, ROutput];
   };
 
   render(): JSX.Element {
