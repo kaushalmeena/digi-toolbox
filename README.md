@@ -4,7 +4,7 @@ A web app that lets you have all common JSON, CSV, YAML, XML, Text and other too
 
 Live version is deployed at [https://myapp-getthattool.netlify.app/](https://myapp-getthattool.netlify.app/)
 
-## Local Development
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
