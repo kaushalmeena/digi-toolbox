@@ -1,63 +1,65 @@
+import { AREA_CONVERSION_FACTORS, AREA_UNITS } from "./constants";
+
 export const convertArea = (
   input: string,
   from: string,
   to: string
 ): string => {
   let result = 0;
-  let meterSquared = 0;
+  let sqMeter = 0;
   const number = parseFloat(input);
 
   switch (from) {
-    case "m²":
-      meterSquared = number;
+    case AREA_UNITS.SQ_METER:
+      sqMeter = number;
       break;
-    case "km²":
-      meterSquared = number * 1000000;
+    case AREA_UNITS.SQ_KILOMETER:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_KILOMETER_TO_SQ_METER;
       break;
-    case "mi²":
-      meterSquared = number * 2589988.110339;
+    case AREA_UNITS.SQ_MILE:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_MILE_TO_SQ_METER;
       break;
-    case "yd²":
-      meterSquared = number * 0.83612736000097;
+    case AREA_UNITS.SQ_YARD:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_YARD_TO_SQ_METER;
       break;
-    case "ft²":
-      meterSquared = number * 0.092903040000107;
+    case AREA_UNITS.SQ_FOOT:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_FOOT_TO_SQ_METER;
       break;
-    case "in²":
-      meterSquared = number * 0.00064516000000075;
+    case AREA_UNITS.SQ_INCH:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_INCH_TO_SQ_METER;
       break;
-    case "ha":
-      meterSquared = number * 10000;
+    case AREA_UNITS.SQ_HECTARE:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_HECTARE_TO_SQ_METER;
       break;
-    case "ac":
-      meterSquared = number * 4046.8564224047;
+    case AREA_UNITS.SQ_ACRE:
+      sqMeter = number * AREA_CONVERSION_FACTORS.SQ_ACRE_TO_SQ_METER;
       break;
   }
 
   switch (to) {
-    case "m²":
-      result = meterSquared;
+    case AREA_UNITS.SQ_METER:
+      result = sqMeter;
       break;
-    case "km²":
-      result = meterSquared * 0.000001;
+    case AREA_UNITS.SQ_KILOMETER:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_KILOMETER;
       break;
-    case "mi²":
-      result = meterSquared * 3.86102158542e-7;
+    case AREA_UNITS.SQ_MILE:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_MILE;
       break;
-    case "yd²":
-      result = meterSquared * 1.1959900462997;
+    case AREA_UNITS.SQ_YARD:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_YARD;
       break;
-    case "ft²":
-      result = meterSquared * 10.763910416697;
+    case AREA_UNITS.SQ_FOOT:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_FOOT;
       break;
-    case "in²":
-      result = meterSquared * 1550.0031000044;
+    case AREA_UNITS.SQ_INCH:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_INCH;
       break;
-    case "ha":
-      result = meterSquared * 0.0001;
+    case AREA_UNITS.SQ_HECTARE:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_HECTARE;
       break;
-    case "ac":
-      result = meterSquared * 0.00024710538146688;
+    case AREA_UNITS.SQ_ACRE:
+      result = sqMeter * AREA_CONVERSION_FACTORS.SQ_METER_TO_SQ_ACRE;
       break;
   }
 

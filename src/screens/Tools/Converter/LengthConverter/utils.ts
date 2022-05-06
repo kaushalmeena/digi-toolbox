@@ -1,3 +1,5 @@
+import { LENGTH_CONVERSION_FACTORS, LENGTH_UNITS } from "./constants";
+
 export const convertLength = (
   input: string,
   from: string,
@@ -8,56 +10,56 @@ export const convertLength = (
   const number = parseFloat(input);
 
   switch (from) {
-    case "km":
-      meter = number * 1000;
+    case LENGTH_UNITS.KILOMETER:
+      meter = number * LENGTH_CONVERSION_FACTORS.KILOMETER_TO_METER;
       break;
-    case "m":
+    case LENGTH_UNITS.METER:
       meter = number;
       break;
-    case "cm":
-      meter = number * 0.01;
+    case LENGTH_UNITS.CENTIMETER:
+      meter = number * LENGTH_CONVERSION_FACTORS.CENTIMETER_TO_METER;
       break;
-    case "mm":
-      meter = number * 0.001;
+    case LENGTH_UNITS.MILLIMETER:
+      meter = number * LENGTH_CONVERSION_FACTORS.MILLIMETER_TO_METER;
       break;
-    case "mi":
-      meter = number * 1609.344;
+    case LENGTH_UNITS.MILE:
+      meter = number * LENGTH_CONVERSION_FACTORS.MILE_TO_METER;
       break;
-    case "yd":
-      meter = number * 0.9144;
+    case LENGTH_UNITS.YARD:
+      meter = number * LENGTH_CONVERSION_FACTORS.YARD_TO_METER;
       break;
-    case "ft":
-      meter = number * 0.3048;
+    case LENGTH_UNITS.FOOT:
+      meter = number * LENGTH_CONVERSION_FACTORS.FOOT_TO_METER;
       break;
-    case "in":
-      meter = number * 0.0254;
+    case LENGTH_UNITS.INCH:
+      meter = number * LENGTH_CONVERSION_FACTORS.INCH_TO_METER;
       break;
   }
 
   switch (to) {
-    case "km":
-      result = meter * 0.001;
+    case LENGTH_UNITS.KILOMETER:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_KILOMETER;
       break;
-    case "m":
+    case LENGTH_UNITS.METER:
       result = meter;
       break;
-    case "cm":
-      result = meter * 100;
+    case LENGTH_UNITS.CENTIMETER:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_CENTIMETER;
       break;
-    case "mm":
-      result = meter * 1000;
+    case LENGTH_UNITS.MILLIMETER:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_MILLIMETER;
       break;
-    case "mi":
-      result = meter * 0.00062137119223733;
+    case LENGTH_UNITS.MILE:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_MILE;
       break;
-    case "yd":
-      result = meter * 1.0936132983377;
+    case LENGTH_UNITS.YARD:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_YARD;
       break;
-    case "ft":
-      result = meter * 3.2808398950131;
+    case LENGTH_UNITS.FOOT:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_FOOT;
       break;
-    case "in":
-      result = meter * 39.370078740157;
+    case LENGTH_UNITS.INCH:
+      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_INCH;
       break;
   }
 

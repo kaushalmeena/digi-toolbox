@@ -1,28 +1,50 @@
 import { ISelectOption } from "../../../../interfaces";
 
+export const enum PRESSURE_UNITS {
+  BAR = "bar",
+  PASCAL = "Pa",
+  POUNDS_PER_SQ_FOOT = "lb/ft²",
+  POUNDS_PER_SQ_INCH = "lb/in²",
+  STANDARD_ATMOSPHERE = "atm",
+  TORR = "Torr"
+}
+
+export const enum PRESSURE_CONVERSION_FACTORS {
+  BAR_TO_PASCAL = 100000,
+  POUNDS_PER_SQ_FOOT_TO_PASCAL = 47.880258980405,
+  POUNDS_PER_SQ_INCH_TO_PASCAL = 6894.7572931783,
+  STANDARD_ATMOSPHERE_TO_PASCAL = 101325,
+  TORR_TO_PASCAL = 133.32236842108,
+  PASCAL_TO_BAR = 0.00001,
+  PASCAL_TO_POUNDS_PER_SQ_FOOT = 0.02088543423312,
+  PASCAL_TO_POUNDS_PER_SQ_INCH = 0.00014503773773,
+  PASCAL_TO_STANDARD_ATMOSPHERE = 9.8692326671601e-6,
+  PASCAL_TO_TORR = 0.00750061682704
+}
+
 export const PressureSelectOptions: ISelectOption[] = [
   {
     label: "Bar",
-    value: "bar"
+    value: PRESSURE_UNITS.BAR
   },
   {
     label: "Pascal",
-    value: "Pa"
+    value: PRESSURE_UNITS.PASCAL
   },
   {
-    label: "Pounds/sq. foot",
-    value: "lbf/ft²"
+    label: "Pounds/foot²",
+    value: PRESSURE_UNITS.POUNDS_PER_SQ_FOOT
   },
   {
-    label: "Pounds/sq. inch",
-    value: "lbf/in²"
+    label: "Pounds/inch² (PSI)",
+    value: PRESSURE_UNITS.POUNDS_PER_SQ_INCH
   },
   {
     label: "Standard atmosphere",
-    value: "atm"
+    value: PRESSURE_UNITS.STANDARD_ATMOSPHERE
   },
   {
     label: "Torr",
-    value: "Torr"
+    value: PRESSURE_UNITS.TORR
   }
 ];

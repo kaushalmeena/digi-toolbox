@@ -1,3 +1,5 @@
+import { TEMPERATURE_UNITS } from "./constants";
+
 export const convertTemperature = (
   input: string,
   from: string,
@@ -8,28 +10,44 @@ export const convertTemperature = (
   const number = parseFloat(input);
 
   switch (from) {
-    case "°C":
+    case TEMPERATURE_UNITS.CELSIUS:
       celsius = number;
       break;
-    case "°F":
-      celsius = (number - 32) * (5 / 9);
+    case TEMPERATURE_UNITS.FAHRENHEIT:
+      celsius = convertFahrenheitToCelsius(number);
       break;
-    case "K":
-      celsius = number - 273.15;
+    case TEMPERATURE_UNITS.KELVIN:
+      celsius = convertKelvinToCelsius(number);
       break;
   }
 
   switch (to) {
-    case "°C":
+    case TEMPERATURE_UNITS.CELSIUS:
       result = celsius;
       break;
-    case "°F":
-      result = celsius * (9 / 5) + 32;
+    case TEMPERATURE_UNITS.FAHRENHEIT:
+      result = convertCelsiusToFahrenheit(celsius);
       break;
-    case "K":
-      result = celsius + 273.15;
+    case TEMPERATURE_UNITS.KELVIN:
+      result = convertCelsiusToKelvin(celsius);
       break;
   }
 
   return result.toString();
 };
+
+function convertFahrenheitToCelsius(input: number) {
+  return (input - 32) * (5 / 9);
+}
+
+function convertKelvinToCelsius(input: number) {
+  return input - 273.15;
+}
+
+function convertCelsiusToFahrenheit(input: number) {
+  return input * (9 / 5) + 32;
+}
+
+function convertCelsiusToKelvin(input: number) {
+  return input + 273.15;
+}

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import Page from "../../../../shared/Page/UnitConvert";
-import { EnergySelectOptions } from "./constants";
+import { EnergySelectOptions, ENERGY_UNITS } from "./constants";
 import { convertEnergy } from "./utils";
 
 const EnergyConverter: FunctionComponent = () => {
@@ -9,8 +9,8 @@ const EnergyConverter: FunctionComponent = () => {
       heading="Energy Converter"
       subHeading="Quickly convert engrgy between joule, calorie, electronvolt etc."
       selectOptions={EnergySelectOptions}
-      fromDefaultValue="kJ"
-      toDefaultValue="J"
+      fromDefaultValue={ENERGY_UNITS.KILOJOULE}
+      toDefaultValue={ENERGY_UNITS.JOULE}
       convertFunction={convertEnergy}
     />
   );

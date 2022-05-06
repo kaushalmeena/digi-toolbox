@@ -1,3 +1,5 @@
+import { MASS_CONVERSION_FACTORS, MASS_UNITS } from "./constants";
+
 export const convertMass = (
   input: string,
   from: string,
@@ -8,56 +10,56 @@ export const convertMass = (
   const number = parseFloat(input);
 
   switch (from) {
-    case "kg":
-      gram = number * 1000;
+    case MASS_UNITS.KILOGRAM:
+      gram = number * MASS_CONVERSION_FACTORS.KILOGRAM_TO_GRAM;
       break;
-    case "g":
+    case MASS_UNITS.GRAM:
       gram = number;
       break;
-    case "mg":
-      gram = number * 0.001;
+    case MASS_UNITS.MILLIGRAM:
+      gram = number * MASS_CONVERSION_FACTORS.MILLIGRAM_TO_GRAM;
       break;
-    case "µg":
-      gram = number * 0.000001;
+    case MASS_UNITS.MICROGRAM:
+      gram = number * MASS_CONVERSION_FACTORS.MICROGRAM_TO_GRAM;
       break;
-    case "CD":
-      gram = number * 0.2;
+    case MASS_UNITS.CARAT:
+      gram = number * MASS_CONVERSION_FACTORS.CARAT_TO_GRAM;
       break;
-    case "q":
-      gram = number * 100000;
+    case MASS_UNITS.QUINTAL:
+      gram = number * MASS_CONVERSION_FACTORS.QUINTAL_TO_GRAM;
       break;
-    case "lb":
-      gram = number * 453.59237;
+    case MASS_UNITS.POUND:
+      gram = number * MASS_CONVERSION_FACTORS.POUND_TO_GRAM;
       break;
-    case "oz":
-      gram = number * 28.349523125;
+    case MASS_UNITS.OUNCE:
+      gram = number * MASS_CONVERSION_FACTORS.OUNCE_TO_GRAM;
       break;
   }
 
   switch (to) {
-    case "kg":
-      result = gram * 0.001;
+    case MASS_UNITS.KILOGRAM:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_KILOGRAM;
       break;
-    case "g":
+    case MASS_UNITS.GRAM:
       result = gram;
       break;
-    case "mg":
-      result = gram * 1000;
+    case MASS_UNITS.MILLIGRAM:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_MILLIGRAM;
       break;
-    case "µg":
-      result = gram * 1000000;
+    case MASS_UNITS.MICROGRAM:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_MICROGRAM;
       break;
-    case "CD":
-      result = gram * 5;
+    case MASS_UNITS.CARAT:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_CARAT;
       break;
-    case "q":
-      result = gram * 0.00001;
+    case MASS_UNITS.QUINTAL:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_QUINTAL;
       break;
-    case "lb":
-      result = gram * 0.0022046226218488;
+    case MASS_UNITS.POUND:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_POUND;
       break;
-    case "oz":
-      result = gram * 0.03527396194958;
+    case MASS_UNITS.OUNCE:
+      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_OUNCE;
       break;
   }
 

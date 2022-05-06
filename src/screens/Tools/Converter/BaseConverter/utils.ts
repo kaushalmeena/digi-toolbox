@@ -1,12 +1,13 @@
 import { ISelectOption } from "../../../../interfaces";
+import { KnownBaseNames } from "./constants";
 
 export const convertBase = (
   input: string,
   from: string,
   to: string
 ): string => {
-  const fromBase = from.substr(5);
-  const toBase = to.substr(5);
+  const fromBase = from.substring(5);
+  const toBase = to.substring(5);
 
   const initialBase = parseInt(fromBase, 10);
   const targetBase = parseInt(toBase, 10);
@@ -17,16 +18,9 @@ export const convertBase = (
 export const generateSelectOptions = (start = 2, end = 16): ISelectOption[] => {
   const options = [];
 
-  const BaseNames = {
-    "02": "Binary",
-    "08": "Octal",
-    "10": "Decimal",
-    "16": "Hexadecimal"
-  };
-
   for (let i = start; i <= end; i++) {
     const base = String(i).padStart(2, "0");
-    const extraText = BaseNames[base] ? ` (${BaseNames[base]})` : "";
+    const extraText = KnownBaseNames[base] ? ` (${KnownBaseNames[base]})` : "";
     options.push({
       label: `Base-${base}` + extraText,
       value: `base-${base}`

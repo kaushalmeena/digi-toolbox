@@ -1,3 +1,5 @@
+import { PRESSURE_CONVERSION_FACTORS, PRESSURE_UNITS } from "./constants";
+
 export const convertPressure = (
   input: string,
   from: string,
@@ -8,44 +10,50 @@ export const convertPressure = (
   const number = parseFloat(input);
 
   switch (from) {
-    case "bar":
-      pascal = number * 100000;
+    case PRESSURE_UNITS.BAR:
+      pascal = number * PRESSURE_CONVERSION_FACTORS.BAR_TO_PASCAL;
       break;
-    case "Pa":
+    case PRESSURE_UNITS.PASCAL:
       pascal = number;
       break;
-    case "lbf/ft²":
-      pascal = number * 47.880258980405;
+    case PRESSURE_UNITS.POUNDS_PER_SQ_FOOT:
+      pascal =
+        number * PRESSURE_CONVERSION_FACTORS.POUNDS_PER_SQ_FOOT_TO_PASCAL;
       break;
-    case "lbf/in²":
-      pascal = number * 6894.7572931783;
+    case PRESSURE_UNITS.POUNDS_PER_SQ_INCH:
+      pascal =
+        number * PRESSURE_CONVERSION_FACTORS.POUNDS_PER_SQ_INCH_TO_PASCAL;
       break;
-    case "atm":
-      pascal = number * 101325;
+    case PRESSURE_UNITS.STANDARD_ATMOSPHERE:
+      pascal =
+        number * PRESSURE_CONVERSION_FACTORS.STANDARD_ATMOSPHERE_TO_PASCAL;
       break;
-    case "Torr":
-      pascal = number * 133.32236842108;
+    case PRESSURE_UNITS.TORR:
+      pascal = number * PRESSURE_CONVERSION_FACTORS.TORR_TO_PASCAL;
       break;
   }
 
   switch (to) {
-    case "bar":
-      result = pascal * 0.00001;
+    case PRESSURE_UNITS.BAR:
+      result = pascal * PRESSURE_CONVERSION_FACTORS.PASCAL_TO_BAR;
       break;
-    case "Pa":
+    case PRESSURE_UNITS.PASCAL:
       result = pascal;
       break;
-    case "lbf/ft²":
-      result = pascal * 0.02088543423312;
+    case PRESSURE_UNITS.POUNDS_PER_SQ_FOOT:
+      result =
+        pascal * PRESSURE_CONVERSION_FACTORS.PASCAL_TO_POUNDS_PER_SQ_FOOT;
       break;
-    case "lbf/in²":
-      result = pascal * 0.00014503773773;
+    case PRESSURE_UNITS.POUNDS_PER_SQ_INCH:
+      result =
+        pascal * PRESSURE_CONVERSION_FACTORS.PASCAL_TO_POUNDS_PER_SQ_INCH;
       break;
-    case "atm":
-      result = pascal * 9.8692326671601e-6;
+    case PRESSURE_UNITS.STANDARD_ATMOSPHERE:
+      result =
+        pascal * PRESSURE_CONVERSION_FACTORS.PASCAL_TO_STANDARD_ATMOSPHERE;
       break;
-    case "Torr":
-      result = pascal * 0.00750061682704;
+    case PRESSURE_UNITS.TORR:
+      result = pascal * PRESSURE_CONVERSION_FACTORS.PASCAL_TO_TORR;
       break;
   }
 

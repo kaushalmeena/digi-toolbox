@@ -1,3 +1,5 @@
+import { ANGLE_CONVERSION_FACTORS, ANGLE_UNITS } from "./constants";
+
 export const convertAngle = (
   input: string,
   from: string,
@@ -8,38 +10,38 @@ export const convertAngle = (
   const number = parseFloat(input);
 
   switch (from) {
-    case "deg":
+    case ANGLE_UNITS.DEGREE:
       degree = number;
       break;
-    case "rad":
-      degree = number * 57.295779513082;
+    case ANGLE_UNITS.RADIAN:
+      degree = number * ANGLE_CONVERSION_FACTORS.RADIAN_TO_DEGREE;
       break;
-    case "grad":
-      degree = number * 0.9;
+    case ANGLE_UNITS.GRADIAN:
+      degree = number * ANGLE_CONVERSION_FACTORS.GRADIAN_TO_DEGREE;
       break;
-    case "arc-minute":
-      degree = number * 0.016666666666667;
+    case ANGLE_UNITS.ARC_MINUTE:
+      degree = number * ANGLE_CONVERSION_FACTORS.ARC_MINUTE_TO_DEGREE;
       break;
-    case "arc-second":
-      degree = number * 0.00027777777777778;
+    case ANGLE_UNITS.ARC_SECOND:
+      degree = number * ANGLE_CONVERSION_FACTORS.ARC_SECOND_TO_DEGREE;
       break;
   }
 
   switch (to) {
-    case "deg":
+    case ANGLE_UNITS.DEGREE:
       result = degree;
       break;
-    case "rad":
-      result = degree * 0.017453292519943;
+    case ANGLE_UNITS.RADIAN:
+      result = degree * ANGLE_CONVERSION_FACTORS.DEGREE_TO_RADIAN;
       break;
-    case "grad":
-      result = degree * 1.1111111111111;
+    case ANGLE_UNITS.GRADIAN:
+      result = degree * ANGLE_CONVERSION_FACTORS.DEGREE_TO_GRADIAN;
       break;
-    case "arc-minute":
-      result = degree * 60;
+    case ANGLE_UNITS.ARC_MINUTE:
+      result = degree * ANGLE_CONVERSION_FACTORS.DEGREE_TO_ARC_MINUTE;
       break;
-    case "arc-second":
-      result = degree * 3600;
+    case ANGLE_UNITS.ARC_SECOND:
+      result = degree * ANGLE_CONVERSION_FACTORS.DEGREE_TO_ARC_SECOND;
       break;
   }
 

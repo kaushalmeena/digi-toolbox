@@ -1,45 +1,62 @@
+import { SPEED_UNITS, SPEED_UNITS_CONVERSION_FACTORS } from "./constants";
+
 export const convertSpeed = (
   input: string,
   from: string,
   to: string
 ): string => {
   let result = 0;
-  let meterPerSecond = 0;
+  let metersPerSecond = 0;
   const number = parseFloat(input);
 
   switch (from) {
-    case "km/h":
-      meterPerSecond = number * 0.27777777777778;
+    case SPEED_UNITS.KILOMETERS_PER_HOUR:
+      metersPerSecond =
+        number *
+        SPEED_UNITS_CONVERSION_FACTORS.KILOMETERS_PER_HOUR_TO_METERS_PER_SECOND;
       break;
-    case "m/s":
-      meterPerSecond = number;
+    case SPEED_UNITS.METERS_PER_SECOND:
+      metersPerSecond = number;
       break;
-    case "mi/h":
-      meterPerSecond = number * 0.44704;
+    case SPEED_UNITS.MILES_PER_HOUR:
+      metersPerSecond =
+        number *
+        SPEED_UNITS_CONVERSION_FACTORS.MILES_PER_HOUR_TO_METERS_PER_SECOND;
       break;
-    case "ft/s":
-      meterPerSecond = number * 0.3048;
+    case SPEED_UNITS.FEET_PER_SECOND:
+      metersPerSecond =
+        number *
+        SPEED_UNITS_CONVERSION_FACTORS.FEET_PER_SECOND_TO_METERS_PER_SECOND;
       break;
-    case "kt":
-      meterPerSecond = number * 0.51444444444444;
+    case SPEED_UNITS.KNOT:
+      metersPerSecond =
+        number * SPEED_UNITS_CONVERSION_FACTORS.KNOT_TO_METERS_PER_SECOND;
       break;
   }
 
   switch (to) {
-    case "km/h":
-      result = meterPerSecond * 3.6;
+    case SPEED_UNITS.KILOMETERS_PER_HOUR:
+      result =
+        metersPerSecond *
+        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_KILOMETERS_PER_HOUR;
       break;
-    case "m/s":
-      result = meterPerSecond;
+    case SPEED_UNITS.METERS_PER_SECOND:
+      result = metersPerSecond;
       break;
-    case "mi/h":
-      result = meterPerSecond * 2.2369362920544;
+    case SPEED_UNITS.MILES_PER_HOUR:
+      result =
+        metersPerSecond *
+        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_MILES_PER_HOUR;
       break;
-    case "ft/s":
-      result = meterPerSecond * 3.2808398950131;
+    case SPEED_UNITS.FEET_PER_SECOND:
+      result =
+        metersPerSecond *
+        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_FEET_PER_SECOND;
       break;
-    case "kt":
-      result = meterPerSecond * 1.9438444924406;
+    case SPEED_UNITS.KNOT:
+      result =
+        metersPerSecond *
+        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_KNOT;
       break;
   }
 
