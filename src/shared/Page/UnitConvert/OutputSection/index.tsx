@@ -1,5 +1,5 @@
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { ISelectOption } from "../../../../interfaces";
 import { SelectContainer, TextIOContainer } from "../../../../styles";
 
@@ -11,28 +11,32 @@ type OutputSectionProps = {
   handleToSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const OutputSection: FunctionComponent<OutputSectionProps> = (
-  props: OutputSectionProps
-) => {
+function OutputSection({
+  output,
+  to,
+  selectOptions,
+  handleOutputChange,
+  handleToSelectChange
+}: OutputSectionProps) {
   return (
     <TextIOContainer>
       <InputGroup
         large
-        value={props.output}
-        rightElement={<Tag minimal>{props.to}</Tag>}
-        onChange={props.handleOutputChange}
+        value={output}
+        rightElement={<Tag minimal>{to}</Tag>}
+        onChange={handleOutputChange}
       />
       <SelectContainer>
         <HTMLSelect
           fill
           large
-          options={props.selectOptions}
-          value={props.to}
-          onChange={props.handleToSelectChange}
+          options={selectOptions}
+          value={to}
+          onChange={handleToSelectChange}
         />
       </SelectContainer>
     </TextIOContainer>
   );
-};
+}
 
 export default OutputSection;

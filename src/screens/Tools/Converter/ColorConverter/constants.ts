@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum COLOR_UNITS {
+export const enum ColorUnits {
   HEX = "hex",
   RGB = "rgb",
   HSL = "hsl"
@@ -9,15 +9,15 @@ export const enum COLOR_UNITS {
 export const ColorSelectOptions: ISelectOption[] = [
   {
     label: "HEX",
-    value: COLOR_UNITS.HEX
+    value: ColorUnits.HEX
   },
   {
     label: "RGB",
-    value: COLOR_UNITS.RGB
+    value: ColorUnits.RGB
   },
   {
     label: "HSL",
-    value: COLOR_UNITS.HSL
+    value: ColorUnits.HSL
   }
 ];
 

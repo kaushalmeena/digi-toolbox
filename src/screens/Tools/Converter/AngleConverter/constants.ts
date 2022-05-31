@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum ANGLE_UNITS {
+export const enum AngleUnits {
   DEGREE = "deg",
   RADIAN = "rad",
   GRADIAN = "grad",
@@ -8,7 +8,7 @@ export const enum ANGLE_UNITS {
   ARC_SECOND = "arc-second"
 }
 
-export const enum ANGLE_CONVERSION_FACTORS {
+export const enum AngleConversationFactors {
   RADIAN_TO_DEGREE = 57.295779513082,
   GRADIAN_TO_DEGREE = 0.9,
   ARC_MINUTE_TO_DEGREE = 0.016666666666667,
@@ -22,22 +22,22 @@ export const enum ANGLE_CONVERSION_FACTORS {
 export const AngleSelectOptions: ISelectOption[] = [
   {
     label: "Degree",
-    value: ANGLE_UNITS.DEGREE
+    value: AngleUnits.DEGREE
   },
   {
     label: "Radian",
-    value: ANGLE_UNITS.RADIAN
+    value: AngleUnits.RADIAN
   },
   {
     label: "Gradian",
-    value: ANGLE_UNITS.GRADIAN
+    value: AngleUnits.GRADIAN
   },
   {
     label: "Minute of arc",
-    value: ANGLE_UNITS.ARC_MINUTE
+    value: AngleUnits.ARC_MINUTE
   },
   {
     label: "Second of arc",
-    value: ANGLE_UNITS.ARC_SECOND
+    value: AngleUnits.ARC_SECOND
   }
 ];

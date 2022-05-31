@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum ENERGY_UNITS {
+export const enum EnergyUnits {
   JOULE = "J",
   KILOJOULE = "kJ",
   CALORIE = "cal",
@@ -12,7 +12,7 @@ export const enum ENERGY_UNITS {
   FOOT_POUND = "ft⋅lb"
 }
 
-export const enum ENERGY_CONVERSION_FACTORS {
+export const enum EnergyConversationFactors {
   KILOJOULE_TO_JOULE = 1000,
   CALORIE_TO_JOULE = 4.184,
   KILOCALORIE_TO_JOULE = 4184,
@@ -34,38 +34,38 @@ export const enum ENERGY_CONVERSION_FACTORS {
 export const EnergySelectOptions: ISelectOption[] = [
   {
     label: "Joule",
-    value: ENERGY_UNITS.JOULE
+    value: EnergyUnits.JOULE
   },
   {
     label: "Kilojoule",
-    value: ENERGY_UNITS.KILOJOULE
+    value: EnergyUnits.KILOJOULE
   },
   {
     label: "Calorie",
-    value: ENERGY_UNITS.CALORIE
+    value: EnergyUnits.CALORIE
   },
   {
     label: "Kilocalorie",
-    value: ENERGY_UNITS.KILOCALORIE
+    value: EnergyUnits.KILOCALORIE
   },
   {
     label: "Watt hour",
-    value: ENERGY_UNITS.WATT_HOUR
+    value: EnergyUnits.WATT_HOUR
   },
   {
     label: "Kilowatt hour",
-    value: ENERGY_UNITS.KILOWATT_HOUR
+    value: EnergyUnits.KILOWATT_HOUR
   },
   {
     label: "Electronvolt",
-    value: ENERGY_UNITS.ELECTRONVOLT
+    value: EnergyUnits.ELECTRONVOLT
   },
   {
     label: "Horsepower hour",
-    value: ENERGY_UNITS.HORSEPOWER_HOUR
+    value: EnergyUnits.HORSEPOWER_HOUR
   },
   {
     label: "Foot-pound",
-    value: ENERGY_UNITS.FOOT_POUND
+    value: EnergyUnits.FOOT_POUND
   }
 ];

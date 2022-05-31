@@ -8,7 +8,7 @@ import {
   NavbarHeading
 } from "@blueprintjs/core";
 import Link from "next/link";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { LogoContainer, LogoIcon, LogoText } from "./styles";
 
 type HeaderProps = {
@@ -16,7 +16,7 @@ type HeaderProps = {
   handleDarkModeToggle: () => void;
 };
 
-const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
+function Header({ darkMode, handleDarkModeToggle }: HeaderProps) {
   return (
     <Navbar>
       <NavbarGroup>
@@ -35,8 +35,8 @@ const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
           <Button
             minimal
             title="Toggle dark mode"
-            icon={props.darkMode ? "flash" : "moon"}
-            onClick={props.handleDarkModeToggle}
+            icon={darkMode ? "flash" : "moon"}
+            onClick={handleDarkModeToggle}
           />
           <AnchorButton
             minimal
@@ -48,6 +48,6 @@ const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
       </NavbarGroup>
     </Navbar>
   );
-};
+}
 
 export default Header;

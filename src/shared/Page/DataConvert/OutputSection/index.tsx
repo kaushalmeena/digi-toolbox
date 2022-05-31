@@ -1,5 +1,5 @@
 import { Button, TextArea } from "@blueprintjs/core";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { ButtonContainer, TextIOContainer } from "../../../../styles";
 
 type OutputSectionProps = {
@@ -8,28 +8,30 @@ type OutputSectionProps = {
   handleOutputDownload: () => void;
 };
 
-const OutputSection: FunctionComponent<OutputSectionProps> = (
-  props: OutputSectionProps
-) => {
+function OutputSection({
+  output,
+  handleOutputCopy,
+  handleOutputDownload
+}: OutputSectionProps) {
   return (
     <TextIOContainer>
-      <TextArea readOnly fill rows={16} value={props.output} />
+      <TextArea readOnly fill rows={16} value={output} />
       <ButtonContainer>
         <Button
           large
           title="Copy"
           icon="duplicate"
-          onClick={props.handleOutputCopy}
+          onClick={handleOutputCopy}
         />
         <Button
           large
           title="Download"
           icon="import"
-          onClick={props.handleOutputDownload}
+          onClick={handleOutputDownload}
         />
       </ButtonContainer>
     </TextIOContainer>
   );
-};
+}
 
 export default OutputSection;

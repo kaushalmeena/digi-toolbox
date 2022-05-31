@@ -119,9 +119,8 @@ export const splitOnTags = (str: string): string[] =>
 export const getSafeString = (str: string): string => {
   if (isUnsafeString(str)) {
     return JSON.stringify(str);
-  } else {
-    return str;
   }
+  return str;
 };
 
 export const removeQuotes = (str: string): string => {
@@ -135,27 +134,31 @@ export const removeQuotes = (str: string): string => {
 export const parseString = (str: string): string | boolean | number => {
   if (isBoolean(str)) {
     return str === "true";
-  } else if (isFloat(str)) {
-    return Number.parseFloat(str);
-  } else if (isInteger(str)) {
-    return Number.parseInt(str);
-  } else {
-    return str;
   }
+  if (isFloat(str)) {
+    return Number.parseFloat(str);
+  }
+  if (isInteger(str)) {
+    return Number.parseInt(str, 10);
+  }
+  return str;
 };
 
 export const getType = (item: unknown): string => {
   if (item instanceof Array) {
     return "array";
-  } else if (item instanceof Object) {
-    return "object";
-  } else if (typeof item === "string") {
-    return "string";
-  } else if (typeof item === "boolean") {
-    return "boolean";
-  } else if (typeof item === "number") {
-    return "number";
-  } else {
-    return "null";
   }
+  if (item instanceof Object) {
+    return "object";
+  }
+  if (typeof item === "string") {
+    return "string";
+  }
+  if (typeof item === "boolean") {
+    return "boolean";
+  }
+  if (typeof item === "number") {
+    return "number";
+  }
+  return "null";
 };

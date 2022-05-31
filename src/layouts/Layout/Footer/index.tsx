@@ -1,6 +1,6 @@
 import { Divider } from "@blueprintjs/core";
 import Link from "next/link";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { ToolBoxes } from "../../../constants";
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   MainContainer
 } from "./styles";
 
-const Footer: FunctionComponent = () => {
+function Footer() {
   return (
     <Container>
       <MainContainer>
@@ -29,6 +29,6 @@ const Footer: FunctionComponent = () => {
       <MessageContainer>Made with &#9829; in NextJS</MessageContainer>
     </Container>
   );
-};
+}
 
 export default Footer;

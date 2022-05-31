@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { decodeHTML } from "./utils";
 
-const DecodeHTMLPage: FunctionComponent = () => {
+function DecodeHTMLPage() {
   return (
     <Page
       heading="HTML Decode"
@@ -13,6 +13,6 @@ const DecodeHTMLPage: FunctionComponent = () => {
       convertFunction={decodeHTML}
     />
   );
-};
+}
 
 export default DecodeHTMLPage;

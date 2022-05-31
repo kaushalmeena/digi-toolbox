@@ -1,5 +1,6 @@
 import { Button, Card } from "@blueprintjs/core";
-import React, { FunctionComponent } from "react";
+import Image from "next/image";
+import React from "react";
 import {
   ButtonContainer,
   CardImage,
@@ -11,14 +12,12 @@ type InputSectionProps = {
   handleInputUpload: () => void;
 };
 
-const InputSection: FunctionComponent<InputSectionProps> = (
-  props: InputSectionProps
-) => {
+function InputSection({ input, handleInputUpload }: InputSectionProps) {
   return (
     <NormalIOContainer>
       <Card>
         <CardImage>
-          {props.input ? <img alt="input-image" src={props.input} /> : null}
+          {input ? <Image alt="Output-Image" src={input} /> : null}
         </CardImage>
       </Card>
       <ButtonContainer>
@@ -26,11 +25,11 @@ const InputSection: FunctionComponent<InputSectionProps> = (
           large
           title="Upload"
           icon="export"
-          onClick={props.handleInputUpload}
+          onClick={handleInputUpload}
         />
       </ButtonContainer>
     </NormalIOContainer>
   );
-};
+}
 
 export default InputSection;

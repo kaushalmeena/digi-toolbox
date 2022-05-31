@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertJSONToXML } from "./utils";
 
-const JSONToXMLPage: FunctionComponent = () => {
+function JSONToXMLPage() {
   return (
     <Page
       heading="JSON to XML"
@@ -13,6 +13,6 @@ const JSONToXMLPage: FunctionComponent = () => {
       convertFunction={convertJSONToXML}
     />
   );
-};
+}
 
 export default JSONToXMLPage;

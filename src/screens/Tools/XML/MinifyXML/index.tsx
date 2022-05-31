@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { minifyXML } from "./utils";
 
-const MinifyXML: FunctionComponent = () => {
+function MinifyXML() {
   return (
     <Page
       heading="Minify XML"
@@ -12,6 +12,6 @@ const MinifyXML: FunctionComponent = () => {
       convertFunction={minifyXML}
     />
   );
-};
+}
 
 export default MinifyXML;

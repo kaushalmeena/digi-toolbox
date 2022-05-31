@@ -9,8 +9,8 @@ type UnitConvertProps = {
   heading: string;
   subHeading: string;
   selectOptions: ISelectOption[];
-  fromDefaultValue?: string;
-  toDefaultValue?: string;
+  fromDefaultValue: string;
+  toDefaultValue: string;
   convertFunction: (input: string, from: string, to: string) => string;
 };
 
@@ -33,7 +33,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   }
 
   handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => ({
       input: value,
       output: this.getOutput(value, prevState.from, prevState.to)
@@ -43,7 +43,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   handleFromSelectChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => ({
       from: value,
       input: prevState.output
@@ -53,7 +53,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   };
 
   handleOutputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => ({
       output: value,
       input: this.getOutput(value, prevState.to, prevState.from)
@@ -63,7 +63,7 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   handleToSelectChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => ({
       to: value,
       output: prevState.input
@@ -73,28 +73,31 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   };
 
   getOutput = (input: string, from: string, to: string): string => {
+    const { convertFunction } = this.props;
     let output = "";
     try {
-      output = this.props.convertFunction(input, from, to);
+      output = convertFunction(input, from, to);
     } catch (err) {
-      console.error(err);
       output = "Invalid input detected.";
     }
     return output;
   };
 
-  render(): JSX.Element {
+  render() {
+    const { heading, subHeading, selectOptions } = this.props;
+    const { input, from, to, output } = this.state;
+
     return (
       <>
         <TopContainer>
-          <H1>{this.props.heading}</H1>
-          <H2>{this.props.subHeading}</H2>
+          <H1>{heading}</H1>
+          <H2>{subHeading}</H2>
         </TopContainer>
         <MainContainer>
           <InputSection
-            input={this.state.input}
-            from={this.state.from}
-            selectOptions={this.props.selectOptions}
+            input={input}
+            from={from}
+            selectOptions={selectOptions}
             handleInputChange={this.handleInputChange}
             handleFromSelectChange={this.handleFromSelectChange}
           />
@@ -102,9 +105,9 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
             <Icon icon="equals" iconSize={28} />
           </MiddleContainer>
           <OutputSection
-            output={this.state.output}
-            to={this.state.to}
-            selectOptions={this.props.selectOptions}
+            output={output}
+            to={to}
+            selectOptions={selectOptions}
             handleOutputChange={this.handleOutputChange}
             handleToSelectChange={this.handleToSelectChange}
           />

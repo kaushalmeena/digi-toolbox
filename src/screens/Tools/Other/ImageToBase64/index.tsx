@@ -1,5 +1,5 @@
 import { H1, H2 } from "@blueprintjs/core";
-import React, { Component, ReactNode } from "react";
+import React, { Component } from "react";
 import OutputSection from "../../../../shared/Page/DataConvert/OutputSection";
 import SwitchSection from "../../../../shared/Page/DataConvert/SwitchSection";
 import Toast from "../../../../shared/Toast";
@@ -7,9 +7,7 @@ import { MainContainer, TopContainer } from "../../../../styles";
 import { copyData, loadImage, saveFile } from "../../../../utils";
 import InputSection from "./InputSection";
 
-type ImageToBase64Props = {
-  children?: ReactNode;
-};
+type ImageToBase64Props = {};
 
 type ImageToBase64State = {
   output: string;
@@ -33,22 +31,19 @@ class ImageToBase64 extends Component<ImageToBase64Props, ImageToBase64State> {
     loadImage().then((result) => this.setOutput(result));
   };
 
-  handleOutputChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    this.setOutput(event.target.value);
-  };
-
   handleOutputCopy = (): void => {
-    copyData(this.state.output);
+    const { output } = this.state;
+    copyData(output);
     Toast.show({ message: "Copied to clipboard.", intent: "primary" });
   };
 
   handleOutputDownload = (): void => {
-    saveFile(this.state.output);
+    const { output } = this.state;
+    saveFile(output);
   };
 
-  render(): JSX.Element {
+  render() {
+    const { output } = this.state;
     return (
       <>
         <TopContainer>
@@ -57,12 +52,12 @@ class ImageToBase64 extends Component<ImageToBase64Props, ImageToBase64State> {
         </TopContainer>
         <MainContainer>
           <InputSection
-            input={this.state.output}
+            input={output}
             handleInputUpload={this.handleInputUpload}
           />
           <SwitchSection switchURL="/base64-to-image" />
           <OutputSection
-            output={this.state.output}
+            output={output}
             handleOutputCopy={this.handleOutputCopy}
             handleOutputDownload={this.handleOutputDownload}
           />

@@ -21,28 +21,28 @@ export const getDiffOutput = (str1: string, str2: string): string[][] => {
   let i = str1.length;
   let j = str2.length;
 
-  while (true) {
+  while (1) {
     if (i > 0 && j > 0 && str1[i - 1] === str2[j - 1]) {
       tempRow = ["N", str1[i - 1]];
-      i--;
-      j--;
+      i -= 1;
+      j -= 1;
     } else if (
       j > 0 &&
       (i === 0 || LCSMatrix[i][j - 1] >= LCSMatrix[i - 1][j])
     ) {
       tempRow = ["G", str2[j - 1]];
-      j--;
+      j -= 1;
     } else if (
       i > 0 &&
       (j === 0 || LCSMatrix[i][j - 1] < LCSMatrix[i - 1][j])
     ) {
       tempRow = ["R", str1[i - 1]];
-      i--;
+      i -= 1;
     } else {
       break;
     }
 
-    firstRow = result[0];
+    [firstRow] = result;
 
     if (firstRow && firstRow[0] === tempRow[0]) {
       firstRow[1] = tempRow[1] + firstRow[1];
@@ -59,15 +59,15 @@ export const getDiffOutput = (str1: string, str2: string): string[][] => {
 function buildLCSMatrix(str1: string, str2: string) {
   const matrix = [];
 
-  for (let x = 0; x <= str1.length; x++) {
+  for (let x = 0; x <= str1.length; x += 1) {
     matrix[x] = [];
-    for (let y = 0; y <= str2.length; y++) {
+    for (let y = 0; y <= str2.length; y += 1) {
       matrix[x][y] = 0;
     }
   }
 
-  for (let i = 1; i <= str1.length; i++) {
-    for (let j = 1; j <= str2.length; j++) {
+  for (let i = 1; i <= str1.length; i += 1) {
+    for (let j = 1; j <= str2.length; j += 1) {
       if (str1[i - 1] === str2[j - 1]) {
         matrix[i][j] = matrix[i - 1][j - 1] + 1;
       } else {

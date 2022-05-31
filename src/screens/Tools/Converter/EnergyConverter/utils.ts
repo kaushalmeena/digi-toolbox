@@ -1,4 +1,4 @@
-import { ENERGY_CONVERSION_FACTORS, ENERGY_UNITS } from "./constants";
+import { EnergyConversationFactors, EnergyUnits } from "./constants";
 
 export const convertEnergy = (
   input: string,
@@ -10,63 +10,65 @@ export const convertEnergy = (
   const number = parseFloat(input);
 
   switch (from) {
-    case ENERGY_UNITS.JOULE:
+    case EnergyUnits.JOULE:
       joule = number;
       break;
-    case ENERGY_UNITS.KILOJOULE:
-      joule = number * ENERGY_CONVERSION_FACTORS.KILOJOULE_TO_JOULE;
+    case EnergyUnits.KILOJOULE:
+      joule = number * EnergyConversationFactors.KILOJOULE_TO_JOULE;
       break;
-    case ENERGY_UNITS.CALORIE:
-      joule = number * ENERGY_CONVERSION_FACTORS.CALORIE_TO_JOULE;
+    case EnergyUnits.CALORIE:
+      joule = number * EnergyConversationFactors.CALORIE_TO_JOULE;
       break;
-    case ENERGY_UNITS.KILOCALORIE:
-      joule = number * ENERGY_CONVERSION_FACTORS.KILOCALORIE_TO_JOULE;
+    case EnergyUnits.KILOCALORIE:
+      joule = number * EnergyConversationFactors.KILOCALORIE_TO_JOULE;
       break;
-    case ENERGY_UNITS.WATT_HOUR:
-      joule = number * ENERGY_CONVERSION_FACTORS.WATT_HOUR_TO_JOULE;
+    case EnergyUnits.WATT_HOUR:
+      joule = number * EnergyConversationFactors.WATT_HOUR_TO_JOULE;
       break;
-    case ENERGY_UNITS.KILOWATT_HOUR:
-      joule = number * ENERGY_CONVERSION_FACTORS.KILOWATT_HOUR_TO_JOULE;
+    case EnergyUnits.KILOWATT_HOUR:
+      joule = number * EnergyConversationFactors.KILOWATT_HOUR_TO_JOULE;
       break;
-    case ENERGY_UNITS.ELECTRONVOLT:
-      joule = number * ENERGY_CONVERSION_FACTORS.ELECTRONVOLT_TO_JOULE;
+    case EnergyUnits.ELECTRONVOLT:
+      joule = number * EnergyConversationFactors.ELECTRONVOLT_TO_JOULE;
       break;
-    case ENERGY_UNITS.HORSEPOWER_HOUR:
-      joule = number * ENERGY_CONVERSION_FACTORS.HORSEPOWER_HOUR_TO_JOULE;
+    case EnergyUnits.HORSEPOWER_HOUR:
+      joule = number * EnergyConversationFactors.HORSEPOWER_HOUR_TO_JOULE;
       break;
-    case ENERGY_UNITS.FOOT_POUND:
-      joule = number * ENERGY_CONVERSION_FACTORS.FOOT_POUND_TO_JOULE;
+    case EnergyUnits.FOOT_POUND:
+      joule = number * EnergyConversationFactors.FOOT_POUND_TO_JOULE;
       break;
+    default:
   }
 
   switch (to) {
-    case ENERGY_UNITS.JOULE:
+    case EnergyUnits.JOULE:
       result = joule;
       break;
-    case ENERGY_UNITS.KILOJOULE:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_KILOJOULE;
+    case EnergyUnits.KILOJOULE:
+      result = joule * EnergyConversationFactors.JOULE_TO_KILOJOULE;
       break;
-    case ENERGY_UNITS.CALORIE:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_CALORIE;
+    case EnergyUnits.CALORIE:
+      result = joule * EnergyConversationFactors.JOULE_TO_CALORIE;
       break;
-    case ENERGY_UNITS.KILOCALORIE:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_KILOCALORIE;
+    case EnergyUnits.KILOCALORIE:
+      result = joule * EnergyConversationFactors.JOULE_TO_KILOCALORIE;
       break;
-    case ENERGY_UNITS.WATT_HOUR:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_WATT_HOUR;
+    case EnergyUnits.WATT_HOUR:
+      result = joule * EnergyConversationFactors.JOULE_TO_WATT_HOUR;
       break;
-    case ENERGY_UNITS.KILOWATT_HOUR:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_KILOWATT_HOUR;
+    case EnergyUnits.KILOWATT_HOUR:
+      result = joule * EnergyConversationFactors.JOULE_TO_KILOWATT_HOUR;
       break;
-    case ENERGY_UNITS.ELECTRONVOLT:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_ELECTRONVOLT;
+    case EnergyUnits.ELECTRONVOLT:
+      result = joule * EnergyConversationFactors.JOULE_TO_ELECTRONVOLT;
       break;
-    case ENERGY_UNITS.HORSEPOWER_HOUR:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_HORSEPOWER_HOUR;
+    case EnergyUnits.HORSEPOWER_HOUR:
+      result = joule * EnergyConversationFactors.JOULE_TO_HORSEPOWER_HOUR;
       break;
-    case ENERGY_UNITS.FOOT_POUND:
-      result = joule * ENERGY_CONVERSION_FACTORS.JOULE_TO_FOOT_POUND;
+    case EnergyUnits.FOOT_POUND:
+      result = joule * EnergyConversationFactors.JOULE_TO_FOOT_POUND;
       break;
+    default:
   }
 
   return result.toString();

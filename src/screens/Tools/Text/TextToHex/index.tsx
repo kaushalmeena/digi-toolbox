@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertTextToHex } from "./utils";
 
-const TextToHexPage: FunctionComponent = () => {
+function TextToHexPage() {
   return (
     <Page
       heading="Text to Hex"
@@ -13,6 +13,6 @@ const TextToHexPage: FunctionComponent = () => {
       convertFunction={convertTextToHex}
     />
   );
-};
+}
 
 export default TextToHexPage;

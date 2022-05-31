@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum PRESSURE_UNITS {
+export const enum PressureUnits {
   BAR = "bar",
   PASCAL = "Pa",
   POUNDS_PER_SQ_FOOT = "lb/ft²",
@@ -9,7 +9,7 @@ export const enum PRESSURE_UNITS {
   TORR = "Torr"
 }
 
-export const enum PRESSURE_CONVERSION_FACTORS {
+export const enum PressureConversationFactors {
   BAR_TO_PASCAL = 100000,
   POUNDS_PER_SQ_FOOT_TO_PASCAL = 47.880258980405,
   POUNDS_PER_SQ_INCH_TO_PASCAL = 6894.7572931783,
@@ -25,26 +25,26 @@ export const enum PRESSURE_CONVERSION_FACTORS {
 export const PressureSelectOptions: ISelectOption[] = [
   {
     label: "Bar",
-    value: PRESSURE_UNITS.BAR
+    value: PressureUnits.BAR
   },
   {
     label: "Pascal",
-    value: PRESSURE_UNITS.PASCAL
+    value: PressureUnits.PASCAL
   },
   {
     label: "Pounds/foot²",
-    value: PRESSURE_UNITS.POUNDS_PER_SQ_FOOT
+    value: PressureUnits.POUNDS_PER_SQ_FOOT
   },
   {
     label: "Pounds/inch² (PSI)",
-    value: PRESSURE_UNITS.POUNDS_PER_SQ_INCH
+    value: PressureUnits.POUNDS_PER_SQ_INCH
   },
   {
     label: "Standard atmosphere",
-    value: PRESSURE_UNITS.STANDARD_ATMOSPHERE
+    value: PressureUnits.STANDARD_ATMOSPHERE
   },
   {
     label: "Torr",
-    value: PRESSURE_UNITS.TORR
+    value: PressureUnits.TORR
   }
 ];

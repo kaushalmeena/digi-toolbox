@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { encodeBase64 } from "./utils";
 
-const Base64EncodePage: FunctionComponent = () => {
+function Base64EncodePage() {
   return (
     <Page
       heading="Base64 Encode"
@@ -13,6 +13,6 @@ const Base64EncodePage: FunctionComponent = () => {
       convertFunction={encodeBase64}
     />
   );
-};
+}
 
 export default Base64EncodePage;

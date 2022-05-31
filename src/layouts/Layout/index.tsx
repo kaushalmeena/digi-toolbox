@@ -23,28 +23,32 @@ class Layout extends Component<LayoutProps, LayoutState> {
   }
 
   componentDidMount(): void {
+    const { darkMode } = this.state;
     const value = fetchDarkMode();
-    if (value !== this.state.darkMode) {
+    if (value !== darkMode) {
       this.setState({ darkMode: value });
     }
   }
 
   handleDarkModeToggle = (): void => {
-    const value = !this.state.darkMode;
+    const { darkMode } = this.state;
+    const value = !darkMode;
     this.setState({ darkMode: value });
     storeDarkMode(value);
   };
 
-  render(): JSX.Element {
-    const theme = this.state.darkMode ? DarkTheme : LightTheme;
+  render() {
+    const { children } = this.props;
+    const { darkMode } = this.state;
+    const theme = darkMode ? DarkTheme : LightTheme;
     return (
       <ThemeProvider theme={theme}>
         <div className={theme.blueprintjsClass}>
           <Header
-            darkMode={this.state.darkMode}
+            darkMode={darkMode}
             handleDarkModeToggle={this.handleDarkModeToggle}
           />
-          <Main>{this.props.children}</Main>
+          <Main>{children}</Main>
           <Footer />
         </div>
       </ThemeProvider>

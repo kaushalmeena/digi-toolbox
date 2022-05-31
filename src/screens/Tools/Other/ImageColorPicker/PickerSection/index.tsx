@@ -1,5 +1,5 @@
 import { Button, InputGroup } from "@blueprintjs/core";
-import React, { FunctionComponent, RefObject } from "react";
+import React, { RefObject } from "react";
 import { ButtonContainer, NormalIOContainer } from "../../../../../styles";
 import { CardBody, CardFooter, ColorContainer, CustomCard } from "./styles";
 
@@ -11,30 +11,34 @@ type PickerSectionProps = {
   handleColorCopy: () => void;
 };
 
-const PickerSection: FunctionComponent<PickerSectionProps> = (
-  props: PickerSectionProps
-) => {
+function PickerSection({
+  canvasRef,
+  currentColor,
+  selectedColor,
+  handleImageUpload,
+  handleColorCopy
+}: PickerSectionProps) {
   return (
     <NormalIOContainer>
       <CustomCard>
         <CardBody>
-          <canvas ref={props.canvasRef} height="0" width="0" />
+          <canvas ref={canvasRef} height="0" width="0" />
         </CardBody>
         <CardFooter>
-          <ColorContainer style={{ backgroundColor: props.currentColor }} />
-          {props.selectedColor ? (
-            <ColorContainer style={{ backgroundColor: props.selectedColor }}>
+          <ColorContainer style={{ backgroundColor: currentColor }} />
+          {selectedColor ? (
+            <ColorContainer style={{ backgroundColor: selectedColor }}>
               <InputGroup
                 large
                 readOnly
-                value={props.selectedColor}
+                value={selectedColor}
                 rightElement={
                   <Button
                     large
                     minimal
                     title="Copy"
                     icon="duplicate"
-                    onClick={props.handleColorCopy}
+                    onClick={handleColorCopy}
                   />
                 }
               />
@@ -47,11 +51,11 @@ const PickerSection: FunctionComponent<PickerSectionProps> = (
           large
           title="Upload"
           icon="export"
-          onClick={props.handleImageUpload}
+          onClick={handleImageUpload}
         />
       </ButtonContainer>
     </NormalIOContainer>
   );
-};
+}
 
 export default PickerSection;

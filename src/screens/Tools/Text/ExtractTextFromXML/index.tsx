@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { extractTextFromXML } from "./utils";
 
-const ExtractTextFromXMLPage: FunctionComponent = () => {
+function ExtractTextFromXMLPage() {
   return (
     <Page
       heading="Extract Text from XML"
@@ -12,6 +12,6 @@ const ExtractTextFromXMLPage: FunctionComponent = () => {
       convertFunction={extractTextFromXML}
     />
   );
-};
+}
 
 export default ExtractTextFromXMLPage;

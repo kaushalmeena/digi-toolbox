@@ -1,19 +1,21 @@
 import Head from "next/head";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import ExtractTextFromXMLPage from "../screens/Tools/Text/ExtractTextFromXML";
 
-const ExtractTextFromXML: FunctionComponent = () => (
-  <>
-    <Head>
-      <title key="title">Extract Text from XML - GetThatTool</title>
-      <meta
-        key="description"
-        name="description"
-        content="Super simple, free and fast browser-based utility for extracting text from XML."
-      />
-    </Head>
-    <ExtractTextFromXMLPage />
-  </>
-);
+function ExtractTextFromXML() {
+  return (
+    <>
+      <Head>
+        <title key="title">Extract Text from XML - GetThatTool</title>
+        <meta
+          key="description"
+          name="description"
+          content="Super simple, free and fast browser-based utility for extracting text from XML."
+        />
+      </Head>
+      <ExtractTextFromXMLPage />
+    </>
+  );
+}
 
 export default ExtractTextFromXML;

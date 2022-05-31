@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { escapeSlash } from "./utils";
 
-const SlashEscapePage: FunctionComponent = () => {
+function SlashEscapePage() {
   return (
     <Page
       heading="Slash Escape"
@@ -13,6 +13,6 @@ const SlashEscapePage: FunctionComponent = () => {
       convertFunction={escapeSlash}
     />
   );
-};
+}
 
 export default SlashEscapePage;

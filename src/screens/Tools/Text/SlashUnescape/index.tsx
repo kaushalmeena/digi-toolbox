@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { unescapeSlash } from "./utils";
 
-const SlashUnescapePage: FunctionComponent = () => {
+function SlashUnescapePage() {
   return (
     <Page
       heading="Slash Unescape"
@@ -13,6 +13,6 @@ const SlashUnescapePage: FunctionComponent = () => {
       convertFunction={unescapeSlash}
     />
   );
-};
+}
 
 export default SlashUnescapePage;

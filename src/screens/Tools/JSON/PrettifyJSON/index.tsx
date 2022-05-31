@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { prettifyJSON } from "./utils";
 
-const PrettifyJSONPage: FunctionComponent = () => {
+function PrettifyJSONPage() {
   return (
     <Page
       heading="Prettify JSON"
@@ -12,6 +12,6 @@ const PrettifyJSONPage: FunctionComponent = () => {
       convertFunction={prettifyJSON}
     />
   );
-};
+}
 
 export default PrettifyJSONPage;

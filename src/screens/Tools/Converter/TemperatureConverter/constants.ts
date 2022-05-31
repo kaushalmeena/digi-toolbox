@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum TEMPERATURE_UNITS {
+export const enum TemperatureUnits {
   CELSIUS = "°C",
   FAHRENHEIT = "°F",
   KELVIN = "K"
@@ -9,14 +9,14 @@ export const enum TEMPERATURE_UNITS {
 export const TemperatureSelectOptions: ISelectOption[] = [
   {
     label: "Celsius",
-    value: TEMPERATURE_UNITS.CELSIUS
+    value: TemperatureUnits.CELSIUS
   },
   {
     label: "Fahrenheit",
-    value: TEMPERATURE_UNITS.FAHRENHEIT
+    value: TemperatureUnits.FAHRENHEIT
   },
   {
     label: "Kelvin",
-    value: TEMPERATURE_UNITS.KELVIN
+    value: TemperatureUnits.KELVIN
   }
 ];

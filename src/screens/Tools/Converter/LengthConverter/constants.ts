@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum LENGTH_UNITS {
+export const enum LengthUnits {
   KILOMETER = "km",
   METER = "m",
   CENTIMETER = "cm",
@@ -11,7 +11,7 @@ export const enum LENGTH_UNITS {
   INCH = "in"
 }
 
-export const enum LENGTH_CONVERSION_FACTORS {
+export const enum LengthConversationFactors {
   KILOMETER_TO_METER = 1000,
   CENTIMETER_TO_METER = 0.01,
   MILLIMETER_TO_METER = 0.001,
@@ -31,34 +31,34 @@ export const enum LENGTH_CONVERSION_FACTORS {
 export const LengthSelectOptions: ISelectOption[] = [
   {
     label: "Kilometer",
-    value: LENGTH_UNITS.KILOMETER
+    value: LengthUnits.KILOMETER
   },
   {
     label: "Meter",
-    value: LENGTH_UNITS.METER
+    value: LengthUnits.METER
   },
   {
     label: "Centimeter",
-    value: LENGTH_UNITS.CENTIMETER
+    value: LengthUnits.CENTIMETER
   },
   {
     label: "Millimeter",
-    value: LENGTH_UNITS.MILLIMETER
+    value: LengthUnits.MILLIMETER
   },
   {
     label: "Mile",
-    value: LENGTH_UNITS.MILE
+    value: LengthUnits.MILE
   },
   {
     label: "Yard",
-    value: LENGTH_UNITS.YARD
+    value: LengthUnits.YARD
   },
   {
     label: "Foot",
-    value: LENGTH_UNITS.FOOT
+    value: LengthUnits.FOOT
   },
   {
     label: "Inch",
-    value: LENGTH_UNITS.INCH
+    value: LengthUnits.INCH
   }
 ];

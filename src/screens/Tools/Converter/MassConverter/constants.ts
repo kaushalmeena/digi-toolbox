@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum MASS_UNITS {
+export const enum MassUnits {
   KILOGRAM = "kg",
   GRAM = "g",
   MILLIGRAM = "mg",
@@ -11,7 +11,7 @@ export const enum MASS_UNITS {
   OUNCE = "oz"
 }
 
-export const enum MASS_CONVERSION_FACTORS {
+export const enum MassConversationFactors {
   KILOGRAM_TO_GRAM = 1000,
   MILLIGRAM_TO_GRAM = 0.001,
   MICROGRAM_TO_GRAM = 0.000001,
@@ -31,34 +31,34 @@ export const enum MASS_CONVERSION_FACTORS {
 export const MassSelectOptions: ISelectOption[] = [
   {
     label: "Kilogram",
-    value: MASS_UNITS.KILOGRAM
+    value: MassUnits.KILOGRAM
   },
   {
     label: "Gram",
-    value: MASS_UNITS.GRAM
+    value: MassUnits.GRAM
   },
   {
     label: "Milligram",
-    value: MASS_UNITS.MILLIGRAM
+    value: MassUnits.MILLIGRAM
   },
   {
     label: "Microgram",
-    value: MASS_UNITS.MICROGRAM
+    value: MassUnits.MICROGRAM
   },
   {
     label: "Carat",
-    value: MASS_UNITS.CARAT
+    value: MassUnits.CARAT
   },
   {
     label: "Quintal",
-    value: MASS_UNITS.QUINTAL
+    value: MassUnits.QUINTAL
   },
   {
     label: "Pound",
-    value: MASS_UNITS.POUND
+    value: MassUnits.POUND
   },
   {
     label: "Ounce",
-    value: MASS_UNITS.OUNCE
+    value: MassUnits.OUNCE
   }
 ];

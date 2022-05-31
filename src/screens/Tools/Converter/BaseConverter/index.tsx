@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/UnitConvert";
 import { BaseSelectOptions } from "./constants";
 import { convertBase } from "./utils";
 
-const BaseConverter: FunctionComponent = () => {
+function BaseConverter() {
   return (
     <Page
       heading="Base Converter"
@@ -14,6 +14,6 @@ const BaseConverter: FunctionComponent = () => {
       convertFunction={convertBase}
     />
   );
-};
+}
 
 export default BaseConverter;

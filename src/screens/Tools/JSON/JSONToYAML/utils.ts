@@ -30,6 +30,7 @@ function convert(item: any, res: any[]) {
     case "null":
       res.push("null");
       break;
+    default:
   }
 }
 
@@ -37,37 +38,30 @@ function convertArray(item: any, res: any[]) {
   if (item.length === 0) {
     res.push("[]");
   }
-  for (let i = 0; i < item.length; i++) {
+  for (let i = 0; i < item.length; i += 1) {
     const val = item[i];
     const recurse = [];
     convert(val, recurse);
-    for (let j = 0; j < recurse.length; j++) {
-      res.push((j == 0 ? "- " : "  ") + recurse[j]);
+    for (let j = 0; j < recurse.length; j += 1) {
+      res.push((j === 0 ? "- " : "  ") + recurse[j]);
     }
   }
 }
 
 function convertObject(item: any, res: any[]) {
-  for (const k in item) {
+  Object.keys(item).forEach((k) => {
     const recurse = [];
-    if (item.hasOwnProperty(k)) {
-      const key = getSafeString(k);
-      const val = item[k];
-      const type = getType(val);
-      convert(val, recurse);
-      if (
-        type == "string" ||
-        type == "null" ||
-        type == "number" ||
-        type == "boolean"
-      ) {
-        res.push(key + ": " + recurse[0]);
-      } else {
-        res.push(key + ": ");
-        for (let i = 0; i < recurse.length; i++) {
-          res.push("  " + recurse[i]);
-        }
+    const key = getSafeString(k);
+    const val = item[k];
+    const type = getType(val);
+    convert(val, recurse);
+    if (["string", "number", "boolean", "null"].includes(type)) {
+      res.push(`${key}: ${recurse[0]}`);
+    } else {
+      res.push(`${key}: `);
+      for (let i = 0; i < recurse.length; i += 1) {
+        res.push(`  ${recurse[i]}`);
       }
     }
-  }
+  });
 }

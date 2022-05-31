@@ -11,12 +11,12 @@ export const convertYAMLToJSON = (input: string): string => {
 function convert(arr: string[], index: number, indent: number) {
   let obj = null;
 
-  for (let i = index; i < arr.length; i++) {
+  for (let i = index; i < arr.length; i += 1) {
     if (arr[i][indent] === " ") {
       continue;
     }
 
-    const line = arr[i].substr(indent);
+    const line = arr[i].slice(indent);
 
     if (line.includes("-")) {
       if (!Array.isArray(obj)) {

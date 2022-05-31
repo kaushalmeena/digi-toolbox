@@ -1,4 +1,4 @@
-import { SPEED_UNITS, SPEED_UNITS_CONVERSION_FACTORS } from "./constants";
+import { SpeedUnits, SpeedConversationFactors } from "./constants";
 
 export const convertSpeed = (
   input: string,
@@ -10,54 +10,53 @@ export const convertSpeed = (
   const number = parseFloat(input);
 
   switch (from) {
-    case SPEED_UNITS.KILOMETERS_PER_HOUR:
+    case SpeedUnits.KILOMETERS_PER_HOUR:
       metersPerSecond =
         number *
-        SPEED_UNITS_CONVERSION_FACTORS.KILOMETERS_PER_HOUR_TO_METERS_PER_SECOND;
+        SpeedConversationFactors.KILOMETERS_PER_HOUR_TO_METERS_PER_SECOND;
       break;
-    case SPEED_UNITS.METERS_PER_SECOND:
+    case SpeedUnits.METERS_PER_SECOND:
       metersPerSecond = number;
       break;
-    case SPEED_UNITS.MILES_PER_HOUR:
+    case SpeedUnits.MILES_PER_HOUR:
       metersPerSecond =
-        number *
-        SPEED_UNITS_CONVERSION_FACTORS.MILES_PER_HOUR_TO_METERS_PER_SECOND;
+        number * SpeedConversationFactors.MILES_PER_HOUR_TO_METERS_PER_SECOND;
       break;
-    case SPEED_UNITS.FEET_PER_SECOND:
+    case SpeedUnits.FEET_PER_SECOND:
       metersPerSecond =
-        number *
-        SPEED_UNITS_CONVERSION_FACTORS.FEET_PER_SECOND_TO_METERS_PER_SECOND;
+        number * SpeedConversationFactors.FEET_PER_SECOND_TO_METERS_PER_SECOND;
       break;
-    case SPEED_UNITS.KNOT:
+    case SpeedUnits.KNOT:
       metersPerSecond =
-        number * SPEED_UNITS_CONVERSION_FACTORS.KNOT_TO_METERS_PER_SECOND;
+        number * SpeedConversationFactors.KNOT_TO_METERS_PER_SECOND;
       break;
+    default:
   }
 
   switch (to) {
-    case SPEED_UNITS.KILOMETERS_PER_HOUR:
+    case SpeedUnits.KILOMETERS_PER_HOUR:
       result =
         metersPerSecond *
-        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_KILOMETERS_PER_HOUR;
+        SpeedConversationFactors.METERS_PER_SECOND_TO_KILOMETERS_PER_HOUR;
       break;
-    case SPEED_UNITS.METERS_PER_SECOND:
+    case SpeedUnits.METERS_PER_SECOND:
       result = metersPerSecond;
       break;
-    case SPEED_UNITS.MILES_PER_HOUR:
+    case SpeedUnits.MILES_PER_HOUR:
       result =
         metersPerSecond *
-        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_MILES_PER_HOUR;
+        SpeedConversationFactors.METERS_PER_SECOND_TO_MILES_PER_HOUR;
       break;
-    case SPEED_UNITS.FEET_PER_SECOND:
+    case SpeedUnits.FEET_PER_SECOND:
       result =
         metersPerSecond *
-        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_FEET_PER_SECOND;
+        SpeedConversationFactors.METERS_PER_SECOND_TO_FEET_PER_SECOND;
       break;
-    case SPEED_UNITS.KNOT:
+    case SpeedUnits.KNOT:
       result =
-        metersPerSecond *
-        SPEED_UNITS_CONVERSION_FACTORS.METERS_PER_SECOND_TO_KNOT;
+        metersPerSecond * SpeedConversationFactors.METERS_PER_SECOND_TO_KNOT;
       break;
+    default:
   }
 
   return result.toString();

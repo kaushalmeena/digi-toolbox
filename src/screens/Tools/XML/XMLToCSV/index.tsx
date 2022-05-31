@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertXMLToCSV } from "./utils";
 
-const XMLToCSVPage: FunctionComponent = () => {
+function XMLToCSVPage() {
   return (
     <Page
       heading="XML to CSV"
@@ -13,6 +13,6 @@ const XMLToCSVPage: FunctionComponent = () => {
       convertFunction={convertXMLToCSV}
     />
   );
-};
+}
 
 export default XMLToCSVPage;

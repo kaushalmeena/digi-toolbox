@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { prettifyXML } from "./utils";
 
-const PrettifyXMLPage: FunctionComponent = () => {
+function PrettifyXMLPage() {
   return (
     <Page
       heading="Prettify XML"
@@ -12,6 +12,6 @@ const PrettifyXMLPage: FunctionComponent = () => {
       convertFunction={prettifyXML}
     />
   );
-};
+}
 
 export default PrettifyXMLPage;

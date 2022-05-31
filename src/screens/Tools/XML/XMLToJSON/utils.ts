@@ -12,7 +12,7 @@ export const convertXMLToJSON = (input: string): string => {
 function convert(doc: any) {
   let obj = {};
   if (doc.children.length > 0) {
-    for (let i = 0; i < doc.children.length; i++) {
+    for (let i = 0; i < doc.children.length; i += 1) {
       const item = doc.children.item(i);
       const key = item.nodeName;
       if (obj[key]) {

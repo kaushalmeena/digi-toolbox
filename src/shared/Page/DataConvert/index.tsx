@@ -1,7 +1,7 @@
 import { H1, H2 } from "@blueprintjs/core";
 import React, { Component } from "react";
 import { copyData, loadFile, saveFile } from "../../../utils";
-import { MainContainer, TopContainer } from "../../../styles";
+import { MainContainer, MiddleContainer, TopContainer } from "../../../styles";
 import Toast from "../../Toast";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
@@ -36,14 +36,8 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
     });
   };
 
-  setOutput = (value: string): void => {
-    this.setState({
-      output: value
-    });
-  };
-
   handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({
       input: value,
       output: this.getOutput(value)
@@ -58,49 +52,52 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
     loadFile().then((result) => this.setInput(result));
   };
 
-  handleOutputChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    this.setOutput(event.target.value);
-  };
-
   handleOutputCopy = (): void => {
-    copyData(this.state.output);
+    const { output } = this.state;
+    copyData(output);
     Toast.show({ message: "Copied to clipboard.", intent: "primary" });
   };
 
   handleOutputDownload = (): void => {
-    saveFile(this.state.output, this.props.fileExtension, this.props.fileType);
+    const { fileExtension, fileType } = this.props;
+    const { output } = this.state;
+    saveFile(output, fileExtension, fileType);
   };
 
   getOutput = (input: string): string => {
+    const { convertFunction } = this.props;
     let output = "";
     try {
-      output = this.props.convertFunction(input);
+      output = convertFunction(input);
     } catch (err) {
-      console.error(err);
       output = "Invalid input detected.";
     }
     return output;
   };
 
-  render(): JSX.Element {
+  render() {
+    const { heading, subHeading, switchURL } = this.props;
+    const { input, output } = this.state;
     return (
       <>
         <TopContainer>
-          <H1>{this.props.heading}</H1>
-          <H2>{this.props.subHeading}</H2>
+          <H1>{heading}</H1>
+          <H2>{subHeading}</H2>
         </TopContainer>
         <MainContainer>
           <InputSection
-            input={this.state.input}
+            input={input}
             handleInputChange={this.handleInputChange}
             handleInputClear={this.handleInputClear}
             handleInputUpload={this.handleInputUpload}
           />
-          <SwitchSection switchURL={this.props.switchURL} />
+          {switchURL ? (
+            <SwitchSection switchURL={switchURL} />
+          ) : (
+            <MiddleContainer />
+          )}
           <OutputSection
-            output={this.state.output}
+            output={output}
             handleOutputCopy={this.handleOutputCopy}
             handleOutputDownload={this.handleOutputDownload}
           />

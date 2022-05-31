@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum SPEED_UNITS {
+export const enum SpeedUnits {
   KILOMETERS_PER_HOUR = "km/h",
   METERS_PER_SECOND = "m/s",
   MILES_PER_HOUR = "mi/h",
@@ -8,7 +8,7 @@ export const enum SPEED_UNITS {
   KNOT = "kt"
 }
 
-export const enum SPEED_UNITS_CONVERSION_FACTORS {
+export const enum SpeedConversationFactors {
   KILOMETERS_PER_HOUR_TO_METERS_PER_SECOND = 0.27777777777778,
   MILES_PER_HOUR_TO_METERS_PER_SECOND = 0.44704,
   FEET_PER_SECOND_TO_METERS_PER_SECOND = 0.3048,
@@ -22,22 +22,22 @@ export const enum SPEED_UNITS_CONVERSION_FACTORS {
 export const SpeedSelectOptions: ISelectOption[] = [
   {
     label: "Kilometers/hour",
-    value: SPEED_UNITS.KILOMETERS_PER_HOUR
+    value: SpeedUnits.KILOMETERS_PER_HOUR
   },
   {
     label: "Meters/second",
-    value: SPEED_UNITS.METERS_PER_SECOND
+    value: SpeedUnits.METERS_PER_SECOND
   },
   {
     label: "Miles/hour",
-    value: SPEED_UNITS.MILES_PER_HOUR
+    value: SpeedUnits.MILES_PER_HOUR
   },
   {
     label: "Feet/second",
-    value: SPEED_UNITS.FEET_PER_SECOND
+    value: SpeedUnits.FEET_PER_SECOND
   },
   {
     label: "Knot",
-    value: SPEED_UNITS.KNOT
+    value: SpeedUnits.KNOT
   }
 ];

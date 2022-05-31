@@ -1,4 +1,4 @@
-import { LENGTH_CONVERSION_FACTORS, LENGTH_UNITS } from "./constants";
+import { LengthConversationFactors, LengthUnits } from "./constants";
 
 export const convertLength = (
   input: string,
@@ -10,57 +10,59 @@ export const convertLength = (
   const number = parseFloat(input);
 
   switch (from) {
-    case LENGTH_UNITS.KILOMETER:
-      meter = number * LENGTH_CONVERSION_FACTORS.KILOMETER_TO_METER;
+    case LengthUnits.KILOMETER:
+      meter = number * LengthConversationFactors.KILOMETER_TO_METER;
       break;
-    case LENGTH_UNITS.METER:
+    case LengthUnits.METER:
       meter = number;
       break;
-    case LENGTH_UNITS.CENTIMETER:
-      meter = number * LENGTH_CONVERSION_FACTORS.CENTIMETER_TO_METER;
+    case LengthUnits.CENTIMETER:
+      meter = number * LengthConversationFactors.CENTIMETER_TO_METER;
       break;
-    case LENGTH_UNITS.MILLIMETER:
-      meter = number * LENGTH_CONVERSION_FACTORS.MILLIMETER_TO_METER;
+    case LengthUnits.MILLIMETER:
+      meter = number * LengthConversationFactors.MILLIMETER_TO_METER;
       break;
-    case LENGTH_UNITS.MILE:
-      meter = number * LENGTH_CONVERSION_FACTORS.MILE_TO_METER;
+    case LengthUnits.MILE:
+      meter = number * LengthConversationFactors.MILE_TO_METER;
       break;
-    case LENGTH_UNITS.YARD:
-      meter = number * LENGTH_CONVERSION_FACTORS.YARD_TO_METER;
+    case LengthUnits.YARD:
+      meter = number * LengthConversationFactors.YARD_TO_METER;
       break;
-    case LENGTH_UNITS.FOOT:
-      meter = number * LENGTH_CONVERSION_FACTORS.FOOT_TO_METER;
+    case LengthUnits.FOOT:
+      meter = number * LengthConversationFactors.FOOT_TO_METER;
       break;
-    case LENGTH_UNITS.INCH:
-      meter = number * LENGTH_CONVERSION_FACTORS.INCH_TO_METER;
+    case LengthUnits.INCH:
+      meter = number * LengthConversationFactors.INCH_TO_METER;
       break;
+    default:
   }
 
   switch (to) {
-    case LENGTH_UNITS.KILOMETER:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_KILOMETER;
+    case LengthUnits.KILOMETER:
+      result = meter * LengthConversationFactors.METER_TO_KILOMETER;
       break;
-    case LENGTH_UNITS.METER:
+    case LengthUnits.METER:
       result = meter;
       break;
-    case LENGTH_UNITS.CENTIMETER:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_CENTIMETER;
+    case LengthUnits.CENTIMETER:
+      result = meter * LengthConversationFactors.METER_TO_CENTIMETER;
       break;
-    case LENGTH_UNITS.MILLIMETER:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_MILLIMETER;
+    case LengthUnits.MILLIMETER:
+      result = meter * LengthConversationFactors.METER_TO_MILLIMETER;
       break;
-    case LENGTH_UNITS.MILE:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_MILE;
+    case LengthUnits.MILE:
+      result = meter * LengthConversationFactors.METER_TO_MILE;
       break;
-    case LENGTH_UNITS.YARD:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_YARD;
+    case LengthUnits.YARD:
+      result = meter * LengthConversationFactors.METER_TO_YARD;
       break;
-    case LENGTH_UNITS.FOOT:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_FOOT;
+    case LengthUnits.FOOT:
+      result = meter * LengthConversationFactors.METER_TO_FOOT;
       break;
-    case LENGTH_UNITS.INCH:
-      result = meter * LENGTH_CONVERSION_FACTORS.METER_TO_INCH;
+    case LengthUnits.INCH:
+      result = meter * LengthConversationFactors.METER_TO_INCH;
       break;
+    default:
   }
 
   return result.toString();

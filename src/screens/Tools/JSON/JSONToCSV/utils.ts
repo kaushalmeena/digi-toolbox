@@ -12,15 +12,15 @@ export const convertJSONToCSV = (input: string): string => {
   const headers = Object.keys(tempArray[0]);
   tempArray.unshift(headers);
 
-  for (let i = 0; i < tempArray.length; i++) {
+  for (let i = 0; i < tempArray.length; i += 1) {
     let line = "";
-    for (const key in tempArray[i]) {
-      if (line != "") {
+    Object.keys(tempArray[i]).forEach((key) => {
+      if (line !== "") {
         line += ",";
       }
       line += getSafeString(tempArray[i][key]);
-    }
-    result += line + "\r\n";
+    });
+    result += `${line}\r\n`;
   }
 
   return result;

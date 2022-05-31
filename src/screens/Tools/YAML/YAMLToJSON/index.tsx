@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertYAMLToJSON } from "./utils";
 
-const YAMLToJSONPage: FunctionComponent = () => {
+function YAMLToJSONPage() {
   return (
     <Page
       heading="YAML to JSON"
@@ -13,6 +13,6 @@ const YAMLToJSONPage: FunctionComponent = () => {
       convertFunction={convertYAMLToJSON}
     />
   );
-};
+}
 
 export default YAMLToJSONPage;

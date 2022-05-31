@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { decodeBase64 } from "./utils";
 
-const Base64DecodePage: FunctionComponent = () => {
+function Base64DecodePage() {
   return (
     <Page
       heading="Base64 Decode"
@@ -13,6 +13,6 @@ const Base64DecodePage: FunctionComponent = () => {
       convertFunction={decodeBase64}
     />
   );
-};
+}
 
 export default Base64DecodePage;

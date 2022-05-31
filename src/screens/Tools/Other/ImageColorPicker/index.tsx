@@ -1,14 +1,12 @@
 import { H1, H2 } from "@blueprintjs/core";
-import React, { Component, createRef, ReactNode } from "react";
+import React, { Component, createRef } from "react";
 import Toast from "../../../../shared/Toast";
 import { MainContainer, TopContainer } from "../../../../styles";
 import { copyData, loadImage } from "../../../../utils";
 import PickerSection from "./PickerSection";
 import { getColor } from "./utils";
 
-type ImageColorPickerProps = {
-  children?: ReactNode;
-};
+type ImageColorPickerProps = {};
 
 type ImageColorPickerState = {
   currentColor: string;
@@ -19,6 +17,8 @@ class ImageColorPicker extends Component<
   ImageColorPickerProps,
   ImageColorPickerState
 > {
+  canvasRef = createRef<HTMLCanvasElement>();
+
   constructor(props: ImageColorPickerProps) {
     super(props);
     this.state = {
@@ -26,8 +26,6 @@ class ImageColorPicker extends Component<
       selectedColor: ""
     };
   }
-
-  canvasRef = createRef<HTMLCanvasElement>();
 
   componentDidMount(): void {
     const canvas = this.canvasRef.current;
@@ -70,11 +68,13 @@ class ImageColorPicker extends Component<
   };
 
   handleColorCopy = (): void => {
-    copyData(this.state.selectedColor);
+    const { selectedColor } = this.state;
+    copyData(selectedColor);
     Toast.show({ message: "Copied to clipboard.", intent: "primary" });
   };
 
-  render(): JSX.Element {
+  render() {
+    const { currentColor, selectedColor } = this.state;
     return (
       <>
         <TopContainer>
@@ -84,8 +84,8 @@ class ImageColorPicker extends Component<
         <MainContainer>
           <PickerSection
             canvasRef={this.canvasRef}
-            currentColor={this.state.currentColor}
-            selectedColor={this.state.selectedColor}
+            currentColor={currentColor}
+            selectedColor={selectedColor}
             handleImageUpload={this.handleImageUpload}
             handleColorCopy={this.handleColorCopy}
           />

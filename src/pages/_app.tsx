@@ -1,7 +1,7 @@
 import { FocusStyleManager } from "@blueprintjs/core";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Layout from "../layouts/Layout";
 
 import "normalize.css";
@@ -10,10 +10,7 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
-const MyApp: FunctionComponent<AppProps> = ({
-  Component,
-  pageProps
-}: AppProps) => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -27,6 +24,6 @@ const MyApp: FunctionComponent<AppProps> = ({
       </Layout>
     </>
   );
-};
+}
 
 export default MyApp;

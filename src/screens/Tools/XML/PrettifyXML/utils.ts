@@ -26,13 +26,13 @@ export const prettifyXML = (input: string): string => {
       item = item.replace(/^\s+|\s+$/g, "");
 
       if (isClosingTag(item)) {
-        depth--;
+        depth = -1;
       }
 
       const line = indent.repeat(depth) + item;
 
       if (isOpeningTag(item)) {
-        depth++;
+        depth += 1;
       }
 
       return line;

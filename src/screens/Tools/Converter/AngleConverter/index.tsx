@@ -1,19 +1,19 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/UnitConvert";
-import { AngleSelectOptions, ANGLE_UNITS } from "./constants";
+import { AngleSelectOptions, AngleUnits } from "./constants";
 import { convertAngle } from "./utils";
 
-const AngleConverter: FunctionComponent = () => {
+function AngleConverter() {
   return (
     <Page
       heading="Angle Converter"
       subHeading="Quickly convert angle between degree, radian, gradian etc."
       selectOptions={AngleSelectOptions}
-      fromDefaultValue={ANGLE_UNITS.DEGREE}
-      toDefaultValue={ANGLE_UNITS.RADIAN}
+      fromDefaultValue={AngleUnits.DEGREE}
+      toDefaultValue={AngleUnits.RADIAN}
       convertFunction={convertAngle}
     />
   );
-};
+}
 
 export default AngleConverter;

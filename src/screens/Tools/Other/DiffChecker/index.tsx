@@ -1,5 +1,5 @@
 import { H1, H2 } from "@blueprintjs/core";
-import React, { Component, ReactNode } from "react";
+import React, { Component } from "react";
 import InputSection from "../../../../shared/Page/DataConvert/InputSection";
 import {
   MainContainer,
@@ -10,9 +10,7 @@ import { loadFile } from "../../../../utils";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
 
-type DiffCheckerProps = {
-  children?: ReactNode;
-};
+type DiffCheckerProps = {};
 
 type DiffCheckerState = {
   leftInput: string;
@@ -47,7 +45,7 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
   handleLeftInputChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => {
       const [leftOutput, rightOutput] = getLeftAndRightOutput(
         value,
@@ -64,7 +62,7 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
   handleRightInputChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState((prevState) => {
       const [leftOutput, rightOutput] = getLeftAndRightOutput(
         value,
@@ -94,7 +92,8 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
     loadFile().then((result) => this.setRightInput(result));
   };
 
-  render(): JSX.Element {
+  render() {
+    const { leftInput, rightInput, leftOutput, rightOutput } = this.state;
     return (
       <>
         <TopContainer>
@@ -103,24 +102,24 @@ class DiffChecker extends Component<DiffCheckerProps, DiffCheckerState> {
         </TopContainer>
         <MainContainer>
           <InputSection
-            input={this.state.leftInput}
+            input={leftInput}
             handleInputChange={this.handleLeftInputChange}
             handleInputClear={this.handleLeftInputClear}
             handleInputUpload={this.handleLeftInputUpload}
           />
           <MiddleContainer />
           <InputSection
-            input={this.state.rightInput}
+            input={rightInput}
             handleInputChange={this.handleRightInputChange}
             handleInputClear={this.handleRightInputClear}
             handleInputUpload={this.handleRightInputUpload}
           />
         </MainContainer>
-        {this.state.leftOutput && this.state.rightOutput ? (
+        {leftOutput && rightOutput ? (
           <MainContainer>
-            <OutputSection output={this.state.leftOutput} />
+            <OutputSection output={leftOutput} />
             <MiddleContainer />
-            <OutputSection output={this.state.rightOutput} />
+            <OutputSection output={rightOutput} />
           </MainContainer>
         ) : null}
       </>

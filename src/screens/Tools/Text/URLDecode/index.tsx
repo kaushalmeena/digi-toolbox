@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { decodeURL } from "./utils";
 
-const URLDecodePage: FunctionComponent = () => {
+function URLDecodePage() {
   return (
     <Page
       heading="URL Decode"
@@ -13,6 +13,6 @@ const URLDecodePage: FunctionComponent = () => {
       convertFunction={decodeURL}
     />
   );
-};
+}
 
 export default URLDecodePage;

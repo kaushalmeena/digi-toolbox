@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertCSVToYAML } from "./utils";
 
-const CSVToYAMLPage: FunctionComponent = () => {
+function CSVToYAMLPage() {
   return (
     <Page
       heading="CSV to YAML"
@@ -13,6 +13,6 @@ const CSVToYAMLPage: FunctionComponent = () => {
       convertFunction={convertCSVToYAML}
     />
   );
-};
+}
 
 export default CSVToYAMLPage;

@@ -1,6 +1,6 @@
 import { ISelectOption } from "../../../../interfaces";
 
-export const enum AREA_UNITS {
+export const enum AreaUnits {
   SQ_METER = "m²",
   SQ_KILOMETER = "km²",
   SQ_MILE = "mi²",
@@ -11,7 +11,7 @@ export const enum AREA_UNITS {
   SQ_ACRE = "ac"
 }
 
-export const enum AREA_CONVERSION_FACTORS {
+export const enum AreaConversationFactors {
   SQ_KILOMETER_TO_SQ_METER = 1000000,
   SQ_MILE_TO_SQ_METER = 2589988.110339,
   SQ_YARD_TO_SQ_METER = 0.83612736000097,
@@ -31,34 +31,34 @@ export const enum AREA_CONVERSION_FACTORS {
 export const AreaSelectOptions: ISelectOption[] = [
   {
     label: "Square meter",
-    value: AREA_UNITS.SQ_METER
+    value: AreaUnits.SQ_METER
   },
   {
     label: "Square kilometer",
-    value: AREA_UNITS.SQ_KILOMETER
+    value: AreaUnits.SQ_KILOMETER
   },
   {
     label: "Square mile",
-    value: AREA_UNITS.SQ_MILE
+    value: AreaUnits.SQ_MILE
   },
   {
     label: "Square yard",
-    value: AREA_UNITS.SQ_YARD
+    value: AreaUnits.SQ_YARD
   },
   {
     label: "Square foot",
-    value: AREA_UNITS.SQ_FOOT
+    value: AreaUnits.SQ_FOOT
   },
   {
     label: "Square inch",
-    value: AREA_UNITS.SQ_INCH
+    value: AreaUnits.SQ_INCH
   },
   {
     label: "Hectare",
-    value: AREA_UNITS.SQ_HECTARE
+    value: AreaUnits.SQ_HECTARE
   },
   {
     label: "Acre",
-    value: AREA_UNITS.SQ_ACRE
+    value: AreaUnits.SQ_ACRE
   }
 ];

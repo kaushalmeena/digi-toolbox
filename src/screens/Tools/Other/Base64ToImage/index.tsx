@@ -1,14 +1,12 @@
 import { H1, H2 } from "@blueprintjs/core";
-import React, { Component, ReactNode } from "react";
-import { loadFile, saveImage } from "../../../../utils";
+import React, { Component } from "react";
 import InputSection from "../../../../shared/Page/DataConvert/InputSection";
 import SwitchSection from "../../../../shared/Page/DataConvert/SwitchSection";
 import { MainContainer, TopContainer } from "../../../../styles";
+import { loadFile, saveImage } from "../../../../utils";
 import OutputSection from "./OutputSection";
 
-type Base64ToImageProps = {
-  children?: ReactNode;
-};
+type Base64ToImageProps = {};
 
 type Base64ToImageState = {
   input: string;
@@ -41,10 +39,12 @@ class Base64ToImage extends Component<Base64ToImageProps, Base64ToImageState> {
   };
 
   handleOutputDownload = (): void => {
-    saveImage(this.state.input);
+    const { input } = this.state;
+    saveImage(input);
   };
 
-  render(): JSX.Element {
+  render() {
+    const { input } = this.state;
     return (
       <>
         <TopContainer>
@@ -53,14 +53,14 @@ class Base64ToImage extends Component<Base64ToImageProps, Base64ToImageState> {
         </TopContainer>
         <MainContainer>
           <InputSection
-            input={this.state.input}
+            input={input}
             handleInputChange={this.handleInputChange}
             handleInputClear={this.handleInputClear}
             handleInputUpload={this.handleInputUpload}
           />
           <SwitchSection switchURL="/image-to-base64" />
           <OutputSection
-            output={this.state.input}
+            output={input}
             handleOutputDownload={this.handleOutputDownload}
           />
         </MainContainer>

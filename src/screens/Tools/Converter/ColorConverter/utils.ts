@@ -1,4 +1,4 @@
-import { COLOR_UNITS, HEX_REGEX, HSL_REGEX, RGB_REGEX } from "./constants";
+import { ColorUnits, HEX_REGEX, HSL_REGEX, RGB_REGEX } from "./constants";
 
 export const convertColor = (
   input: string,
@@ -9,27 +9,29 @@ export const convertColor = (
   let RGBArray = null;
 
   switch (from) {
-    case COLOR_UNITS.HEX:
+    case ColorUnits.HEX:
       RGBArray = convertHEXToRGBArray(input);
       break;
-    case COLOR_UNITS.RGB:
+    case ColorUnits.RGB:
       RGBArray = convertRGBToRGBArray(input);
       break;
-    case COLOR_UNITS.HSL:
+    case ColorUnits.HSL:
       RGBArray = convertHSLToRGBArray(input);
       break;
+    default:
   }
 
   switch (to) {
-    case COLOR_UNITS.HEX:
+    case ColorUnits.HEX:
       result = convertRGBArrayToHex(RGBArray);
       break;
-    case COLOR_UNITS.RGB:
+    case ColorUnits.RGB:
       result = convertRGBArrayToRGB(RGBArray);
       break;
-    case COLOR_UNITS.HSL:
+    case ColorUnits.HSL:
       result = convertRGBArrayToHSL(RGBArray);
       break;
+    default:
   }
 
   return result;
@@ -49,7 +51,7 @@ function convertHEXToRGBArray(input: string): number[] {
 }
 
 function convertRGBArrayToHex(rgbArr: number[]): string {
-  return "#" + rgbArr.map((x) => x.toString(16).padStart(2, "0")).join("");
+  return `#${rgbArr.map((x) => x.toString(16).padStart(2, "0")).join("")}`;
 }
 
 function convertRGBToRGBArray(input: string): number[] {
@@ -138,8 +140,9 @@ function convertRGBArrayToHSL(rgbArr: number[]): string {
       case b:
         h = (r - g) / d + 4;
         break;
+      default:
     }
-    h = h / 6;
+    h /= 6;
   }
 
   const H = Math.round(h * 360);

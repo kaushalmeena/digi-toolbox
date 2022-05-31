@@ -1,19 +1,19 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/UnitConvert";
-import { SpeedSelectOptions, SPEED_UNITS } from "./constants";
+import { SpeedSelectOptions, SpeedUnits } from "./constants";
 import { convertSpeed } from "./utils";
 
-const SpeedConverter: FunctionComponent = () => {
+function SpeedConverter() {
   return (
     <Page
       heading="Speed Converter"
       subHeading="Quickly convert speed between kilometer/hour, meter/second, miles/hour etc."
       selectOptions={SpeedSelectOptions}
-      fromDefaultValue={SPEED_UNITS.KILOMETERS_PER_HOUR}
-      toDefaultValue={SPEED_UNITS.METERS_PER_SECOND}
+      fromDefaultValue={SpeedUnits.KILOMETERS_PER_HOUR}
+      toDefaultValue={SpeedUnits.METERS_PER_SECOND}
       convertFunction={convertSpeed}
     />
   );
-};
+}
 
 export default SpeedConverter;

@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { convertCSVToJSON } from "./utils";
 
-const CSVToJSONPage: FunctionComponent = () => {
+function CSVToJSONPage() {
   return (
     <Page
       heading="CSV to JSON"
@@ -13,6 +13,6 @@ const CSVToJSONPage: FunctionComponent = () => {
       convertFunction={convertCSVToJSON}
     />
   );
-};
+}
 
 export default CSVToJSONPage;

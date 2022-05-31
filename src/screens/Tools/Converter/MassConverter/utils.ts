@@ -1,4 +1,4 @@
-import { MASS_CONVERSION_FACTORS, MASS_UNITS } from "./constants";
+import { MassConversationFactors, MassUnits } from "./constants";
 
 export const convertMass = (
   input: string,
@@ -10,57 +10,59 @@ export const convertMass = (
   const number = parseFloat(input);
 
   switch (from) {
-    case MASS_UNITS.KILOGRAM:
-      gram = number * MASS_CONVERSION_FACTORS.KILOGRAM_TO_GRAM;
+    case MassUnits.KILOGRAM:
+      gram = number * MassConversationFactors.KILOGRAM_TO_GRAM;
       break;
-    case MASS_UNITS.GRAM:
+    case MassUnits.GRAM:
       gram = number;
       break;
-    case MASS_UNITS.MILLIGRAM:
-      gram = number * MASS_CONVERSION_FACTORS.MILLIGRAM_TO_GRAM;
+    case MassUnits.MILLIGRAM:
+      gram = number * MassConversationFactors.MILLIGRAM_TO_GRAM;
       break;
-    case MASS_UNITS.MICROGRAM:
-      gram = number * MASS_CONVERSION_FACTORS.MICROGRAM_TO_GRAM;
+    case MassUnits.MICROGRAM:
+      gram = number * MassConversationFactors.MICROGRAM_TO_GRAM;
       break;
-    case MASS_UNITS.CARAT:
-      gram = number * MASS_CONVERSION_FACTORS.CARAT_TO_GRAM;
+    case MassUnits.CARAT:
+      gram = number * MassConversationFactors.CARAT_TO_GRAM;
       break;
-    case MASS_UNITS.QUINTAL:
-      gram = number * MASS_CONVERSION_FACTORS.QUINTAL_TO_GRAM;
+    case MassUnits.QUINTAL:
+      gram = number * MassConversationFactors.QUINTAL_TO_GRAM;
       break;
-    case MASS_UNITS.POUND:
-      gram = number * MASS_CONVERSION_FACTORS.POUND_TO_GRAM;
+    case MassUnits.POUND:
+      gram = number * MassConversationFactors.POUND_TO_GRAM;
       break;
-    case MASS_UNITS.OUNCE:
-      gram = number * MASS_CONVERSION_FACTORS.OUNCE_TO_GRAM;
+    case MassUnits.OUNCE:
+      gram = number * MassConversationFactors.OUNCE_TO_GRAM;
       break;
+    default:
   }
 
   switch (to) {
-    case MASS_UNITS.KILOGRAM:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_KILOGRAM;
+    case MassUnits.KILOGRAM:
+      result = gram * MassConversationFactors.GRAM_TO_KILOGRAM;
       break;
-    case MASS_UNITS.GRAM:
+    case MassUnits.GRAM:
       result = gram;
       break;
-    case MASS_UNITS.MILLIGRAM:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_MILLIGRAM;
+    case MassUnits.MILLIGRAM:
+      result = gram * MassConversationFactors.GRAM_TO_MILLIGRAM;
       break;
-    case MASS_UNITS.MICROGRAM:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_MICROGRAM;
+    case MassUnits.MICROGRAM:
+      result = gram * MassConversationFactors.GRAM_TO_MICROGRAM;
       break;
-    case MASS_UNITS.CARAT:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_CARAT;
+    case MassUnits.CARAT:
+      result = gram * MassConversationFactors.GRAM_TO_CARAT;
       break;
-    case MASS_UNITS.QUINTAL:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_QUINTAL;
+    case MassUnits.QUINTAL:
+      result = gram * MassConversationFactors.GRAM_TO_QUINTAL;
       break;
-    case MASS_UNITS.POUND:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_POUND;
+    case MassUnits.POUND:
+      result = gram * MassConversationFactors.GRAM_TO_POUND;
       break;
-    case MASS_UNITS.OUNCE:
-      result = gram * MASS_CONVERSION_FACTORS.GRAM_TO_OUNCE;
+    case MassUnits.OUNCE:
+      result = gram * MassConversationFactors.GRAM_TO_OUNCE;
       break;
+    default:
   }
 
   return result.toString();

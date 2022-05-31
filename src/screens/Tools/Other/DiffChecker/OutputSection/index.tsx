@@ -1,5 +1,5 @@
 import { Card } from "@blueprintjs/core";
-import React, { Fragment, FunctionComponent } from "react";
+import React, { Fragment } from "react";
 import { NormalIOContainer } from "../../../../../styles";
 import { CardBody, GText, RText } from "./styles";
 
@@ -7,14 +7,12 @@ type OutputSectionProps = {
   output: string[][];
 };
 
-const OutputSection: FunctionComponent<OutputSectionProps> = (
-  props: OutputSectionProps
-) => {
+function OutputSection({ output }: OutputSectionProps) {
   return (
     <NormalIOContainer>
       <Card>
         <CardBody>
-          {props.output.map((item, index) => (
+          {output.map((item, index) => (
             <Fragment key={`text-${index}`}>
               {item[0] === "N" && item[1]}
               {item[0] === "R" && <RText>{item[1]}</RText>}
@@ -25,6 +23,6 @@ const OutputSection: FunctionComponent<OutputSectionProps> = (
       </Card>
     </NormalIOContainer>
   );
-};
+}
 
 export default OutputSection;

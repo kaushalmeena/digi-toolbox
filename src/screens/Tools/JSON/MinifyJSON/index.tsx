@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Page from "../../../../shared/Page/DataConvert";
 import { minifyJSON } from "./utils";
 
-const MinifyJSON: FunctionComponent = () => {
+function MinifyJSON() {
   return (
     <Page
       heading="Minify JSON"
@@ -12,6 +12,6 @@ const MinifyJSON: FunctionComponent = () => {
       convertFunction={minifyJSON}
     />
   );
-};
+}
 
 export default MinifyJSON;
