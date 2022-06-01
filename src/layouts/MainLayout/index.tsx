@@ -6,16 +6,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { Main } from "./styles";
 
-type LayoutProps = {
+type MainLayoutProps = {
   children?: ReactNode;
 };
 
-type LayoutState = {
+type MainLayoutState = {
   darkMode: boolean;
 };
 
-class Layout extends Component<LayoutProps, LayoutState> {
-  constructor(props: LayoutProps) {
+class MainLayout extends Component<MainLayoutProps, MainLayoutState> {
+  constructor(props: MainLayoutProps) {
     super(props);
     this.state = {
       darkMode: false
@@ -56,4 +56,4 @@ class Layout extends Component<LayoutProps, LayoutState> {
   }
 }
 
-export default Layout;
+export default MainLayout;

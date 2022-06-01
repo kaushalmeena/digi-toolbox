@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum AngleUnits {
   DEGREE = "deg",
@@ -19,7 +19,7 @@ export const enum AngleConversationFactors {
   DEGREE_TO_ARC_SECOND = 3600
 }
 
-export const AngleSelectOptions: ISelectOption[] = [
+export const AngleSelectOptions: SelectOption[] = [
   {
     label: "Degree",
     value: AngleUnits.DEGREE

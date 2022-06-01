@@ -1,7 +1,7 @@
 import { Classes } from "@blueprintjs/core";
-import { ITheme, IToolBox } from "../interfaces";
+import { Theme, ToolBox } from "../types";
 
-export const DarkTheme: ITheme = {
+export const DarkTheme: Theme = {
   id: "dark-theme",
   blueprintjsClass: Classes.DARK,
   gray: {
@@ -13,7 +13,7 @@ export const DarkTheme: ITheme = {
   }
 };
 
-export const LightTheme: ITheme = {
+export const LightTheme: Theme = {
   id: "light-theme",
   blueprintjsClass: null,
   gray: {
@@ -25,7 +25,7 @@ export const LightTheme: ITheme = {
   }
 };
 
-export const ToolBoxes: IToolBox[] = [
+export const ToolBoxes: ToolBox[] = [
   {
     category: "JSON Tools",
     tools: [

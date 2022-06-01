@@ -1,4 +1,4 @@
-import { splitOnTags } from "../../../../utils";
+import { splitOnTags } from "../utils";
 
 export const minifyXML = (input: string): string => {
   let ignoreMode = false;

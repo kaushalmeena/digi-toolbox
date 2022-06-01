@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum LengthUnits {
   KILOMETER = "km",
@@ -28,7 +28,7 @@ export const enum LengthConversationFactors {
   METER_TO_INCH = 39.370078740157
 }
 
-export const LengthSelectOptions: ISelectOption[] = [
+export const LengthSelectOptions: SelectOption[] = [
   {
     label: "Kilometer",
     value: LengthUnits.KILOMETER

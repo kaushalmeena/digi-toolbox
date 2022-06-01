@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum MassUnits {
   KILOGRAM = "kg",
@@ -28,7 +28,7 @@ export const enum MassConversationFactors {
   GRAM_TO_OUNCE = 0.03527396194958
 }
 
-export const MassSelectOptions: ISelectOption[] = [
+export const MassSelectOptions: SelectOption[] = [
   {
     label: "Kilogram",
     value: MassUnits.KILOGRAM

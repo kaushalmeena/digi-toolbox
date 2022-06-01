@@ -1,4 +1,4 @@
-import { getSafeString } from "../../../../utils";
+import { getSafeString } from "../utils";
 
 export const convertJSONToCSV = (input: string): string => {
   let result = "";

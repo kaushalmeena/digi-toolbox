@@ -17,10 +17,12 @@ export const convertPressure = (
       pascal = number;
       break;
     case PressureUnits.POUNDS_PER_SQ_FOOT:
-      pascal = number * PressureConversationFactors.POUNDS_PER_SQ_FOOT_TO_PASCAL;
+      pascal =
+        number * PressureConversationFactors.POUNDS_PER_SQ_FOOT_TO_PASCAL;
       break;
     case PressureUnits.POUNDS_PER_SQ_INCH:
-      pascal = number * PressureConversationFactors.POUNDS_PER_SQ_INCH_TO_PASCAL;
+      pascal =
+        number * PressureConversationFactors.POUNDS_PER_SQ_INCH_TO_PASCAL;
       break;
     case PressureUnits.STANDARD_ATMOSPHERE:
       pascal =
@@ -40,10 +42,12 @@ export const convertPressure = (
       result = pascal;
       break;
     case PressureUnits.POUNDS_PER_SQ_FOOT:
-      result = pascal * PressureConversationFactors.PASCAL_TO_POUNDS_PER_SQ_FOOT;
+      result =
+        pascal * PressureConversationFactors.PASCAL_TO_POUNDS_PER_SQ_FOOT;
       break;
     case PressureUnits.POUNDS_PER_SQ_INCH:
-      result = pascal * PressureConversationFactors.PASCAL_TO_POUNDS_PER_SQ_INCH;
+      result =
+        pascal * PressureConversationFactors.PASCAL_TO_POUNDS_PER_SQ_INCH;
       break;
     case PressureUnits.STANDARD_ATMOSPHERE:
       result =

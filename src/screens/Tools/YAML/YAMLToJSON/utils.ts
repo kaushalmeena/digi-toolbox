@@ -1,4 +1,4 @@
-import { removeQuotes, parseString } from "../../../../utils";
+import { removeQuotes, parseString } from "../../utils";
 
 export const convertYAMLToJSON = (input: string): string => {
   const tempArray = input.split("\n").filter(Boolean);

@@ -19,7 +19,6 @@
     "@typescript-eslint/no-use-before-define": "off",
     "func-names": "off",
     "import/prefer-default-export": "off",
-    "no-constant-condition": "off",
     "no-continue": "off",
     "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off",

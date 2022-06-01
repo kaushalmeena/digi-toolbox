@@ -14,9 +14,9 @@ function OutputSection({ output }: OutputSectionProps) {
         <CardBody>
           {output.map((item, index) => (
             <Fragment key={`text-${index}`}>
-              {item[0] === "N" && item[1]}
-              {item[0] === "R" && <RText>{item[1]}</RText>}
-              {item[0] === "G" && <GText>{item[1]}</GText>}
+              {item[0] === "*" && item[1]}
+              {item[0] === "-" && <RText>{item[1]}</RText>}
+              {item[0] === "+" && <GText>{item[1]}</GText>}
             </Fragment>
           ))}
         </CardBody>

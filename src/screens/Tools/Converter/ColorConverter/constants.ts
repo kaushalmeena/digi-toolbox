@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum ColorUnits {
   HEX = "hex",
@@ -6,7 +6,7 @@ export const enum ColorUnits {
   HSL = "hsl"
 }
 
-export const ColorSelectOptions: ISelectOption[] = [
+export const ColorSelectOptions: SelectOption[] = [
   {
     label: "HEX",
     value: ColorUnits.HEX

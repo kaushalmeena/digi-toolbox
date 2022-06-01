@@ -1,4 +1,4 @@
-import { isClosingTag, isOpeningTag, splitOnTags } from "../../../../utils";
+import { isClosingTag, isOpeningTag, splitOnTags } from "../utils";
 
 export const prettifyXML = (input: string): string => {
   const indent = "  ";

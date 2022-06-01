@@ -1,12 +1,12 @@
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import React from "react";
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 import { SelectContainer, TextIOContainer } from "../../../../styles";
 
 type InputSectionProps = {
   input: string;
   from: string;
-  selectOptions: ISelectOption[];
+  selectOptions: SelectOption[];
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleFromSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };

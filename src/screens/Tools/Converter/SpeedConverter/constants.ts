@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum SpeedUnits {
   KILOMETERS_PER_HOUR = "km/h",
@@ -19,7 +19,7 @@ export const enum SpeedConversationFactors {
   METERS_PER_SECOND_TO_KNOT = 1.9438444924406
 }
 
-export const SpeedSelectOptions: ISelectOption[] = [
+export const SpeedSelectOptions: SelectOption[] = [
   {
     label: "Kilometers/hour",
     value: SpeedUnits.KILOMETERS_PER_HOUR

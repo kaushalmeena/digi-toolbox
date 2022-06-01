@@ -1,4 +1,4 @@
-export interface ITheme {
+export interface Theme {
   id: string;
   blueprintjsClass: string;
   gray: {
@@ -10,17 +10,17 @@ export interface ITheme {
   };
 }
 
-export interface IToolBox {
+export interface ToolBox {
   category: string;
-  tools: ITool[];
+  tools: Tool[];
 }
 
-export interface ITool {
+export interface Tool {
   name: string;
   url: string;
 }
 
-export interface ISelectOption {
+export interface SelectOption {
   label: string;
   value: string;
 }

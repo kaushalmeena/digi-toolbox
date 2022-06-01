@@ -2,7 +2,7 @@ import { FocusStyleManager } from "@blueprintjs/core";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
-import Layout from "../layouts/Layout";
+import MainLayout from "../layouts/MainLayout";
 
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Layout>
+      <MainLayout>
         <Component {...pageProps} />
-      </Layout>
+      </MainLayout>
     </>
   );
 }

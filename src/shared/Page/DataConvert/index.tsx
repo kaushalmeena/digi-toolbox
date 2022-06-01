@@ -1,6 +1,6 @@
 import { H1, H2 } from "@blueprintjs/core";
 import React, { Component } from "react";
-import { copyData, loadFile, saveFile } from "../../../utils";
+import { copyText, loadFile, saveFile } from "../../../utils";
 import { MainContainer, MiddleContainer, TopContainer } from "../../../styles";
 import Toast from "../../Toast";
 import InputSection from "./InputSection";
@@ -54,8 +54,9 @@ class DataConvert extends Component<DataConvertProps, DataConvertState> {
 
   handleOutputCopy = (): void => {
     const { output } = this.state;
-    copyData(output);
-    Toast.show({ message: "Copied to clipboard.", intent: "primary" });
+    copyText(output).then(() =>
+      Toast.show({ message: "Copied to clipboard.", intent: "primary" })
+    );
   };
 
   handleOutputDownload = (): void => {

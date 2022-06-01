@@ -1,6 +1,6 @@
 import { H1, H2, Icon } from "@blueprintjs/core";
 import React, { Component } from "react";
-import { ISelectOption } from "../../../interfaces";
+import { SelectOption } from "../../../types";
 import { MainContainer, MiddleContainer, TopContainer } from "../../../styles";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
@@ -8,7 +8,7 @@ import OutputSection from "./OutputSection";
 type UnitConvertProps = {
   heading: string;
   subHeading: string;
-  selectOptions: ISelectOption[];
+  selectOptions: SelectOption[];
   fromDefaultValue: string;
   toDefaultValue: string;
   convertFunction: (input: string, from: string, to: string) => string;
@@ -86,7 +86,6 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   render() {
     const { heading, subHeading, selectOptions } = this.props;
     const { input, from, to, output } = this.state;
-
     return (
       <>
         <TopContainer>

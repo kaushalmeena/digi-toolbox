@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum AreaUnits {
   SQ_METER = "m²",
@@ -28,7 +28,7 @@ export const enum AreaConversationFactors {
   SQ_METER_TO_SQ_ACRE = 0.00024710538146688
 }
 
-export const AreaSelectOptions: ISelectOption[] = [
+export const AreaSelectOptions: SelectOption[] = [
   {
     label: "Square meter",
     value: AreaUnits.SQ_METER

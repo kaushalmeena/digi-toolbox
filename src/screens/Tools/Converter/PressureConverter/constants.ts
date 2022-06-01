@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum PressureUnits {
   BAR = "bar",
@@ -22,7 +22,7 @@ export const enum PressureConversationFactors {
   PASCAL_TO_TORR = 0.00750061682704
 }
 
-export const PressureSelectOptions: ISelectOption[] = [
+export const PressureSelectOptions: SelectOption[] = [
   {
     label: "Bar",
     value: PressureUnits.BAR

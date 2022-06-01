@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const convertBase = (
   input: string,
@@ -14,7 +14,7 @@ export const convertBase = (
   return parseInt(input, initialBase).toString(targetBase);
 };
 
-export const generateSelectOptions = (start = 2, end = 16): ISelectOption[] => {
+export const generateSelectOptions = (start = 2, end = 16): SelectOption[] => {
   const options = [];
   const KnownBaseNames = {
     "02": "Binary",

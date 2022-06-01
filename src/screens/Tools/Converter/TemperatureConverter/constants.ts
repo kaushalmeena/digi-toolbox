@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum TemperatureUnits {
   CELSIUS = "°C",
@@ -6,7 +6,7 @@ export const enum TemperatureUnits {
   KELVIN = "K"
 }
 
-export const TemperatureSelectOptions: ISelectOption[] = [
+export const TemperatureSelectOptions: SelectOption[] = [
   {
     label: "Celsius",
     value: TemperatureUnits.CELSIUS

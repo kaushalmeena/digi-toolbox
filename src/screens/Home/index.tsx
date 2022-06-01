@@ -2,7 +2,7 @@ import { Card, H1, H2, InputGroup } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { Component } from "react";
 import { ToolBoxes } from "../../constants";
-import { ITool } from "../../interfaces";
+import { Tool } from "../../types";
 import { TopContainer } from "../../styles";
 import { CardBody, CardContainer, MainContainer } from "./styles";
 
@@ -10,8 +10,8 @@ type HomeProps = {};
 
 type HomeState = {
   search: string;
-  tools: ITool[];
-  filteredTools: ITool[];
+  tools: Tool[];
+  filteredTools: Tool[];
 };
 
 class Home extends Component<HomeProps, HomeState> {

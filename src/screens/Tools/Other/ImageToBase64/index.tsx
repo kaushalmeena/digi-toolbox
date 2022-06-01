@@ -4,7 +4,7 @@ import OutputSection from "../../../../shared/Page/DataConvert/OutputSection";
 import SwitchSection from "../../../../shared/Page/DataConvert/SwitchSection";
 import Toast from "../../../../shared/Toast";
 import { MainContainer, TopContainer } from "../../../../styles";
-import { copyData, loadImage, saveFile } from "../../../../utils";
+import { copyText, loadImage, saveFile } from "../../../../utils";
 import InputSection from "./InputSection";
 
 type ImageToBase64Props = {};
@@ -33,8 +33,9 @@ class ImageToBase64 extends Component<ImageToBase64Props, ImageToBase64State> {
 
   handleOutputCopy = (): void => {
     const { output } = this.state;
-    copyData(output);
-    Toast.show({ message: "Copied to clipboard.", intent: "primary" });
+    copyText(output).then(() =>
+      Toast.show({ message: "Copied to clipboard.", intent: "primary" })
+    );
   };
 
   handleOutputDownload = (): void => {

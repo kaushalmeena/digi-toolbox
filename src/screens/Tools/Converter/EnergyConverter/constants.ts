@@ -1,4 +1,4 @@
-import { ISelectOption } from "../../../../interfaces";
+import { SelectOption } from "../../../../types";
 
 export const enum EnergyUnits {
   JOULE = "J",
@@ -31,7 +31,7 @@ export const enum EnergyConversationFactors {
   JOULE_TO_FOOT_POUND = 0.7375621493
 }
 
-export const EnergySelectOptions: ISelectOption[] = [
+export const EnergySelectOptions: SelectOption[] = [
   {
     label: "Joule",
     value: EnergyUnits.JOULE

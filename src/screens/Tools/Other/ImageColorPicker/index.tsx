@@ -2,7 +2,7 @@ import { H1, H2 } from "@blueprintjs/core";
 import React, { Component, createRef } from "react";
 import Toast from "../../../../shared/Toast";
 import { MainContainer, TopContainer } from "../../../../styles";
-import { copyData, loadImage } from "../../../../utils";
+import { copyText, loadImage } from "../../../../utils";
 import PickerSection from "./PickerSection";
 import { getColor } from "./utils";
 
@@ -69,8 +69,9 @@ class ImageColorPicker extends Component<
 
   handleColorCopy = (): void => {
     const { selectedColor } = this.state;
-    copyData(selectedColor);
-    Toast.show({ message: "Copied to clipboard.", intent: "primary" });
+    copyText(selectedColor).then(() => {
+      Toast.show({ message: "Copied to clipboard.", intent: "primary" });
+    });
   };
 
   render() {
