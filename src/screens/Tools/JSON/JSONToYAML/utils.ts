@@ -1,4 +1,4 @@
-import { getSafeString, getType } from "../../../../utils";
+import { getType, getSafeString } from "../utils";
 
 export const convertJSONToYAML = (input: string): string => {
   const result = [];
