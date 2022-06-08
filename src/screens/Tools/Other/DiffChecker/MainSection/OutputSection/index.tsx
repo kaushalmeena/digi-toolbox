@@ -1,6 +1,6 @@
 import { Card } from "@blueprintjs/core";
 import React, { Fragment } from "react";
-import { NormalIOContainer } from "../../../../../styles";
+import { NormalIOContainer } from "../../../../../../styles";
 import { CardBody, GText, RText } from "./styles";
 
 type OutputSectionProps = {

@@ -1,4 +1,6 @@
-export interface Theme {
+import { MaybeElement, IconName } from "@blueprintjs/core";
+
+export type Theme = {
   id: string;
   blueprintjsClass: string;
   gray: {
@@ -8,19 +10,25 @@ export interface Theme {
     4: string;
     5: string;
   };
-}
+};
 
-export interface ToolBox {
+export type ToolBox = {
   category: string;
   tools: Tool[];
-}
+};
 
-export interface Tool {
+export type Tool = {
   name: string;
   url: string;
-}
+};
 
-export interface SelectOption {
+export type SelectOption = {
   label: string;
   value: string;
-}
+};
+
+export type ButtonOption = {
+  title: string;
+  icon: IconName | MaybeElement;
+  onClick: () => void;
+};

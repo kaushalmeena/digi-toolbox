@@ -1,6 +1,7 @@
-import { Button, TextArea } from "@blueprintjs/core";
+import { TextArea } from "@blueprintjs/core";
 import React from "react";
-import { ButtonContainer, TextIOContainer } from "../../../../styles";
+import { TextIOContainer } from "../../../../../styles";
+import ButtonSection from "../../../../ButtonSection";
 
 type InputSectionProps = {
   input: string;
@@ -18,15 +19,20 @@ function InputSection({
   return (
     <TextIOContainer>
       <TextArea fill rows={16} value={input} onChange={handleInputChange} />
-      <ButtonContainer>
-        <Button large title="Clear" icon="refresh" onClick={handleInputClear} />
-        <Button
-          large
-          title="Upload"
-          icon="export"
-          onClick={handleInputUpload}
-        />
-      </ButtonContainer>
+      <ButtonSection
+        buttons={[
+          {
+            title: "Clear",
+            icon: "refresh",
+            onClick: handleInputClear
+          },
+          {
+            title: "Upload",
+            icon: "export",
+            onClick: handleInputUpload
+          }
+        ]}
+      />
     </TextIOContainer>
   );
 }
