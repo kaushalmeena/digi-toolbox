@@ -1,5 +1,3 @@
-import { MaybeElement, IconName } from "@blueprintjs/core";
-
 export type Theme = {
   id: string;
   blueprintjsClass: string;
@@ -25,10 +23,4 @@ export type Tool = {
 export type SelectOption = {
   label: string;
   value: string;
-};
-
-export type ButtonOption = {
-  title: string;
-  icon: IconName | MaybeElement;
-  onClick: () => void;
 };

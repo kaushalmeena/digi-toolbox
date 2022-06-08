@@ -1,8 +1,8 @@
 import { Card } from "@blueprintjs/core";
 import Image from "next/image";
 import React from "react";
-import ButtonSection from "../../../../../shared/ButtonSection";
-import { CardImage, NormalIOContainer } from "../../../../../styles";
+import ButtonSection from "../../../../../../shared/ButtonSection";
+import { CardImage, NormalIOContainer } from "../../../../../../styles";
 
 type InputSectionProps = {
   input: string;

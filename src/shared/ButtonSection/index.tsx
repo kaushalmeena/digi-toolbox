@@ -1,7 +1,7 @@
 import { Button } from "@blueprintjs/core";
 import React, { memo } from "react";
 import { ButtonContainer } from "../../styles";
-import { ButtonOption } from "../../types";
+import { ButtonOption } from "./types";
 
 type ButtonSectionProps = {
   buttons: ButtonOption[];
@@ -23,9 +23,11 @@ function ButtonSection({ buttons }: ButtonSectionProps) {
   );
 }
 
-const propsAreEqual = (
+function propsAreEqual(
   prevProps: ButtonSectionProps,
   nextProps: ButtonSectionProps
-) => prevProps.buttons.length === nextProps.buttons.length;
+) {
+  return prevProps.buttons.length === nextProps.buttons.length;
+}
 
 export default memo(ButtonSection, propsAreEqual);

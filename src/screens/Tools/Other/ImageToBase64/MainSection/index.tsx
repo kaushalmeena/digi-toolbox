@@ -4,7 +4,7 @@ import SwitchSection from "../../../../../shared/Page/DataConvert/MainSection/Sw
 import Toast from "../../../../../shared/Toast";
 import { MainContainer } from "../../../../../styles";
 import { copyText, loadImage, saveFile } from "../../../../../utils";
-import InputSection from "../InputSection";
+import InputSection from "./InputSection";
 
 type MainSectionProps = {};
 

@@ -5,22 +5,22 @@ import { SelectOption } from "../../../../types";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
 
-type UnitConvertProps = {
+type MainSectionProps = {
   selectOptions: SelectOption[];
   fromDefaultValue: string;
   toDefaultValue: string;
   convertFunction: (input: string, from: string, to: string) => string;
 };
 
-type UnitConvertState = {
+type MainSectionState = {
   input: string;
   from: string;
   to: string;
   output: string;
 };
 
-class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
-  constructor(props: UnitConvertProps) {
+class MainSection extends Component<MainSectionProps, MainSectionState> {
+  constructor(props: MainSectionProps) {
     super(props);
     this.state = {
       input: "",
@@ -108,4 +108,4 @@ class UnitConvert extends Component<UnitConvertProps, UnitConvertState> {
   }
 }
 
-export default UnitConvert;
+export default MainSection;
