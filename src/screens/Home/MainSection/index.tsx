@@ -3,18 +3,18 @@ import Link from "next/link";
 import React, { Component } from "react";
 import { ToolBoxes } from "../../../constants";
 import { Tool } from "../../../types";
-import { CardBody, CardContainer, MainContainer } from "../styles";
+import { CardBody, CardContainer, MainContainer } from "./styles";
 
-type HomeProps = {};
+type MainSectionProps = {};
 
-type HomeState = {
+type MainSectionState = {
   search: string;
   tools: Tool[];
   filteredTools: Tool[];
 };
 
-class Home extends Component<HomeProps, HomeState> {
-  constructor(props: HomeProps) {
+class MainSection extends Component<MainSectionProps, MainSectionState> {
+  constructor(props: MainSectionProps) {
     super(props);
     const allTools = ToolBoxes.reduce((arr, cur) => arr.concat(cur.tools), []);
     this.state = {
@@ -59,4 +59,4 @@ class Home extends Component<HomeProps, HomeState> {
   }
 }
 
-export default Home;
+export default MainSection;

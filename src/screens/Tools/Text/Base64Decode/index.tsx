@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../../../shared/Page/DataConvert";
+import Page from "../../../../shared/Pages/DataConvert";
 import { decodeBase64 } from "./utils";
 
 function Base64DecodePage() {

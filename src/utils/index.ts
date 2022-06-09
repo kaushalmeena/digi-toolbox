@@ -32,8 +32,6 @@ export const loadFile = (
     input.click();
   });
 
-export const loadImage = (): Promise<string> => loadFile("image/*", "dataURL");
-
 export const saveFile = (
   data: string,
   extension = "txt",
@@ -43,13 +41,6 @@ export const saveFile = (
   const a = document.createElement("a");
   a.download = `output.${extension}`;
   a.href = window.URL.createObjectURL(blob);
-  a.click();
-};
-
-export const saveImage = (base64Image: string): void => {
-  const a = document.createElement("a");
-  a.download = "output";
-  a.href = base64Image;
   a.click();
 };
 

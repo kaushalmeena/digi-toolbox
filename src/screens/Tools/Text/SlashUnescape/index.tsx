@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../../../shared/Page/DataConvert";
+import Page from "../../../../shared/Pages/DataConvert";
 import { unescapeSlash } from "./utils";
 
 function SlashUnescapePage() {

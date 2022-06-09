@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../../../shared/Page/UnitConvert";
+import Page from "../../../../shared/Pages/UnitConvert";
 import { PressureSelectOptions, PressureUnits } from "./constants";
 import { convertPressure } from "./utils";
 

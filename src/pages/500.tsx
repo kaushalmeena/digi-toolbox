@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import ErrorPage from "../shared/Page/Error";
+import ErrorPage from "../shared/Pages/Error";
 
 function Custom500() {
   return (

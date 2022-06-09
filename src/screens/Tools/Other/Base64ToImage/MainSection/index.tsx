@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import InputSection from "../../../../../shared/Page/DataConvert/MainSection/InputSection";
-import SwitchSection from "../../../../../shared/Page/DataConvert/MainSection/SwitchSection";
+import InputSection from "../../../../../shared/Pages/DataConvert/MainSection/InputSection";
+import SwitchSection from "../../../../../shared/Pages/DataConvert/MainSection/SwitchSection";
 import Toast from "../../../../../shared/Toast";
 import { MainContainer } from "../../../../../styles";
-import { loadFile, saveImage } from "../../../../../utils";
+import { loadFile } from "../../../../../utils";
 import OutputSection from "./OutputSection";
+import { saveImage } from "./utils";
 
 type MainSectionProps = {};
 

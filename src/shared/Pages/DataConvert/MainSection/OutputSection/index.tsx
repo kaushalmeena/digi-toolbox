@@ -1,7 +1,7 @@
 import { TextArea } from "@blueprintjs/core";
 import React from "react";
-import { TextIOContainer } from "../../../../../styles";
 import ButtonSection from "../../../../ButtonSection";
+import { TextIOContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;

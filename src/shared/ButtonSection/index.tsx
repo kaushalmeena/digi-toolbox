@@ -1,6 +1,6 @@
 import { Button } from "@blueprintjs/core";
 import React, { memo } from "react";
-import { ButtonContainer } from "../../styles";
+import { ButtonContainer } from "./styles";
 import { ButtonOption } from "./types";
 
 type ButtonSectionProps = {

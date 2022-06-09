@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../../../shared/Page/UnitConvert";
+import Page from "../../../../shared/Pages/UnitConvert";
 import { EnergySelectOptions, EnergyUnits } from "./constants";
 import { convertEnergy } from "./utils";
 

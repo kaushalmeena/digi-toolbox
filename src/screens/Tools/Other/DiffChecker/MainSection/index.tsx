@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import InputSection from "../../../../../shared/Page/DataConvert/MainSection/InputSection";
+import InputSection from "../../../../../shared/Pages/DataConvert/MainSection/InputSection";
 import { MainContainer, MiddleContainer } from "../../../../../styles";
 import { loadFile } from "../../../../../utils";
 import OutputSection from "./OutputSection";

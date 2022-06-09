@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import ButtonSection from "../../../../../../shared/ButtonSection";
 import Toast from "../../../../../../shared/Toast";
-import { CardImage, NormalIOContainer } from "../../../../../../styles";
+import { CardImage, NormalIOContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;

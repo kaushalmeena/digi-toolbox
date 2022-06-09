@@ -2,8 +2,10 @@ import { Button, InputGroup } from "@blueprintjs/core";
 import React, { Component, createRef } from "react";
 import ButtonSection from "../../../../../shared/ButtonSection";
 import Toast from "../../../../../shared/Toast";
-import { MainContainer, NormalIOContainer } from "../../../../../styles";
-import { copyText, loadImage } from "../../../../../utils";
+import { MainContainer } from "../../../../../styles";
+import { copyText } from "../../../../../utils";
+import { NormalIOContainer } from "../../styles";
+import { loadImage } from "../../utils";
 import { getColor } from "../utils";
 import { CardBody, CardFooter, ColorContainer, CustomCard } from "./styles";
 
