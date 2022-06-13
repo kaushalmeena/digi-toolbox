@@ -16,29 +16,28 @@ export const getDiffOutput = (str1: string, str2: string): string[][] => {
   const result = [];
   const LCS = computeLCSMatrix(str1, str2);
 
-  let tempRow = null;
+  let row = null;
   let i = str1.length;
   let j = str2.length;
 
   while (i > 0 || j > 0) {
     if (i > 0 && j > 0 && str1[i - 1] === str2[j - 1]) {
-      tempRow = ["*", str1[i - 1]];
+      row = ["*", str1[i - 1]];
       i -= 1;
       j -= 1;
     } else if (j > 0 && (i === 0 || LCS[i][j - 1] >= LCS[i - 1][j])) {
-      tempRow = ["+", str2[j - 1]];
+      row = ["+", str2[j - 1]];
       j -= 1;
     } else if (i > 0 && (j === 0 || LCS[i][j - 1] < LCS[i - 1][j])) {
-      tempRow = ["-", str1[i - 1]];
+      row = ["-", str1[i - 1]];
       i -= 1;
     }
 
-    if (result[0] && result[0][0] === tempRow[0]) {
-      result[0][1] = tempRow[1] + result[0][1];
-      continue;
+    if (result[0] && result[0][0] === row[0]) {
+      result[0][1] = row[1] + result[0][1];
+    } else {
+      result.unshift(row);
     }
-
-    result.unshift(tempRow);
   }
 
   return result;

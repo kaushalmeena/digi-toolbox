@@ -21,12 +21,8 @@ export const loadFile = (
           reader.readAsText(file);
       }
 
-      reader.onload = function () {
-        resolve(reader.result as string);
-      };
-      reader.onerror = function () {
-        reject(reader.error);
-      };
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(reader.error);
     });
 
     input.click();

@@ -12,36 +12,34 @@ function convert(arr: string[], index: number, indent: number) {
   let obj = null;
 
   for (let i = index; i < arr.length; i += 1) {
-    if (arr[i][indent] === " ") {
-      continue;
-    }
+    if (arr[i][indent] !== " ") {
+      const line = arr[i].slice(indent);
 
-    const line = arr[i].slice(indent);
-
-    if (line.includes("-")) {
-      if (!Array.isArray(obj)) {
-        obj = [];
-      }
-      obj.push(convert(arr, i, indent + 2));
-    } else if (line.includes(":")) {
-      if (!obj) {
-        obj = {};
-      }
-      const tempArr = line.split(":");
-      const key = removeQuotes(tempArr[0]);
-      const val = removeQuotes(tempArr[1]);
-      if (val) {
-        obj[key] = parseString(val);
+      if (line.includes("-")) {
+        if (!Array.isArray(obj)) {
+          obj = [];
+        }
+        obj.push(convert(arr, i, indent + 2));
+      } else if (line.includes(":")) {
+        if (!obj) {
+          obj = {};
+        }
+        const splitArr = line.split(":");
+        const key = removeQuotes(splitArr[0]);
+        const val = removeQuotes(splitArr[1]);
+        if (val) {
+          obj[key] = parseString(val);
+        } else {
+          obj[key] = convert(arr, i + 1, indent + 2);
+        }
       } else {
-        obj[key] = convert(arr, i + 1, indent + 2);
+        const val = removeQuotes(line);
+        obj = parseString(val);
       }
-    } else {
-      const val = removeQuotes(line);
-      obj = parseString(val);
-    }
 
-    if (indent >= 2 && i < arr.length - 1 && arr[i + 1][indent - 2] !== " ") {
-      break;
+      if (indent >= 2 && i < arr.length - 1 && arr[i + 1][indent - 2] !== " ") {
+        break;
+      }
     }
   }
 

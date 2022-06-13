@@ -17,10 +17,7 @@
   "plugins": [],
   "rules": {
     "@typescript-eslint/no-use-before-define": "off",
-    "func-names": "off",
     "import/prefer-default-export": "off",
-    "no-continue": "off",
-    "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off"

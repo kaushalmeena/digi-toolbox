@@ -2,9 +2,9 @@ import { isClosingTag, isOpeningTag, splitOnTags } from "../utils";
 
 export const prettifyXML = (input: string): string => {
   const indent = "  ";
+  let deferred: string[] = [];
   let depth = 0;
   let ignoreMode = false;
-  let deferred = [];
 
   return splitOnTags(input)
     .map((item) => {
@@ -23,15 +23,15 @@ export const prettifyXML = (input: string): string => {
         return null;
       }
 
-      item = item.replace(/^\s+|\s+$/g, "");
+      const newItem = item.replace(/^\s+|\s+$/g, "");
 
-      if (isClosingTag(item)) {
+      if (isClosingTag(newItem)) {
         depth = -1;
       }
 
-      const line = indent.repeat(depth) + item;
+      const line = indent.repeat(depth) + newItem;
 
-      if (isOpeningTag(item)) {
+      if (isOpeningTag(newItem)) {
         depth += 1;
       }
 

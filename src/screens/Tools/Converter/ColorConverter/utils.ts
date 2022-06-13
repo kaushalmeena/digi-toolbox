@@ -152,11 +152,12 @@ function convertRGBArrayToHSL(rgbArr: number[]): string {
   return `hsl(${H}, ${S}%, ${L}%)`;
 }
 
-function HUEToRGB(P: number, Q: number, T: number) {
-  if (T < 0) T += 1;
-  if (T > 1) T -= 1;
-  if (T < 1 / 6) return P + (Q - P) * 6 * T;
-  if (T < 1 / 2) return Q;
-  if (T < 2 / 3) return P + (Q - P) * (2 / 3 - T) * 6;
+function HUEToRGB(P: number, Q: number, H: number) {
+  let t = H;
+  if (t < 0) t += 1;
+  if (t > 1) t -= 1;
+  if (t < 1 / 6) return P + (Q - P) * 6 * t;
+  if (t < 1 / 2) return Q;
+  if (t < 2 / 3) return P + (Q - P) * (2 / 3 - t) * 6;
   return P;
 }

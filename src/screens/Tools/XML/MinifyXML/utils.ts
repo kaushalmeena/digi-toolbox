@@ -1,8 +1,8 @@
 import { splitOnTags } from "../utils";
 
 export const minifyXML = (input: string): string => {
+  let deferred: string[] = [];
   let ignoreMode = false;
-  let deferred = [];
 
   return splitOnTags(input)
     .map((item) => {
@@ -21,9 +21,9 @@ export const minifyXML = (input: string): string => {
         return null;
       }
 
-      item = item.replace(/^\s+|\s+$/g, "");
+      const newItem = item.replace(/^\s+|\s+$/g, "");
 
-      return item;
+      return newItem;
     })
     .join("");
 };
