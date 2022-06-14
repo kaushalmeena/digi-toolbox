@@ -1,14 +1,7 @@
-import { Divider } from "@blueprintjs/core";
 import Link from "next/link";
 import React from "react";
 import { ToolBoxes } from "../../../constants";
-import {
-  Container,
-  MessageContainer,
-  BoxContainer,
-  ToolCategory,
-  MainContainer
-} from "./styles";
+import { Container, BoxContainer, ToolCategory, MainContainer } from "./styles";
 
 function Footer() {
   return (
@@ -25,8 +18,6 @@ function Footer() {
           </BoxContainer>
         ))}
       </MainContainer>
-      <Divider />
-      <MessageContainer>Made with &#9829; in NextJS</MessageContainer>
     </Container>
   );
 }

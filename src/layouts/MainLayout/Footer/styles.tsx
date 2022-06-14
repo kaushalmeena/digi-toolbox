@@ -37,8 +37,3 @@ export const ToolCategory = styled.div`
     font-size: 24px;
   }
 `;
-
-export const MessageContainer = styled.div`
-  padding: 15px 20px 20px 20px;
-  text-align: center;
-`;

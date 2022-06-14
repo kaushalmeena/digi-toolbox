@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { DarkTheme, LightTheme } from "../../constants";
 import Footer from "./Footer";
 import Header from "./Header";
-import { Main } from "./styles";
+import { Main, ResponsiveContainer } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
 type MainLayoutProps = {
@@ -48,7 +48,9 @@ class MainLayout extends Component<MainLayoutProps, MainLayoutState> {
             darkMode={darkMode}
             handleDarkModeToggle={this.handleDarkModeToggle}
           />
-          <Main>{children}</Main>
+          <Main>
+            <ResponsiveContainer>{children}</ResponsiveContainer>
+          </Main>
           <Footer />
         </div>
       </ThemeProvider>
