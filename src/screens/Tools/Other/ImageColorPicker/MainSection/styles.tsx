@@ -1,7 +1,7 @@
-import { Card } from "@blueprintjs/core";
+import { Card as BlueprintJSCard } from "@blueprintjs/core";
 import styled from "styled-components";
 
-export const CustomCard = styled(Card)`
+export const Card = styled(BlueprintJSCard)`
   padding: 0px;
 `;
 

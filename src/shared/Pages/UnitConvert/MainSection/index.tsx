@@ -76,7 +76,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     try {
       output = convertFunction(input, from, to);
     } catch (err) {
-      output = "Invalid input detected.";
+      output = err?.message ?? "Invalid input detected";
     }
     return output;
   };

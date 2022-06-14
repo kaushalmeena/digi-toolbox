@@ -6,9 +6,9 @@ export const CardBody = styled.div`
 `;
 
 export const RText = styled.span`
-  color: red;
+  background-color: ${(props) => props.theme.wrong};
 `;
 
 export const GText = styled.span`
-  color: green;
+  background-color: ${(props) => props.theme.right};
 `;

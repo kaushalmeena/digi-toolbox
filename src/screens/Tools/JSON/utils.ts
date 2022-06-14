@@ -7,7 +7,9 @@ export const getSafeString = (str: string): string => {
   return str;
 };
 
-export const getType = (item: unknown): string => {
+export const getType = (
+  item: any
+): "array" | "object" | "string" | "boolean" | "number" | "null" => {
   if (item instanceof Array) {
     return "array";
   }

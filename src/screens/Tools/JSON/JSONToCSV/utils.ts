@@ -1,24 +1,24 @@
-import { getSafeString } from "../utils";
+import { getSafeString, getType } from "../utils";
 
 export const convertJSONToCSV = (input: string): string => {
   let result = "";
-  const tempData = JSON.parse(input);
-  const tempArray = findArray(tempData);
+  const jsonData = JSON.parse(input);
+  const jsonArray = findArray(jsonData);
 
-  if (!tempArray) {
-    throw new Error("JSON input in not array of objects.");
+  if (!jsonArray) {
+    throw new Error("JSON input in not array of objects");
   }
 
-  const headers = Object.keys(tempArray[0]);
-  tempArray.unshift(headers);
+  const headers = Object.keys(jsonArray[0]);
+  jsonArray.unshift(headers);
 
-  for (let i = 0; i < tempArray.length; i += 1) {
+  for (let i = 0; i < jsonArray.length; i += 1) {
     let line = "";
-    Object.keys(tempArray[i]).forEach((key) => {
+    Object.keys(jsonArray[i]).forEach((key) => {
       if (line !== "") {
         line += ",";
       }
-      line += getSafeString(tempArray[i][key]);
+      line += getSafeString(jsonArray[i][key]);
     });
     result += `${line}\r\n`;
   }
@@ -26,14 +26,14 @@ export const convertJSONToCSV = (input: string): string => {
   return result;
 };
 
-function findArray(item: any) {
-  if (Array.isArray(item) && item[0] instanceof Object) {
-    return item;
+function findArray(data: any) {
+  if (getType(data) === "array" && getType(data[0]) === "object") {
+    return data;
   }
-  if (item instanceof Object) {
-    const keys = Object.keys(item);
-    const tempObj = item[keys[0]];
-    return findArray(tempObj);
+  if (getType(data) === "object") {
+    const key = Object.keys(data).at(0);
+    const obj = data[key];
+    return findArray(obj);
   }
   return null;
 }

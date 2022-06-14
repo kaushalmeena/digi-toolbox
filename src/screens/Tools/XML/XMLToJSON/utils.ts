@@ -2,32 +2,33 @@ import { parseString } from "../../utils";
 
 export const convertXMLToJSON = (input: string): string => {
   const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(input, "text/xml");
+  const xmlDocument = parser.parseFromString(input, "text/xml");
 
-  const result = convert(xmlDoc.childNodes[0]);
+  const result = convert(xmlDocument);
 
   return JSON.stringify(result, undefined, 2);
 };
 
-function convert(doc: any) {
-  let obj = {};
-  if (doc.children.length > 0) {
-    for (let i = 0; i < doc.children.length; i += 1) {
-      const item = doc.children.item(i);
+function convert(data: any) {
+  let res = {};
+  const { children } = data;
+  if (children.length > 0) {
+    for (let i = 0; i < children.length; i += 1) {
+      const item = children[i];
       const key = item.nodeName;
-      if (obj[key]) {
-        if (!Array.isArray(obj[key])) {
-          const tempObj = obj[key];
-          obj[key] = [];
-          obj[key].push(tempObj);
+      if (res[key]) {
+        if (!Array.isArray(res[key])) {
+          const temp = res[key];
+          res[key] = [];
+          res[key].push(temp);
         }
-        obj[key].push(convert(item));
+        res[key].push(convert(item));
       } else {
-        obj[key] = convert(item);
+        res[key] = convert(item);
       }
     }
   } else {
-    obj = parseString(doc.textContent);
+    res = parseString(data.textContent);
   }
-  return obj;
+  return res;
 }

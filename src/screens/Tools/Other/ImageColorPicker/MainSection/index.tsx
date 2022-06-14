@@ -7,7 +7,7 @@ import { copyText } from "../../../../../utils";
 import { NormalIOContainer } from "../../styles";
 import { loadImage } from "../../utils";
 import { getColor } from "../utils";
-import { CardBody, CardFooter, ColorContainer, CustomCard } from "./styles";
+import { CardBody, Card, CardFooter, ColorContainer } from "./styles";
 
 type MainSectionProps = {};
 
@@ -86,7 +86,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     return (
       <MainContainer>
         <NormalIOContainer>
-          <CustomCard>
+          <Card>
             <CardBody>
               <canvas ref={this.canvasRef} height="0" width="0" />
             </CardBody>
@@ -111,7 +111,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
                 </ColorContainer>
               ) : null}
             </CardFooter>
-          </CustomCard>
+          </Card>
           <ButtonSection
             buttons={[
               {

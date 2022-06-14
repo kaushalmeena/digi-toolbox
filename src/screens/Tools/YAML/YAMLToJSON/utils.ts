@@ -1,47 +1,49 @@
 import { removeQuotes, parseString } from "../../utils";
 
 export const convertYAMLToJSON = (input: string): string => {
-  const tempArray = input.split("\n").filter(Boolean);
+  const lines = input.split("\n").filter(Boolean);
 
-  const result = convert(tempArray, 0, 0);
+  const result = convert(lines, 0, 0);
 
   return JSON.stringify(result, undefined, 2);
 };
 
 function convert(arr: string[], index: number, indent: number) {
-  let obj = null;
+  let res = null;
 
   for (let i = index; i < arr.length; i += 1) {
-    if (arr[i][indent] !== " ") {
-      const line = arr[i].slice(indent);
+    if (arr[i][indent] === " ") {
+      continue;
+    }
 
-      if (line.includes("-")) {
-        if (!Array.isArray(obj)) {
-          obj = [];
-        }
-        obj.push(convert(arr, i, indent + 2));
-      } else if (line.includes(":")) {
-        if (!obj) {
-          obj = {};
-        }
-        const splitArr = line.split(":");
-        const key = removeQuotes(splitArr[0]);
-        const val = removeQuotes(splitArr[1]);
-        if (val) {
-          obj[key] = parseString(val);
-        } else {
-          obj[key] = convert(arr, i + 1, indent + 2);
-        }
+    const line = arr[i].substring(indent);
+
+    if (line.includes("-")) {
+      if (!Array.isArray(res)) {
+        res = [];
+      }
+      res.push(convert(arr, i, indent + 2));
+    } else if (line.includes(":")) {
+      if (!res) {
+        res = {};
+      }
+      const [left, right] = line.split(":");
+      const key = removeQuotes(left);
+      const val = removeQuotes(right);
+      if (val) {
+        res[key] = parseString(val);
       } else {
-        const val = removeQuotes(line);
-        obj = parseString(val);
+        res[key] = convert(arr, i + 1, indent + 2);
       }
+    } else {
+      const val = removeQuotes(line);
+      res = parseString(val);
+    }
 
-      if (indent >= 2 && i < arr.length - 1 && arr[i + 1][indent - 2] !== " ") {
-        break;
-      }
+    if (indent >= 2 && i < arr.length - 1 && arr[i + 1][indent - 2] !== " ") {
+      break;
     }
   }
 
-  return obj;
+  return res;
 }

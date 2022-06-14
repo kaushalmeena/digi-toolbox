@@ -4,6 +4,8 @@ import { Theme, ToolBox } from "../types";
 export const DarkTheme: Theme = {
   id: "dark-theme",
   blueprintjsClass: Classes.DARK,
+  right: "#2EA043",
+  wrong: "#F85149",
   gray: {
     1: "#182026",
     2: "#202B33",
@@ -16,6 +18,8 @@ export const DarkTheme: Theme = {
 export const LightTheme: Theme = {
   id: "light-theme",
   blueprintjsClass: null,
+  right: "#ABF2BC",
+  wrong: "#FF8182",
   gray: {
     1: "#CED9E0",
     2: "#D8E1E8",

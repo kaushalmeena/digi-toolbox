@@ -5,7 +5,15 @@ export const isFloat = (str: string): boolean =>
 
 export const isInteger = (str: string): boolean => /^\d+$/.test(str);
 
-export const parseString = (str: string): string | boolean | number => {
+export const parseString = (
+  str: string
+): string | boolean | number | object => {
+  if (str === "{}") {
+    return {};
+  }
+  if (str === "[]") {
+    return [];
+  }
   if (isBoolean(str)) {
     return str === "true";
   }
@@ -15,13 +23,13 @@ export const parseString = (str: string): string | boolean | number => {
   if (isInteger(str)) {
     return Number.parseInt(str, 10);
   }
-  return str;
+  return str.trim();
 };
 
 export const removeQuotes = (str: string): string => {
-  const res = str.trim();
-  if (res.startsWith('"') && res.endsWith('"')) {
-    return res.substring(1, res.length - 1);
+  const trimmedStr = str.trim();
+  if (trimmedStr.startsWith('"') && trimmedStr.endsWith('"')) {
+    return trimmedStr.substring(1, trimmedStr.length - 1);
   }
-  return res;
+  return trimmedStr;
 };

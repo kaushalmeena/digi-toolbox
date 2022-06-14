@@ -6,8 +6,8 @@ export const getLeftAndRightOutput = (
   let rOutput = null;
   if (original && modified) {
     const output = getDiffOutput(original, modified);
-    lOutput = output.filter((item) => item[0] === "*" || item[0] === "+");
-    rOutput = output.filter((item) => item[0] === "*" || item[0] === "-");
+    lOutput = output.filter((item) => item[0] === "*" || item[0] === "-");
+    rOutput = output.filter((item) => item[0] === "*" || item[0] === "+");
   }
   return [lOutput, rOutput];
 };
@@ -43,7 +43,7 @@ export const getDiffOutput = (str1: string, str2: string): string[][] => {
   return result;
 };
 
-function computeLCSMatrix(str1: string, str2: string) {
+function computeLCSMatrix(str1: string, str2: string): number[][] {
   const matrix = [];
   const l1 = str1.length;
   const l2 = str2.length;

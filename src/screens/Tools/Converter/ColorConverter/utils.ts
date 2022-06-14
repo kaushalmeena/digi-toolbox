@@ -40,7 +40,7 @@ export const convertColor = (
 function convertHEXToRGBArray(input: string): number[] {
   const match = HEX_REGEX.exec(input);
   if (!match) {
-    throw new Error("Invalid HEX color input.");
+    throw new Error("Invalid HEX color input");
   }
 
   const R = parseInt(match[1], 16);
@@ -57,7 +57,7 @@ function convertRGBArrayToHex(rgbArr: number[]): string {
 function convertRGBToRGBArray(input: string): number[] {
   const match = RGB_REGEX.exec(input);
   if (!match) {
-    throw new Error("Invalid RGB color input.");
+    throw new Error("Invalid RGB color input");
   }
 
   const R = parseInt(match[1], 10);
@@ -77,7 +77,7 @@ function convertRGBArrayToRGB(rgbArr: number[]): string {
 function convertHSLToRGBArray(input: string): number[] {
   const match = HSL_REGEX.exec(input);
   if (!match) {
-    throw new Error("Invalid HSL color input.");
+    throw new Error("Invalid HSL color input");
   }
 
   const H = parseInt(match[1], 10);
@@ -152,7 +152,7 @@ function convertRGBArrayToHSL(rgbArr: number[]): string {
   return `hsl(${H}, ${S}%, ${L}%)`;
 }
 
-function HUEToRGB(P: number, Q: number, H: number) {
+function HUEToRGB(P: number, Q: number, H: number): number {
   let t = H;
   if (t < 0) t += 1;
   if (t > 1) t -= 1;

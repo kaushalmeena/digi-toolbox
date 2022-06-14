@@ -60,8 +60,8 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     const { value } = event.target;
     this.setState((prevState) => {
       const [leftOutput, rightOutput] = getLeftAndRightOutput(
-        value,
-        prevState.leftInput
+        prevState.leftInput,
+        value
       );
       return {
         rightInput: value,

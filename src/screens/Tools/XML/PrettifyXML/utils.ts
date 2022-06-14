@@ -26,7 +26,7 @@ export const prettifyXML = (input: string): string => {
       const newItem = item.replace(/^\s+|\s+$/g, "");
 
       if (isClosingTag(newItem)) {
-        depth = -1;
+        depth -= 1;
       }
 
       const line = indent.repeat(depth) + newItem;

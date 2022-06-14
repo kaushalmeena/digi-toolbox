@@ -38,18 +38,18 @@ export const convertTemperature = (
   return result.toString();
 };
 
-function convertFahrenheitToCelsius(input: number) {
+function convertFahrenheitToCelsius(input: number): number {
   return (input - 32) * (5 / 9);
 }
 
-function convertKelvinToCelsius(input: number) {
+function convertKelvinToCelsius(input: number): number {
   return input - 273.15;
 }
 
-function convertCelsiusToFahrenheit(input: number) {
+function convertCelsiusToFahrenheit(input: number): number {
   return input * (9 / 5) + 32;
 }
 
-function convertCelsiusToKelvin(input: number) {
+function convertCelsiusToKelvin(input: number): number {
   return input + 273.15;
 }
