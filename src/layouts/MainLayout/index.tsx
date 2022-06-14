@@ -52,6 +52,11 @@ class MainLayout extends Component<MainLayoutProps, MainLayoutState> {
             <ResponsiveContainer>{children}</ResponsiveContainer>
           </Main>
           <Footer />
+          <style global jsx>{`
+            .position-fixed {
+              position: fixed !important;
+            }
+          `}</style>
         </div>
       </ThemeProvider>
     );
