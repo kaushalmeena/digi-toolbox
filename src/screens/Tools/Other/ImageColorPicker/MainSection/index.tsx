@@ -46,11 +46,10 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     });
   };
 
-  handleSelectedColorCapture = (event: MouseEvent): void => {
-    const color = getColor(event, this.canvasRef.current);
-    this.setState({
-      selectedColor: color
-    });
+  handleSelectedColorCapture = (): void => {
+    this.setState((prevState) => ({
+      selectedColor: prevState.currentColor
+    }));
   };
 
   handleImageUpload = (): void => {

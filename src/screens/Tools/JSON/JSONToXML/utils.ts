@@ -3,13 +3,22 @@ import { getType } from "../utils";
 export const convertJSONToXML = (input: string): string => {
   const result = [];
   const jsonData = JSON.parse(input);
+  const jsonObject = addRootNode(jsonData);
 
   result.push('<?xml version="1.0" encoding="UTF-8" ?>');
 
-  convert(jsonData, result);
+  convert(jsonObject, result);
 
   return result.join("\n");
 };
+
+function addRootNode(data: any) {
+  const type = getType(data);
+  if ((type === "object" && Object.keys(data).length > 1) || type === "array") {
+    return { root: data };
+  }
+  return data;
+}
 
 function convert(data: any, res: any[], key?: string) {
   const type = getType(data);
@@ -41,11 +50,11 @@ function convertArray(arr: any[], res: any[], key = "row") {
     const val = arr[i];
     const recurse = [];
     convert(val, recurse);
-    res.push(`  <${key}>`);
+    res.push(`<${key}>`);
     for (let j = 0; j < recurse.length; j += 1) {
-      res.push(`    ${recurse[j]}`);
+      res.push(`  ${recurse[j]}`);
     }
-    res.push(`  </${key}>`);
+    res.push(`</${key}>`);
   }
 }
 
