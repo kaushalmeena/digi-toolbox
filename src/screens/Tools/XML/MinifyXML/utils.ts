@@ -21,9 +21,7 @@ export const minifyXML = (input: string): string => {
         return null;
       }
 
-      const newItem = item.replace(/^\s+|\s+$/g, "");
-
-      return newItem;
+      return item.replace(/^\s+|\s+$/g, "");
     })
     .join("");
 };

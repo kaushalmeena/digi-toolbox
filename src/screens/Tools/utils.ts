@@ -27,9 +27,9 @@ export const parseString = (
 };
 
 export const removeQuotes = (str: string): string => {
-  const trimmedStr = str.trim();
-  if (trimmedStr.startsWith('"') && trimmedStr.endsWith('"')) {
-    return trimmedStr.substring(1, trimmedStr.length - 1);
+  const newStr = str.trim();
+  if (newStr.startsWith('"') && newStr.endsWith('"')) {
+    return newStr.substring(1, newStr.length - 1);
   }
-  return trimmedStr;
+  return newStr;
 };
