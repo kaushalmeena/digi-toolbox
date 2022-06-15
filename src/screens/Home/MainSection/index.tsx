@@ -16,22 +16,23 @@ type MainSectionState = {
 class MainSection extends Component<MainSectionProps, MainSectionState> {
   constructor(props: MainSectionProps) {
     super(props);
-    const allTools = ToolBoxes.reduce((arr, cur) => arr.concat(cur.tools), []);
+    const tools = ToolBoxes.reduce((arr, cur) => arr.concat(cur.tools), []);
     this.state = {
       search: "",
-      tools: allTools,
-      filteredTools: allTools
+      tools,
+      filteredTools: tools
     };
   }
 
   handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { tools } = this.state;
     const search = event.target.value;
-    const query = search.toLowerCase();
-    const filteredTools = tools.filter((tool) =>
-      tool.name.toLowerCase().includes(query)
-    );
-    this.setState({ search, filteredTools });
+    const regexp = new RegExp(search, "i");
+    const filteredTools = tools.filter((tool) => regexp.test(tool.name));
+    this.setState({
+      search,
+      filteredTools
+    });
   };
 
   render() {

@@ -1,6 +1,6 @@
 export type Theme = {
   id: string;
-  blueprintjsClass: string;
+  className: string;
   right: string;
   wrong: string;
   gray: {
