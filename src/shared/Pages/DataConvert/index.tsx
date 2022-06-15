@@ -1,6 +1,5 @@
-import { H1, H2 } from "@blueprintjs/core";
 import React from "react";
-import { TopContainer } from "../../../styles";
+import HeaderSection from "../../HeaderSection";
 import MainSection from "./MainSection";
 
 type DataConvertProps = {
@@ -22,10 +21,7 @@ function DataConvert({
 }: DataConvertProps) {
   return (
     <>
-      <TopContainer>
-        <H1>{heading}</H1>
-        <H2>{subHeading}</H2>
-      </TopContainer>
+      <HeaderSection heading={heading} subHeading={subHeading} />
       <MainSection
         fileExtension={fileExtension}
         fileType={fileType}

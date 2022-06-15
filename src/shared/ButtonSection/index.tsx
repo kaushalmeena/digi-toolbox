@@ -1,6 +1,5 @@
-import { Button } from "@blueprintjs/core";
 import React, { memo } from "react";
-import { ButtonContainer } from "./styles";
+import { ButtonContainer, StyledButton } from "./styles";
 import { ButtonOption } from "./types";
 
 type ButtonSectionProps = {
@@ -11,13 +10,7 @@ function ButtonSection({ buttons }: ButtonSectionProps) {
   return (
     <ButtonContainer>
       {buttons.map((button) => (
-        <Button
-          large
-          key={button.title}
-          title={button.title}
-          icon={button.icon}
-          onClick={button.onClick}
-        />
+        <StyledButton large key={button.title} {...button} />
       ))}
     </ButtonContainer>
   );
