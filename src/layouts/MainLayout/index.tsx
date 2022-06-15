@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { DarkTheme, LightTheme } from "../../constants";
+import { DarkTheme, LightTheme } from "./constants";
 import Footer from "./Footer";
 import Header from "./Header";
 import { Main, ResponsiveContainer } from "./styles";
