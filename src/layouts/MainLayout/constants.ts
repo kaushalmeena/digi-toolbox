@@ -3,7 +3,7 @@ import { Theme } from "./types";
 
 export const DarkTheme: Theme = {
   id: "dark-theme",
-  blueprintjsClass: Classes.DARK,
+  className: Classes.DARK,
   right: "#2EA043",
   wrong: "#F85149",
   gray: {
@@ -17,7 +17,7 @@ export const DarkTheme: Theme = {
 
 export const LightTheme: Theme = {
   id: "light-theme",
-  blueprintjsClass: null,
+  className: null,
   right: "#ABF2BC",
   wrong: "#FF8182",
   gray: {

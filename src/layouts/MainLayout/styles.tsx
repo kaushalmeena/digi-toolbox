@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyles = createGlobalStyle`
+  .position-fixed {
+    position: fixed !important;
+  }
+`;
 
 export const Main = styled.main`
   min-height: calc(100vh - 50px);
@@ -12,4 +18,11 @@ export const ResponsiveContainer = styled.div`
   @media (min-width: 1200px) {
     max-width: 1200px;
   }
+`;
+
+export const SpinnerContainer = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `;
