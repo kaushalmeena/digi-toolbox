@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import InputSection from "../../../../../shared/Pages/DataConvert/MainSection/InputSection";
-import { MainContainer, MiddleContainer } from "../../../../../styles";
+import { ConvertContainer, MiddleContainer } from "../../../../../styles";
 import { loadFile } from "../../../../../utils";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "../utils";
@@ -72,11 +72,19 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleLeftInputClear = (): void => {
-    this.setLeftInput("");
+    this.setState({
+      leftInput: "",
+      leftOutput: null,
+      rightOutput: null
+    });
   };
 
   handleRightInputClear = (): void => {
-    this.setRightInput("");
+    this.setState({
+      rightInput: "",
+      leftOutput: null,
+      rightOutput: null
+    });
   };
 
   handleLeftInputUpload = (): void => {
@@ -91,7 +99,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     const { leftInput, rightInput, leftOutput, rightOutput } = this.state;
     return (
       <>
-        <MainContainer>
+        <ConvertContainer>
           <InputSection
             input={leftInput}
             handleInputChange={this.handleLeftInputChange}
@@ -105,13 +113,13 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
             handleInputClear={this.handleRightInputClear}
             handleInputUpload={this.handleRightInputUpload}
           />
-        </MainContainer>
+        </ConvertContainer>
         {leftOutput && rightOutput ? (
-          <MainContainer>
+          <ConvertContainer>
             <OutputSection output={leftOutput} />
             <MiddleContainer />
             <OutputSection output={rightOutput} />
-          </MainContainer>
+          </ConvertContainer>
         ) : null}
       </>
     );

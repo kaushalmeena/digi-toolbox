@@ -1,8 +1,53 @@
-import { ToolBox } from "../types";
+import { Classes } from "@blueprintjs/core";
+import { DefaultTheme } from "styled-components";
+import { ToolBox, ToolCategory } from "../types";
+
+const CommonThemeProps = {
+  breakpoints: {
+    sm: 600,
+    md: 900,
+    lg: 1200
+  }
+};
+
+export const DarkTheme: DefaultTheme = {
+  ...CommonThemeProps,
+  id: "dark-theme",
+  className: Classes.DARK,
+  colors: {
+    right: "#2EA043",
+    wrong: "#F85149",
+    gray: {
+      1: "#182026",
+      2: "#202B33",
+      3: "#293742",
+      4: "#30404D",
+      5: "#394B59"
+    }
+  }
+};
+
+export const LightTheme: DefaultTheme = {
+  ...CommonThemeProps,
+  id: "light-theme",
+  className: null,
+  colors: {
+    right: "#ABF2BC",
+    wrong: "#FF8182",
+    gray: {
+      1: "#CED9E0",
+      2: "#D8E1E8",
+      3: "#E1E8ED",
+      4: "#EBF1F5",
+      5: "#F5F8FA"
+    }
+  }
+};
 
 export const ToolBoxes: ToolBox[] = [
   {
-    category: "JSON Tools",
+    name: "JSON Tools",
+    category: ToolCategory.JSON,
     tools: [
       {
         name: "JSON to CSV",
@@ -27,7 +72,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "CSV Tools",
+    name: "CSV Tools",
+    category: ToolCategory.CSV,
     tools: [
       {
         name: "CSV to JSON",
@@ -44,7 +90,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "XML Tools",
+    name: "XML Tools",
+    category: ToolCategory.XML,
     tools: [
       {
         name: "XML to CSV",
@@ -69,7 +116,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "YAML Tools",
+    name: "YAML Tools",
+    category: ToolCategory.YAML,
     tools: [
       {
         name: "YAML to CSV",
@@ -86,7 +134,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "Text Tools",
+    name: "Text Tools",
+    category: ToolCategory.TEXT,
     tools: [
       {
         name: "Base64 Encode",
@@ -139,7 +188,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "Converters",
+    name: "Converters",
+    category: ToolCategory.CONVERTER,
     tools: [
       {
         name: "Angle Converter",
@@ -184,7 +234,8 @@ export const ToolBoxes: ToolBox[] = [
     ]
   },
   {
-    category: "Other Tools",
+    name: "Other Tools",
+    category: ToolCategory.OTHER,
     tools: [
       {
         name: "Base64 to Image",

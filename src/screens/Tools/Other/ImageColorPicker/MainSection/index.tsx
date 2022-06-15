@@ -2,12 +2,18 @@ import { Button, InputGroup } from "@blueprintjs/core";
 import React, { Component, createRef } from "react";
 import ButtonSection from "../../../../../shared/ButtonSection";
 import Toast from "../../../../../shared/Toast";
-import { MainContainer } from "../../../../../styles";
+import { ConvertContainer } from "../../../../../styles";
 import { copyText } from "../../../../../utils";
 import { NormalIOContainer } from "../../styles";
 import { loadImage } from "../../utils";
-import { getColor } from "../utils";
-import { CardBody, Card, CardFooter, ColorContainer } from "./styles";
+import { getColorFromCanvas } from "../utils";
+import {
+  CardBody,
+  CardCanvas,
+  CardFooter,
+  ColorContainer,
+  StyledCard
+} from "./styles";
 
 type MainSectionProps = {};
 
@@ -40,7 +46,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   }
 
   handleCurrentColorCapture = (event: MouseEvent): void => {
-    const color = getColor(event, this.canvasRef.current);
+    const color = getColorFromCanvas(event, this.canvasRef.current);
     this.setState({
       currentColor: color
     });
@@ -83,11 +89,11 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   render() {
     const { currentColor, selectedColor } = this.state;
     return (
-      <MainContainer>
+      <ConvertContainer>
         <NormalIOContainer>
-          <Card>
+          <StyledCard>
             <CardBody>
-              <canvas ref={this.canvasRef} height="0" width="0" />
+              <CardCanvas ref={this.canvasRef} />
             </CardBody>
             <CardFooter>
               <ColorContainer style={{ backgroundColor: currentColor }} />
@@ -110,7 +116,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
                 </ColorContainer>
               ) : null}
             </CardFooter>
-          </Card>
+          </StyledCard>
           <ButtonSection
             buttons={[
               {
@@ -121,7 +127,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
             ]}
           />
         </NormalIOContainer>
-      </MainContainer>
+      </ConvertContainer>
     );
   }
 }

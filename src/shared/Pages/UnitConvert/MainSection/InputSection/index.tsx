@@ -1,8 +1,8 @@
-import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
+import { Tag } from "@blueprintjs/core";
 import React from "react";
 import { SelectOption } from "../../../../../types";
-import { TextIOContainer } from "../../../styles";
-import { SelectContainer } from "../styles";
+import { StyledInputGroup, TextIOContainer } from "../../../styles";
+import { StyledHTMLSelect } from "../styles";
 
 type InputSectionProps = {
   input: string;
@@ -21,21 +21,19 @@ function InputSection({
 }: InputSectionProps) {
   return (
     <TextIOContainer>
-      <InputGroup
+      <StyledInputGroup
         large
         rightElement={<Tag minimal>{from}</Tag>}
         value={input}
         onChange={handleInputChange}
       />
-      <SelectContainer>
-        <HTMLSelect
-          fill
-          large
-          options={selectOptions}
-          value={from}
-          onChange={handleFromSelectChange}
-        />
-      </SelectContainer>
+      <StyledHTMLSelect
+        fill
+        large
+        options={selectOptions}
+        value={from}
+        onChange={handleFromSelectChange}
+      />
     </TextIOContainer>
   );
 }

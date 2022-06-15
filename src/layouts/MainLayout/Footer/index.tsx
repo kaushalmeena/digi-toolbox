@@ -1,20 +1,21 @@
 import React from "react";
-import { ResponsiveContainer } from "../styles";
+import { ToolCategory } from "../../../types";
+import { FixedContainer } from "../styles";
 import ColumnSection from "./ColumnSection";
 import { Container, MainContainer } from "./styles";
 
 function Footer() {
   return (
     <Container>
-      <ResponsiveContainer>
+      <FixedContainer>
         <MainContainer>
-          <ColumnSection categories={["JSON Tools", "CSV Tools"]} />
-          <ColumnSection categories={["XML Tools", "YAML Tools"]} />
-          <ColumnSection categories={["Text Tools"]} />
-          <ColumnSection categories={["Converters"]} />
-          <ColumnSection categories={["Other Tools"]} />
+          <ColumnSection categories={[ToolCategory.JSON, ToolCategory.CSV]} />
+          <ColumnSection categories={[ToolCategory.YAML, ToolCategory.XML]} />
+          <ColumnSection categories={[ToolCategory.TEXT]} />
+          <ColumnSection categories={[ToolCategory.CONVERTER]} />
+          <ColumnSection categories={[ToolCategory.OTHER]} />
         </MainContainer>
-      </ResponsiveContainer>
+      </FixedContainer>
     </Container>
   );
 }

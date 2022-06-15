@@ -28,14 +28,11 @@ export const prettifyXML = (input: string): string => {
       if (isClosingTag(newItem)) {
         depth -= 1;
       }
-
-      const line = indent.repeat(depth) + newItem;
-
       if (isOpeningTag(newItem)) {
         depth += 1;
       }
 
-      return line;
+      return indent.repeat(depth) + newItem;
     })
     .join("\n");
 };

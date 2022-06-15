@@ -1,4 +1,4 @@
-export const getColor = (
+export const getColorFromCanvas = (
   event: MouseEvent,
   canvas: HTMLCanvasElement
 ): string => {

@@ -1,28 +1,26 @@
+import { Card } from "@blueprintjs/core";
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-  padding: 20px 0px 60px 0px;
+export const Container = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
 `;
 
 export const CardContainer = styled.div`
-  padding: 30px 20px 30px 20px;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  & > div {
-    min-width: 200px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
+  padding: 30px 20px;
 `;
 
-export const CardBody = styled.div`
-  font-size: 16;
-  font-weight: bold;
+export const StyledCard = styled(Card)`
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-width: 222px;
   text-align: center;
+  font-weight: bold;
+  font-size: 16px;
 `;

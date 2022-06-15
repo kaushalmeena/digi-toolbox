@@ -1,14 +1,14 @@
-import { Spinner } from "@blueprintjs/core";
 import React, { Component, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import { DarkTheme, LightTheme } from "./constants";
+import { DarkTheme, LightTheme } from "../../constants";
 import Footer from "./Footer";
 import Header from "./Header";
 import {
+  Container,
+  FixedContainer,
   GlobalStyles,
-  Main,
-  ResponsiveContainer,
-  SpinnerContainer
+  MainContainer,
+  StyledSpinner
 } from "./styles";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
@@ -32,43 +32,38 @@ class MainLayout extends Component<MainLayoutProps, MainLayoutState> {
 
   componentDidMount(): void {
     const value = fetchDarkMode();
-    this.setState({
-      darkMode: value,
-      mounted: true
-    });
+    this.setState({ darkMode: value, mounted: true });
   }
 
   handleDarkModeToggle = (): void => {
     const { darkMode } = this.state;
     const value = !darkMode;
-    this.setState({
-      darkMode: value
-    });
+    this.setState({ darkMode: value });
     storeDarkMode(value);
   };
 
   render() {
     const { children } = this.props;
     const { darkMode, mounted } = this.state;
+
     const theme = darkMode ? DarkTheme : LightTheme;
+
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         {mounted ? (
-          <div className={theme.className}>
+          <Container className={theme.className}>
             <Header
               darkMode={darkMode}
               handleDarkModeToggle={this.handleDarkModeToggle}
             />
-            <Main>
-              <ResponsiveContainer>{children}</ResponsiveContainer>
-            </Main>
+            <FixedContainer>
+              <MainContainer>{children}</MainContainer>
+            </FixedContainer>
             <Footer />
-          </div>
+          </Container>
         ) : (
-          <SpinnerContainer>
-            <Spinner intent="primary" size={60} />
-          </SpinnerContainer>
+          <StyledSpinner intent="primary" size={60} />
         )}
       </ThemeProvider>
     );

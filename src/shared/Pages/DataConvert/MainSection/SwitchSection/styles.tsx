@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const RotateContainer = styled.div`
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+export const Container = styled.div`
+  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
     transform: rotate(90deg);
   }
 `;

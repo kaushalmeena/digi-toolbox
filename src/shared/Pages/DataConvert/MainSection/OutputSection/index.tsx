@@ -1,7 +1,6 @@
-import { TextArea } from "@blueprintjs/core";
 import React from "react";
 import ButtonSection from "../../../../ButtonSection";
-import { TextIOContainer } from "../../../styles";
+import { StyledTextArea, TextIOContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;
@@ -16,7 +15,7 @@ function OutputSection({
 }: OutputSectionProps) {
   return (
     <TextIOContainer>
-      <TextArea readOnly fill rows={16} value={output} />
+      <StyledTextArea readOnly fill rows={16} value={output} />
       <ButtonSection
         buttons={[
           {

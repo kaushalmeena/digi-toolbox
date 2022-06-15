@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { ButtonContainer, StyledButton } from "./styles";
+import { Container, StyledButton } from "./styles";
 import { ButtonOption } from "./types";
 
 type ButtonSectionProps = {
@@ -8,11 +8,17 @@ type ButtonSectionProps = {
 
 function ButtonSection({ buttons }: ButtonSectionProps) {
   return (
-    <ButtonContainer>
+    <Container>
       {buttons.map((button) => (
-        <StyledButton large key={button.title} {...button} />
+        <StyledButton
+          large
+          key={button.title}
+          title={button.title}
+          icon={button.icon}
+          onClick={button.onClick}
+        />
       ))}
-    </ButtonContainer>
+    </Container>
   );
 }
 
