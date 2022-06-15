@@ -7,7 +7,7 @@ function Home() {
     <>
       <Head>
         <title key="title">
-          GetThatTool - One place for all the tool you could want
+          GetThatTool - One place for all common tools you could want!
         </title>
         <meta
           key="description"
