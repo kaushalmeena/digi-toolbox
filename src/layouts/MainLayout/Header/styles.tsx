@@ -7,7 +7,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   cursor: pointer;
   transition: all 0.2s;
-  & :hover {
+  &:hover {
     opacity: 0.3;
   }
 `;
