@@ -7,7 +7,7 @@ export const ColumnContainer = styled.div`
 export const ToolContainer = styled.div`
   display: flex;
   flex-direction: column;
-  @media (max-width: 760px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     width: 100%;
     text-align: center;
   }
@@ -16,7 +16,7 @@ export const ToolContainer = styled.div`
 export const ToolCategory = styled.h3`
   font-size: 20px;
   font-weight: bold;
-  @media (max-width: 760px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     font-size: 24px;
   }
 `;
@@ -24,7 +24,7 @@ export const ToolCategory = styled.h3`
 export const ToolLink = styled.a`
   font-size: 16px;
   line-height: 1.5;
-  @media (max-width: 760px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     font-size: 20px;
   }
 `;
