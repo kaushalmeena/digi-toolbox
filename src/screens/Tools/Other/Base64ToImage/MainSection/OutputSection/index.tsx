@@ -1,9 +1,8 @@
 import { Card } from "@blueprintjs/core";
-import Image from "next/image";
 import React from "react";
 import ButtonSection from "../../../../../../shared/ButtonSection";
 import Toast from "../../../../../../shared/Toast";
-import { CardImage, NormalIOContainer } from "../../../styles";
+import { CardContainer, CardImage, NormalIOContainer } from "../../../styles";
 
 type OutputSectionProps = {
   output: string;
@@ -18,16 +17,15 @@ function OutputSection({ output, handleOutputDownload }: OutputSectionProps) {
   return (
     <NormalIOContainer>
       <Card>
-        <CardImage>
+        <CardContainer>
           {output ? (
-            <Image
-              alt="Output-Image"
-              layout="fill"
+            <CardImage
+              alt="Input-Image"
               src={output}
               onError={handleImageError}
             />
           ) : null}
-        </CardImage>
+        </CardContainer>
       </Card>
       <ButtonSection
         buttons={[

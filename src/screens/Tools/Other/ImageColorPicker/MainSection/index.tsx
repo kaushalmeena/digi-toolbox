@@ -67,7 +67,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
       })
       .catch(() => {
         Toast.show({
-          message: "Invalid image file detected.",
+          message: "Unable to upload image file.",
           intent: "danger"
         });
       });

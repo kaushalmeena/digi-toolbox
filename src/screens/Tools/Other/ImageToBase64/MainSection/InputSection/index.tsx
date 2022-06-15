@@ -1,8 +1,7 @@
 import { Card } from "@blueprintjs/core";
-import Image from "next/image";
 import React from "react";
 import ButtonSection from "../../../../../../shared/ButtonSection";
-import { CardImage, NormalIOContainer } from "../../../styles";
+import { CardContainer, CardImage, NormalIOContainer } from "../../../styles";
 
 type InputSectionProps = {
   input: string;
@@ -13,9 +12,9 @@ function InputSection({ input, handleInputUpload }: InputSectionProps) {
   return (
     <NormalIOContainer>
       <Card>
-        <CardImage>
-          {input ? <Image alt="Input-Image" src={input} /> : null}
-        </CardImage>
+        <CardContainer>
+          {input ? <CardImage alt="Input-Image" src={input} /> : null}
+        </CardContainer>
       </Card>
       <ButtonSection
         buttons={[
