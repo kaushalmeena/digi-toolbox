@@ -46,7 +46,14 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleInputUpload = (): void => {
-    loadFile().then((result) => this.setInput(result));
+    loadFile()
+      .then((result) => this.setInput(result))
+      .catch(() => {
+        Toast.show({
+          message: "Unable to upload file.",
+          intent: "danger"
+        });
+      });
   };
 
   handleOutputCopy = (): void => {

@@ -3,7 +3,7 @@ import InputSection from "../../../../../shared/Pages/DataConvert/MainSection/In
 import SwitchSection from "../../../../../shared/Pages/DataConvert/MainSection/SwitchSection";
 import Toast from "../../../../../shared/Toast";
 import { MainContainer } from "../../../../../styles";
-import { loadFile } from "../../../../../utils";
+import { loadImage } from "../../utils";
 import OutputSection from "./OutputSection";
 import { saveImage } from "./utils";
 
@@ -36,11 +36,11 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleInputUpload = (): void => {
-    loadFile()
+    loadImage()
       .then((result) => this.setInput(result))
       .catch(() => {
         Toast.show({
-          message: "Invalid image file detected.",
+          message: "Unable to upload image file.",
           intent: "danger"
         });
       });
