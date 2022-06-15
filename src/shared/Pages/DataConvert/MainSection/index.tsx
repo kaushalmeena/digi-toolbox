@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MainContainer, MiddleContainer } from "../../../../styles";
+import { ConvertContainer, MiddleContainer } from "../../../../styles";
 import { copyText, loadFile, saveFile } from "../../../../utils";
 import Toast from "../../../Toast";
 import InputSection from "./InputSection";
@@ -42,7 +42,10 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleInputClear = (): void => {
-    this.setInput("");
+    this.setState({
+      input: "",
+      output: ""
+    });
   };
 
   handleInputUpload = (): void => {
@@ -84,24 +87,22 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     const { switchURL } = this.props;
     const { input, output } = this.state;
     return (
-      <MainContainer>
+      <ConvertContainer>
         <InputSection
           input={input}
           handleInputChange={this.handleInputChange}
           handleInputClear={this.handleInputClear}
           handleInputUpload={this.handleInputUpload}
         />
-        {switchURL ? (
-          <SwitchSection switchURL={switchURL} />
-        ) : (
-          <MiddleContainer />
-        )}
+        <MiddleContainer>
+          {switchURL ? <SwitchSection switchURL={switchURL} /> : null}
+        </MiddleContainer>
         <OutputSection
           output={output}
           handleOutputCopy={this.handleOutputCopy}
           handleOutputDownload={this.handleOutputDownload}
         />
-      </MainContainer>
+      </ConvertContainer>
     );
   }
 }

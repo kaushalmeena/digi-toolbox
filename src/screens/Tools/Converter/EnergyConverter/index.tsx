@@ -7,7 +7,7 @@ function EnergyConverter() {
   return (
     <Page
       heading="Energy Converter"
-      subHeading="Quickly convert engrgy between joule, calorie, electronvolt etc."
+      subHeading="Quickly convert energy between joule, calorie, electronvolt etc."
       selectOptions={EnergySelectOptions}
       fromDefaultValue={EnergyUnits.KILOJOULE}
       toDefaultValue={EnergyUnits.JOULE}

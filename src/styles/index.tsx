@@ -1,21 +1,23 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
+export const ConvertContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
+    flex-direction: column;
+  }
 `;
 
 export const MiddleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px 20px 70px 20px;
   min-width: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    padding: 10px 0px 10px 0px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
+    padding: 10px 0px;
     width: 100%;
   }
 `;

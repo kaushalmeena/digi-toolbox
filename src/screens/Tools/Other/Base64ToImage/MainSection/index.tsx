@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import InputSection from "../../../../../shared/Pages/DataConvert/MainSection/InputSection";
 import SwitchSection from "../../../../../shared/Pages/DataConvert/MainSection/SwitchSection";
 import Toast from "../../../../../shared/Toast";
-import { MainContainer } from "../../../../../styles";
+import { ConvertContainer, MiddleContainer } from "../../../../../styles";
 import { loadImage } from "../../utils";
 import OutputSection from "./OutputSection";
 import { saveImage } from "./utils";
@@ -54,19 +54,21 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   render() {
     const { input } = this.state;
     return (
-      <MainContainer>
+      <ConvertContainer>
         <InputSection
           input={input}
           handleInputChange={this.handleInputChange}
           handleInputClear={this.handleInputClear}
           handleInputUpload={this.handleInputUpload}
         />
-        <SwitchSection switchURL="/image-to-base64" />
+        <MiddleContainer>
+          <SwitchSection switchURL="/image-to-base64" />
+        </MiddleContainer>
         <OutputSection
           output={input}
           handleOutputDownload={this.handleOutputDownload}
         />
-      </MainContainer>
+      </ConvertContainer>
     );
   }
 }

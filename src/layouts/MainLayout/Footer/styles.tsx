@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-  padding: 20px 40px;
-  background-color: ${(props) => props.theme.gray[3]};
+  background-color: ${(props) => props.theme.colors.gray[3]};
 `;
 
 export const MainContainer = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 20px 40px;
+
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     flex-direction: column;
   }

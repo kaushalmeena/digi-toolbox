@@ -1,6 +1,6 @@
 import { Icon } from "@blueprintjs/core";
 import React, { Component } from "react";
-import { MainContainer, MiddleContainer } from "../../../../styles";
+import { ConvertContainer, MiddleContainer } from "../../../../styles";
 import { SelectOption } from "../../../../types";
 import InputSection from "./InputSection";
 import OutputSection from "./OutputSection";
@@ -85,7 +85,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     const { selectOptions } = this.props;
     const { input, from, to, output } = this.state;
     return (
-      <MainContainer>
+      <ConvertContainer>
         <InputSection
           input={input}
           from={from}
@@ -103,7 +103,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
           handleOutputChange={this.handleOutputChange}
           handleToSelectChange={this.handleToSelectChange}
         />
-      </MainContainer>
+      </ConvertContainer>
     );
   }
 }

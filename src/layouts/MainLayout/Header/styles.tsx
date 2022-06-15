@@ -1,18 +1,26 @@
-import { Icon } from "@blueprintjs/core";
+import { Icon, Navbar } from "@blueprintjs/core";
 import styled from "styled-components";
+
+export const StyledNavbar = styled(Navbar)`
+  padding: 0px;
+`;
+
+export const NavbarContainer = styled.div`
+  padding: 0px 40px;
+`;
 
 export const LogoContainer = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: opacity 0.2s;
+
   &:hover {
     opacity: 0.3;
   }
 `;
 
-export const LogoIcon = styled(Icon)`
+export const StyledIcon = styled(Icon)`
   margin-right: 5px;
 `;
 

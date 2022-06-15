@@ -1,1 +1,1 @@
-export const CommaSplitRegex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/;
+export const COMMA_SPLIT_REGEX = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/;

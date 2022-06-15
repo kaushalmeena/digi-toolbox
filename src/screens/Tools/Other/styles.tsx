@@ -1,10 +1,11 @@
+import { Card } from "@blueprintjs/core";
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  min-height: 264px;
+export const StyledCard = styled(Card)`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 308px;
 `;
 
 export const CardImage = styled.img`
@@ -14,7 +15,8 @@ export const CardImage = styled.img`
 `;
 
 export const NormalIOContainer = styled.div`
-  padding: 20px 0px 20px 0px;
-  min-width: 300px;
   flex: 1;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 300px;
 `;

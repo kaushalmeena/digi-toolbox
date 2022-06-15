@@ -1,34 +1,30 @@
 import Link from "next/link";
 import React from "react";
 import { ToolBoxes } from "../../../../constants";
-import {
-  ColumnContainer,
-  ToolLink,
-  ToolCategory,
-  ToolContainer
-} from "./styles";
+import { ToolCategory } from "../../../../types";
+import { Container, ToolLink, ToolHeading, ToolContainer } from "./styles";
 
 type ColumnSectionProps = {
-  categories: string[];
+  categories: ToolCategory[];
 };
 
 function ColumnSection({ categories }: ColumnSectionProps) {
-  const columnToolBoxes = ToolBoxes.filter((box) =>
-    categories.includes(box.category)
+  const columnToolBoxes = ToolBoxes.filter((toolBox) =>
+    categories.includes(toolBox.category)
   );
   return (
-    <ColumnContainer>
-      {columnToolBoxes.map((box) => (
-        <ToolContainer key={box.category}>
-          <ToolCategory>{box.category}</ToolCategory>
-          {box.tools.map((link) => (
-            <Link key={link.url} href={link.url}>
-              <ToolLink>{link.name}</ToolLink>
+    <Container>
+      {columnToolBoxes.map((toolBox) => (
+        <ToolContainer key={toolBox.category}>
+          <ToolHeading>{toolBox.name}</ToolHeading>
+          {toolBox.tools.map((tool) => (
+            <Link key={tool.url} href={tool.url}>
+              <ToolLink>{tool.name}</ToolLink>
             </Link>
           ))}
         </ToolContainer>
       ))}
-    </ColumnContainer>
+    </Container>
   );
 }
 

@@ -1,9 +1,9 @@
-import { Card, InputGroup } from "@blueprintjs/core";
+import { InputGroup } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { Component } from "react";
 import { ToolBoxes } from "../../../constants";
 import { Tool } from "../../../types";
-import { CardBody, CardContainer, MainContainer } from "./styles";
+import { CardContainer, Container, StyledCard } from "./styles";
 
 type MainSectionProps = {};
 
@@ -38,10 +38,11 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   render() {
     const { search, filteredTools } = this.state;
     return (
-      <MainContainer>
+      <Container>
         <InputGroup
           fill
           large
+          type="search"
           leftIcon="search"
           value={search}
           onChange={this.handleInputChange}
@@ -49,13 +50,13 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
         <CardContainer>
           {filteredTools.map((tool) => (
             <Link key={tool.url} href={tool.url}>
-              <Card interactive elevation={2}>
-                <CardBody>{tool.name}</CardBody>
-              </Card>
+              <StyledCard interactive elevation={2}>
+                {tool.name}
+              </StyledCard>
             </Link>
           ))}
         </CardContainer>
-      </MainContainer>
+      </Container>
     );
   }
 }
