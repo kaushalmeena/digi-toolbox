@@ -15,8 +15,8 @@ export const Main = styled.main`
 export const ResponsiveContainer = styled.div`
   width: 100%;
   margin: 0px auto;
-  @media (min-width: 1200px) {
-    max-width: 1200px;
+  @media (min-width: ${(props) => props.theme.breakpoints.lg}px) {
+    max-width: ${(props) => props.theme.breakpoints.lg}px;
   }
 `;
 

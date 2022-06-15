@@ -1,7 +1,16 @@
 import { Classes } from "@blueprintjs/core";
 import { Theme } from "./types";
 
+const CommonTheme = {
+  breakpoints: {
+    sm: 600,
+    md: 900,
+    lg: 1200
+  }
+};
+
 export const DarkTheme: Theme = {
+  ...CommonTheme,
   id: "dark-theme",
   className: Classes.DARK,
   right: "#2EA043",
@@ -16,6 +25,7 @@ export const DarkTheme: Theme = {
 };
 
 export const LightTheme: Theme = {
+  ...CommonTheme,
   id: "light-theme",
   className: null,
   right: "#ABF2BC",

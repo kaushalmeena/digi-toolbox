@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  @media (max-width: 760px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     flex-direction: column;
   }
 `;

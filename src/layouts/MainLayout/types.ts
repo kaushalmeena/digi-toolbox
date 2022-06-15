@@ -1,6 +1,11 @@
 export type Theme = {
   id: string;
   className: string;
+  breakpoints: {
+    sm: number;
+    md: number;
+    lg: number;
+  };
   right: string;
   wrong: string;
   gray: {

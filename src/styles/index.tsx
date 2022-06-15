@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const TopContainer = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
-
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -19,7 +14,7 @@ export const MiddleContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  @media (max-width: 760px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     padding: 10px 0px 10px 0px;
     width: 100%;
   }
