@@ -37,6 +37,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     const canvas = this.canvasRef.current;
     canvas.addEventListener("mousemove", this.handleCurrentColorCapture);
     canvas.addEventListener("click", this.handleSelectedColorCapture);
+    canvas.hidden = true;
   }
 
   componentWillUnmount(): void {
@@ -69,6 +70,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
           canvas.width = image.width;
           canvas.height = image.height;
           context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          canvas.hidden = false;
         };
       })
       .catch(() => {
