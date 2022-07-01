@@ -3,9 +3,8 @@ import React, { Component, createRef } from "react";
 import ButtonSection from "../../../../../shared/ButtonSection";
 import Toast from "../../../../../shared/Toast";
 import { ConvertContainer } from "../../../../../styles";
-import { copyText } from "../../../../../utils";
+import { copyText, loadFile } from "../../../../../utils";
 import { NormalIOContainer } from "../../styles";
-import { loadImage } from "../../utils";
 import { getColorFromCanvas } from "../utils";
 import {
   CardBody,
@@ -60,7 +59,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleImageUpload = (): void => {
-    loadImage()
+    loadFile("image/*", "dataURL")
       .then((result) => {
         const image = new Image();
         image.src = result;

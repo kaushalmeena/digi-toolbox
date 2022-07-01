@@ -1,8 +1,5 @@
 import Toast from "../../../shared/Toast";
-import { loadFile } from "../../../utils";
 
-export const loadImage = () => loadFile("image/*", "dataURL");
-
-export const handleImageError = () => {
+export const handleImageError = (): void => {
   Toast.show({ message: "Invalid image detected.", intent: "danger" });
 };
