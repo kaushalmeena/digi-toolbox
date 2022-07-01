@@ -3,8 +3,7 @@ import OutputSection from "../../../../../shared/Pages/DataConvert/MainSection/O
 import SwitchSection from "../../../../../shared/Pages/DataConvert/MainSection/SwitchSection";
 import Toast from "../../../../../shared/Toast";
 import { ConvertContainer, MiddleContainer } from "../../../../../styles";
-import { copyText, saveFile } from "../../../../../utils";
-import { loadImage } from "../../utils";
+import { copyText, loadFile, saveFile } from "../../../../../utils";
 import InputSection from "./InputSection";
 
 type MainSectionProps = {};
@@ -28,7 +27,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleInputUpload = (): void => {
-    loadImage()
+    loadFile("image/*", "dataURL")
       .then((result) => this.setOutput(result))
       .catch(() => {
         Toast.show({
