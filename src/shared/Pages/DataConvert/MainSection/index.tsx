@@ -27,12 +27,6 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
     };
   }
 
-  setInput = (value: string): void => {
-    this.setState({
-      input: value
-    });
-  };
-
   handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const { value } = event.target;
     this.setState({
@@ -50,7 +44,12 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
 
   handleInputUpload = (): void => {
     loadFile()
-      .then((result) => this.setInput(result))
+      .then((value) => {
+        this.setState({
+          input: value,
+          output: this.getOutput(value)
+        });
+      })
       .catch(() => {
         Toast.show({
           message: "Unable to upload file.",
