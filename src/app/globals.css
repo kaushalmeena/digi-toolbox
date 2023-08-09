@@ -1,0 +1,7 @@
+.fixed {
+  position: fixed;
+}
+
+body, html {
+  margin: 0;
+}

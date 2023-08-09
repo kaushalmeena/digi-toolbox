@@ -1,8 +1,9 @@
+'use client'
 import React from "react";
-import HeaderSection from "../../shared/HeaderSection";
 import MainSection from "./MainSection";
+import HeaderSection from "@/components/HeaderSection";
 
-function Home() {
+export default function Home() {
   return (
     <>
       <HeaderSection
@@ -13,5 +14,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

@@ -1,73 +1,70 @@
-import React, { Component, ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
+"use client";
+
+import { fetchDarkMode, storeDarkMode } from "@/utils";
+import { Spinner } from "@blueprintjs/core";
+import { ReactNode, useEffect, useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme, LightTheme } from "../../constants";
 import Footer from "./Footer";
 import Header from "./Header";
-import {
-  Container,
-  FixedContainer,
-  GlobalStyles,
-  MainContainer,
-  StyledSpinner
-} from "./styles";
-import { fetchDarkMode, storeDarkMode } from "./utils";
 
-type MainLayoutProps = {
-  children?: ReactNode;
-};
+const Container = styled.div`
+  background-color: ${(props) => props.theme.colors.gray[5]};
+`;
 
-type MainLayoutState = {
-  darkMode: boolean;
-  mounted: boolean;
-};
+const MainContainer = styled.main`
+  margin: 0px auto;
+  max-width: 1400px;
+  width: 100%; 
+  padding: 20px 40px;
+  min-height: calc(100vh - 50px);
 
-class MainLayout extends Component<MainLayoutProps, MainLayoutState> {
-  constructor(props: MainLayoutProps) {
-    super(props);
-    this.state = {
-      darkMode: false,
-      mounted: false
-    };
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+    padding: 10px 20px;
   }
+`;
 
-  componentDidMount(): void {
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export default function MainLayout({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
     const value = fetchDarkMode();
-    this.setState({ darkMode: value, mounted: true });
-  }
+    setDarkMode(value);
+    setMounted(true);
+  }, []);
 
-  handleDarkModeToggle = (): void => {
-    const { darkMode } = this.state;
-    const value = !darkMode;
-    this.setState({ darkMode: value });
-    storeDarkMode(value);
+  const handleDarkModeToggle = () => {
+    setDarkMode((prevValue) => {
+      const nextValue = !prevValue;
+      storeDarkMode(nextValue);
+      return nextValue;
+    });
   };
 
-  render() {
-    const { children } = this.props;
-    const { darkMode, mounted } = this.state;
+  const theme = darkMode ? DarkTheme : LightTheme;
 
-    const theme = darkMode ? DarkTheme : LightTheme;
-
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        {mounted ? (
-          <Container className={theme.className}>
-            <Header
-              darkMode={darkMode}
-              handleDarkModeToggle={this.handleDarkModeToggle}
-            />
-            <FixedContainer>
-              <MainContainer>{children}</MainContainer>
-            </FixedContainer>
-            <Footer />
-          </Container>
-        ) : (
-          <StyledSpinner intent="primary" size={60} />
-        )}
-      </ThemeProvider>
-    );
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      {mounted ? (
+        <Container className={theme.className}>
+          <Header
+            darkMode={darkMode}
+            toggleDarkMode={handleDarkModeToggle}
+          />
+            <MainContainer>{children}</MainContainer>
+          <Footer />
+        </Container>
+      ) : (
+        <StyledSpinner intent="primary" size={60} />
+      )}
+    </ThemeProvider>
+  );
 }
-
-export default MainLayout;
