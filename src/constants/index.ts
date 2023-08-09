@@ -1,6 +1,6 @@
+import { ToolBox, ToolCategory } from "@/types";
 import { Classes } from "@blueprintjs/core";
 import { DefaultTheme } from "styled-components";
-import { ToolBox, ToolCategory } from "../types";
 
 const CommonThemeProps = {
   breakpoints: {
@@ -18,11 +18,11 @@ export const DarkTheme: DefaultTheme = {
     right: "#2EA043",
     wrong: "#F85149",
     gray: {
-      1: "#182026",
-      2: "#202B33",
-      3: "#293742",
-      4: "#30404D",
-      5: "#394B59"
+      1: "#1C2127",
+      2: "#252A31",
+      3: "#2F343C",
+      4: "#383E47",
+      5: "#404854"
     }
   }
 };
@@ -35,11 +35,11 @@ export const LightTheme: DefaultTheme = {
     right: "#ABF2BC",
     wrong: "#FF8182",
     gray: {
-      1: "#CED9E0",
-      2: "#D8E1E8",
-      3: "#E1E8ED",
-      4: "#EBF1F5",
-      5: "#F5F8FA"
+      1: "#D3D8DE",
+      2: "#DCE0E5",
+      3: "#E5E8EB",
+      4: "#EDEFF2",
+      5: "#F6F7F9"
     }
   }
 };

@@ -11,7 +11,13 @@ export const loadFile = (
     inputEl.addEventListener(
       "change",
       (event: Event) => {
-        const file = (event.target as HTMLInputElement).files[0];
+        const file = (event.target as HTMLInputElement).files?.[0];
+
+        if (!file) {
+          reject(new Error("Error occured in file upload!"));
+          return;
+        }
+
         const reader = new FileReader();
 
         switch (readAs) {
@@ -48,3 +54,20 @@ export const saveFile = (
 
 export const copyText = (text: string): Promise<void> =>
   navigator.clipboard.writeText(text);
+
+export const fetchDarkMode = (): boolean => {
+  let mode = false;
+  const value = localStorage.getItem("darkMode");
+  if (value) {
+    mode = value === "1";
+  } else {
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    mode = media.matches;
+  }
+  return mode;
+};
+
+export const storeDarkMode = (mode: boolean): void => {
+  const value = mode ? "1" : "0";
+  localStorage.setItem("darkMode", value);
+};
