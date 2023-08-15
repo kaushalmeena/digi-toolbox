@@ -12,7 +12,10 @@ type HeaderSectionProps = {
   subHeading: string;
 };
 
-export default function HeaderSection({ heading, subHeading }: HeaderSectionProps) {
+export default function HeaderSection({
+  heading,
+  subHeading
+}: HeaderSectionProps) {
   return (
     <TopContainer>
       <H1>{heading}</H1>
