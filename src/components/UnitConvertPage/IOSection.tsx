@@ -1,7 +1,8 @@
 import { SelectOption } from "@/types";
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import styled from "styled-components";
+import TextIOContainer from "../TextIOContainer";
 
 const StyledHTMLSelect = styled(HTMLSelect)`
   margin-top: 10px;
@@ -11,12 +12,6 @@ const StyledInputGroup = styled(InputGroup)`
   & input {
     font-family: monospace !important;
   }
-`;
-
-const TextIOContainer = styled.div`
-  flex: 1;
-  padding: 20px 0px;
-  min-width: 300px;
 `;
 
 type IOSectionProps = {

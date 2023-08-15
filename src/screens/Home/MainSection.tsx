@@ -1,6 +1,6 @@
 import { InputGroup, Card } from "@blueprintjs/core";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ToolBoxes } from "@/constants";
 import { Tool } from "@/types";
 import styled from "styled-components";
@@ -35,8 +35,8 @@ export default function MainSection() {
   const [filteredTools, setFilteredTools] = useState<Tool[]>(Tools);
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
     const search = event.target.value;
     const regexp = new RegExp(search, "i");
     const filteredTools = Tools.filter((tool) => regexp.test(tool.name));

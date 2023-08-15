@@ -23,7 +23,7 @@ export default function ConvertSection ({
   const [to, setTo] = useState(toDefaultValue);
   const [output, setOutput] = useState("");
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setInput(value);
     setOutput(getOutput(value, from, to));
@@ -31,13 +31,13 @@ export default function ConvertSection ({
 
   const handleFromSelectChange = (
     event: ChangeEvent<HTMLSelectElement>
-  ): void => {
+  ) => {
     const { value } = event.target;
     setFrom(value);
     setInput(output ? getOutput(output, to, value) : input);
   };
 
-  const handleOutputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+  const handleOutputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setOutput(value);
     setInput(getOutput(value, to, from));
@@ -45,16 +45,16 @@ export default function ConvertSection ({
 
   const handleToSelectChange = (
     event: ChangeEvent<HTMLSelectElement>
-  ): void => {
+  ) => {
     const { value } = event.target;
     setTo(value);
     setOutput(input ? getOutput(input, from, value) : output);
   };
 
-  const getOutput = (input: string, from: string, to: string): string => {
+  const getOutput = (value: string, from: string, to: string): string => {
     let output = "";
     try {
-      output = convertFunction(input, from, to);
+      output = convertFunction(value, from, to);
     } catch (err) {
       output = String(err) ?? "Invalid input detected";
     }
