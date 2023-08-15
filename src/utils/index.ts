@@ -71,3 +71,12 @@ export const storeDarkMode = (mode: boolean): void => {
   const value = mode ? "1" : "0";
   localStorage.setItem("darkMode", value);
 };
+
+export const createConvertFunction =
+  (conversionMap: Record<string, number>, defaultUnit: string) =>
+  (input: string, from: string, to: string) => {
+    const number = parseFloat(input);
+    const value = number * conversionMap[`${from}->${defaultUnit}`];
+    const result = value * conversionMap[`${defaultUnit}->${to}`];
+    return result.toString();
+  };
