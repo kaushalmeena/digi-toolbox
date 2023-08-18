@@ -1,10 +1,12 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
-import { prettifyXML } from "./utils";
+"use client"
 
-function PrettifyXMLPage() {
+import React from "react";
+import { prettifyXML } from "./utils";
+import DataConvertPage from "@/components/DataConvertPage";
+
+export default function PrettifyXMLPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="Prettify XML"
       subHeading="Quickly beautify a XML data structure"
       fileExtension="xml"
@@ -13,5 +15,3 @@ function PrettifyXMLPage() {
     />
   );
 }
-
-export default PrettifyXMLPage;

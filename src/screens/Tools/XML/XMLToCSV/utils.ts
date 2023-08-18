@@ -3,6 +3,6 @@ import { convertXMLToJSON } from "../XMLToJSON/utils";
 
 export const convertXMLToCSV = (input: string): string => {
   const jsonOutput = convertXMLToJSON(input);
-  const result = convertJSONToCSV(jsonOutput);
-  return result;
+  const output = convertJSONToCSV(jsonOutput);
+  return output;
 };

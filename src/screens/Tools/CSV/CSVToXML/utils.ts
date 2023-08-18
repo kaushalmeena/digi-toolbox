@@ -3,6 +3,6 @@ import { convertCSVToJSON } from "../CSVToJSON/utils";
 
 export const convertCSVToXML = (input: string): string => {
   const jsonOutput = convertCSVToJSON(input);
-  const result = convertJSONToXML(jsonOutput);
-  return result;
+  const output = convertJSONToXML(jsonOutput);
+  return output;
 };

@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+'use client';
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertCSVToJSON } from "./utils";
 
-function CSVToJSONPage() {
+export default function CSVToJSONPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="CSV to JSON"
       subHeading="Quickly convert a CSV file to a JSON data structure"
       fileExtension="json"
@@ -14,5 +15,3 @@ function CSVToJSONPage() {
     />
   );
 }
-
-export default CSVToJSONPage;

@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client";
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertYAMLToXML } from "./utils";
 
-function YAMLToXMLPage() {
+export default function YAMLToXMLPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="YAML to XML"
       subHeading="Quickly convert a YAML document to an XML document"
       fileExtension="XML"
@@ -14,5 +15,3 @@ function YAMLToXMLPage() {
     />
   );
 }
-
-export default YAMLToXMLPage;

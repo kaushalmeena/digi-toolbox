@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+'use client';
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertCSVToYAML } from "./utils";
 
-function CSVToYAMLPage() {
+export default function CSVToYAMLPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="CSV to YAML"
       subHeading="Quickly convert a CSV file to a YAML file"
       fileExtension="yaml"
@@ -14,5 +15,3 @@ function CSVToYAMLPage() {
     />
   );
 }
-
-export default CSVToYAMLPage;

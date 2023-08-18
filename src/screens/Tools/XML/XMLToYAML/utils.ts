@@ -3,6 +3,6 @@ import { convertXMLToJSON } from "../XMLToJSON/utils";
 
 export const convertXMLToYAML = (input: string): string => {
   const jsonOutput = convertXMLToJSON(input);
-  const result = convertJSONToYAML(jsonOutput);
-  return result;
+  const output = convertJSONToYAML(jsonOutput);
+  return output;
 };

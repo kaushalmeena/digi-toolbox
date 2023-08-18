@@ -60,14 +60,28 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
 
   handleImageUpload = (): void => {
     loadFile("image/*", "dataURL")
-      .then((result) => {
+      .then((data) => {
         const image = new Image();
-        image.src = result;
+        image.src = data;
         image.onload = () => {
           const canvas = this.canvasRef.current;
+          if (!canvas) {
+            Toast.show({
+              message: "Unable to use image",
+              intent: "danger"
+            });
+            return;
+          }
           const context = canvas.getContext("2d");
           canvas.width = image.width;
           canvas.height = image.height;
+          if (!context) {
+            Toast.show({
+              message: "Unable to use image",
+              intent: "danger"
+            });
+            return;
+          }
           context.drawImage(image, 0, 0, canvas.width, canvas.height);
           canvas.hidden = false;
         };

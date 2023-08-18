@@ -15,13 +15,18 @@
   "dependencies": {
     "@blueprintjs/core": "^5.2.0",
     "@blueprintjs/icons": "^5.1.5",
-    "next": "^13.4.16",
+    "next": "^13.4.18",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
-    "react-dom": "1^8.2.0",
-    "styled-components": "^6.0.7"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.7",
+    "xml-formatter": "^3.5.0",
+    "xml-js": "^1.6.11",
+    "yaml": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.4.9",
+    "@types/papaparse": "^5.3.7",
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.3.0",

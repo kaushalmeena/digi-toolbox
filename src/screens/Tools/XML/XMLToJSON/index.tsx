@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client";
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertXMLToJSON } from "./utils";
 
-function XMLToJSONPage() {
+export default function XMLToJSONPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="XML to JSON"
       subHeading="Quickly convert an XML document to a JSON document"
       fileExtension="json"
@@ -14,5 +15,3 @@ function XMLToJSONPage() {
     />
   );
 }
-
-export default XMLToJSONPage;

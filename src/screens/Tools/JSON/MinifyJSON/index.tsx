@@ -1,17 +1,16 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+'use client';
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { minifyJSON } from "./utils";
 
-function MinifyJSON() {
+export default function MinifyJSONPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="Minify JSON"
-      subHeading="Quickly compress a JSON file"
+      subHeading="Quickly compress a JSON data"
       fileExtension="json"
       fileType="application/json"
       convertFunction={minifyJSON}
     />
   );
 }
-
-export default MinifyJSON;

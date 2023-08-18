@@ -5,7 +5,7 @@ export const convertTemperature = (
   from: string,
   to: string
 ): string => {
-  let result = 0;
+  let output = 0;
   let celsius = 0;
   const number = parseFloat(input);
 
@@ -24,18 +24,18 @@ export const convertTemperature = (
 
   switch (to) {
     case UnitMap.CELSIUS:
-      result = celsius;
+      output = celsius;
       break;
     case UnitMap.FAHRENHEIT:
-      result = convertCelsiusToFahrenheit(celsius);
+      output = convertCelsiusToFahrenheit(celsius);
       break;
     case UnitMap.KELVIN:
-      result = convertCelsiusToKelvin(celsius);
+      output = convertCelsiusToKelvin(celsius);
       break;
     default:
   }
 
-  return result.toString();
+  return output.toString();
 };
 
 function convertFahrenheitToCelsius(input: number): number {

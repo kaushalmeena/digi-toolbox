@@ -5,7 +5,7 @@ export const convertColor = (
   from: string,
   to: string
 ): string => {
-  let result = "";
+  let output = "";
   let RGBArray = null;
 
   switch (from) {
@@ -23,18 +23,18 @@ export const convertColor = (
 
   switch (to) {
     case UnitMap.HEX:
-      result = convertRGBArrayToHex(RGBArray);
+      output = convertRGBArrayToHex(RGBArray);
       break;
     case UnitMap.RGB:
-      result = convertRGBArrayToRGB(RGBArray);
+      output = convertRGBArrayToRGB(RGBArray);
       break;
     case UnitMap.HSL:
-      result = convertRGBArrayToHSL(RGBArray);
+      output = convertRGBArrayToHSL(RGBArray);
       break;
     default:
   }
 
-  return result;
+  return output;
 };
 
 function convertHEXToRGBArray(input: string): number[] {

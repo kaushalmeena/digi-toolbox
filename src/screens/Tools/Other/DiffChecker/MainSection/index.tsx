@@ -88,11 +88,11 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
   };
 
   handleLeftInputUpload = (): void => {
-    loadFile().then((result) => this.setLeftInput(result));
+    loadFile().then((data) => this.setLeftInput(data));
   };
 
   handleRightInputUpload = (): void => {
-    loadFile().then((result) => this.setRightInput(result));
+    loadFile().then((data) => this.setRightInput(data));
   };
 
   render() {

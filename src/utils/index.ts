@@ -77,6 +77,6 @@ export const createConvertFunction =
   (input: string, from: string, to: string) => {
     const number = parseFloat(input);
     const value = number * conversionMap[`${from}->${defaultUnit}`];
-    const result = value * conversionMap[`${defaultUnit}->${to}`];
-    return result.toString();
+    const output = value * conversionMap[`${defaultUnit}->${to}`];
+    return output.toString();
   };

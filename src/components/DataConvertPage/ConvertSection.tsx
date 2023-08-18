@@ -1,11 +1,11 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
 import IOSection from "./IOSection";
 import { ButtonOption } from "../ButtonSection";
 import { copyText, loadFile, saveFile } from "@/utils";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import SwitchSection from "./SwitchSection";
-import Toast from "../Toast";
+import { OverlayToaster } from "@blueprintjs/core";
 
 type ConvertSectionProps = {
   fileExtension: string;
@@ -22,6 +22,7 @@ export default function ConvertSection({
 }: ConvertSectionProps) {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const toasterRef = useRef<OverlayToaster>(null);
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
@@ -36,21 +37,27 @@ export default function ConvertSection({
 
   const handleInputUpload = () => {
     loadFile()
-      .then((value) => {
-        setInput(value);
-        setOutput(getOutput(value));
+      .then((data) => {
+        setInput(data);
+        setOutput(getOutput(data));
       })
       .catch(() => {
-        Toast.show({
+        toasterRef.current?.show({
           message: "Unable to upload file.",
-          intent: "danger"
+          intent: "danger",
+          isCloseButtonShown: false
         });
       });
   };
 
   const handleOutputCopy = () => {
-    copyText(output).then(() =>
-      Toast.show({ message: "Copied to clipboard.", intent: "primary" })
+    copyText(output).then(
+      () =>
+        toasterRef.current?.show({
+          message: "Copied to clipboard.",
+          intent: "primary",
+          isCloseButtonShown: false
+        })
     );
   };
 
@@ -95,16 +102,19 @@ export default function ConvertSection({
   ];
 
   return (
-    <ConvertContainer>
-      <IOSection
-        buttons={inputButtons}
-        value={input}
-        handleValueChange={handleInputChange}
-      />
-      <MiddleContainer>
-        {switchURL && <SwitchSection switchURL={switchURL} />}
-      </MiddleContainer>
-      <IOSection buttons={outputButtons} value={output} />
-    </ConvertContainer>
+    <>
+      <ConvertContainer>
+        <IOSection
+          buttons={inputButtons}
+          value={input}
+          handleValueChange={handleInputChange}
+        />
+        <MiddleContainer>
+          {switchURL && <SwitchSection switchURL={switchURL} />}
+        </MiddleContainer>
+        <IOSection buttons={outputButtons} value={output} />
+      </ConvertContainer>
+      <OverlayToaster ref={toasterRef} />
+    </>
   );
 }

@@ -1,12 +1,13 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+'use client';
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertCSVToXML } from "./utils";
 
-function CSVToXMLPage() {
+export default function CSVToXMLPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="CSV to XML"
-      subHeading="Quickly convert a CSV file to an XML file"
+      subHeading="Quickly convert a CSV data to an XML data"
       fileExtension="xml"
       fileType="text/xml"
       switchURL="/xml-to-csv"
@@ -14,5 +15,3 @@ function CSVToXMLPage() {
     />
   );
 }
-
-export default CSVToXMLPage;

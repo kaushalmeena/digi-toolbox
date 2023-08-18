@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client"
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertYAMLToJSON } from "./utils";
 
-function YAMLToJSONPage() {
+export default function YAMLToJSONPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="YAML to JSON"
       subHeading="Quickly convert a YAML config to a JSON config"
       fileExtension="json"
@@ -14,5 +15,3 @@ function YAMLToJSONPage() {
     />
   );
 }
-
-export default YAMLToJSONPage;

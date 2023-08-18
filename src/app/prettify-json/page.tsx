@@ -1,10 +1,11 @@
+import PrettifyJSONPage from "@/screens/Tools/JSON/PrettifyJSON";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "text",
-  description: "text"
+  title: "Prettify JSON - GetThatTool",
+  description: "Simple, free and easy to use online tool that prettifies JSON."
 };
 
-export default function Comp() {
-  return null;
+export default function PrettifyJSON() {
+  return <PrettifyJSONPage />;
 }

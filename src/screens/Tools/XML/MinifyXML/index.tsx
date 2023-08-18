@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client"
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { minifyXML } from "./utils";
 
-function MinifyXML() {
+export default function MinifyXMLPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="Minify XML"
       subHeading="Quickly compress a XML file"
       fileExtension="xml"
@@ -13,5 +14,3 @@ function MinifyXML() {
     />
   );
 }
-
-export default MinifyXML;
