@@ -3,6 +3,6 @@ import { convertYAMLToJSON } from "../YAMLToJSON/utils";
 
 export const convertYAMLToCSV = (input: string): string => {
   const jsonOutput = convertYAMLToJSON(input);
-  const result = convertJSONToCSV(jsonOutput);
-  return result;
+  const output = convertJSONToCSV(jsonOutput);
+  return output;
 };

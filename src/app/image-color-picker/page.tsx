@@ -1,10 +1,11 @@
+import ImageColorPickerPage from "@/screens/Tools/Other/ImageColorPicker";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "text",
-  description: "text"
+  title: "Image Color Picker - GetThatTool",
+  description: "Super simple, free and fast browser-based utility for picking color from image."
 };
 
-export default function Comp() {
-  return null;
+export default function ImageColorPicker() {
+  return <ImageColorPickerPage />;
 }

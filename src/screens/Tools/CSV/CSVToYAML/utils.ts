@@ -3,6 +3,6 @@ import { convertCSVToJSON } from "../CSVToJSON/utils";
 
 export const convertCSVToYAML = (input: string): string => {
   const jsonOutput = convertCSVToJSON(input);
-  const result = convertJSONToYAML(jsonOutput);
-  return result;
+  const output = convertJSONToYAML(jsonOutput);
+  return output;
 };

@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client";
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { prettifyJSON } from "./utils";
 
 function PrettifyJSONPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="Prettify JSON"
       subHeading="Quickly beautify a JSON data structure"
       fileExtension="json"

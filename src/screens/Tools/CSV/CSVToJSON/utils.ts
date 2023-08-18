@@ -1,22 +1,11 @@
-import { removeQuotes } from "../../utils";
-import { COMMA_SPLIT_REGEX } from "./constants";
+import Papa from 'papaparse';
 
 export const convertCSVToJSON = (input: string): string => {
-  const result = [];
-
-  const lines = input.split("\n").filter(Boolean);
-  const keys = lines[0].split(COMMA_SPLIT_REGEX).map(removeQuotes);
-
-  for (let i = 1; i < lines.length; i += 1) {
-    const obj = {};
-    const values = lines[i].split(COMMA_SPLIT_REGEX).map(removeQuotes);
-
-    for (let j = 0; j < keys.length; j += 1) {
-      obj[keys[j]] = values[j];
-    }
-
-    result.push(obj);
+  const parsedData = Papa.parse(input, { header: true });
+  if (parsedData.errors?.length) {
+    const message = parsedData.errors.map((error) => error.message).join("\n")
+    throw new Error(message);
   }
-
-  return JSON.stringify(result, undefined, 2);
+  const output = JSON.stringify(parsedData.data, null, 2);
+  return output;
 };

@@ -37,7 +37,7 @@ class MainSection extends Component<MainSectionProps, MainSectionState> {
 
   handleInputUpload = (): void => {
     loadFile()
-      .then((result) => this.setInput(result))
+      .then((data) => this.setInput(data))
       .catch(() => {
         Toast.show({
           message: "Unable to upload image file.",

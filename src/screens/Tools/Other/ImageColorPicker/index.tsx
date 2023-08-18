@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import HeaderSection from "../../../../shared/HeaderSection";
 import MainSection from "./MainSection";

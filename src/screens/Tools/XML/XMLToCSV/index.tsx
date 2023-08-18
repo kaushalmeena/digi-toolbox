@@ -1,10 +1,11 @@
-import React from "react";
-import Page from "../../../../shared/Pages/DataConvert";
+"use client";
+
+import DataConvertPage from "@/components/DataConvertPage";
 import { convertXMLToCSV } from "./utils";
 
-function XMLToCSVPage() {
+export default function XMLToCSVPage() {
   return (
-    <Page
+    <DataConvertPage
       heading="XML to CSV"
       subHeading="Quickly convert an XML document to a CSV document"
       fileExtension="csv"
@@ -14,5 +15,3 @@ function XMLToCSVPage() {
     />
   );
 }
-
-export default XMLToCSVPage;
