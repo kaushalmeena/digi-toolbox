@@ -1,7 +1,7 @@
-import React, { ChangeEvent } from "react";
-import ButtonSection, { ButtonOption } from "./ButtonSection";
-import styled from "styled-components";
 import { TextArea } from "@blueprintjs/core";
+import { ChangeEvent } from "react";
+import styled from "styled-components";
+import ButtonSection, { ButtonOption } from "./ButtonSection";
 import IOContainer from "./IOContainer";
 
 export const StyledTextArea = styled(TextArea)`

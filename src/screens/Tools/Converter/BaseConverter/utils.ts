@@ -10,7 +10,8 @@ export const convertBase = (
   const toBase = to.substring(5);
   const initialBase = parseInt(fromBase, 10);
   const targetBase = parseInt(toBase, 10);
-  return parseInt(input, initialBase).toString(targetBase);
+  const output = parseInt(input, initialBase).toString(targetBase);
+  return output;
 };
 
 export const createSelectOptions = (start = 2, end = 16): SelectOption[] => {

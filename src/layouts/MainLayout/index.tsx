@@ -1,12 +1,12 @@
 "use client";
 
+import { DarkTheme, LightTheme } from "@/constants/theme";
 import { fetchDarkMode, storeDarkMode } from "@/utils";
 import { Spinner } from "@blueprintjs/core";
 import { ReactNode, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
-import { DarkTheme, LightTheme } from "@/constants/theme";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.gray[5]};
