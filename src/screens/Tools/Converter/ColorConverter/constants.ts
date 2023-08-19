@@ -1,8 +1,8 @@
 export const UnitMap = {
-  HEX : "hex",
-  RGB : "rgb",
-  HSL : "hsl"
-}
+  HEX: "hex",
+  RGB: "rgb",
+  HSL: "hsl"
+};
 
 export const SelectOptions = [
   {

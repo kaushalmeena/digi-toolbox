@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import DataConvertPage from "@/components/DataConvertPage";
 import { unescapeSlash } from "./utils";

@@ -14,7 +14,9 @@ export default function DiffSection() {
   const [leftOutput, setLeftOutput] = useState<Change[]>([]);
   const [rightOutput, setRightOutput] = useState<Change[]>([]);
 
-  const handleLeftInputChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleLeftInputChange = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     const { value } = event.target;
     const [leftOutput, rightOutput] = getLeftAndRightOutput(value, rightInput);
     setLeftInput(value);
@@ -22,7 +24,9 @@ export default function DiffSection() {
     setRightOutput(rightOutput);
   };
 
-  const handleRightInputChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleRightInputChange = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     const { value } = event.target;
     const [leftOutput, rightOutput] = getLeftAndRightOutput(leftInput, value);
     setRightInput(value);
@@ -61,7 +65,7 @@ export default function DiffSection() {
       icon: "export",
       onClick: handleLeftInputUpload
     }
-  ]
+  ];
 
   const rightInputButtons: ButtonOption[] = [
     {
@@ -74,12 +78,12 @@ export default function DiffSection() {
       icon: "export",
       onClick: handleRightInputUpload
     }
-  ]
+  ];
 
   return (
     <>
       <ConvertContainer>
-      <TextAreaIOSection
+        <TextAreaIOSection
           buttons={leftInputButtons}
           value={leftInput}
           handleValueChange={handleLeftInputChange}
@@ -100,4 +104,4 @@ export default function DiffSection() {
       )}
     </>
   );
-};
+}

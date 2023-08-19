@@ -1,6 +1,5 @@
 import SpeedConverterPage from "@/screens/Tools/Converter/SpeedConverter";
 import type { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Speed Converter - GetThatTool",

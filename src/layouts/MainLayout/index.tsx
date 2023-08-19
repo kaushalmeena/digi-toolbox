@@ -15,7 +15,7 @@ const Container = styled.div`
 const MainContainer = styled.main`
   margin: 0px auto;
   max-width: 1400px;
-  width: 100%; 
+  width: 100%;
   padding: 20px 40px;
   min-height: calc(100vh - 50px);
 
@@ -32,8 +32,8 @@ const StyledSpinner = styled(Spinner)`
 `;
 
 type MainLayoutProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [mounted, setMounted] = useState(false);
@@ -59,11 +59,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
     <ThemeProvider theme={theme}>
       {mounted ? (
         <Container className={theme.className}>
-          <Header
-            darkMode={darkMode}
-            toggleDarkMode={handleDarkModeToggle}
-          />
-            <MainContainer>{children}</MainContainer>
+          <Header darkMode={darkMode} toggleDarkMode={handleDarkModeToggle} />
+          <MainContainer>{children}</MainContainer>
           <Footer />
         </Container>
       ) : (

@@ -12,7 +12,7 @@ type ConvertSectionProps = {
   convertFunction: (input: string, from: string, to: string) => string;
 };
 
-export default function ConvertSection ({
+export default function ConvertSection({
   selectOptions,
   fromDefaultValue,
   toDefaultValue,
@@ -29,9 +29,7 @@ export default function ConvertSection ({
     setOutput(getOutput(value, from, to));
   };
 
-  const handleFromSelectChange = (
-    event: ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleFromSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
     setFrom(value);
     setInput(output ? getOutput(output, to, value) : input);
@@ -43,9 +41,7 @@ export default function ConvertSection ({
     setInput(getOutput(value, to, from));
   };
 
-  const handleToSelectChange = (
-    event: ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleToSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
     setTo(value);
     setOutput(input ? getOutput(input, from, value) : output);
@@ -82,4 +78,4 @@ export default function ConvertSection ({
       />
     </ConvertContainer>
   );
-};
+}

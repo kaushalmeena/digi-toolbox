@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import DataConvertPage from "@/components/DataConvertPage";
 import { extractTextFromXML } from "./utils";
@@ -14,4 +14,3 @@ export default function ExtractTextFromXMLPage() {
     />
   );
 }
-

@@ -34,9 +34,7 @@ export default function MainSection() {
   const [search, setSearch] = useState("");
   const [filteredTools, setFilteredTools] = useState<Tool[]>(Tools);
 
-  const handleInputChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const search = event.target.value;
     const regexp = new RegExp(search, "i");
     const filteredTools = Tools.filter((tool) => regexp.test(tool.name));

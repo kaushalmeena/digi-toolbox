@@ -1,6 +1,5 @@
 import MassConverterPage from "@/screens/Tools/Converter/MassConverter";
 import type { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Mass Converter - GetThatTool",

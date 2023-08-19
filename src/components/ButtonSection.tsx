@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, IconName, MaybeElement } from "@blueprintjs/core";
 import styled from "styled-components";
 
