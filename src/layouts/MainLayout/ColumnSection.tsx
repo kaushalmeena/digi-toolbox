@@ -17,7 +17,7 @@ const ToolContainer = styled.div`
   }
 `;
 
-export const ToolHeading = styled.h3`
+const ToolHeading = styled.h3`
   font-size: 20px;
   font-weight: bold;
 
@@ -26,7 +26,7 @@ export const ToolHeading = styled.h3`
   }
 `;
 
-export const ToolLink = styled.span`
+const ToolLink = styled.span`
   font-size: 18px;
   line-height: 1.5;
 

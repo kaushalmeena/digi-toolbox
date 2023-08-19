@@ -25,10 +25,13 @@ export default function ConvertSection({
   const [output, setOutput] = useState("");
   const toasterRef = useRef<OverlayToaster>(null);
 
-  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = event.target;
+  const changeInput = (value: string) => {
     setInput(value);
     setOutput(getOutput(value));
+  };
+
+  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    changeInput(event.target.value);
   };
 
   const handleInputClear = () => {
@@ -38,9 +41,8 @@ export default function ConvertSection({
 
   const handleInputUpload = () => {
     loadFile()
-      .then((data) => {
-        setInput(data);
-        setOutput(getOutput(data));
+      .then((value) => {
+        changeInput(value);
       })
       .catch(() => {
         toasterRef.current?.show({
@@ -66,7 +68,7 @@ export default function ConvertSection({
     saveFile(output, fileExtension, fileType);
   };
 
-  const getOutput = (value: string): string => {
+  const getOutput = (value: string) => {
     let output = "";
     try {
       output = convertFunction(value);
@@ -111,7 +113,7 @@ export default function ConvertSection({
           handleValueChange={handleInputChange}
         />
         <MiddleContainer>
-          {switchURL && <SwitchSection switchURL={switchURL} />}
+          {!!switchURL && <SwitchSection switchURL={switchURL} />}
         </MiddleContainer>
         <TextAreaIOSection buttons={outputButtons} value={output} />
       </ConvertContainer>

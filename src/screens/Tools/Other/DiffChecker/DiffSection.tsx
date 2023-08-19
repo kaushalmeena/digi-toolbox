@@ -4,54 +4,79 @@ import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { loadFile } from "@/utils";
 import { Change } from "diff";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
+import { OverlayToaster } from "@blueprintjs/core";
+import { ToastMessages } from "@/constants/toast";
 
 export default function DiffSection() {
   const [leftInput, setLeftInput] = useState("");
   const [rightInput, setRightInput] = useState("");
   const [leftOutput, setLeftOutput] = useState<Change[]>([]);
   const [rightOutput, setRightOutput] = useState<Change[]>([]);
+  const toasterRef = useRef<OverlayToaster>(null);
 
-  const handleLeftInputChange = (
-    event: ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    const { value } = event.target;
+  const changeLeftInput = (value: string) => {
     const [leftOutput, rightOutput] = getLeftAndRightOutput(value, rightInput);
     setLeftInput(value);
     setLeftOutput(leftOutput);
     setRightOutput(rightOutput);
   };
 
-  const handleRightInputChange = (
-    event: ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    const { value } = event.target;
+  const changeRightInput = (value: string) => {
     const [leftOutput, rightOutput] = getLeftAndRightOutput(leftInput, value);
     setRightInput(value);
     setLeftOutput(leftOutput);
     setRightOutput(rightOutput);
   };
 
-  const handleLeftInputClear = (): void => {
+  const handleLeftInputChange = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    changeLeftInput(event.target.value);
+  };
+
+  const handleRightInputChange = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ): void => {
+    changeRightInput(event.target.value);
+  };
+
+  const handleLeftInputClear = () => {
     setLeftInput("");
     setLeftOutput([]);
     setRightOutput([]);
   };
 
-  const handleRightInputClear = (): void => {
+  const handleRightInputClear = () => {
     setRightInput("");
     setLeftOutput([]);
     setRightOutput([]);
   };
 
-  const handleLeftInputUpload = (): void => {
-    loadFile().then((data) => setLeftInput(data));
+  const handleLeftInputUpload = () => {
+    loadFile()
+      .then((value) => changeLeftInput(value))
+      .catch(() => {
+        toasterRef.current?.show({
+          message: ToastMessages.FILE_UPLOAD_FAIL,
+          intent: "danger",
+          isCloseButtonShown: false
+        });
+      });
   };
 
-  const handleRightInputUpload = (): void => {
-    loadFile().then((data) => setRightInput(data));
+  const handleRightInputUpload = () => {
+    loadFile()
+      .then((value) => changeRightInput(value))
+      .catch(() => {
+        toasterRef.current?.show({
+          message: ToastMessages.FILE_UPLOAD_FAIL,
+          intent: "danger",
+          isCloseButtonShown: false
+        });
+      });
   };
 
   const leftInputButtons: ButtonOption[] = [
@@ -95,13 +120,14 @@ export default function DiffSection() {
           handleValueChange={handleRightInputChange}
         />
       </ConvertContainer>
-      {leftOutput.length && rightOutput.length && (
+      {!!leftOutput?.length && !!rightOutput?.length && (
         <ConvertContainer>
           <OutputSection output={leftOutput} />
           <MiddleContainer />
           <OutputSection output={rightOutput} />
         </ConvertContainer>
       )}
+      <OverlayToaster ref={toasterRef} />
     </>
   );
 }
