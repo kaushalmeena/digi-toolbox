@@ -125,7 +125,7 @@ export default function PickerSection() {
             </CardBody>
             <CardFooter>
               <ColorContainer ref={currentColorContainerRef} />
-              {selectedColor && (
+              {!!selectedColor && (
                 <ColorContainer style={{ backgroundColor: selectedColor }}>
                   <InputGroup
                     large

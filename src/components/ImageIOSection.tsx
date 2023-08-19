@@ -30,8 +30,8 @@ export default function ImageIOSection({
   return (
     <IOContainer>
       <StyledCard>
-        {value && (
-          <CardImage alt="Input-Image" src={value} onError={handleImageError} />
+        {!!value && (
+          <CardImage alt="IO-Image" src={value} onError={handleImageError} />
         )}
       </StyledCard>
       <ButtonSection buttons={buttons} />

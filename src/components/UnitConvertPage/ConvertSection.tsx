@@ -47,7 +47,7 @@ export default function ConvertSection({
     setOutput(input ? getOutput(input, from, value) : output);
   };
 
-  const getOutput = (value: string, from: string, to: string): string => {
+  const getOutput = (value: string, from: string, to: string) => {
     let output = "";
     try {
       output = convertFunction(value, from, to);
