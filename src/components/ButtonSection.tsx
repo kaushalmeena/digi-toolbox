@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Button, IconName, MaybeElement } from "@blueprintjs/core";
 import styled from "styled-components";
 
@@ -22,7 +22,7 @@ type ButtonSectionProps = {
   buttons: ButtonOption[];
 };
 
-function ButtonSection({ buttons }: ButtonSectionProps) {
+export default function ButtonSection({ buttons }: ButtonSectionProps) {
   return (
     <Container>
       {buttons.map((button) => (
@@ -31,12 +31,3 @@ function ButtonSection({ buttons }: ButtonSectionProps) {
     </Container>
   );
 }
-
-function propsAreEqual(
-  prevProps: ButtonSectionProps,
-  nextProps: ButtonSectionProps
-) {
-  return prevProps.buttons.length === nextProps.buttons.length;
-}
-
-export default memo(ButtonSection, propsAreEqual);

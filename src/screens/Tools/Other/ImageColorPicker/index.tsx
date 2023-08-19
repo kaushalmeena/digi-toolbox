@@ -1,19 +1,16 @@
-'use client';
+"use client";
 
-import React from "react";
-import HeaderSection from "../../../../shared/HeaderSection";
-import MainSection from "./MainSection";
+import HeaderSection from "@/components/HeaderSection";
+import PickerSection from "./PickerSection";
 
-function ImageColorPicker() {
+export default function ImageColorPickerPage() {
   return (
     <>
       <HeaderSection
         heading="Image Color Picker"
         subHeading="Quickly pick color from image"
       />
-      <MainSection />
+      <PickerSection />
     </>
   );
 }
-
-export default ImageColorPicker;

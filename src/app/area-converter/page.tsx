@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts area between sq. meter, sq mile, sq. foot etc."
 };
 
-function AreaConverter() {
+export default function AreaConverter() {
   return <AreaConverterPage />;
 }
-
-export default AreaConverter;

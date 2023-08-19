@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts speed between kilometer/hour, meter/second, mile/hour etc."
 };
 
-function SpeedConverter() {
+export default function SpeedConverter() {
   return <SpeedConverterPage />;
 }
-
-export default SpeedConverter;

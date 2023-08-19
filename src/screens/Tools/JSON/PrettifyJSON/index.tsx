@@ -3,7 +3,7 @@
 import DataConvertPage from "@/components/DataConvertPage";
 import { prettifyJSON } from "./utils";
 
-function PrettifyJSONPage() {
+export default function PrettifyJSONPage() {
   return (
     <DataConvertPage
       heading="Prettify JSON"
@@ -14,5 +14,3 @@ function PrettifyJSONPage() {
     />
   );
 }
-
-export default PrettifyJSONPage;

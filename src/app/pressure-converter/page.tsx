@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts pressure between bar, pascal, torr etc."
 };
 
-function PressureConverter() {
+export default function PressureConverter() {
   return <PressureConverterPage />;
 }
-
-export default PressureConverter;

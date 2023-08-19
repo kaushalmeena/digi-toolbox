@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts color between HEX, RGB and HSL formats."
 };
 
-function ColorConverter() {
+export default function ColorConverter() {
   return <ColorConverterPage />;
 }
-
-export default ColorConverter;

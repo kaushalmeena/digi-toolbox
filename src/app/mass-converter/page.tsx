@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts mass between gram, ounce, pound etc."
 };
 
-function MassConverter() {
+export default function MassConverter() {
   return <MassConverterPage />;
 }
-
-export default MassConverter;

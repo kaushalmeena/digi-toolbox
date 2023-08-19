@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts Angle between degree, radians, gradian etc."
 };
 
-function AngleConverter() {
+export default function AngleConverter() {
   return <AngleConverterPage />;
 }
-
-export default AngleConverter;

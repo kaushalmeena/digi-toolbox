@@ -20,7 +20,7 @@ const MainContainer = styled.div`
   }
 `;
 
-function Footer() {
+export default function Footer() {
   return (
     <Container>
       <MainContainer>
@@ -33,5 +33,3 @@ function Footer() {
     </Container>
   );
 }
-
-export default Footer;

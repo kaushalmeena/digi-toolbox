@@ -14,7 +14,7 @@ type ErrorPageProps = {
   subHeading: string;
 };
 
-function ErrorPage({ heading, subHeading }: ErrorPageProps) {
+export default function ErrorPage({ heading, subHeading }: ErrorPageProps) {
   return (
     <Container>
       <HeaderSection heading={heading} subHeading={subHeading} />
@@ -24,5 +24,3 @@ function ErrorPage({ heading, subHeading }: ErrorPageProps) {
     </Container>
   );
 }
-
-export default ErrorPage;

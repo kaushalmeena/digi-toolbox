@@ -1,19 +1,16 @@
-'use client';
+"use client";
 
-import React from "react";
-import HeaderSection from "../../../../shared/HeaderSection";
-import MainSection from "./MainSection";
+import HeaderSection from "@/components/HeaderSection";
+import DiffSection from "./DiffSection";
 
-function DiffChecker() {
+export default function DiffCheckerPage() {
   return (
     <>
       <HeaderSection
         heading="Diff-Checker"
         subHeading="Quickly compare two set of text to find differences"
       />
-      <MainSection />
+      <DiffSection />
     </>
   );
 }
-
-export default DiffChecker;

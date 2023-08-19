@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts base between octal, hexadecimal, binary etc."
 };
 
-function BaseConverter() {
+export default function BaseConverter() {
   return <BaseConverterPage />;
 }
-
-export default BaseConverter;

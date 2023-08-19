@@ -48,7 +48,7 @@ type HeaderProps = {
   toggleDarkMode: () => void;
 };
 
-function Header({ darkMode, toggleDarkMode }: HeaderProps) {
+export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
   return (
     <StyledNavbar>
       <NavbarContainer>
@@ -81,5 +81,3 @@ function Header({ darkMode, toggleDarkMode }: HeaderProps) {
     </StyledNavbar>
   );
 }
-
-export default Header;

@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from "react";
-import ButtonSection, { ButtonOption } from "../ButtonSection";
+import ButtonSection, { ButtonOption } from "./ButtonSection";
 import styled from "styled-components";
 import { TextArea } from "@blueprintjs/core";
-import TextIOContainer from "../TextIOContainer";
+import IOContainer from "./IOContainer";
 
 export const StyledTextArea = styled(TextArea)`
   & input {
@@ -10,15 +10,19 @@ export const StyledTextArea = styled(TextArea)`
   }
 `;
 
-type IOSectionProps = {
+type TextAreaIOSectionProps = {
   buttons: ButtonOption[];
   value: string;
   handleValueChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
-function IOSection({ buttons, value, handleValueChange }: IOSectionProps) {
+export default function TextAreaIOSection({
+  buttons,
+  value,
+  handleValueChange
+}: TextAreaIOSectionProps) {
   return (
-    <TextIOContainer>
+    <IOContainer>
       <StyledTextArea
         fill
         rows={16}
@@ -27,8 +31,6 @@ function IOSection({ buttons, value, handleValueChange }: IOSectionProps) {
         readOnly={!handleValueChange}
       />
       <ButtonSection buttons={buttons} />
-    </TextIOContainer>
+    </IOContainer>
   );
 }
-
-export default IOSection;
