@@ -1,4 +1,4 @@
-import { Classes } from "@blueprintjs/core";
+import { Classes, Colors } from "@blueprintjs/core";
 import { DefaultTheme } from "styled-components";
 
 const CommonThemeProps = {
@@ -14,14 +14,14 @@ export const DarkTheme: DefaultTheme = {
   id: "dark-theme",
   className: Classes.DARK,
   colors: {
-    right: "#2EA043",
-    wrong: "#F85149",
+    right: Colors.GREEN3,
+    wrong: Colors.RED3,
     gray: {
-      1: "#1C2127",
-      2: "#252A31",
-      3: "#2F343C",
-      4: "#383E47",
-      5: "#404854"
+      1: Colors.DARK_GRAY1,
+      2: Colors.DARK_GRAY2,
+      3: Colors.DARK_GRAY3,
+      4: Colors.DARK_GRAY4,
+      5: Colors.DARK_GRAY5
     }
   }
 };
@@ -31,14 +31,14 @@ export const LightTheme: DefaultTheme = {
   id: "light-theme",
   className: null,
   colors: {
-    right: "#ABF2BC",
-    wrong: "#FF8182",
+    right: Colors.GREEN5,
+    wrong: Colors.RED5,
     gray: {
-      1: "#D3D8DE",
-      2: "#DCE0E5",
-      3: "#E5E8EB",
-      4: "#EDEFF2",
-      5: "#F6F7F9"
+      1: Colors.LIGHT_GRAY1,
+      2: Colors.LIGHT_GRAY2,
+      3: Colors.LIGHT_GRAY3,
+      4: Colors.LIGHT_GRAY4,
+      5: Colors.LIGHT_GRAY5
     }
   }
 };
