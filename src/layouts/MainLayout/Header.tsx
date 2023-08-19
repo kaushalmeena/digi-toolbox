@@ -55,8 +55,8 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
         <NavbarGroup>
           <NavbarHeading>
             <StyledLink href="/">
-                <StyledIcon icon="wrench" size={18} />
-                <LogoText>GetThatTool</LogoText>
+              <StyledIcon icon="wrench" size={18} />
+              <LogoText>GetThatTool</LogoText>
             </StyledLink>
           </NavbarHeading>
         </NavbarGroup>

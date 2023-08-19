@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { SelectOptions, UnitMap } from "./constants";

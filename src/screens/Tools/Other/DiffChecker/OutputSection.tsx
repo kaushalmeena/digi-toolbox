@@ -24,21 +24,19 @@ type OutputSectionProps = {
 export default function OutputSection({ output }: OutputSectionProps) {
   const renderText = (item: Change) => {
     if (item.added) {
-        return <InsText>{item.value}</InsText>
+      return <InsText>{item.value}</InsText>;
     }
     if (item.removed) {
-        return <DelText>{item.value}</DelText>
+      return <DelText>{item.value}</DelText>;
     }
     return item.value;
-  }
+  };
 
   return (
     <IOContainer>
       <StyledCard>
         {output.map((item, index) => (
-          <Fragment key={`text-${index}`}>
-            {renderText(item)}
-          </Fragment>
+          <Fragment key={`text-${index}`}>{renderText(item)}</Fragment>
         ))}
       </StyledCard>
     </IOContainer>

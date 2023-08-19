@@ -1,6 +1,5 @@
-"use client"
+"use client";
 
-import React from "react";
 import { prettifyXML } from "./utils";
 import DataConvertPage from "@/components/DataConvertPage";
 

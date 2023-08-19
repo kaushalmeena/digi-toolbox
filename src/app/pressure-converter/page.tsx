@@ -1,6 +1,5 @@
 import PressureConverterPage from "@/screens/Tools/Converter/PressureConverter";
 import type { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Pressure Converter - GetThatTool",

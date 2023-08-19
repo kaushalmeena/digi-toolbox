@@ -1,5 +1,5 @@
 import { H1, H2 } from "@blueprintjs/core";
-import React from "react";
+
 import styled from "styled-components";
 
 const TopContainer = styled.div`

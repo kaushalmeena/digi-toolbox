@@ -1,6 +1,5 @@
 import LengthConverterPage from "@/screens/Tools/Converter/LengthConverter";
 import type { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Length Converter - GetThatTool",

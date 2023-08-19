@@ -1,10 +1,10 @@
 export const UnitMap = {
-  CELSIUS:"°C",
-  FAHRENHEIT:"°F",
-  KELVIN:"K"
-}
+  CELSIUS: "°C",
+  FAHRENHEIT: "°F",
+  KELVIN: "K"
+};
 
-export const SelectOptions =[
+export const SelectOptions = [
   {
     label: "Celsius",
     value: UnitMap.CELSIUS

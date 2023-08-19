@@ -1,6 +1,6 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/navigation";
-import React from "react";
+
 import styled from "styled-components";
 
 export const Container = styled.div`

@@ -1,6 +1,5 @@
 import EnergyConverterPage from "@/screens/Tools/Converter/EnergyConverter";
 import type { Metadata } from "next";
-import React from "react";
 
 export const metadata: Metadata = {
   title: "Energy Converter - GetThatTool",

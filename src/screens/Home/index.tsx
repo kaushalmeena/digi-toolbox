@@ -1,7 +1,7 @@
-'use client'
-import React from "react";
-import MainSection from "./MainSection";
+"use client";
+
 import HeaderSection from "@/components/HeaderSection";
+import MainSection from "./MainSection";
 
 export default function Home() {
   return (

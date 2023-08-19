@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@blueprintjs/core";
 import Link from "next/link";
