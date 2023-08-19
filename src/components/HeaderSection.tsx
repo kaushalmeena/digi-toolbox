@@ -1,5 +1,4 @@
 import { H1, H2 } from "@blueprintjs/core";
-
 import styled from "styled-components";
 
 const TopContainer = styled.div`

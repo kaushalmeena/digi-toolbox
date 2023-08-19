@@ -1,9 +1,8 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/navigation";
-
 import styled from "styled-components";
 
-export const Container = styled.div`
+const Container = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
     transform: rotate(90deg);
   }

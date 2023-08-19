@@ -1,12 +1,12 @@
-import React, { ChangeEvent, useRef, useState } from "react";
-import TextAreaIOSection from "../TextAreaIOSection";
-import { ButtonOption } from "../ButtonSection";
+import { ToastMessages } from "@/constants/toast";
 import { copyText, loadFile, saveFile } from "@/utils";
+import { OverlayToaster } from "@blueprintjs/core";
+import { ChangeEvent, useRef, useState } from "react";
+import { ButtonOption } from "../ButtonSection";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import SwitchSection from "../SwitchSection";
-import { OverlayToaster } from "@blueprintjs/core";
-import { ToastMessages } from "@/constants/toast";
+import TextAreaIOSection from "../TextAreaIOSection";
 
 type ConvertSectionProps = {
   fileExtension: string;

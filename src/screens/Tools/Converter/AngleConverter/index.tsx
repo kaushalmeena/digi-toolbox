@@ -1,8 +1,8 @@
 "use client";
 
 import UnitConvertPage from "@/components/UnitConvertPage";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
 import { createConvertFunction } from "@/utils";
+import { ConversionMap, SelectOptions, UnitMap } from "./constants";
 
 const convertFunction = createConvertFunction(ConversionMap, UnitMap.DEGREE);
 

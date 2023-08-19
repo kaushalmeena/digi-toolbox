@@ -3,10 +3,10 @@ import ConvertContainer from "@/components/ConvertContainer";
 import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { loadFile } from "@/utils";
+import { Change } from "diff";
 import { ChangeEvent, useState } from "react";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
-import { Change } from "diff";
 
 export default function DiffSection() {
   const [leftInput, setLeftInput] = useState("");
