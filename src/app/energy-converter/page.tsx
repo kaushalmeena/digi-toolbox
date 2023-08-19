@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts energy joule, calorie, electronvolt etc."
 };
 
-function EnergyConverter() {
+export default function EnergyConverter() {
   return <EnergyConverterPage />;
 }
-
-export default EnergyConverter;

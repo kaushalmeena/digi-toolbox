@@ -4,9 +4,9 @@ import { fetchDarkMode, storeDarkMode } from "@/utils";
 import { Spinner } from "@blueprintjs/core";
 import { ReactNode, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { DarkTheme, LightTheme } from "../../constants";
 import Footer from "./Footer";
 import Header from "./Header";
+import { DarkTheme, LightTheme } from "@/constants/theme";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.gray[5]};
@@ -31,7 +31,11 @@ const StyledSpinner = styled(Spinner)`
   transform: translate(-50%, -50%);
 `;
 
-export default function MainLayout({ children }: { children: ReactNode }) {
+type MainLayoutProps = {
+  children: ReactNode
+}
+
+export default function MainLayout({ children }: MainLayoutProps) {
   const [mounted, setMounted] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 

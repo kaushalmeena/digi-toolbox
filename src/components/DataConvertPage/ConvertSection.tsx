@@ -1,11 +1,12 @@
 import React, { ChangeEvent, useRef, useState } from "react";
-import IOSection from "./IOSection";
+import TextAreaIOSection from "../TextAreaIOSection";
 import { ButtonOption } from "../ButtonSection";
 import { copyText, loadFile, saveFile } from "@/utils";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
-import SwitchSection from "./SwitchSection";
+import SwitchSection from "../SwitchSection";
 import { OverlayToaster } from "@blueprintjs/core";
+import { ToastMessages } from "@/constants/toast";
 
 type ConvertSectionProps = {
   fileExtension: string;
@@ -43,7 +44,7 @@ export default function ConvertSection({
       })
       .catch(() => {
         toasterRef.current?.show({
-          message: "Unable to upload file.",
+          message: ToastMessages.FILE_UPLOAD_FAIL,
           intent: "danger",
           isCloseButtonShown: false
         });
@@ -54,7 +55,7 @@ export default function ConvertSection({
     copyText(output).then(
       () =>
         toasterRef.current?.show({
-          message: "Copied to clipboard.",
+          message: ToastMessages.COPY_SUCCESS,
           intent: "primary",
           isCloseButtonShown: false
         })
@@ -104,7 +105,7 @@ export default function ConvertSection({
   return (
     <>
       <ConvertContainer>
-        <IOSection
+        <TextAreaIOSection
           buttons={inputButtons}
           value={input}
           handleValueChange={handleInputChange}
@@ -112,7 +113,7 @@ export default function ConvertSection({
         <MiddleContainer>
           {switchURL && <SwitchSection switchURL={switchURL} />}
         </MiddleContainer>
-        <IOSection buttons={outputButtons} value={output} />
+        <TextAreaIOSection buttons={outputButtons} value={output} />
       </ConvertContainer>
       <OverlayToaster ref={toasterRef} />
     </>

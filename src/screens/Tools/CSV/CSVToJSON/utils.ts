@@ -1,7 +1,7 @@
-import Papa from 'papaparse';
+import { parse } from 'papaparse';
 
 export const convertCSVToJSON = (input: string): string => {
-  const parsedData = Papa.parse(input, { header: true });
+  const parsedData = parse(input, { header: true });
   if (parsedData.errors?.length) {
     const message = parsedData.errors.map((error) => error.message).join("\n")
     throw new Error(message);

@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts length between kilometer, foot, yard etc."
 };
 
-function LengthConverter() {
+export default function LengthConverter() {
   return <LengthConverterPage />;
 }
-
-export default LengthConverter;

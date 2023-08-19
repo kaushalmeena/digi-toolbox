@@ -1,19 +1,16 @@
-'use client';
+"use client";
 
-import React from "react";
-import HeaderSection from "../../../../shared/HeaderSection";
-import MainSection from "./MainSection";
+import HeaderSection from "@/components/HeaderSection";
+import ConvertSection from "./ConvertSection";
 
-function ImageToBase64() {
+export default function ImageToBase64Page() {
   return (
     <>
       <HeaderSection
         heading="Image to Base64"
         subHeading="Quickly convert image to base64-encoded string"
       />
-      <MainSection />
+      <ConvertSection />
     </>
   );
 }
-
-export default ImageToBase64;

@@ -3,7 +3,7 @@ import { Icon } from "@blueprintjs/core";
 import { ChangeEvent, useState } from "react";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
-import IOSection from "./IOSection";
+import IOSection from "./InputIOSection";
 
 type ConvertSectionProps = {
   selectOptions: SelectOption[];

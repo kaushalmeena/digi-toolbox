@@ -1,9 +1,9 @@
 import { InputGroup, Card } from "@blueprintjs/core";
 import Link from "next/link";
 import React, { ChangeEvent, useState } from "react";
-import { ToolBoxes } from "@/constants";
 import { Tool } from "@/types";
 import styled from "styled-components";
+import { ToolBoxes } from "@/constants/tools";
 
 const Container = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import { Button } from "@blueprintjs/core";
 import { useRouter } from "next/navigation";
-import React, { memo } from "react";
+import React from "react";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -13,7 +13,7 @@ type SwitchSectionProps = {
   switchURL: string;
 };
 
-function SwitchSection({ switchURL }: SwitchSectionProps) {
+export default function SwitchSection({ switchURL }: SwitchSectionProps) {
   const router = useRouter();
 
   const handleSwitchAction = () => {
@@ -31,5 +31,3 @@ function SwitchSection({ switchURL }: SwitchSectionProps) {
     </Container>
   );
 }
-
-export default memo(SwitchSection);

@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Simple, free and easy to use online tool that converts temperature between celsius, fahrenheit and kelvin."
 };
 
-function TemperatureConverter() {
+export default function TemperatureConverter() {
   return <TemperatureConverterPage />;
 }
-
-export default TemperatureConverter;

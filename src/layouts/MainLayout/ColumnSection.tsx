@@ -1,4 +1,4 @@
-import { ToolBoxes } from "@/constants";
+import { ToolBoxes } from "@/constants/tools";
 import { ToolCategory } from "@/types";
 import Link from "next/link";
 import React from "react";
@@ -40,7 +40,7 @@ type ColumnSectionProps = {
   categories: ToolCategory[];
 };
 
-function ColumnSection({ categories }: ColumnSectionProps) {
+export default function ColumnSection({ categories }: ColumnSectionProps) {
   const columnToolBoxes = ToolBoxes.filter((toolBox) =>
     categories.includes(toolBox.category)
   );
@@ -59,5 +59,3 @@ function ColumnSection({ categories }: ColumnSectionProps) {
     </Container>
   );
 }
-
-export default ColumnSection;

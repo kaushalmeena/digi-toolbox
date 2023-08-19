@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Error 400 - GetThatTool"
 };
 
-export default function Custom404() {
+export default function RootNotFound() {
   return (
     <ErrorPage
       heading="Error 404"

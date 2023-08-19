@@ -2,7 +2,7 @@ import { SelectOption } from "@/types";
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import { ChangeEvent } from "react";
 import styled from "styled-components";
-import TextIOContainer from "../TextIOContainer";
+import IOContainer from "../IOContainer";
 
 const StyledHTMLSelect = styled(HTMLSelect)`
   margin-top: 10px;
@@ -14,7 +14,7 @@ const StyledInputGroup = styled(InputGroup)`
   }
 `;
 
-type IOSectionProps = {
+type InputIOSectionProps = {
   inputValue: string;
   selectValue: string;
   selectOptions: SelectOption[];
@@ -22,15 +22,15 @@ type IOSectionProps = {
   handleSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export default function IOSection({
+export default function InputIOSection({
   inputValue,
   selectValue,
   selectOptions,
   handleInputChange,
   handleSelectChange
-}: IOSectionProps) {
+}: InputIOSectionProps) {
   return (
-    <TextIOContainer>
+    <IOContainer>
       <StyledInputGroup
         large
         value={inputValue}
@@ -44,6 +44,6 @@ export default function IOSection({
         value={selectValue}
         onChange={handleSelectChange}
       />
-    </TextIOContainer>
+    </IOContainer>
   );
 }
