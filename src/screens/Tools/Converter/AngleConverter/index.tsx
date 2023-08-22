@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.DEGREE);
+const convertFunction = createConvertFunction(ConversionMap, Units.DEGREE);
 
 export default function AngleConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function AngleConverterPage() {
       heading="Angle Converter"
       subHeading="Quickly convert angle between degree, radian, gradian etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.DEGREE}
-      toDefaultValue={UnitMap.RADIAN}
+      fromDefaultValue={Units.DEGREE}
+      toDefaultValue={Units.RADIAN}
       convertFunction={convertFunction}
     />
   );

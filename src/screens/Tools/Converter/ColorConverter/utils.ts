@@ -1,4 +1,4 @@
-import { UnitMap, HEX_REGEX, HSL_REGEX, RGB_REGEX } from "./constants";
+import { Units, HEX_REGEX, HSL_REGEX, RGB_REGEX } from "./constants";
 
 export const convertColor = (
   input: string,
@@ -9,26 +9,26 @@ export const convertColor = (
   let RGBArray = null;
 
   switch (from) {
-    case UnitMap.HEX:
+    case Units.HEX:
       RGBArray = convertHEXToRGBArray(input);
       break;
-    case UnitMap.RGB:
+    case Units.RGB:
       RGBArray = convertRGBToRGBArray(input);
       break;
-    case UnitMap.HSL:
+    case Units.HSL:
       RGBArray = convertHSLToRGBArray(input);
       break;
     default:
   }
 
   switch (to) {
-    case UnitMap.HEX:
+    case Units.HEX:
       output = convertRGBArrayToHex(RGBArray);
       break;
-    case UnitMap.RGB:
+    case Units.RGB:
       output = convertRGBArrayToRGB(RGBArray);
       break;
-    case UnitMap.HSL:
+    case Units.HSL:
       output = convertRGBArrayToHSL(RGBArray);
       break;
     default:

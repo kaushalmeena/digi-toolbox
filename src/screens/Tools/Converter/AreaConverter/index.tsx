@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.SQ_METER);
+const convertFunction = createConvertFunction(ConversionMap, Units.SQ_METER);
 
 export default function AreaConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function AreaConverterPage() {
       heading="Area Converter"
       subHeading="Quickly convert area between sq. meter, sq mile, sq. foot etc. etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.SQ_KILOMETER}
-      toDefaultValue={UnitMap.SQ_METER}
+      fromDefaultValue={Units.SQ_KILOMETER}
+      toDefaultValue={Units.SQ_METER}
       convertFunction={convertFunction}
     />
   );

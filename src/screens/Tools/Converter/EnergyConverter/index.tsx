@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.JOULE);
+const convertFunction = createConvertFunction(ConversionMap, Units.JOULE);
 
 export default function EnergyConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function EnergyConverterPage() {
       heading="Energy Converter"
       subHeading="Quickly convert energy between joule, calorie, electronvolt etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.KILOJOULE}
-      toDefaultValue={UnitMap.JOULE}
+      fromDefaultValue={Units.KILOJOULE}
+      toDefaultValue={Units.JOULE}
       convertFunction={convertFunction}
     />
   );

@@ -1,4 +1,4 @@
-import { UnitMap } from "./constants";
+import { Units } from "./constants";
 
 export const convertTemperature = (
   input: string,
@@ -10,26 +10,26 @@ export const convertTemperature = (
   const number = parseFloat(input);
 
   switch (from) {
-    case UnitMap.CELSIUS:
+    case Units.CELSIUS:
       celsius = number;
       break;
-    case UnitMap.FAHRENHEIT:
+    case Units.FAHRENHEIT:
       celsius = convertFahrenheitToCelsius(number);
       break;
-    case UnitMap.KELVIN:
+    case Units.KELVIN:
       celsius = convertKelvinToCelsius(number);
       break;
     default:
   }
 
   switch (to) {
-    case UnitMap.CELSIUS:
+    case Units.CELSIUS:
       output = celsius;
       break;
-    case UnitMap.FAHRENHEIT:
+    case Units.FAHRENHEIT:
       output = convertCelsiusToFahrenheit(celsius);
       break;
-    case UnitMap.KELVIN:
+    case Units.KELVIN:
       output = convertCelsiusToKelvin(celsius);
       break;
     default:

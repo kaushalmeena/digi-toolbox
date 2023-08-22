@@ -1,4 +1,4 @@
-export const UnitMap = {
+export const Units = {
   KILOGRAM: "kg",
   GRAM: "g",
   MILLIGRAM: "mg",
@@ -10,54 +10,54 @@ export const UnitMap = {
 };
 
 export const ConversionMap = {
-  [`${UnitMap.GRAM}->${UnitMap.GRAM}`]: 1,
-  [`${UnitMap.KILOGRAM}->${UnitMap.GRAM}`]: 1000,
-  [`${UnitMap.MILLIGRAM}->${UnitMap.GRAM}`]: 0.001,
-  [`${UnitMap.MICROGRAM}->${UnitMap.GRAM}`]: 0.000001,
-  [`${UnitMap.CARAT}->${UnitMap.GRAM}`]: 0.2,
-  [`${UnitMap.QUINTAL}->${UnitMap.GRAM}`]: 100000,
-  [`${UnitMap.POUND}->${UnitMap.GRAM}`]: 453.59237,
-  [`${UnitMap.OUNCE}->${UnitMap.GRAM}`]: 28.349523125,
-  [`${UnitMap.GRAM}->${UnitMap.KILOGRAM}`]: 0.001,
-  [`${UnitMap.GRAM}->${UnitMap.MILLIGRAM}`]: 1000,
-  [`${UnitMap.GRAM}->${UnitMap.MICROGRAM}`]: 1000000,
-  [`${UnitMap.GRAM}->${UnitMap.CARAT}`]: 5,
-  [`${UnitMap.GRAM}->${UnitMap.QUINTAL}`]: 0.00001,
-  [`${UnitMap.GRAM}->${UnitMap.POUND}`]: 0.0022046226218488,
-  [`${UnitMap.GRAM}->${UnitMap.OUNCE}`]: 0.03527396194958
+  [`${Units.GRAM}->${Units.GRAM}`]: 1,
+  [`${Units.KILOGRAM}->${Units.GRAM}`]: 1000,
+  [`${Units.MILLIGRAM}->${Units.GRAM}`]: 0.001,
+  [`${Units.MICROGRAM}->${Units.GRAM}`]: 0.000001,
+  [`${Units.CARAT}->${Units.GRAM}`]: 0.2,
+  [`${Units.QUINTAL}->${Units.GRAM}`]: 100000,
+  [`${Units.POUND}->${Units.GRAM}`]: 453.59237,
+  [`${Units.OUNCE}->${Units.GRAM}`]: 28.349523125,
+  [`${Units.GRAM}->${Units.KILOGRAM}`]: 0.001,
+  [`${Units.GRAM}->${Units.MILLIGRAM}`]: 1000,
+  [`${Units.GRAM}->${Units.MICROGRAM}`]: 1000000,
+  [`${Units.GRAM}->${Units.CARAT}`]: 5,
+  [`${Units.GRAM}->${Units.QUINTAL}`]: 0.00001,
+  [`${Units.GRAM}->${Units.POUND}`]: 0.0022046226218488,
+  [`${Units.GRAM}->${Units.OUNCE}`]: 0.03527396194958
 };
 
 export const SelectOptions = [
   {
     label: "Kilogram",
-    value: UnitMap.KILOGRAM
+    value: Units.KILOGRAM
   },
   {
     label: "Gram",
-    value: UnitMap.GRAM
+    value: Units.GRAM
   },
   {
     label: "Milligram",
-    value: UnitMap.MILLIGRAM
+    value: Units.MILLIGRAM
   },
   {
     label: "Microgram",
-    value: UnitMap.MICROGRAM
+    value: Units.MICROGRAM
   },
   {
     label: "Carat",
-    value: UnitMap.CARAT
+    value: Units.CARAT
   },
   {
     label: "Quintal",
-    value: UnitMap.QUINTAL
+    value: Units.QUINTAL
   },
   {
     label: "Pound",
-    value: UnitMap.POUND
+    value: Units.POUND
   },
   {
     label: "Ounce",
-    value: UnitMap.OUNCE
+    value: Units.OUNCE
   }
 ];

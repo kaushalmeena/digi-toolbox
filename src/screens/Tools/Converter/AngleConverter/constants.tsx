@@ -1,4 +1,4 @@
-export const UnitMap = {
+export const Units = {
   DEGREE: "deg",
   RADIAN: "rad",
   GRADIAN: "grad",
@@ -7,36 +7,36 @@ export const UnitMap = {
 };
 
 export const ConversionMap = {
-  [`${UnitMap.DEGREE}->${UnitMap.DEGREE}`]: 1,
-  [`${UnitMap.RADIAN}->${UnitMap.DEGREE}`]: 57.295779513082,
-  [`${UnitMap.GRADIAN}->${UnitMap.DEGREE}`]: 0.9,
-  [`${UnitMap.ARC_MINUTE}->${UnitMap.DEGREE}`]: 0.016666666666667,
-  [`${UnitMap.ARC_SECOND}->${UnitMap.DEGREE}`]: 0.00027777777777778,
-  [`${UnitMap.DEGREE}->${UnitMap.RADIAN}`]: 0.017453292519943,
-  [`${UnitMap.DEGREE}->${UnitMap.GRADIAN}`]: 1.1111111111111,
-  [`${UnitMap.DEGREE}->${UnitMap.ARC_MINUTE}`]: 60,
-  [`${UnitMap.DEGREE}->${UnitMap.ARC_SECOND}`]: 3600
+  [`${Units.DEGREE}->${Units.DEGREE}`]: 1,
+  [`${Units.RADIAN}->${Units.DEGREE}`]: 57.295779513082,
+  [`${Units.GRADIAN}->${Units.DEGREE}`]: 0.9,
+  [`${Units.ARC_MINUTE}->${Units.DEGREE}`]: 0.016666666666667,
+  [`${Units.ARC_SECOND}->${Units.DEGREE}`]: 0.00027777777777778,
+  [`${Units.DEGREE}->${Units.RADIAN}`]: 0.017453292519943,
+  [`${Units.DEGREE}->${Units.GRADIAN}`]: 1.1111111111111,
+  [`${Units.DEGREE}->${Units.ARC_MINUTE}`]: 60,
+  [`${Units.DEGREE}->${Units.ARC_SECOND}`]: 3600
 };
 
 export const SelectOptions = [
   {
     label: "Degree",
-    value: UnitMap.DEGREE
+    value: Units.DEGREE
   },
   {
     label: "Radian",
-    value: UnitMap.RADIAN
+    value: Units.RADIAN
   },
   {
     label: "Gradian",
-    value: UnitMap.GRADIAN
+    value: Units.GRADIAN
   },
   {
     label: "Minute of arc",
-    value: UnitMap.ARC_MINUTE
+    value: Units.ARC_MINUTE
   },
   {
     label: "Second of arc",
-    value: UnitMap.ARC_SECOND
+    value: Units.ARC_SECOND
   }
 ];

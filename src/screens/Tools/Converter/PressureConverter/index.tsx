@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.PASCAL);
+const convertFunction = createConvertFunction(ConversionMap, Units.PASCAL);
 
 export default function PressureConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function PressureConverterPage() {
       heading="Pressure Converter"
       subHeading="Quickly convert pressure between bar, pascal, torr etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.BAR}
-      toDefaultValue={UnitMap.PASCAL}
+      fromDefaultValue={Units.BAR}
+      toDefaultValue={Units.PASCAL}
       convertFunction={convertFunction}
     />
   );
