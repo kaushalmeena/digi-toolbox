@@ -1,7 +1,7 @@
 "use client";
 
 import UnitConvertPage from "@/components/UnitConvertPage";
-import { SelectOptions, UnitMap } from "./constants";
+import { SelectOptions, Units } from "./constants";
 import { convertColor } from "./utils";
 
 export default function ColorConverterPage() {
@@ -10,8 +10,8 @@ export default function ColorConverterPage() {
       heading="Color Converter"
       subHeading="Quickly convert color between HEX, RGB and HSL formats"
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.RGB}
-      toDefaultValue={UnitMap.HEX}
+      fromDefaultValue={Units.RGB}
+      toDefaultValue={Units.HEX}
       convertFunction={convertColor}
     />
   );

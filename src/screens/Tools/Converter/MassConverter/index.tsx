@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.GRAM);
+const convertFunction = createConvertFunction(ConversionMap, Units.GRAM);
 
 export default function MassConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function MassConverterPage() {
       heading="Mass Converter"
       subHeading="Quickly convert mass between gram, ounce, pound etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.KILOGRAM}
-      toDefaultValue={UnitMap.GRAM}
+      fromDefaultValue={Units.KILOGRAM}
+      toDefaultValue={Units.GRAM}
       convertFunction={convertFunction}
     />
   );

@@ -1,4 +1,4 @@
-export const UnitMap = {
+export const Units = {
   CELSIUS: "°C",
   FAHRENHEIT: "°F",
   KELVIN: "K"
@@ -7,14 +7,14 @@ export const UnitMap = {
 export const SelectOptions = [
   {
     label: "Celsius",
-    value: UnitMap.CELSIUS
+    value: Units.CELSIUS
   },
   {
     label: "Fahrenheit",
-    value: UnitMap.FAHRENHEIT
+    value: Units.FAHRENHEIT
   },
   {
     label: "Kelvin",
-    value: UnitMap.KELVIN
+    value: Units.KELVIN
   }
 ];

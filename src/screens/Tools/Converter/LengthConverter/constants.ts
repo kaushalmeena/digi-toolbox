@@ -1,4 +1,4 @@
-export const UnitMap = {
+export const Units = {
   KILOMETER: "km",
   METER: "m",
   CENTIMETER: "cm",
@@ -10,54 +10,54 @@ export const UnitMap = {
 };
 
 export const ConversionMap = {
-  [`${UnitMap.METER}->${UnitMap.METER}`]: 1,
-  [`${UnitMap.KILOMETER}->${UnitMap.METER}`]: 1000,
-  [`${UnitMap.CENTIMETER}->${UnitMap.METER}`]: 0.01,
-  [`${UnitMap.MILLIMETER}->${UnitMap.METER}`]: 0.001,
-  [`${UnitMap.MILE}->${UnitMap.METER}`]: 1609.344,
-  [`${UnitMap.YARD}->${UnitMap.METER}`]: 0.9144,
-  [`${UnitMap.FOOT}->${UnitMap.METER}`]: 0.3048,
-  [`${UnitMap.INCH}->${UnitMap.METER}`]: 0.0254,
-  [`${UnitMap.METER}->${UnitMap.KILOMETER}`]: 0.001,
-  [`${UnitMap.METER}->${UnitMap.CENTIMETER}`]: 100,
-  [`${UnitMap.METER}->${UnitMap.MILLIMETER}`]: 1000,
-  [`${UnitMap.METER}->${UnitMap.MILE}`]: 0.00062137119223733,
-  [`${UnitMap.METER}->${UnitMap.YARD}`]: 1.0936132983377,
-  [`${UnitMap.METER}->${UnitMap.FOOT}`]: 3.2808398950131,
-  [`${UnitMap.METER}->${UnitMap.INCH}`]: 39.370078740157
+  [`${Units.METER}->${Units.METER}`]: 1,
+  [`${Units.KILOMETER}->${Units.METER}`]: 1000,
+  [`${Units.CENTIMETER}->${Units.METER}`]: 0.01,
+  [`${Units.MILLIMETER}->${Units.METER}`]: 0.001,
+  [`${Units.MILE}->${Units.METER}`]: 1609.344,
+  [`${Units.YARD}->${Units.METER}`]: 0.9144,
+  [`${Units.FOOT}->${Units.METER}`]: 0.3048,
+  [`${Units.INCH}->${Units.METER}`]: 0.0254,
+  [`${Units.METER}->${Units.KILOMETER}`]: 0.001,
+  [`${Units.METER}->${Units.CENTIMETER}`]: 100,
+  [`${Units.METER}->${Units.MILLIMETER}`]: 1000,
+  [`${Units.METER}->${Units.MILE}`]: 0.00062137119223733,
+  [`${Units.METER}->${Units.YARD}`]: 1.0936132983377,
+  [`${Units.METER}->${Units.FOOT}`]: 3.2808398950131,
+  [`${Units.METER}->${Units.INCH}`]: 39.370078740157
 };
 
 export const SelectOptions = [
   {
     label: "Kilometer",
-    value: UnitMap.KILOMETER
+    value: Units.KILOMETER
   },
   {
     label: "Meter",
-    value: UnitMap.METER
+    value: Units.METER
   },
   {
     label: "Centimeter",
-    value: UnitMap.CENTIMETER
+    value: Units.CENTIMETER
   },
   {
     label: "Millimeter",
-    value: UnitMap.MILLIMETER
+    value: Units.MILLIMETER
   },
   {
     label: "Mile",
-    value: UnitMap.MILE
+    value: Units.MILE
   },
   {
     label: "Yard",
-    value: UnitMap.YARD
+    value: Units.YARD
   },
   {
     label: "Foot",
-    value: UnitMap.FOOT
+    value: Units.FOOT
   },
   {
     label: "Inch",
-    value: UnitMap.INCH
+    value: Units.INCH
   }
 ];

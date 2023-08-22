@@ -1,4 +1,4 @@
-export const UnitMap = {
+export const Units = {
   HEX: "hex",
   RGB: "rgb",
   HSL: "hsl"
@@ -7,15 +7,15 @@ export const UnitMap = {
 export const SelectOptions = [
   {
     label: "HEX",
-    value: UnitMap.HEX
+    value: Units.HEX
   },
   {
     label: "RGB",
-    value: UnitMap.RGB
+    value: Units.RGB
   },
   {
     label: "HSL",
-    value: UnitMap.HSL
+    value: Units.HSL
   }
 ];
 

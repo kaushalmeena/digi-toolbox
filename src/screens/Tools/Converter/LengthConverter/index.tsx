@@ -2,9 +2,9 @@
 
 import UnitConvertPage from "@/components/UnitConvertPage";
 import { createConvertFunction } from "@/utils";
-import { ConversionMap, SelectOptions, UnitMap } from "./constants";
+import { ConversionMap, SelectOptions, Units } from "./constants";
 
-const convertFunction = createConvertFunction(ConversionMap, UnitMap.METER);
+const convertFunction = createConvertFunction(ConversionMap, Units.METER);
 
 export default function LengthConverterPage() {
   return (
@@ -12,8 +12,8 @@ export default function LengthConverterPage() {
       heading="Length Converter"
       subHeading="Quickly convert length between kilometer, foot, yard etc."
       selectOptions={SelectOptions}
-      fromDefaultValue={UnitMap.KILOMETER}
-      toDefaultValue={UnitMap.METER}
+      fromDefaultValue={Units.KILOMETER}
+      toDefaultValue={Units.METER}
       convertFunction={convertFunction}
     />
   );
