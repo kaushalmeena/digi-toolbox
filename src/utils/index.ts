@@ -14,7 +14,7 @@ export const loadFile = (
         const file = (event.target as HTMLInputElement).files?.[0];
 
         if (!file) {
-          reject(new Error("Error occured in file upload!"));
+          reject(new Error("Error occurred in file upload!"));
           return;
         }
 
