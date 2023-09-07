@@ -1,5 +1,3 @@
-"use client";
-
 import { SelectOption } from "@/types";
 import HeaderSection from "../HeaderSection";
 import ConvertSection from "./ConvertSection";
