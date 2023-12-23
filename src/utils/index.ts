@@ -1,3 +1,6 @@
+import cookie from "js-cookie";
+import { COOKIE_DARK_MODE_KEY } from "../constants/theme";
+
 export const loadFile = (
   format = "*",
   readAs: "text" | "dataURL" = "text"
@@ -64,7 +67,7 @@ export const copyText = (text: string): Promise<void> =>
 
 export const fetchDarkMode = (): boolean => {
   let mode = false;
-  const value = localStorage.getItem("darkMode");
+  const value = cookie.get(COOKIE_DARK_MODE_KEY);
   if (value) {
     mode = value === "1";
   } else {
@@ -76,7 +79,7 @@ export const fetchDarkMode = (): boolean => {
 
 export const storeDarkMode = (mode: boolean): void => {
   const value = mode ? "1" : "0";
-  localStorage.setItem("darkMode", value);
+  cookie.set(COOKIE_DARK_MODE_KEY, value);
 };
 
 export const createConvertFunction =

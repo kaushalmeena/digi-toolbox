@@ -16,6 +16,7 @@
     "@blueprintjs/core": "^5.2.0",
     "@blueprintjs/icons": "^5.1.5",
     "diff": "^5.1.0",
+    "js-cookie": "^3.0.5",
     "next": "^13.4.18",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/diff": "^5.0.3",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.4.9",
     "@types/papaparse": "^5.3.7",
     "@types/react": "^18.2.19",

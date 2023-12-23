@@ -2,7 +2,6 @@
 
 import { DarkTheme, LightTheme } from "@/constants/theme";
 import { fetchDarkMode, storeDarkMode } from "@/utils";
-import { Spinner } from "@blueprintjs/core";
 import { ReactNode, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Footer from "./Footer";
@@ -24,25 +23,21 @@ const MainContainer = styled.main`
   }
 `;
 
-const StyledSpinner = styled(Spinner)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
 type MainLayoutProps = {
+  initialDarkMode: boolean;
   children: ReactNode;
 };
 
-export default function MainLayout({ children }: MainLayoutProps) {
-  const [mounted, setMounted] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+export default function MainLayout({
+  initialDarkMode,
+  children
+}: MainLayoutProps) {
+  const [darkMode, setDarkMode] = useState(initialDarkMode);
 
   useEffect(() => {
     const value = fetchDarkMode();
+    storeDarkMode(value);
     setDarkMode(value);
-    setMounted(true);
   }, []);
 
   const handleDarkModeToggle = () => {
@@ -57,15 +52,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      {mounted ? (
-        <Container className={theme.className}>
-          <Header darkMode={darkMode} toggleDarkMode={handleDarkModeToggle} />
-          <MainContainer>{children}</MainContainer>
-          <Footer />
-        </Container>
-      ) : (
-        <StyledSpinner intent="primary" size={60} />
-      )}
+      <Container className={theme.className}>
+        <Header darkMode={darkMode} toggleDarkMode={handleDarkModeToggle} />
+        <MainContainer>{children}</MainContainer>
+        <Footer />
+      </Container>
     </ThemeProvider>
   );
 }
