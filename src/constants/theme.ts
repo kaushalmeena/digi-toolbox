@@ -1,8 +1,6 @@
 import { Classes, Colors } from "@blueprintjs/core";
 import { DefaultTheme } from "styled-components";
 
-export const COOKIE_DARK_MODE_KEY = "darkMode";
-
 const CommonThemeProps = {
   breakpoints: {
     sm: 600,
