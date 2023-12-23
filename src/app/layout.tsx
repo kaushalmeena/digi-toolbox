@@ -2,7 +2,6 @@ import MainLayout from "@/layouts/MainLayout";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { ReactNode } from "react";
-import { COOKIE_DARK_MODE_KEY } from "../constants/theme";
 import StyledComponentsRegistry from "./registry";
 
 import "./globals.css";
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const initialDarkMode = cookies().get(COOKIE_DARK_MODE_KEY)?.value === "1";
+  const initialDarkMode = cookies().get("darkMode")?.value === "1";
   return (
     <html lang="en">
       <body>
