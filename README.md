@@ -2,7 +2,7 @@
 
 A web app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place.
 
-Live version is deployed at [https://myapp-getthattool.netlify.app/](https://myapp-getthattool.netlify.app/)
+Live version is deployed at [https://myapp-getthattool.vercel.app/](https://myapp-getthattool.vercel.app/)
 
 ## Getting Started
 
