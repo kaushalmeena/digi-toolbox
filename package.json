@@ -15,6 +15,7 @@
   "dependencies": {
     "@blueprintjs/core": "^5.2.0",
     "@blueprintjs/icons": "^5.1.5",
+    "@blueprintjs/select": "^5.0.21",
     "diff": "^5.1.0",
     "js-cookie": "^3.0.5",
     "next": "^13.4.18",

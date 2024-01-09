@@ -1,22 +1,17 @@
 export const enum ToolCategory {
-  JSON,
-  CSV,
-  XML,
-  YAML,
-  TEXT,
-  CONVERTER,
-  OTHER
+  JSON = "JSON",
+  CSV = "CSV",
+  XML = "XML",
+  YAML = "YAML",
+  TEXT = "TEXT",
+  CONVERTER = "CONVERTER",
+  OTHER = "OTHER"
 }
 
 export type Tool = {
   name: string;
   url: string;
-};
-
-export type ToolBox = {
   category: ToolCategory;
-  name: string;
-  tools: Tool[];
 };
 
 export type SelectOption = {

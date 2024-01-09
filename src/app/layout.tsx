@@ -1,7 +1,7 @@
 import MainLayout from "@/layouts/MainLayout";
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { ReactNode } from "react";
+import InitialThemeScriptTag from "../layouts/InitialThemeScriptTag";
 import StyledComponentsRegistry from "./registry";
 
 import "./globals.css";
@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const initialDarkMode = cookies().get("darkMode")?.value === "1";
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
+        <InitialThemeScriptTag />
         <StyledComponentsRegistry>
-          <MainLayout initialDarkMode={initialDarkMode}>{children}</MainLayout>
+          <MainLayout>{children}</MainLayout>
         </StyledComponentsRegistry>
       </body>
     </html>
