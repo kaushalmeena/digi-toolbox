@@ -4,6 +4,7 @@ import {
   ButtonGroup,
   Divider,
   Icon,
+  InputGroup,
   Navbar,
   NavbarGroup,
   NavbarHeading
@@ -13,6 +14,10 @@ import styled from "styled-components";
 
 const StyledNavbar = styled(Navbar)`
   padding: 0px;
+  box-shadow:
+    0 0 0 1px #10161a33,
+    0 0 0 #10161a00,
+    0 1px 1px #10161a33 !important;
 `;
 
 const NavbarContainer = styled.div`
@@ -46,9 +51,14 @@ const LogoText = styled.span`
 type HeaderProps = {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  openOmnibarSearch: () => void;
 };
 
-export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
+export default function Header({
+  darkMode,
+  toggleDarkMode,
+  openOmnibarSearch
+}: HeaderProps) {
   return (
     <StyledNavbar>
       <NavbarContainer>
@@ -61,6 +71,12 @@ export default function Header({ darkMode, toggleDarkMode }: HeaderProps) {
           </NavbarHeading>
         </NavbarGroup>
         <NavbarGroup align="right">
+          <InputGroup
+            readOnly
+            leftIcon="search"
+            placeholder="Search tools..."
+            onClick={openOmnibarSearch}
+          />
           <Divider />
           <ButtonGroup>
             <Button

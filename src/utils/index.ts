@@ -1,5 +1,3 @@
-import cookie from "js-cookie";
-
 export const loadFile = (
   format = "*",
   readAs: "text" | "dataURL" = "text"
@@ -63,23 +61,6 @@ export const saveImage = (base64Image: string): void => {
 
 export const copyText = (text: string): Promise<void> =>
   navigator.clipboard.writeText(text);
-
-export const fetchDarkMode = (): boolean => {
-  let mode = false;
-  const value = cookie.get("darkMode");
-  if (value) {
-    mode = value === "1";
-  } else {
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    mode = media.matches;
-  }
-  return mode;
-};
-
-export const storeDarkMode = (mode: boolean): void => {
-  const value = mode ? "1" : "0";
-  cookie.set("darkMode", value);
-};
 
 export const createConvertFunction =
   (conversionMap: Record<string, number>, defaultUnit: string) =>

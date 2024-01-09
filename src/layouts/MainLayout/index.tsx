@@ -1,14 +1,22 @@
 "use client";
 
 import { DarkTheme, LightTheme } from "@/constants/theme";
-import { fetchDarkMode, storeDarkMode } from "@/utils";
+import { Spinner } from "@blueprintjs/core";
 import { ReactNode, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
-import Footer from "./Footer";
+import OmnibarSearch from "../../components/OmnibarSearch";
 import Header from "./Header";
+import { fetchDarkMode, storeDarkMode } from "./utils";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.colors.gray[5]};
+`;
+
+const StyledSpinner = styled(Spinner)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const MainContainer = styled.main`
@@ -24,20 +32,18 @@ const MainContainer = styled.main`
 `;
 
 type MainLayoutProps = {
-  initialDarkMode: boolean;
   children: ReactNode;
 };
 
-export default function MainLayout({
-  initialDarkMode,
-  children
-}: MainLayoutProps) {
-  const [darkMode, setDarkMode] = useState(initialDarkMode);
+export default function MainLayout({ children }: MainLayoutProps) {
+  const [mounted, setMounted] = useState(false);
+  const [omnibarSearchOpen, setOmnibarSearchOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const value = fetchDarkMode();
-    storeDarkMode(value);
     setDarkMode(value);
+    setMounted(true);
   }, []);
 
   const handleDarkModeToggle = () => {
@@ -48,15 +54,34 @@ export default function MainLayout({
     });
   };
 
+  const handleOmnibarSearchOpen = () => {
+    setOmnibarSearchOpen(true);
+  };
+
+  const handleOmnibarSearchClose = () => {
+    setOmnibarSearchOpen(false);
+  };
+
   const theme = darkMode ? DarkTheme : LightTheme;
 
   return (
     <ThemeProvider theme={theme}>
-      <Container className={theme.className}>
-        <Header darkMode={darkMode} toggleDarkMode={handleDarkModeToggle} />
-        <MainContainer>{children}</MainContainer>
-        <Footer />
-      </Container>
+      {mounted ? (
+        <Container className={theme.className}>
+          <Header
+            darkMode={darkMode}
+            toggleDarkMode={handleDarkModeToggle}
+            openOmnibarSearch={handleOmnibarSearchOpen}
+          />
+          <MainContainer>{children}</MainContainer>
+          <OmnibarSearch
+            isOpen={omnibarSearchOpen}
+            onClose={handleOmnibarSearchClose}
+          />
+        </Container>
+      ) : (
+        <StyledSpinner intent="primary" size={60} />
+      )}
     </ThemeProvider>
   );
 }

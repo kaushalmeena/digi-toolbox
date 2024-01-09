@@ -1,8 +1,6 @@
-import { ToolBoxes } from "@/constants/tools";
-import { Tool } from "@/types";
-import { Card, InputGroup } from "@blueprintjs/core";
+import { Tools } from "@/constants/tools";
+import { Card } from "@blueprintjs/core";
 import Link from "next/link";
-import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -28,35 +26,14 @@ const StyledCard = styled(Card)`
   font-size: 16px;
 `;
 
-const Tools = ToolBoxes.reduce<Tool[]>((arr, cur) => arr.concat(cur.tools), []);
-
 export default function MainSection() {
-  const [search, setSearch] = useState("");
-  const [filteredTools, setFilteredTools] = useState<Tool[]>(Tools);
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const search = event.target.value;
-    const regexp = new RegExp(search, "i");
-    const filteredTools = Tools.filter((tool) => regexp.test(tool.name));
-    setSearch(search);
-    setFilteredTools(filteredTools);
-  };
-
   return (
     <Container>
-      <InputGroup
-        fill
-        large
-        type="search"
-        leftIcon="search"
-        value={search}
-        onChange={handleInputChange}
-      />
       <CardContainer>
-        {filteredTools.map((tool) => (
-          <Link key={tool.url} href={tool.url}>
+        {Tools.map((item) => (
+          <Link key={item.url} href={item.url}>
             <StyledCard interactive elevation={2}>
-              {tool.name}
+              {item.name}
             </StyledCard>
           </Link>
         ))}

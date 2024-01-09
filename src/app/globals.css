@@ -1,3 +1,7 @@
 body, html {
   margin: 0;
 }
+
+body[data-initial-theme="dark"] {
+  background-color: #383e47;
+}
