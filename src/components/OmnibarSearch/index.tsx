@@ -42,10 +42,11 @@ export default function OmnibarSearch({ isOpen, onClose }: OmnibarSearchProps) {
       <Omnibar<Tool>
         resetOnSelect
         isOpen={isOpen}
+        inputProps={{ placeholder: "Search tools..." }}
+        noResults={<MenuItem disabled={true} text="No results." />}
         items={Tools}
         itemPredicate={filterTool}
         itemsEqual={areToolsEqual}
-        noResults={<MenuItem disabled={true} text="No results." />}
         itemRenderer={renderItem}
         onItemSelect={handleItemSelect}
         onClose={onClose}

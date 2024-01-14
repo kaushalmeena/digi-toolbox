@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@/hooks";
 import {
   AnchorButton,
   Button,
@@ -24,7 +25,11 @@ const NavbarContainer = styled.div`
   margin: 0px auto;
   max-width: 1400px;
   width: 100%;
-  padding: 0px 40px;
+  padding: 0px 20px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.sm}px) {
+    padding: 0px 40px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -59,6 +64,8 @@ export default function Header({
   toggleDarkMode,
   openOmnibarSearch
 }: HeaderProps) {
+  const showSearchInput = useMediaQuery("(min-width: 500px)");
+
   return (
     <StyledNavbar>
       <NavbarContainer>
@@ -71,14 +78,27 @@ export default function Header({
           </NavbarHeading>
         </NavbarGroup>
         <NavbarGroup align="right">
-          <InputGroup
-            readOnly
-            leftIcon="search"
-            placeholder="Search tools..."
-            onClick={openOmnibarSearch}
-          />
-          <Divider />
+          {showSearchInput && (
+            <>
+              <InputGroup
+                readOnly
+                type="search"
+                leftIcon="search"
+                placeholder="Search tools..."
+                onClick={openOmnibarSearch}
+              />
+              <Divider />
+            </>
+          )}
           <ButtonGroup>
+            {!showSearchInput && (
+              <Button
+                minimal
+                title="Search tools"
+                icon="search"
+                onClick={openOmnibarSearch}
+              />
+            )}
             <Button
               minimal
               title="Toggle dark mode"
