@@ -1,13 +1,13 @@
 import { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
+import ImageIOSection from "@/components/ImageIOSection";
 import MiddleContainer from "@/components/MiddleContainer";
 import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
-import { ToastMessages } from "@/constants/toast";
+import { ToastMessages } from "@/constants";
 import { loadFile, saveImage } from "@/utils";
 import { OverlayToaster } from "@blueprintjs/core";
 import { ChangeEvent, useRef, useState } from "react";
-import ImageIOSection from "../../../../components/ImageIOSection";
 
 export default function ConvertSection() {
   const [input, setInput] = useState("");

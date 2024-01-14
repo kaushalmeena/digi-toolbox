@@ -14,6 +14,12 @@ export type Tool = {
   category: ToolCategory;
 };
 
+export type GroupedTool = {
+  name: string;
+  category: ToolCategory;
+  tools: Omit<Tool, "category">[];
+};
+
 export type SelectOption = {
   label: string;
   value: string;

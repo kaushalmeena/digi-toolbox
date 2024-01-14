@@ -1,6 +1,6 @@
 "use client";
 
-import { DarkTheme, LightTheme } from "@/constants/theme";
+import { DarkTheme, LightTheme } from "@/constants";
 import { Spinner } from "@blueprintjs/core";
 import { ReactNode, useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
