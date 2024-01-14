@@ -4,7 +4,7 @@ import ImageIOSection from "@/components/ImageIOSection";
 import MiddleContainer from "@/components/MiddleContainer";
 import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
-import { ToastMessages } from "@/constants/toast";
+import { ToastMessages } from "@/constants";
 import { copyText, loadFile, saveFile } from "@/utils";
 import { OverlayToaster } from "@blueprintjs/core";
 import { useRef, useState } from "react";

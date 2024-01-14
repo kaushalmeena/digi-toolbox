@@ -2,13 +2,13 @@ import { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
+import { ToastMessages } from "@/constants";
 import { loadFile } from "@/utils";
+import { OverlayToaster } from "@blueprintjs/core";
 import { Change } from "diff";
 import { ChangeEvent, useRef, useState } from "react";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
-import { OverlayToaster } from "@blueprintjs/core";
-import { ToastMessages } from "@/constants/toast";
 
 export default function DiffSection() {
   const [leftInput, setLeftInput] = useState("");
