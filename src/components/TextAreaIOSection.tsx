@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ButtonSection, { ButtonOption } from "./ButtonSection";
 import IOContainer from "./IOContainer";
 
-export const StyledTextArea = styled(TextArea)`
+const StyledTextArea = styled(TextArea)`
   & input {
     font-family: monospace !important;
   }

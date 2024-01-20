@@ -2,11 +2,11 @@ import { MenuItemProps } from "@blueprintjs/core";
 import { Tool } from "../../types";
 import { ItemPredicate, ItemRendererProps } from "@blueprintjs/select";
 
-export function escapeRegExpChars(text: string) {
+function escapeRegExpChars(text: string) {
   return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
 
-export function highlightText(text: string, query: string) {
+function highlightText(text: string, query: string) {
   let lastIndex = 0;
   const words = query
     .split(/\s+/)

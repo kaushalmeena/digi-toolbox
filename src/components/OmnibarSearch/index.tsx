@@ -24,14 +24,14 @@ const OmnibarGlobalStyle = createGlobalStyle`
 export default function OmnibarSearch({ isOpen, onClose }: OmnibarSearchProps) {
   const router = useRouter();
 
-  const renderItem: ItemRenderer<Tool> = (item, props) => {
+  const renderTool: ItemRenderer<Tool> = (item, props) => {
     if (!props.modifiers.matchesPredicate) {
       return null;
     }
     return <MenuItem key={item.name} {...getToolItemProps(item, props)} />;
   };
 
-  const handleItemSelect = (item: Tool) => {
+  const handleToolSelect = (item: Tool) => {
     router.push(item.url);
     onClose();
   };
@@ -47,8 +47,8 @@ export default function OmnibarSearch({ isOpen, onClose }: OmnibarSearchProps) {
         items={Tools}
         itemPredicate={filterTool}
         itemsEqual={areToolsEqual}
-        itemRenderer={renderItem}
-        onItemSelect={handleItemSelect}
+        itemRenderer={renderTool}
+        onItemSelect={handleToolSelect}
         onClose={onClose}
       />
     </>
