@@ -17,12 +17,39 @@ export const metadata: Metadata = {
     "GetThatTool is app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place."
 };
 
+function InitialThemeScript() {
+  const codeToRunOnClient = `
+    (function () {
+      function fetchDarkMode() {
+        let mode = false;
+        const value = localStorage.getItem("darkMode");
+        if (value) {
+          mode = value === "1";
+        } else {
+          const media = window.matchMedia("(prefers-color-scheme: dark)");
+          mode = media.matches;
+        }
+        return mode;
+      }
+      const initialTheme = fetchDarkMode() ? "dark" : "light";
+      document.body.setAttribute("data-initial-theme", initialTheme);
+    })();
+  `;
+
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: codeToRunOnClient
+      }}
+    />
+  );
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/initial-theme.js" />
+        <InitialThemeScript />
         <StyledComponentsRegistry>
           <MainLayout>{children}</MainLayout>
         </StyledComponentsRegistry>
