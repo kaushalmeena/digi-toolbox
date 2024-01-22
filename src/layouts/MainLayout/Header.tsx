@@ -4,12 +4,12 @@ import {
   Button,
   ButtonGroup,
   Divider,
-  Icon,
   InputGroup,
   Navbar,
   NavbarGroup,
   NavbarHeading
 } from "@blueprintjs/core";
+import { Flash, GitRepo, Moon, Search, Wrench } from "@blueprintjs/icons";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -44,11 +44,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const StyledIcon = styled(Icon)`
-  margin-right: 5px;
-`;
-
 const LogoText = styled.span`
+  margin-left: 5px;
   font-size: 18px;
   font-weight: 600;
 `;
@@ -72,7 +69,7 @@ export default function Header({
         <NavbarGroup>
           <NavbarHeading>
             <StyledLink href="/">
-              <StyledIcon icon="wrench" size={18} />
+              <Wrench size={18} />
               <LogoText>GetThatTool</LogoText>
             </StyledLink>
           </NavbarHeading>
@@ -83,8 +80,8 @@ export default function Header({
               <InputGroup
                 readOnly
                 type="search"
-                leftIcon="search"
                 placeholder="Search tools..."
+                leftIcon={<Search />}
                 onClick={openOmnibarSearch}
               />
               <Divider />
@@ -95,20 +92,20 @@ export default function Header({
               <Button
                 minimal
                 title="Search tools"
-                icon="search"
+                icon={<Search />}
                 onClick={openOmnibarSearch}
               />
             )}
             <Button
               minimal
               title="Toggle dark mode"
-              icon={darkMode ? "flash" : "moon"}
+              icon={darkMode ? <Flash /> : <Moon />}
               onClick={toggleDarkMode}
             />
             <AnchorButton
               minimal
               title="Github repository"
-              icon="git-repo"
+              icon={<GitRepo />}
               href="https://github.com/kaushalmeena/myapp-getthattool"
             />
           </ButtonGroup>

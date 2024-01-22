@@ -7,6 +7,7 @@ import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants";
 import { copyText, loadFile, saveFile } from "@/utils";
 import { OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export, Import } from "@blueprintjs/icons";
 import { useRef, useState } from "react";
 
 export default function ConvertSection() {
@@ -51,7 +52,7 @@ export default function ConvertSection() {
   const inputButtons: ButtonOption[] = [
     {
       title: "Upload",
-      icon: "export",
+      icon: <Export />,
       onClick: handleInputUpload
     }
   ];
@@ -59,12 +60,12 @@ export default function ConvertSection() {
   const outputButtons: ButtonOption[] = [
     {
       title: "Copy",
-      icon: "duplicate",
+      icon: <Duplicate />,
       onClick: handleOutputCopy
     },
     {
       title: "Download",
-      icon: "import",
+      icon: <Import />,
       onClick: handleOutputDownload
     }
   ];

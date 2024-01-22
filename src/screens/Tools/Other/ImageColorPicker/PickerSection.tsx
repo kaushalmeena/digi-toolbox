@@ -4,6 +4,7 @@ import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants";
 import { copyText, loadFile } from "@/utils";
 import { Button, Card, InputGroup, OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export } from "@blueprintjs/icons";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import { drawImageInCanvas, getColorFromCanvas } from "./utils";
@@ -105,7 +106,7 @@ export default function PickerSection() {
   const convertButtons: ButtonOption[] = [
     {
       title: "Upload",
-      icon: "export",
+      icon: <Export />,
       onClick: handleImageUpload
     }
   ];
@@ -136,7 +137,7 @@ export default function PickerSection() {
                         large
                         minimal
                         title="Copy"
-                        icon="duplicate"
+                        icon={<Duplicate />}
                         onClick={handleColorCopy}
                       />
                     }

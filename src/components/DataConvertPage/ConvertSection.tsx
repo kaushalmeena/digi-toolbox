@@ -1,5 +1,6 @@
 import { copyText, loadFile, saveFile } from "@/utils";
 import { OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export, Import, Refresh } from "@blueprintjs/icons";
 import { ChangeEvent, useRef, useState } from "react";
 import { ToastMessages } from "../../constants";
 import { ButtonOption } from "../ButtonSection";
@@ -81,12 +82,12 @@ export default function ConvertSection({
   const inputButtons: ButtonOption[] = [
     {
       title: "Clear",
-      icon: "refresh",
+      icon: <Refresh />,
       onClick: handleInputClear
     },
     {
       title: "Upload",
-      icon: "export",
+      icon: <Export />,
       onClick: handleInputUpload
     }
   ];
@@ -94,12 +95,12 @@ export default function ConvertSection({
   const outputButtons: ButtonOption[] = [
     {
       title: "Copy",
-      icon: "duplicate",
+      icon: <Duplicate />,
       onClick: handleOutputCopy
     },
     {
       title: "Download",
-      icon: "import",
+      icon: <Import />,
       onClick: handleOutputDownload
     }
   ];
