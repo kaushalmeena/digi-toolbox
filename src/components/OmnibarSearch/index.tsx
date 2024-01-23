@@ -13,9 +13,9 @@ type OmnibarSearchProps = {
 
 const OmnibarGlobalStyle = createGlobalStyle`
   .${Classes.OMNIBAR} {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
     max-width: 500px;
     width: calc(100vw - 20px);
   }

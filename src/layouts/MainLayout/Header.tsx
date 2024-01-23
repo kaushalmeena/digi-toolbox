@@ -16,9 +16,9 @@ import styled from "styled-components";
 const StyledNavbar = styled(Navbar)`
   padding: 0px;
   box-shadow:
-    0 0 0 1px #10161a33,
-    0 0 0 #10161a00,
-    0 1px 1px #10161a33 !important;
+    0px 0px 0px 1px #10161a33,
+    0px 0px 0px #10161a00,
+    0px 1px 1px #10161a33 !important;
 `;
 
 const NavbarContainer = styled.div`
