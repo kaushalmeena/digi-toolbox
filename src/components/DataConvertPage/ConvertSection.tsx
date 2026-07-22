@@ -10,19 +10,17 @@ import MiddleContainer from "../MiddleContainer";
 import SwitchSection from "../SwitchSection";
 import TextAreaIOSection from "../TextAreaIOSection";
 
-type ConvertSectionProps = {
-  fileExtension: string;
-  fileType: string;
-  switchURL?: string;
-  convertFunction: (input: string) => string;
-};
-
 export default function ConvertSection({
   fileExtension,
   fileType,
   switchURL,
   convertFunction
-}: ConvertSectionProps) {
+}: {
+  fileExtension: string;
+  fileType: string;
+  switchURL?: string;
+  convertFunction: (input: string) => string;
+}) {
   const { input, setInput, buildShareUrl } = usePersistedInput();
   const toasterRef = useRef<OverlayToaster>(null);
 
