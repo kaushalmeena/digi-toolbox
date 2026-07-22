@@ -1,8 +1,9 @@
-import { OverlayToaster } from "@blueprintjs/core";
-import { Duplicate, Export, Import, Refresh } from "@blueprintjs/icons";
-import { type ChangeEvent, useRef, useState } from "react";
+import { Callout, OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export, Import, Link, Refresh } from "@blueprintjs/icons";
+import { type ChangeEvent, useMemo, useRef } from "react";
+import { usePersistedInput } from "@/hooks";
 import { copyText, loadFile, saveFile } from "@/utils";
-import { ToastMessages } from "../../constants";
+import { MAX_SHARE_URL_LENGTH, ToastMessages } from "../../constants";
 import type { ButtonOption } from "../ButtonSection";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
@@ -22,60 +23,58 @@ export default function ConvertSection({
   switchURL,
   convertFunction
 }: ConvertSectionProps) {
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
+  const { input, setInput, buildShareUrl } = usePersistedInput();
   const toasterRef = useRef<OverlayToaster>(null);
 
-  const changeInput = (value: string) => {
-    setInput(value);
-    setOutput(getOutput(value));
+  const { output, error } = useMemo(() => {
+    if (!input) {
+      return { output: "", error: "" };
+    }
+    try {
+      return { output: convertFunction(input), error: "" };
+    } catch (err) {
+      return {
+        output: "",
+        error: err instanceof Error ? err.message : "Invalid input detected."
+      };
+    }
+  }, [input, convertFunction]);
+
+  const notify = (message: string, intent: "primary" | "danger") => {
+    toasterRef.current?.show({ message, intent, isCloseButtonShown: false });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    changeInput(event.target.value);
+    setInput(event.target.value);
   };
 
   const handleInputClear = () => {
     setInput("");
-    setOutput("");
   };
 
   const handleInputUpload = () => {
     loadFile()
-      .then((value) => {
-        changeInput(value);
-      })
-      .catch(() => {
-        toasterRef.current?.show({
-          message: ToastMessages.FILE_UPLOAD_FAIL,
-          intent: "danger",
-          isCloseButtonShown: false
-        });
-      });
+      .then((value) => setInput(value))
+      .catch(() => notify(ToastMessages.FILE_UPLOAD_FAIL, "danger"));
+  };
+
+  const handleShare = () => {
+    const url = buildShareUrl();
+    if (url.length > MAX_SHARE_URL_LENGTH) {
+      notify(ToastMessages.SHARE_LINK_TOO_LARGE, "danger");
+      return;
+    }
+    copyText(url).then(() =>
+      notify(ToastMessages.SHARE_LINK_SUCCESS, "primary")
+    );
   };
 
   const handleOutputCopy = () => {
-    copyText(output).then(() =>
-      toasterRef.current?.show({
-        message: ToastMessages.COPY_SUCCESS,
-        intent: "primary",
-        isCloseButtonShown: false
-      })
-    );
+    copyText(output).then(() => notify(ToastMessages.COPY_SUCCESS, "primary"));
   };
 
   const handleOutputDownload = () => {
     saveFile(output, fileExtension, fileType);
-  };
-
-  const getOutput = (value: string) => {
-    let output = "";
-    try {
-      output = convertFunction(value);
-    } catch (err) {
-      output = String(err) ?? "Invalid input detected";
-    }
-    return output;
   };
 
   const inputButtons: ButtonOption[] = [
@@ -88,6 +87,11 @@ export default function ConvertSection({
       title: "Upload",
       icon: <Export />,
       onClick: handleInputUpload
+    },
+    {
+      title: "Share",
+      icon: <Link />,
+      onClick: handleShare
     }
   ];
 
@@ -111,12 +115,18 @@ export default function ConvertSection({
           buttons={inputButtons}
           value={input}
           handleValueChange={handleInputChange}
+          onFileDrop={setInput}
         />
         <MiddleContainer>
           {!!switchURL && <SwitchSection switchURL={switchURL} />}
         </MiddleContainer>
         <TextAreaIOSection buttons={outputButtons} value={output} />
       </ConvertContainer>
+      {!!error && (
+        <Callout intent="danger" title="Conversion error" className="mt-2.5">
+          {error}
+        </Callout>
+      )}
       <OverlayToaster ref={toasterRef} />
     </>
   );

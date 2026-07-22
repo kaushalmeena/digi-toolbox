@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import ServiceWorkerRegistrar from "@/components/ServiceWorkerRegistrar";
 import MainLayout from "@/layouts/MainLayout";
 
 import "normalize.css";
@@ -13,7 +14,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "GetThatTool - One place for all common tools you could want!",
   description:
-    "GetThatTool is app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place."
+    "GetThatTool is app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
+  manifest: "/manifest.json"
+};
+
+export const viewport: Viewport = {
+  themeColor: "#2d72d2"
 };
 
 function InitialThemeScript() {
@@ -50,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <InitialThemeScript />
+        <ServiceWorkerRegistrar />
         <MainLayout>{children}</MainLayout>
       </body>
     </html>

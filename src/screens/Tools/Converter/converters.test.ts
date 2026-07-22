@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createConvertFunction } from "@/utils";
+import { convertBase } from "./BaseConverter/utils";
 import {
   ConversionMap as LengthConversionMap,
   Units as LengthUnits
@@ -43,5 +44,15 @@ describe("Length converter (createConvertFunction)", () => {
     expect(convertLength("1", LengthUnits.METER, LengthUnits.CENTIMETER)).toBe(
       "100"
     );
+  });
+});
+
+describe("Base converter", () => {
+  it("converts binary to decimal", () => {
+    expect(convertBase("1010", "base-02", "base-10")).toBe("10");
+  });
+
+  it("converts decimal to hexadecimal", () => {
+    expect(convertBase("255", "base-10", "base-16")).toBe("ff");
   });
 });
