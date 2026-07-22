@@ -1,6 +1,7 @@
 {
-  "short_name": "myapp-getthattool",
-  "name": "myapp-getthattool",
+  "short_name": "GetThatTool",
+  "name": "GetThatTool - One place for all common tools",
+  "description": "All common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,8 +9,9 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2d72d2",
+  "background_color": "#f6f7f9"
 }

@@ -35,6 +35,14 @@ export const loadFile = (
     inputEl.click();
   });
 
+export const readFileAsText = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsText(file);
+  });
+
 export const saveFile = (
   data: string,
   extension = "txt",
@@ -46,7 +54,9 @@ export const saveFile = (
   anchorEl.download = `output.${extension}`;
   anchorEl.href = href;
   anchorEl.click();
-  window.URL.revokeObjectURL(href);
+  // Defer revocation so the browser has time to start the download; revoking
+  // synchronously right after click() can cancel it in some browsers.
+  setTimeout(() => window.URL.revokeObjectURL(href), 1000);
 };
 
 export const saveImage = (base64Image: string): void => {

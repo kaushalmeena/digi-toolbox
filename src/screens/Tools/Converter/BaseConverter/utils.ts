@@ -1,6 +1,3 @@
-import type { SelectOption } from "../../../../types";
-import { KnownBaseNames } from "./constants";
-
 export const convertBase = (
   input: string,
   from: string,
@@ -12,17 +9,4 @@ export const convertBase = (
   const targetBase = parseInt(toBase, 10);
   const output = parseInt(input, initialBase).toString(targetBase);
   return output;
-};
-
-export const createSelectOptions = (start = 2, end = 16): SelectOption[] => {
-  const options = [];
-  for (let i = start; i <= end; i += 1) {
-    const base = String(i).padStart(2, "0");
-    const extraText = KnownBaseNames[base] ? ` (${KnownBaseNames[base]})` : "";
-    options.push({
-      label: `Base-${base}${extraText}`,
-      value: `base-${base}`
-    });
-  }
-  return options;
 };

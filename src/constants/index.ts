@@ -140,6 +140,10 @@ export const GroupedTools: GroupedTool[] = [
       {
         name: "Text to Hex",
         url: "/text-to-hex"
+      },
+      {
+        name: "Hash Generator",
+        url: "/hash-generator"
       }
     ]
   },
@@ -208,6 +212,14 @@ export const GroupedTools: GroupedTool[] = [
       {
         name: "Diff-Checker",
         url: "/diff-checker"
+      },
+      {
+        name: "JWT Decoder",
+        url: "/jwt-decoder"
+      },
+      {
+        name: "UUID Generator",
+        url: "/uuid-generator"
       }
     ]
   }
@@ -223,8 +235,13 @@ export const Tools: Tool[] = GroupedTools.reduce(
 
 export const ToastMessages = {
   COPY_SUCCESS: "Copied to clipboard.",
+  SHARE_LINK_SUCCESS: "Shareable link copied to clipboard.",
+  SHARE_LINK_TOO_LARGE: "Input is too large to share via a link.",
   FILE_UPLOAD_FAIL: "Unable to upload file.",
   IMAGE_UPLOAD_FAIL: "Unable to upload image file.",
   IMAGE_COLOR_CAPTURE_FAIL: "Can't capture color from image.",
   INVALID_IMAGE: "Invalid image detected."
 };
+
+// Rough browser-safe URL length ceiling for the shareable-link feature.
+export const MAX_SHARE_URL_LENGTH = 8000;
