@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import YAMLToCSVPage from "@/screens/Tools/YAML/YAMLToCSV";
 
 export const metadata: Metadata = {
-  title: "Convert YAML to CSV - GetThatTool",
+  title: "Convert YAML to CSV",
   description:
     "Simple, free and easy to use online tool that converts YAML to CSV."
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TemperatureConverterPage from "@/screens/Tools/Converter/TemperatureConverter";
 
 export const metadata: Metadata = {
-  title: "Temperature Converter - GetThatTool",
+  title: "Temperature Converter",
   description:
     "Simple, free and easy to use online tool that converts temperature between celsius, fahrenheit and kelvin."
 };

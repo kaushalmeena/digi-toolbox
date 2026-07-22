@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import XMLToCSVPage from "@/screens/Tools/XML/XMLToCSV";
 
 export const metadata: Metadata = {
-  title: "Convert XML to CSV - GetThatTool",
+  title: "Convert XML to CSV",
   description:
     "Simple, free and easy to use online tool that converts XML to CSV."
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Base64ToImagePage from "@/screens/Tools/Other/Base64ToImage";
 
 export const metadata: Metadata = {
-  title: "Base64 to Image - GetThatTool",
+  title: "Base64 to Image",
   description:
     "Super simple, free and fast browser-based utility for converting base64 string to image."
 };
