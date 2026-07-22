@@ -5,19 +5,17 @@ import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import IOSection from "./InputIOSection";
 
-type ConvertSectionProps = {
-  selectOptions: SelectOption[];
-  fromDefaultValue: string;
-  toDefaultValue: string;
-  convertFunction: (input: string, from: string, to: string) => string;
-};
-
 export default function ConvertSection({
   selectOptions,
   fromDefaultValue,
   toDefaultValue,
   convertFunction
-}: ConvertSectionProps) {
+}: {
+  selectOptions: SelectOption[];
+  fromDefaultValue: string;
+  toDefaultValue: string;
+  convertFunction: (input: string, from: string, to: string) => string;
+}) {
   const [input, setInput] = useState("");
   const [from, setFrom] = useState(fromDefaultValue);
   const [to, setTo] = useState(toDefaultValue);

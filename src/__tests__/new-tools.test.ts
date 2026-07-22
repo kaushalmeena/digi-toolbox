@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { decodeJWT } from "./Other/JWTDecoder/utils";
-import { generateUUIDs } from "./Other/UUIDGenerator/utils";
-import { generateHash } from "./Text/HashGenerator/utils";
+import { decodeJWT } from "@/screens/Tools/Other/JWTDecoder/utils";
+import { generateUUIDs } from "@/screens/Tools/Other/UUIDGenerator/utils";
+import { generateHash } from "@/screens/Tools/Text/HashGenerator/utils";
 
 describe("JWT decoder", () => {
   // { "alg": "HS256", "typ": "JWT" } . { "sub": "123", "name": "Ada" } . sig

@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { createConvertFunction } from "@/utils";
-import { convertBase } from "./BaseConverter/utils";
+import { convertBase } from "@/screens/Tools/Converter/BaseConverter/utils";
 import {
   ConversionMap as LengthConversionMap,
   Units as LengthUnits
-} from "./LengthConverter/constants";
-import { Units as TempUnits } from "./TemperatureConverter/constants";
-import { convertTemperature } from "./TemperatureConverter/utils";
+} from "@/screens/Tools/Converter/LengthConverter/constants";
+import { Units as TempUnits } from "@/screens/Tools/Converter/TemperatureConverter/constants";
+import { convertTemperature } from "@/screens/Tools/Converter/TemperatureConverter/utils";
+import { createConvertFunction } from "@/utils";
 
 describe("Temperature converter", () => {
   it("converts Celsius to Fahrenheit", () => {

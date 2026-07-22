@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { convertCSVToJSON } from "./CSV/CSVToJSON/utils";
-import { convertJSONToYAML } from "./JSON/JSONToYAML/utils";
-import { minifyJSON } from "./JSON/MinifyJSON/utils";
-import { prettifyJSON } from "./JSON/PrettifyJSON/utils";
-import { convertYAMLToJSON } from "./YAML/YAMLToJSON/utils";
+import { convertCSVToJSON } from "@/screens/Tools/CSV/CSVToJSON/utils";
+import { convertJSONToYAML } from "@/screens/Tools/JSON/JSONToYAML/utils";
+import { minifyJSON } from "@/screens/Tools/JSON/MinifyJSON/utils";
+import { prettifyJSON } from "@/screens/Tools/JSON/PrettifyJSON/utils";
+import { convertYAMLToJSON } from "@/screens/Tools/YAML/YAMLToJSON/utils";
 
 describe("JSON tools", () => {
   it("prettifies compact JSON with 2-space indentation", () => {

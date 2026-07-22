@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { decodeBase64 } from "./Base64Decode/utils";
-import { encodeBase64 } from "./Base64Encode/utils";
-import { convertHexToText } from "./HexToText/utils";
-import { escapeSlash } from "./SlashEscape/utils";
-import { convertTextToHex } from "./TextToHex/utils";
-import { encodeURL } from "./URLEncode/utils";
+import { decodeBase64 } from "@/screens/Tools/Text/Base64Decode/utils";
+import { encodeBase64 } from "@/screens/Tools/Text/Base64Encode/utils";
+import { convertHexToText } from "@/screens/Tools/Text/HexToText/utils";
+import { escapeSlash } from "@/screens/Tools/Text/SlashEscape/utils";
+import { convertTextToHex } from "@/screens/Tools/Text/TextToHex/utils";
+import { encodeURL } from "@/screens/Tools/Text/URLEncode/utils";
 
 describe("Base64 text tools", () => {
   it("encodes text to base64", () => {
