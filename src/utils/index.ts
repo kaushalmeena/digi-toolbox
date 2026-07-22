@@ -20,13 +20,10 @@ export const loadFile = (
 
         const reader = new FileReader();
 
-        switch (readAs) {
-          case "dataURL":
-            reader.readAsDataURL(file);
-            break;
-          case "text":
-          default:
-            reader.readAsText(file);
+        if (readAs === "dataURL") {
+          reader.readAsDataURL(file);
+        } else {
+          reader.readAsText(file);
         }
 
         reader.onload = () => resolve(reader.result as string);

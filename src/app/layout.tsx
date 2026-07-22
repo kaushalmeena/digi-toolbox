@@ -1,7 +1,6 @@
-import MainLayout from "@/layouts/MainLayout";
 import type { Metadata } from "next";
-import { ReactNode } from "react";
-import StyledComponentsRegistry from "./registry";
+import type { ReactNode } from "react";
+import MainLayout from "@/layouts/MainLayout";
 
 import "normalize.css";
 
@@ -38,6 +37,7 @@ function InitialThemeScript() {
 
   return (
     <script
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: static, non-user inline script that sets the initial theme before hydration to prevent a flash
       dangerouslySetInnerHTML={{
         __html: codeToRunOnClient
       }}
@@ -50,9 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <InitialThemeScript />
-        <StyledComponentsRegistry>
-          <MainLayout>{children}</MainLayout>
-        </StyledComponentsRegistry>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );

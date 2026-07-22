@@ -1,53 +1,12 @@
-import ButtonSection, { ButtonOption } from "@/components/ButtonSection";
+import { Button, Card, InputGroup, OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export } from "@blueprintjs/icons";
+import { useRef, useState } from "react";
+import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants";
 import { copyText, loadFile } from "@/utils";
-import { Button, Card, InputGroup, OverlayToaster } from "@blueprintjs/core";
-import { Duplicate, Export } from "@blueprintjs/icons";
-import { useRef, useState } from "react";
-import styled from "styled-components";
 import { drawImageInCanvas, getColorFromCanvas } from "./utils";
-
-const StyledCard = styled(Card)`
-  padding: 0px;
-`;
-
-const CardBody = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  min-height: 308px;
-`;
-
-const CardCanvas = styled.canvas`
-  max-width: 100%;
-  max-height: 260px;
-  height: 100%;
-  cursor: crosshair;
-`;
-
-const CardFooter = styled.div`
-  display: flex;
-  overflow: hidden;
-  flex-wrap: wrap;
-  border-top: 1px solid ${(props) => props.theme.colors.gray[2]};
-  border-radius: 0px 0px 3px 3px;
-`;
-
-const ColorContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 0.5;
-  justify-content: center;
-  min-width: 242px;
-  height: 59px;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    flex: 1;
-  }
-`;
 
 export default function PickerSection() {
   const [selectedColor, setSelectedColor] = useState("");
@@ -63,7 +22,7 @@ export default function PickerSection() {
       if (currentColorContainerRef.current) {
         currentColorContainerRef.current.style.backgroundColor = color;
       }
-    } catch (err) {
+    } catch {
       toasterRef.current?.show({
         message: ToastMessages.IMAGE_COLOR_CAPTURE_FAIL,
         intent: "danger",
@@ -115,37 +74,44 @@ export default function PickerSection() {
     <>
       <ConvertContainer>
         <IOContainer>
-          <StyledCard>
-            <CardBody>
-              <CardCanvas
+          <Card className="p-0">
+            <div className="flex min-h-[308px] items-center justify-center p-5">
+              <canvas
+                className="h-full max-h-[260px] max-w-full cursor-crosshair"
                 hidden
                 ref={canvasRef}
                 onMouseMove={handleCurrentColorCapture}
                 onClick={handleSelectedColorCapture}
               />
-            </CardBody>
-            <CardFooter>
-              <ColorContainer ref={currentColorContainerRef} />
+            </div>
+            <div className="flex flex-wrap overflow-hidden rounded-b-[3px] border-t border-edge">
+              <div
+                className="flex h-[59px] min-w-[242px] flex-[0.5] items-center justify-center max-sm:flex-1"
+                ref={currentColorContainerRef}
+              />
               {!!selectedColor && (
-                <ColorContainer style={{ backgroundColor: selectedColor }}>
+                <div
+                  className="flex h-[59px] min-w-[242px] flex-[0.5] items-center justify-center max-sm:flex-1"
+                  style={{ backgroundColor: selectedColor }}
+                >
                   <InputGroup
-                    large
+                    size="large"
                     readOnly
                     value={selectedColor}
                     rightElement={
                       <Button
-                        large
-                        minimal
+                        size="large"
+                        variant="minimal"
                         title="Copy"
                         icon={<Duplicate />}
                         onClick={handleColorCopy}
                       />
                     }
                   />
-                </ColorContainer>
+                </div>
               )}
-            </CardFooter>
-          </StyledCard>
+            </div>
+          </Card>
           <ButtonSection buttons={convertButtons} />
         </IOContainer>
       </ConvertContainer>

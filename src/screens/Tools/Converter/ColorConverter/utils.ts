@@ -1,4 +1,4 @@
-import { Units, HEX_REGEX, HSL_REGEX, RGB_REGEX } from "./constants";
+import { HEX_REGEX, HSL_REGEX, RGB_REGEX, Units } from "./constants";
 
 export const convertColor = (
   input: string,

@@ -1,21 +1,7 @@
-import IOContainer from "@/components/IOContainer";
 import { Card } from "@blueprintjs/core";
-import { Change } from "diff";
+import type { Change } from "diff";
 import { Fragment } from "react";
-import styled from "styled-components";
-
-const StyledCard = styled(Card)`
-  min-height: 308px;
-  font-family: monospace;
-`;
-
-const DelText = styled.span`
-  background-color: ${(props) => props.theme.colors.wrong};
-`;
-
-const InsText = styled.span`
-  background-color: ${(props) => props.theme.colors.right};
-`;
+import IOContainer from "@/components/IOContainer";
 
 type OutputSectionProps = {
   output: Change[];
@@ -24,21 +10,22 @@ type OutputSectionProps = {
 export default function OutputSection({ output }: OutputSectionProps) {
   const renderText = (item: Change) => {
     if (item.added) {
-      return <InsText>{item.value}</InsText>;
+      return <span className="bg-diff-add">{item.value}</span>;
     }
     if (item.removed) {
-      return <DelText>{item.value}</DelText>;
+      return <span className="bg-diff-del">{item.value}</span>;
     }
     return item.value;
   };
 
   return (
     <IOContainer>
-      <StyledCard>
+      <Card className="min-h-77 font-mono">
         {output.map((item, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: diff output is regenerated wholesale and positional, so index is the stable identity here
           <Fragment key={`text-${index}`}>{renderText(item)}</Fragment>
         ))}
-      </StyledCard>
+      </Card>
     </IOContainer>
   );
 }

@@ -1,6 +1,6 @@
-import { SelectOption } from "@/types";
 import { Equals } from "@blueprintjs/icons";
-import { ChangeEvent, useState } from "react";
+import { type ChangeEvent, useState } from "react";
+import type { SelectOption } from "@/types";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import IOSection from "./InputIOSection";

@@ -1,10 +1,4 @@
 import { H1, H2 } from "@blueprintjs/core";
-import styled from "styled-components";
-
-const Container = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
 
 type HeaderSectionProps = {
   heading: string;
@@ -16,9 +10,9 @@ export default function HeaderSection({
   subHeading
 }: HeaderSectionProps) {
   return (
-    <Container>
+    <div className="p-5 text-center">
       <H1>{heading}</H1>
       <H2>{subHeading}</H2>
-    </Container>
+    </div>
   );
 }

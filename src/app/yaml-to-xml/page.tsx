@@ -1,5 +1,5 @@
-import YAMLToXMLPage from "@/screens/Tools/YAML/YAMLToXML";
 import type { Metadata } from "next";
+import YAMLToXMLPage from "@/screens/Tools/YAML/YAMLToXML";
 
 export const metadata: Metadata = {
   title: "Convert YAML to XML - GetThatTool",

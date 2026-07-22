@@ -1,5 +1,5 @@
-import AngleConverterPage from "@/screens/Tools/Converter/AngleConverter";
 import type { Metadata } from "next";
+import AngleConverterPage from "@/screens/Tools/Converter/AngleConverter";
 
 export const metadata: Metadata = {
   title: "Angle Converter - GetThatTool",

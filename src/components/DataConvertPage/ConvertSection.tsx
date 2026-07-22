@@ -1,9 +1,9 @@
-import { copyText, loadFile, saveFile } from "@/utils";
 import { OverlayToaster } from "@blueprintjs/core";
 import { Duplicate, Export, Import, Refresh } from "@blueprintjs/icons";
-import { ChangeEvent, useRef, useState } from "react";
+import { type ChangeEvent, useRef, useState } from "react";
+import { copyText, loadFile, saveFile } from "@/utils";
 import { ToastMessages } from "../../constants";
-import { ButtonOption } from "../ButtonSection";
+import type { ButtonOption } from "../ButtonSection";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import SwitchSection from "../SwitchSection";
@@ -55,13 +55,12 @@ export default function ConvertSection({
   };
 
   const handleOutputCopy = () => {
-    copyText(output).then(
-      () =>
-        toasterRef.current?.show({
-          message: ToastMessages.COPY_SUCCESS,
-          intent: "primary",
-          isCloseButtonShown: false
-        })
+    copyText(output).then(() =>
+      toasterRef.current?.show({
+        message: ToastMessages.COPY_SUCCESS,
+        intent: "primary",
+        isCloseButtonShown: false
+      })
     );
   };
 

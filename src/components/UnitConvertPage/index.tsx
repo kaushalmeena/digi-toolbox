@@ -1,4 +1,4 @@
-import { SelectOption } from "@/types";
+import type { SelectOption } from "@/types";
 import HeaderSection from "../HeaderSection";
 import ConvertSection from "./ConvertSection";
 

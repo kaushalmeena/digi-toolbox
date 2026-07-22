@@ -1,18 +1,7 @@
-import { SelectOption } from "@/types";
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
-import { ChangeEvent } from "react";
-import styled from "styled-components";
+import type { ChangeEvent } from "react";
+import type { SelectOption } from "@/types";
 import IOContainer from "../IOContainer";
-
-const StyledHTMLSelect = styled(HTMLSelect)`
-  margin-top: 10px;
-`;
-
-const StyledInputGroup = styled(InputGroup)`
-  & input {
-    font-family: monospace !important;
-  }
-`;
 
 type InputIOSectionProps = {
   inputValue: string;
@@ -31,13 +20,15 @@ export default function InputIOSection({
 }: InputIOSectionProps) {
   return (
     <IOContainer>
-      <StyledInputGroup
-        large
+      <InputGroup
+        className="[&_input]:font-mono"
+        size="large"
         value={inputValue}
         rightElement={<Tag minimal>{selectValue}</Tag>}
         onChange={handleInputChange}
       />
-      <StyledHTMLSelect
+      <HTMLSelect
+        className="mt-2.5"
         fill
         large
         options={selectOptions}

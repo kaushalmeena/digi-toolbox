@@ -1,13 +1,6 @@
 import { Button } from "@blueprintjs/core";
 import { ArrowsHorizontal } from "@blueprintjs/icons";
 import { useRouter } from "next/navigation";
-import styled from "styled-components";
-
-const Container = styled.div`
-  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
-    transform: rotate(90deg);
-  }
-`;
 
 type SwitchSectionProps = {
   switchURL: string;
@@ -21,13 +14,13 @@ export default function SwitchSection({ switchURL }: SwitchSectionProps) {
   };
 
   return (
-    <Container>
+    <div className="max-md:rotate-90">
       <Button
-        large
+        size="large"
         title="Switch"
         icon={<ArrowsHorizontal />}
         onClick={handleSwitchAction}
       />
-    </Container>
+    </div>
   );
 }

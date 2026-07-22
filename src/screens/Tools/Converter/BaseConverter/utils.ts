@@ -1,4 +1,4 @@
-import { SelectOption } from "../../../../types";
+import type { SelectOption } from "../../../../types";
 import { KnownBaseNames } from "./constants";
 
 export const convertBase = (

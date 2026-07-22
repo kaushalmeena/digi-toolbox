@@ -1,4 +1,4 @@
-export const enum ToolCategory {
+export enum ToolCategory {
   JSON = "JSON",
   CSV = "CSV",
   XML = "XML",

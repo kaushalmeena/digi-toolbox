@@ -1,4 +1,7 @@
-import { ButtonOption } from "@/components/ButtonSection";
+import { OverlayToaster } from "@blueprintjs/core";
+import { Duplicate, Export, Import } from "@blueprintjs/icons";
+import { useRef, useState } from "react";
+import type { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import ImageIOSection from "@/components/ImageIOSection";
 import MiddleContainer from "@/components/MiddleContainer";
@@ -6,9 +9,6 @@ import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants";
 import { copyText, loadFile, saveFile } from "@/utils";
-import { OverlayToaster } from "@blueprintjs/core";
-import { Duplicate, Export, Import } from "@blueprintjs/icons";
-import { useRef, useState } from "react";
 
 export default function ConvertSection() {
   const [output, setOutput] = useState("");
@@ -35,13 +35,12 @@ export default function ConvertSection() {
   };
 
   const handleOutputCopy = () => {
-    copyText(output).then(
-      () =>
-        toasterRef.current?.show({
-          message: ToastMessages.COPY_SUCCESS,
-          intent: "primary",
-          isCloseButtonShown: false
-        })
+    copyText(output).then(() =>
+      toasterRef.current?.show({
+        message: ToastMessages.COPY_SUCCESS,
+        intent: "primary",
+        isCloseButtonShown: false
+      })
     );
   };
 

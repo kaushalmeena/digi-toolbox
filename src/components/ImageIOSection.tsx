@@ -1,20 +1,6 @@
-import ButtonSection, { ButtonOption } from "@/components/ButtonSection";
-import IOContainer from "@/components/IOContainer";
 import { Card } from "@blueprintjs/core";
-import styled from "styled-components";
-
-const StyledCard = styled(Card)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 308px;
-`;
-
-const CardImage = styled.img`
-  max-width: 100%;
-  max-height: 264px;
-  height: 100%;
-`;
+import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
+import IOContainer from "@/components/IOContainer";
 
 type OutputSectionProps = {
   buttons: ButtonOption[];
@@ -29,11 +15,16 @@ export default function ImageIOSection({
 }: OutputSectionProps) {
   return (
     <IOContainer>
-      <StyledCard>
+      <Card className="flex min-h-77 items-center justify-center">
         {!!value && (
-          <CardImage alt="IO-Image" src={value} onError={handleImageError} />
+          <img
+            className="h-full max-h-66 max-w-full"
+            alt="IO-Image"
+            src={value}
+            onError={handleImageError}
+          />
         )}
-      </StyledCard>
+      </Card>
       <ButtonSection buttons={buttons} />
     </IOContainer>
   );
