@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JSONToXMLPage from "@/screens/Tools/JSON/JSONToXML";
 
 export const metadata: Metadata = {
-  title: "Convert JSON to XML - GetThatTool",
+  title: "Convert JSON to XML",
   description:
     "Simple, free and easy to use online tool that converts JSON to XML."
 };

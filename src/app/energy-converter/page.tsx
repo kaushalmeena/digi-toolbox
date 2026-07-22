@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import EnergyConverterPage from "@/screens/Tools/Converter/EnergyConverter";
 
 export const metadata: Metadata = {
-  title: "Energy Converter - GetThatTool",
+  title: "Energy Converter",
   description:
     "Simple, free and easy to use online tool that converts energy joule, calorie, electronvolt etc."
 };

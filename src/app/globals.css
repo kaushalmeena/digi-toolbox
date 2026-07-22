@@ -1,43 +1,68 @@
 @import "tailwindcss";
 
 /*
- * Custom breakpoints (match the previous styled-components theme).
- * Tailwind's `max-*` variants generate `@media (width < breakpoint)`.
+ * Breakpoints must stay as Tailwind theme tokens so the `sm:`, `md:` and
+ * `max-*` variants are generated. Colors, on the other hand, come straight
+ * from Blueprint's palette (see the layers below) — no color tokens needed.
  */
 @theme {
   --breakpoint-sm: 600px;
   --breakpoint-md: 900px;
   --breakpoint-lg: 1200px;
+}
+
+@layer base {
+  body,
+  html {
+    margin: 0;
+  }
 
   /*
-   * Semantic colors mapped to Blueprint's palette CSS variables.
-   * These are overridden under `.bp6-dark` below, so any `bg-surface`,
-   * `border-edge`, etc. utility switches automatically with the theme.
+   * Semantic colors sourced directly from Blueprint's own palette variables,
+   * flipped under `.bp6-dark`. Because the class utilities below read these
+   * vars, `bg-surface`, `border-edge`, etc. switch with the theme for free.
    */
-  --color-surface: var(--bp-palette-light-gray-5);
-  --color-edge: var(--bp-palette-light-gray-2);
-  --color-diff-add: var(--bp-palette-green-5);
-  --color-diff-del: var(--bp-palette-red-5);
+  :root {
+    --surface: var(--bp-palette-light-gray-5);
+    --edge: var(--bp-palette-light-gray-2);
+    --diff-add: var(--bp-palette-green-5);
+    --diff-del: var(--bp-palette-red-5);
+  }
+
+  .bp6-dark {
+    --surface: var(--bp-palette-dark-gray-5);
+    --edge: var(--bp-palette-dark-gray-2);
+    --diff-add: var(--bp-palette-green-3);
+    --diff-del: var(--bp-palette-red-3);
+  }
 }
 
-.bp6-dark {
-  --color-surface: var(--bp-palette-dark-gray-5);
-  --color-edge: var(--bp-palette-dark-gray-2);
-  --color-diff-add: var(--bp-palette-green-3);
-  --color-diff-del: var(--bp-palette-red-3);
+@layer components {
+  .bg-surface {
+    background-color: var(--surface);
+  }
+
+  .border-edge {
+    border-color: var(--edge);
+  }
+
+  .bg-diff-add {
+    background-color: var(--diff-add);
+  }
+
+  .bg-diff-del {
+    background-color: var(--diff-del);
+  }
 }
 
-body,
-html {
-  margin: 0;
-}
-
-/* Pre-hydration background so there is no flash before the app mounts. */
+/*
+ * Kept unlayered on purpose: these override Blueprint's own rules, which are
+ * imported outside Tailwind's layers and would otherwise win the cascade.
+ */
 body[data-initial-theme="dark"] {
   background-color: var(--bp-palette-dark-gray-5);
 }
 
-/* Omnibar sizing (previously a styled-components createGlobalStyle). */
 .bp6-omnibar {
   left: 0;
   right: 0;

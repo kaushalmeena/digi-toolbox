@@ -44,7 +44,7 @@ export default function Header({
                 readOnly
                 type="search"
                 placeholder="Search tools..."
-                leftIcon={<Search />}
+                leftElement={<Search className="m-2" />}
                 onClick={openOmnibarSearch}
               />
               <Divider />
@@ -69,7 +69,7 @@ export default function Header({
               variant="minimal"
               title="Github repository"
               icon={<GitRepo />}
-              href="https://github.com/kaushalmeena/myapp-getthattool"
+              href="https://github.com/kaushalmeena/find-that-tool"
             />
           </ButtonGroup>
         </NavbarGroup>

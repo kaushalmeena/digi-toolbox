@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PrettifyXMLPage from "@/screens/Tools/XML/PrettifyXML";
 
 export const metadata: Metadata = {
-  title: "Prettify XML - GetThatTool",
+  title: "Prettify XML",
   description: "Simple, free and easy to use online tool that prettifies XML."
 };
 

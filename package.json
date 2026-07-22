@@ -1,8 +1,8 @@
 {
-  "name": "myapp-getthattool",
+  "name": "find-that-tool",
   "version": "1.0.0",
   "description": "A web app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
-  "repository": "git@github.com:kaushalmeena/myapp-getthattool.git",
+  "repository": "git@github.com:kaushalmeena/find-that-tool.git",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

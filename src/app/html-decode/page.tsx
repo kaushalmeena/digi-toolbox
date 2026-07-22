@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HTMLDecodePage from "@/screens/Tools/Text/HTMLDecode";
 
 export const metadata: Metadata = {
-  title: "HTML-decode Text - GetThatTool",
+  title: "HTML-decode Text",
   description:
     "Super simple, free and fast browser-based utility for HTML-decoding text."
 };

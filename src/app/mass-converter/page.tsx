@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import MassConverterPage from "@/screens/Tools/Converter/MassConverter";
 
 export const metadata: Metadata = {
-  title: "Mass Converter - GetThatTool",
+  title: "Mass Converter",
   description:
     "Simple, free and easy to use online tool that converts mass between gram, ounce, pound etc."
 };

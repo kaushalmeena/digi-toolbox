@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Base64DecodePage from "@/screens/Tools/Text/Base64Decode";
 
 export const metadata: Metadata = {
-  title: "Base64-decode Text - GetThatTool",
+  title: "Base64-decode Text",
   description:
     "Super simple, free and fast browser-based utility for converting base64 to text."
 };
