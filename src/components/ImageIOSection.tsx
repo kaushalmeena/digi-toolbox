@@ -2,17 +2,15 @@ import { Card } from "@blueprintjs/core";
 import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import IOContainer from "@/components/IOContainer";
 
-type OutputSectionProps = {
-  buttons: ButtonOption[];
-  value: string;
-  handleImageError: () => void;
-};
-
 export default function ImageIOSection({
   buttons,
   value,
   handleImageError
-}: OutputSectionProps) {
+}: {
+  buttons: ButtonOption[];
+  value: string;
+  handleImageError: () => void;
+}) {
   return (
     <IOContainer>
       <Card className="flex min-h-77 items-center justify-center">

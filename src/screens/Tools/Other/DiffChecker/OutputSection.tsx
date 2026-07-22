@@ -3,11 +3,7 @@ import type { Change } from "diff";
 import { Fragment } from "react";
 import IOContainer from "@/components/IOContainer";
 
-type OutputSectionProps = {
-  output: Change[];
-};
-
-export default function OutputSection({ output }: OutputSectionProps) {
+export default function OutputSection({ output }: { output: Change[] }) {
   const renderText = (item: Change) => {
     if (item.added) {
       return <span className="bg-diff-add">{item.value}</span>;

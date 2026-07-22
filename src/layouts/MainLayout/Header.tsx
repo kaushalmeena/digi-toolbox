@@ -12,17 +12,15 @@ import { Flash, GitRepo, Moon, Search, Wrench } from "@blueprintjs/icons";
 import Link from "next/link";
 import { useMediaQuery } from "@/hooks";
 
-type HeaderProps = {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-  openOmnibarSearch: () => void;
-};
-
 export default function Header({
   darkMode,
   toggleDarkMode,
   openOmnibarSearch
-}: HeaderProps) {
+}: {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+  openOmnibarSearch: () => void;
+}) {
   const showSearchInput = useMediaQuery("(min-width: 500px)");
 
   return (

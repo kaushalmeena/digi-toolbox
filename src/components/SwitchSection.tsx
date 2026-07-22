@@ -2,11 +2,7 @@ import { Button } from "@blueprintjs/core";
 import { ArrowsHorizontal } from "@blueprintjs/icons";
 import { useRouter } from "next/navigation";
 
-type SwitchSectionProps = {
-  switchURL: string;
-};
-
-export default function SwitchSection({ switchURL }: SwitchSectionProps) {
+export default function SwitchSection({ switchURL }: { switchURL: string }) {
   const router = useRouter();
 
   const handleSwitchAction = () => {

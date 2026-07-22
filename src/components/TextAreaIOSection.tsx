@@ -1,22 +1,20 @@
 import { TextArea } from "@blueprintjs/core";
 import { type ChangeEvent, type DragEvent, useState } from "react";
-import { readFileAsText } from "@/utils";
+import { cn, readFileAsText } from "@/utils";
 import ButtonSection, { type ButtonOption } from "./ButtonSection";
 import IOContainer from "./IOContainer";
-
-type TextAreaIOSectionProps = {
-  buttons: ButtonOption[];
-  value: string;
-  handleValueChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onFileDrop?: (text: string) => void;
-};
 
 export default function TextAreaIOSection({
   buttons,
   value,
   handleValueChange,
   onFileDrop
-}: TextAreaIOSectionProps) {
+}: {
+  buttons: ButtonOption[];
+  value: string;
+  handleValueChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onFileDrop?: (text: string) => void;
+}) {
   const [dragging, setDragging] = useState(false);
 
   const handleDragOver = (event: DragEvent<HTMLTextAreaElement>) => {
@@ -46,7 +44,10 @@ export default function TextAreaIOSection({
   return (
     <IOContainer>
       <TextArea
-        className={`font-mono ${dragging ? "ring-2 ring-(--bp-palette-blue-3)" : ""}`}
+        className={cn(
+          "font-mono",
+          dragging && "ring-2 ring-(--bp-palette-blue-3)"
+        )}
         fill
         rows={16}
         value={value}
