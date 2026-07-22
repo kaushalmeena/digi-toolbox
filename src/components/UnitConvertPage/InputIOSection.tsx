@@ -3,21 +3,19 @@ import type { ChangeEvent } from "react";
 import type { SelectOption } from "@/types";
 import IOContainer from "../IOContainer";
 
-type InputIOSectionProps = {
-  inputValue: string;
-  selectValue: string;
-  selectOptions: SelectOption[];
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-};
-
 export default function InputIOSection({
   inputValue,
   selectValue,
   selectOptions,
   handleInputChange,
   handleSelectChange
-}: InputIOSectionProps) {
+}: {
+  inputValue: string;
+  selectValue: string;
+  selectOptions: SelectOption[];
+  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+}) {
   return (
     <IOContainer>
       <InputGroup

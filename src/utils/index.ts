@@ -1,3 +1,8 @@
+import { type ClassNameValue, twMerge } from "tailwind-merge";
+
+// Merge Tailwind class names, resolving conflicts (last one wins).
+export const cn = (...inputs: ClassNameValue[]): string => twMerge(inputs);
+
 export const loadFile = (
   format = "*",
   readAs: "text" | "dataURL" = "text"

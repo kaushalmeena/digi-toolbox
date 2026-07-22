@@ -2,15 +2,12 @@
 
 import { Spinner } from "@blueprintjs/core";
 import { type ReactNode, useEffect, useState } from "react";
+import { cn } from "@/utils";
 import OmnibarSearch from "../../components/OmnibarSearch";
 import Header from "./Header";
 import { fetchDarkMode, storeDarkMode } from "./utils";
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
-
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function MainLayout({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
   const [omnibarSearchOpen, setOmnibarSearchOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -48,7 +45,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   }
 
   return (
-    <div className={`bg-surface ${darkMode ? "bp6-dark" : ""}`}>
+    <div className={cn("bg-surface", darkMode && "bp6-dark")}>
       <Header
         darkMode={darkMode}
         toggleDarkMode={handleDarkModeToggle}

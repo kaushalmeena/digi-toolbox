@@ -5,12 +5,13 @@ import { Tools } from "@/constants";
 import type { Tool } from "@/types";
 import { areToolsEqual, filterTool, getToolItemProps } from "./utils";
 
-type OmnibarSearchProps = {
+export default function OmnibarSearch({
+  isOpen,
+  onClose
+}: {
   isOpen: boolean;
   onClose: () => void;
-};
-
-export default function OmnibarSearch({ isOpen, onClose }: OmnibarSearchProps) {
+}) {
   const router = useRouter();
 
   const renderTool: ItemRenderer<Tool> = (item, props) => {

@@ -6,11 +6,11 @@ export type ButtonOption = {
   onClick: () => void;
 };
 
-type ButtonSectionProps = {
+export default function ButtonSection({
+  buttons
+}: {
   buttons: ButtonOption[];
-};
-
-export default function ButtonSection({ buttons }: ButtonSectionProps) {
+}) {
   return (
     <div className="mt-5 flex items-center">
       {buttons.map((button) => (

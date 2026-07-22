@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
-type ConvertContainerProps = {
+export default function ConvertContainer({
+  children
+}: {
   children: ReactNode;
-};
-
-export default function ConvertContainer({ children }: ConvertContainerProps) {
+}) {
   return <div className="flex justify-center max-md:flex-col">{children}</div>;
 }

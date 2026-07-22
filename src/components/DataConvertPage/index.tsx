@@ -1,15 +1,6 @@
 import HeaderSection from "../HeaderSection";
 import ConvertSection from "./ConvertSection";
 
-type DataConvertPageProps = {
-  heading: string;
-  subHeading: string;
-  fileExtension: string;
-  fileType: string;
-  switchURL?: string;
-  convertFunction: (input: string) => string;
-};
-
 export default function DataConvertPage({
   heading,
   subHeading,
@@ -17,7 +8,14 @@ export default function DataConvertPage({
   fileType,
   switchURL,
   convertFunction
-}: DataConvertPageProps) {
+}: {
+  heading: string;
+  subHeading: string;
+  fileExtension: string;
+  fileType: string;
+  switchURL?: string;
+  convertFunction: (input: string) => string;
+}) {
   return (
     <>
       <HeaderSection heading={heading} subHeading={subHeading} />

@@ -2,15 +2,6 @@ import type { SelectOption } from "@/types";
 import HeaderSection from "../HeaderSection";
 import ConvertSection from "./ConvertSection";
 
-type UnitConvertPageProps = {
-  heading: string;
-  subHeading: string;
-  selectOptions: SelectOption[];
-  fromDefaultValue: string;
-  toDefaultValue: string;
-  convertFunction: (input: string, from: string, to: string) => string;
-};
-
 export default function UnitConvertPage({
   heading,
   subHeading,
@@ -18,7 +9,14 @@ export default function UnitConvertPage({
   fromDefaultValue,
   toDefaultValue,
   convertFunction
-}: UnitConvertPageProps) {
+}: {
+  heading: string;
+  subHeading: string;
+  selectOptions: SelectOption[];
+  fromDefaultValue: string;
+  toDefaultValue: string;
+  convertFunction: (input: string, from: string, to: string) => string;
+}) {
   return (
     <>
       <HeaderSection heading={heading} subHeading={subHeading} />
