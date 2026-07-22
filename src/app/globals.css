@@ -1,7 +1,47 @@
-body, html {
+@import "tailwindcss";
+
+/*
+ * Custom breakpoints (match the previous styled-components theme).
+ * Tailwind's `max-*` variants generate `@media (width < breakpoint)`.
+ */
+@theme {
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
+
+  /*
+   * Semantic colors mapped to Blueprint's palette CSS variables.
+   * These are overridden under `.bp6-dark` below, so any `bg-surface`,
+   * `border-edge`, etc. utility switches automatically with the theme.
+   */
+  --color-surface: var(--bp-palette-light-gray-5);
+  --color-edge: var(--bp-palette-light-gray-2);
+  --color-diff-add: var(--bp-palette-green-5);
+  --color-diff-del: var(--bp-palette-red-5);
+}
+
+.bp6-dark {
+  --color-surface: var(--bp-palette-dark-gray-5);
+  --color-edge: var(--bp-palette-dark-gray-2);
+  --color-diff-add: var(--bp-palette-green-3);
+  --color-diff-del: var(--bp-palette-red-3);
+}
+
+body,
+html {
   margin: 0;
 }
 
+/* Pre-hydration background so there is no flash before the app mounts. */
 body[data-initial-theme="dark"] {
-  background-color: #383e47;
+  background-color: var(--bp-palette-dark-gray-5);
+}
+
+/* Omnibar sizing (previously a styled-components createGlobalStyle). */
+.bp6-omnibar {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  width: calc(100vw - 20px);
 }

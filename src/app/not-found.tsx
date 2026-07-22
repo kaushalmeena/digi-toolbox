@@ -1,5 +1,5 @@
-import ErrorPage from "@/components/ErrorPage";
 import type { Metadata } from "next";
+import ErrorPage from "@/components/ErrorPage";
 
 export const metadata: Metadata = {
   title: "Error 400 - GetThatTool"

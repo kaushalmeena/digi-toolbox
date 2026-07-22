@@ -1,4 +1,4 @@
-import { Change, diffChars } from "diff";
+import { type Change, diffChars } from "diff";
 
 export const getLeftAndRightOutput = (
   original: string,

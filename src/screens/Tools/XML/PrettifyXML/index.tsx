@@ -1,7 +1,7 @@
 "use client";
 
-import { prettifyXML } from "./utils";
 import DataConvertPage from "@/components/DataConvertPage";
+import { prettifyXML } from "./utils";
 
 export default function PrettifyXMLPage() {
   return (

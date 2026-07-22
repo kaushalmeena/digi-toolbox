@@ -1,12 +1,9 @@
-import styled from "styled-components";
+import type { ReactNode } from "react";
 
-const ConvertContainer = styled.div`
-  display: flex;
-  justify-content: center;
+type ConvertContainerProps = {
+  children: ReactNode;
+};
 
-  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
-    flex-direction: column;
-  }
-`;
-
-export default ConvertContainer;
+export default function ConvertContainer({ children }: ConvertContainerProps) {
+  return <div className="flex justify-center max-md:flex-col">{children}</div>;
+}

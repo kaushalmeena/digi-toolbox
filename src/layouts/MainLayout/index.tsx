@@ -1,35 +1,10 @@
 "use client";
 
-import { DarkTheme, LightTheme } from "@/constants";
 import { Spinner } from "@blueprintjs/core";
-import { ReactNode, useEffect, useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { type ReactNode, useEffect, useState } from "react";
 import OmnibarSearch from "../../components/OmnibarSearch";
 import Header from "./Header";
 import { fetchDarkMode, storeDarkMode } from "./utils";
-
-const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.gray[5]};
-`;
-
-const StyledSpinner = styled(Spinner)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const MainContainer = styled.main`
-  margin: 0px auto;
-  max-width: 1400px;
-  width: 100%;
-  padding: 20px 40px;
-  min-height: calc(100vh - 50px);
-
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    padding: 10px 20px;
-  }
-`;
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -62,26 +37,30 @@ export default function MainLayout({ children }: MainLayoutProps) {
     setOmnibarSearchOpen(false);
   };
 
-  const theme = darkMode ? DarkTheme : LightTheme;
+  if (!mounted) {
+    return (
+      <Spinner
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        intent="primary"
+        size={60}
+      />
+    );
+  }
 
   return (
-    <ThemeProvider theme={theme}>
-      {mounted ? (
-        <Container className={theme.className}>
-          <Header
-            darkMode={darkMode}
-            toggleDarkMode={handleDarkModeToggle}
-            openOmnibarSearch={handleOmnibarSearchOpen}
-          />
-          <MainContainer>{children}</MainContainer>
-          <OmnibarSearch
-            isOpen={omnibarSearchOpen}
-            onClose={handleOmnibarSearchClose}
-          />
-        </Container>
-      ) : (
-        <StyledSpinner intent="primary" size={60} />
-      )}
-    </ThemeProvider>
+    <div className={`bg-surface ${darkMode ? "bp6-dark" : ""}`}>
+      <Header
+        darkMode={darkMode}
+        toggleDarkMode={handleDarkModeToggle}
+        openOmnibarSearch={handleOmnibarSearchOpen}
+      />
+      <main className="mx-auto min-h-[calc(100vh-50px)] w-full max-w-[1400px] px-10 py-5 max-sm:px-5 max-sm:py-2.5">
+        {children}
+      </main>
+      <OmnibarSearch
+        isOpen={omnibarSearchOpen}
+        onClose={handleOmnibarSearchClose}
+      />
+    </div>
   );
 }

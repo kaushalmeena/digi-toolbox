@@ -1,16 +1,13 @@
-import styled from "styled-components";
+import type { ReactNode } from "react";
 
-const MiddleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 20px 70px 20px;
-  min-width: 80px;
+type MiddleContainerProps = {
+  children?: ReactNode;
+};
 
-  @media (max-width: ${(props) => props.theme.breakpoints.md}px) {
-    padding: 10px 0px;
-    width: 100%;
-  }
-`;
-
-export default MiddleContainer;
+export default function MiddleContainer({ children }: MiddleContainerProps) {
+  return (
+    <div className="flex min-w-20 items-center justify-center pt-5 pr-5 pb-17.5 pl-5 max-md:w-full max-md:px-0 max-md:py-2.5">
+      {children}
+    </div>
+  );
+}

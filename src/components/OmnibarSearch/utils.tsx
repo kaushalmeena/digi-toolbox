@@ -1,9 +1,9 @@
-import { MenuItemProps } from "@blueprintjs/core";
-import { Tool } from "../../types";
-import { ItemPredicate, ItemRendererProps } from "@blueprintjs/select";
+import type { MenuItemProps } from "@blueprintjs/core";
+import type { ItemPredicate, ItemRendererProps } from "@blueprintjs/select";
+import type { Tool } from "../../types";
 
 function escapeRegExpChars(text: string) {
-  return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+  return text.replace(/([.*+?^=!:${}()|[\]/\\])/g, "\\$1");
 }
 
 function highlightText(text: string, query: string) {

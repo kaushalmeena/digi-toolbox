@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@/hooks";
 import {
   AnchorButton,
   Button,
@@ -11,44 +10,7 @@ import {
 } from "@blueprintjs/core";
 import { Flash, GitRepo, Moon, Search, Wrench } from "@blueprintjs/icons";
 import Link from "next/link";
-import styled from "styled-components";
-
-const StyledNavbar = styled(Navbar)`
-  padding: 0px;
-  box-shadow:
-    0px 0px 0px 1px #10161a33,
-    0px 0px 0px #10161a00,
-    0px 1px 1px #10161a33 !important;
-`;
-
-const NavbarContainer = styled.div`
-  margin: 0px auto;
-  max-width: 1400px;
-  width: 100%;
-  padding: 0px 20px;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.sm}px) {
-    padding: 0px 40px;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.3;
-    text-decoration: none;
-  }
-`;
-
-const LogoText = styled.span`
-  margin-left: 5px;
-  font-size: 18px;
-  font-weight: 600;
-`;
+import { useMediaQuery } from "@/hooks";
 
 type HeaderProps = {
   darkMode: boolean;
@@ -64,14 +26,17 @@ export default function Header({
   const showSearchInput = useMediaQuery("(min-width: 500px)");
 
   return (
-    <StyledNavbar>
-      <NavbarContainer>
+    <Navbar className="p-0! shadow-[0px_0px_0px_1px_#10161a33,0px_0px_0px_#10161a00,0px_1px_1px_#10161a33]!">
+      <div className="mx-auto w-full max-w-350 px-5 sm:px-10">
         <NavbarGroup>
           <NavbarHeading>
-            <StyledLink href="/">
+            <Link
+              href="/"
+              className="flex cursor-pointer items-center transition-opacity hover:no-underline hover:opacity-30"
+            >
               <Wrench size={18} />
-              <LogoText>GetThatTool</LogoText>
-            </StyledLink>
+              <span className="ml-1.25 text-lg font-semibold">GetThatTool</span>
+            </Link>
           </NavbarHeading>
         </NavbarGroup>
         <NavbarGroup align="right">
@@ -90,27 +55,27 @@ export default function Header({
           <ButtonGroup>
             {!showSearchInput && (
               <Button
-                minimal
+                variant="minimal"
                 title="Search tools"
                 icon={<Search />}
                 onClick={openOmnibarSearch}
               />
             )}
             <Button
-              minimal
+              variant="minimal"
               title="Toggle dark mode"
               icon={darkMode ? <Flash /> : <Moon />}
               onClick={toggleDarkMode}
             />
             <AnchorButton
-              minimal
+              variant="minimal"
               title="Github repository"
               icon={<GitRepo />}
               href="https://github.com/kaushalmeena/myapp-getthattool"
             />
           </ButtonGroup>
         </NavbarGroup>
-      </NavbarContainer>
-    </StyledNavbar>
+      </div>
+    </Navbar>
   );
 }

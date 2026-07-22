@@ -1,5 +1,5 @@
-import MinifyXMLPage from "@/screens/Tools/XML/MinifyXML";
 import type { Metadata } from "next";
+import MinifyXMLPage from "@/screens/Tools/XML/MinifyXML";
 
 export const metadata: Metadata = {
   title: "Minify XML - GetThatTool",

@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import type { ReactNode } from "react";
 
-const IOContainer = styled.div`
-  flex: 1;
-  padding: 20px 0px;
-  min-width: 300px;
-`;
+type IOContainerProps = {
+  children: ReactNode;
+};
 
-export default IOContainer;
+export default function IOContainer({ children }: IOContainerProps) {
+  return <div className="min-w-75 flex-1 py-5">{children}</div>;
+}

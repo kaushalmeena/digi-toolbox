@@ -1,5 +1,5 @@
-import JSONToCSVPage from "@/screens/Tools/JSON/JSONToCSV";
 import type { Metadata } from "next";
+import JSONToCSVPage from "@/screens/Tools/JSON/JSONToCSV";
 
 export const metadata: Metadata = {
   title: "Convert JSON to CSV - GetThatTool",

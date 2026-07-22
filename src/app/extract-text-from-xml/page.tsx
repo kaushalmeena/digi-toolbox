@@ -1,5 +1,5 @@
-import ExtractTextFromXMLPage from "@/screens/Tools/Text/ExtractTextFromXML";
 import type { Metadata } from "next";
+import ExtractTextFromXMLPage from "@/screens/Tools/Text/ExtractTextFromXML";
 
 export const metadata: Metadata = {
   title: "Extract Text from XML - GetThatTool",

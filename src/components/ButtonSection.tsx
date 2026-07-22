@@ -1,15 +1,4 @@
-import { Button, IconName, MaybeElement } from "@blueprintjs/core";
-import styled from "styled-components";
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const StyledButton = styled(Button)`
-  margin-right: 10px;
-`;
+import { Button, type IconName, type MaybeElement } from "@blueprintjs/core";
 
 export type ButtonOption = {
   title: string;
@@ -23,10 +12,15 @@ type ButtonSectionProps = {
 
 export default function ButtonSection({ buttons }: ButtonSectionProps) {
   return (
-    <Container>
+    <div className="mt-5 flex items-center">
       {buttons.map((button) => (
-        <StyledButton large key={button.title} {...button} />
+        <Button
+          className="mr-2.5"
+          size="large"
+          key={button.title}
+          {...button}
+        />
       ))}
-    </Container>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
-import HTMLEncodePage from "@/screens/Tools/Text/HTMLEncode";
 import type { Metadata } from "next";
+import HTMLEncodePage from "@/screens/Tools/Text/HTMLEncode";
 
 export const metadata: Metadata = {
   title: "HTML-encode Text - GetThatTool",

@@ -1,5 +1,5 @@
-import MinifyJSONPage from "@/screens/Tools/JSON/MinifyJSON";
 import type { Metadata } from "next";
+import MinifyJSONPage from "@/screens/Tools/JSON/MinifyJSON";
 
 export const metadata: Metadata = {
   title: "Minify JSON - GetThatTool",

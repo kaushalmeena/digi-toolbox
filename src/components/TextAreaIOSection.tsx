@@ -1,14 +1,7 @@
 import { TextArea } from "@blueprintjs/core";
-import { ChangeEvent } from "react";
-import styled from "styled-components";
-import ButtonSection, { ButtonOption } from "./ButtonSection";
+import type { ChangeEvent } from "react";
+import ButtonSection, { type ButtonOption } from "./ButtonSection";
 import IOContainer from "./IOContainer";
-
-const StyledTextArea = styled(TextArea)`
-  & input {
-    font-family: monospace !important;
-  }
-`;
 
 type TextAreaIOSectionProps = {
   buttons: ButtonOption[];
@@ -23,7 +16,7 @@ export default function TextAreaIOSection({
 }: TextAreaIOSectionProps) {
   return (
     <IOContainer>
-      <StyledTextArea
+      <TextArea
         fill
         rows={16}
         value={value}
