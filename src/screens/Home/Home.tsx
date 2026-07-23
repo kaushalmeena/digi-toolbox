@@ -11,7 +11,7 @@ export default function Home() {
         <span className="text-primary">
           <WrenchIcon size={48} />
         </span>
-        <h1 className="text-4xl font-bold tracking-tight">FindThatTool</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Digi-Toolbox</h1>
         <p className="max-w-xl text-lg">
           Every common developer tool — JSON, CSV, YAML, XML, Text and more — in
           one fast, free place.

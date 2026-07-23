@@ -1,4 +1,4 @@
-// Minimal offline-first service worker for FindThatTool.
+// Minimal offline-first service worker for Digi-Toolbox.
 // Same-origin GET requests are served from cache when available and refreshed
 // in the background (stale-while-revalidate), so the app keeps working offline
 // after the first visit.

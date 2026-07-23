@@ -15,19 +15,19 @@ import "@blueprintjs/select/lib/css/blueprint-select.css";
 
 import "./globals.css";
 
-const TITLE = "FindThatTool - One place for all common tools you could want!";
+const TITLE = "Digi-Toolbox — your all-in-one developer toolbox";
 const DESCRIPTION =
-  "FindThatTool lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place — fast, free and right in your browser.";
+  "Digi-Toolbox is a fast, free, in-browser toolbox of 45+ developer utilities — JSON, CSV, YAML, XML and text converters, encoders, formatters, and more.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_BASE_URL),
   title: {
     default: TITLE,
     // Per-page titles (e.g. "JSON to CSV") get this suffix automatically.
-    template: "%s - FindThatTool"
+    template: "%s - Digi-Toolbox"
   },
   description: DESCRIPTION,
-  applicationName: "FindThatTool",
+  applicationName: "Digi-Toolbox",
   authors: [{ name: "Kaushal Meena" }],
   keywords: [
     "online tools",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "FindThatTool",
+    siteName: "Digi-Toolbox",
     url: SITE_BASE_URL,
     title: TITLE,
     description: DESCRIPTION

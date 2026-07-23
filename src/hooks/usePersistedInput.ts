@@ -19,7 +19,7 @@ export function usePersistedInput(): {
   buildShareUrl: () => string;
 } {
   const pathname = usePathname();
-  const storageKey = `ftt:input:${pathname}`;
+  const storageKey = `dtb:input:${pathname}`;
   const [input, setInputState] = useState("");
 
   useEffect(() => {
