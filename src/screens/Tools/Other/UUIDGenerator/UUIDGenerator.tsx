@@ -1,12 +1,13 @@
 "use client";
 
-import { NumericInput, OverlayToaster, TextArea } from "@blueprintjs/core";
+import { NumericInput, TextArea } from "@blueprintjs/core";
 import { DuplicateIcon, ImportIcon, RefreshIcon } from "@blueprintjs/icons";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import HeaderSection from "@/components/HeaderSection";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
+import { showToast } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { saveFile } from "@/utils/fileUtils";
 import { generateUUIDs } from "./utils";
@@ -14,21 +15,21 @@ import { generateUUIDs } from "./utils";
 export default function UUIDGeneratorPage() {
   const [count, setCount] = useState(5);
   const [output, setOutput] = useState("");
-  const toasterRef = useRef<OverlayToaster>(null);
 
   const generate = (total: number) => {
     setOutput(generateUUIDs(total));
   };
 
-  // Generate an initial batch on mount only; running on the client avoids a
-  // server/client hydration mismatch from differing random values.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional one-time generation on mount
+  // Generate an initial batch on mount only (client-side, to avoid a
+  // server/client hydration mismatch). `count` is intentionally omitted so
+  // changing it doesn't auto-regenerate — the user clicks "Regenerate".
+  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only generation
   useEffect(() => {
     generate(count);
   }, []);
 
   const notify = (message: string) => {
-    toasterRef.current?.show({
+    showToast({
       message,
       intent: "primary",
       isCloseButtonShown: false
@@ -60,7 +61,7 @@ export default function UUIDGeneratorPage() {
         heading="UUID Generator"
         subHeading="Quickly generate one or more random (v4) UUIDs"
       />
-      <div className="mx-auto max-w-[720px]">
+      <div className="mx-auto max-w-180">
         <div className="flex items-center justify-center gap-2.5">
           <span>How many?</span>
           <NumericInput
@@ -81,7 +82,6 @@ export default function UUIDGeneratorPage() {
           <ButtonSection buttons={outputButtons} />
         </IOContainer>
       </div>
-      <OverlayToaster ref={toasterRef} />
     </>
   );
 }

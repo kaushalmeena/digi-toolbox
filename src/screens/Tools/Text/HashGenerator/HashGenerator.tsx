@@ -1,19 +1,14 @@
 "use client";
 
-import { HTMLSelect, OverlayToaster, TextArea } from "@blueprintjs/core";
+import { HTMLSelect, TextArea } from "@blueprintjs/core";
 import { DuplicateIcon } from "@blueprintjs/icons";
-import {
-  type ChangeEvent,
-  type DragEvent,
-  useEffect,
-  useRef,
-  useState
-} from "react";
+import { type ChangeEvent, type DragEvent, useEffect, useState } from "react";
 import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import HeaderSection from "@/components/HeaderSection";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
+import { showToast } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { readFileAsText } from "@/utils/fileUtils";
 import { generateHash, HashAlgorithms } from "./utils";
@@ -22,7 +17,6 @@ export default function HashGeneratorPage() {
   const [input, setInput] = useState("");
   const [algorithm, setAlgorithm] = useState(HashAlgorithms[1].value);
   const [output, setOutput] = useState("");
-  const toasterRef = useRef<OverlayToaster>(null);
 
   useEffect(() => {
     let active = true;
@@ -54,7 +48,7 @@ export default function HashGeneratorPage() {
       icon: <DuplicateIcon />,
       onClick: () =>
         copyText(output).then(() =>
-          toasterRef.current?.show({
+          showToast({
             message: ToastMessages.COPY_SUCCESS,
             intent: "primary",
             isCloseButtonShown: false
@@ -103,7 +97,6 @@ export default function HashGeneratorPage() {
           <ButtonSection buttons={outputButtons} />
         </IOContainer>
       </ConvertContainer>
-      <OverlayToaster ref={toasterRef} />
     </>
   );
 }

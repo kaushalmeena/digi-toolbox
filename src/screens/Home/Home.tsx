@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <HeaderSection
-        heading="GetThatTool"
+        heading="FindThatTool"
         subHeading="Every common tool you need to use, at your fingertips!"
       />
       <MainSection />

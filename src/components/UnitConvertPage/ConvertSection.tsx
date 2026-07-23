@@ -61,8 +61,8 @@ export default function ConvertSection({
         inputValue={input}
         selectValue={from}
         selectOptions={selectOptions}
-        handleInputChange={handleInputChange}
-        handleSelectChange={handleFromSelectChange}
+        onInputChange={handleInputChange}
+        onSelectChange={handleFromSelectChange}
       />
       <MiddleContainer>
         <EqualsIcon size={28} />
@@ -71,8 +71,8 @@ export default function ConvertSection({
         inputValue={output}
         selectValue={to}
         selectOptions={selectOptions}
-        handleInputChange={handleOutputChange}
-        handleSelectChange={handleToSelectChange}
+        onInputChange={handleOutputChange}
+        onSelectChange={handleToSelectChange}
       />
     </ConvertContainer>
   );
