@@ -1,6 +1,6 @@
-import { Equals } from "@blueprintjs/icons";
+import { EqualsIcon } from "@blueprintjs/icons";
 import { type ChangeEvent, useState } from "react";
-import type { SelectOption } from "@/types";
+import type { SelectOption } from "@/types/select";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
 import IOSection from "./InputIOSection";
@@ -65,7 +65,7 @@ export default function ConvertSection({
         handleSelectChange={handleFromSelectChange}
       />
       <MiddleContainer>
-        <Equals size={28} />
+        <EqualsIcon size={28} />
       </MiddleContainer>
       <IOSection
         inputValue={output}

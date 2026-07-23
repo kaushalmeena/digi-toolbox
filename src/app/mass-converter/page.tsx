@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MassConverterPage from "@/screens/Tools/Converter/MassConverter";
+import MassConverterPage from "@/screens/Tools/Converter/MassConverter/MassConverter";
 
 export const metadata: Metadata = {
   title: "Mass Converter",

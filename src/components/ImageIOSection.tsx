@@ -5,11 +5,11 @@ import IOContainer from "@/components/IOContainer";
 export default function ImageIOSection({
   buttons,
   value,
-  handleImageError
+  onImageError
 }: {
   buttons: ButtonOption[];
   value: string;
-  handleImageError: () => void;
+  onImageError: () => void;
 }) {
   return (
     <IOContainer>
@@ -19,7 +19,7 @@ export default function ImageIOSection({
             className="h-full max-h-66 max-w-full"
             alt="IO-Image"
             src={value}
-            onError={handleImageError}
+            onError={onImageError}
           />
         )}
       </Card>

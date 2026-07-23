@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PrettifyJSONPage from "@/screens/Tools/JSON/PrettifyJSON";
+import PrettifyJSONPage from "@/screens/Tools/JSON/PrettifyJSON/PrettifyJSON";
 
 export const metadata: Metadata = {
   title: "Prettify JSON",

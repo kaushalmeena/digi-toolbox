@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ErrorPage from "@/components/ErrorPage";
+import ErrorFallback from "@/components/ErrorFallback";
 
 export const metadata: Metadata = {
   title: "Error 400 - GetThatTool"
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function RootNotFound() {
   return (
-    <ErrorPage
+    <ErrorFallback
       heading="Error 404"
       subHeading="The page you're looking for no longer exists"
     />

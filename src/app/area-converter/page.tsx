@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AreaConverterPage from "@/screens/Tools/Converter/AreaConverter";
+import AreaConverterPage from "@/screens/Tools/Converter/AreaConverter/AreaConverter";
 
 export const metadata: Metadata = {
   title: "Area Converter",

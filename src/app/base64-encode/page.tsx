@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Base64EncodePage from "@/screens/Tools/Text/Base64Encode";
+import Base64EncodePage from "@/screens/Tools/Text/Base64Encode/Base64Encode";
 
 export const metadata: Metadata = {
   title: "Base64-encode Text",

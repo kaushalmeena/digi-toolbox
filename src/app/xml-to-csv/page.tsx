@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import XMLToCSVPage from "@/screens/Tools/XML/XMLToCSV";
+import XMLToCSVPage from "@/screens/Tools/XML/XMLToCSV/XMLToCSV";
 
 export const metadata: Metadata = {
   title: "Convert XML to CSV",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import UUIDGeneratorPage from "@/screens/Tools/Other/UUIDGenerator";
+import UUIDGeneratorPage from "@/screens/Tools/Other/UUIDGenerator/UUIDGenerator";
 
 export const metadata: Metadata = {
   title: "UUID Generator",

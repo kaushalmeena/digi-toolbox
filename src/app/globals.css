@@ -56,14 +56,12 @@
 }
 
 /*
- * Kept unlayered on purpose: these override Blueprint's own rules, which are
- * imported outside Tailwind's layers and would otherwise win the cascade.
+ * Sizing for the omnibar (a stable `app-omnibar` class we pass to <Omnibar>,
+ * so this selector doesn't depend on Blueprint's versioned class names).
+ * Kept unlayered so it overrides Blueprint's own rules, which are imported
+ * outside Tailwind's layers and would otherwise win the cascade.
  */
-body[data-initial-theme="dark"] {
-  background-color: var(--bp-palette-dark-gray-5);
-}
-
-.bp6-omnibar {
+.app-omnibar {
   left: 0;
   right: 0;
   margin: 0 auto;

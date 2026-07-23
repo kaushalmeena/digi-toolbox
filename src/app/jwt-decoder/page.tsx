@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import JWTDecoderPage from "@/screens/Tools/Other/JWTDecoder";
+import JWTDecoderPage from "@/screens/Tools/Other/JWTDecoder/JWTDecoder";
 
 export const metadata: Metadata = {
   title: "JWT Decoder",

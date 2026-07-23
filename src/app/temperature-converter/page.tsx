@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import TemperatureConverterPage from "@/screens/Tools/Converter/TemperatureConverter";
+import TemperatureConverterPage from "@/screens/Tools/Converter/TemperatureConverter/TemperatureConverter";
 
 export const metadata: Metadata = {
   title: "Temperature Converter",

@@ -1,10 +1,12 @@
+import { decodeBase64ToString } from "@/utils/stringUtils";
+
 const decodeBase64Url = (value: string): string => {
   const normalized = value.replace(/-/g, "+").replace(/_/g, "/");
   const padded = normalized.padEnd(
     normalized.length + ((4 - (normalized.length % 4)) % 4),
     "="
   );
-  return decodeURIComponent(escape(window.atob(padded)));
+  return decodeBase64ToString(padded);
 };
 
 export const decodeJWT = (input: string): string => {

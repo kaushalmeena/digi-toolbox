@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ImageColorPickerPage from "@/screens/Tools/Other/ImageColorPicker";
+import ImageColorPickerPage from "@/screens/Tools/Other/ImageColorPicker/ImageColorPicker";
 
 export const metadata: Metadata = {
   title: "Image Color Picker",

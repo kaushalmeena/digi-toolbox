@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BaseConverterPage from "@/screens/Tools/Converter/BaseConverter";
+import BaseConverterPage from "@/screens/Tools/Converter/BaseConverter/BaseConverter";
 
 export const metadata: Metadata = {
   title: "Base Converter",

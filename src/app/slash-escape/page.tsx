@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SlashEscapePage from "@/screens/Tools/Text/SlashEscape";
+import SlashEscapePage from "@/screens/Tools/Text/SlashEscape/SlashEscape";
 
 export const metadata: Metadata = {
   title: "Slash-escape Text",

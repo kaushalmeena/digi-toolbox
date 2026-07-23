@@ -1,6 +1,7 @@
 import { TextArea } from "@blueprintjs/core";
 import { type ChangeEvent, type DragEvent, useState } from "react";
-import { cn, readFileAsText } from "@/utils";
+import { twMerge } from "tailwind-merge";
+import { readFileAsText } from "@/utils/fileUtils";
 import ButtonSection, { type ButtonOption } from "./ButtonSection";
 import IOContainer from "./IOContainer";
 
@@ -44,7 +45,7 @@ export default function TextAreaIOSection({
   return (
     <IOContainer>
       <TextArea
-        className={cn(
+        className={twMerge(
           "font-mono",
           dragging && "ring-2 ring-(--bp-palette-blue-3)"
         )}

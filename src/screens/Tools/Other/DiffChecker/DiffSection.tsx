@@ -1,13 +1,13 @@
 import { OverlayToaster } from "@blueprintjs/core";
-import { Export, Refresh } from "@blueprintjs/icons";
+import { ExportIcon, RefreshIcon } from "@blueprintjs/icons";
 import type { Change } from "diff";
 import { type ChangeEvent, useRef, useState } from "react";
 import type { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
-import { ToastMessages } from "@/constants";
-import { loadFile } from "@/utils";
+import { ToastMessages } from "@/constants/toast";
+import { loadFile } from "@/utils/fileUtils";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
 
@@ -83,12 +83,12 @@ export default function DiffSection() {
   const leftInputButtons: ButtonOption[] = [
     {
       title: "Clear",
-      icon: <Refresh />,
+      icon: <RefreshIcon />,
       onClick: handleLeftInputClear
     },
     {
       title: "Upload",
-      icon: <Export />,
+      icon: <ExportIcon />,
       onClick: handleLeftInputUpload
     }
   ];
@@ -96,12 +96,12 @@ export default function DiffSection() {
   const rightInputButtons: ButtonOption[] = [
     {
       title: "Clear",
-      icon: <Refresh />,
+      icon: <RefreshIcon />,
       onClick: handleRightInputClear
     },
     {
       title: "Upload",
-      icon: <Export />,
+      icon: <ExportIcon />,
       onClick: handleRightInputUpload
     }
   ];

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HexToTextPage from "@/screens/Tools/Text/HexToText";
+import HexToTextPage from "@/screens/Tools/Text/HexToText/HexToText";
 
 export const metadata: Metadata = {
   title: "Convert Hexadecimal to Text",

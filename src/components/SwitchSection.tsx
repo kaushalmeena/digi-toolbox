@@ -1,5 +1,5 @@
 import { Button } from "@blueprintjs/core";
-import { ArrowsHorizontal } from "@blueprintjs/icons";
+import { ArrowsHorizontalIcon } from "@blueprintjs/icons";
 import { useRouter } from "next/navigation";
 
 export default function SwitchSection({ switchURL }: { switchURL: string }) {
@@ -14,7 +14,7 @@ export default function SwitchSection({ switchURL }: { switchURL: string }) {
       <Button
         size="large"
         title="Switch"
-        icon={<ArrowsHorizontal />}
+        icon={<ArrowsHorizontalIcon />}
         onClick={handleSwitchAction}
       />
     </div>

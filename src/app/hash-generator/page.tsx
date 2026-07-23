@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HashGeneratorPage from "@/screens/Tools/Text/HashGenerator";
+import HashGeneratorPage from "@/screens/Tools/Text/HashGenerator/HashGenerator";
 
 export const metadata: Metadata = {
   title: "Hash Generator",

@@ -1,4 +1,4 @@
-import type { SelectOption } from "@/types";
+import type { SelectOption } from "@/types/select";
 
 export const HashAlgorithms: SelectOption[] = [
   { label: "SHA-1", value: "SHA-1" },

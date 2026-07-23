@@ -1,4 +1,4 @@
-import HomePage from "@/screens/Home";
+import HomePage from "@/screens/Home/Home";
 
 export default function RootPage() {
   return <HomePage />;
