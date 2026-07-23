@@ -21,18 +21,18 @@ export default function MainLayout({ children }: { children: ReactNode }) {
 
   // The tool UI relies on Blueprint components that only render consistently on
   // the client, so we render it after mount. next-themes has already applied
-  // the theme class to <html> before paint, so `bg-surface` here is themed and
+  // the theme class to <html> before paint, so `bg-background` here is themed and
   // there is no flash. The document <head> (SEO metadata) is unaffected.
   if (!mounted) {
     return (
-      <div className="bg-surface flex min-h-screen items-center justify-center">
+      <div className="bg-background flex min-h-screen items-center justify-center">
         <Spinner intent="primary" size={60} />
       </div>
     );
   }
 
   return (
-    <div className="bg-surface">
+    <div className="bg-background">
       <Header openOmnibarSearch={handleOmnibarSearchOpen} />
       <main className="mx-auto min-h-[calc(100vh-50px)] w-full max-w-350 px-10 py-5 max-sm:px-5 max-sm:py-2.5">
         {children}

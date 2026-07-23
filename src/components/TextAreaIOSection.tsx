@@ -45,13 +45,13 @@ export default function TextAreaIOSection({
   return (
     <IOContainer>
       <TextArea
-        className={twMerge(
-          "font-mono",
-          dragging && "ring-2 ring-(--bp-palette-blue-3)"
-        )}
+        className={twMerge("font-mono", dragging && "ring-2 ring-primary")}
         fill
         rows={16}
         value={value}
+        placeholder={
+          onValueChange ? "Paste, type, or drop a file here…" : undefined
+        }
         onChange={onValueChange}
         readOnly={!onValueChange}
         onDragOver={handleDragOver}
