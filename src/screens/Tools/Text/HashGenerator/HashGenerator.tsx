@@ -8,7 +8,7 @@ import ConvertContainer from "@/components/ConvertContainer";
 import HeaderSection from "@/components/HeaderSection";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { readFileAsText } from "@/utils/fileUtils";
 import { generateHash, HashAlgorithms } from "./utils";
@@ -48,10 +48,9 @@ export default function HashGeneratorPage() {
       icon: <DuplicateIcon />,
       onClick: () =>
         copyText(output).then(() =>
-          showToast({
+          appToaster.show({
             message: ToastMessages.COPY_SUCCESS,
-            intent: "primary",
-            isCloseButtonShown: false
+            intent: "primary"
           })
         )
     }

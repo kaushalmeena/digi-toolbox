@@ -6,7 +6,7 @@ import ConvertContainer from "@/components/ConvertContainer";
 import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants/toast";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { loadFile } from "@/utils/fileUtils";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
@@ -59,10 +59,9 @@ export default function DiffSection() {
     loadFile()
       .then((value) => changeLeftInput(value))
       .catch(() => {
-        showToast({
+        appToaster.show({
           message: ToastMessages.FILE_UPLOAD_FAIL,
-          intent: "danger",
-          isCloseButtonShown: false
+          intent: "danger"
         });
       });
   };
@@ -71,10 +70,9 @@ export default function DiffSection() {
     loadFile()
       .then((value) => changeRightInput(value))
       .catch(() => {
-        showToast({
+        appToaster.show({
           message: ToastMessages.FILE_UPLOAD_FAIL,
-          intent: "danger",
-          isCloseButtonShown: false
+          intent: "danger"
         });
       });
   };

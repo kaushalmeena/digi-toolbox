@@ -5,7 +5,7 @@ import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { loadFile } from "@/utils/fileUtils";
 import { drawImageInCanvas, getColorFromCanvas } from "./utils";
@@ -24,10 +24,9 @@ export default function PickerSection() {
         currentColorContainerRef.current.style.backgroundColor = color;
       }
     } catch {
-      showToast({
+      appToaster.show({
         message: ToastMessages.IMAGE_COLOR_CAPTURE_FAIL,
-        intent: "danger",
-        isCloseButtonShown: false
+        intent: "danger"
       });
     }
   };
@@ -45,20 +44,18 @@ export default function PickerSection() {
         drawImageInCanvas(data, canvasRef.current);
       })
       .catch(() => {
-        showToast({
+        appToaster.show({
           message: ToastMessages.IMAGE_UPLOAD_FAIL,
-          intent: "danger",
-          isCloseButtonShown: false
+          intent: "danger"
         });
       });
   };
 
   const handleColorCopy = () => {
     copyText(selectedColor).then(() => {
-      showToast({
+      appToaster.show({
         message: ToastMessages.COPY_SUCCESS,
-        intent: "primary",
-        isCloseButtonShown: false
+        intent: "primary"
       });
     });
   };

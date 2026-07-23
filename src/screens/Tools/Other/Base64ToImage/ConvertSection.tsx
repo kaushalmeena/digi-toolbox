@@ -7,7 +7,7 @@ import MiddleContainer from "@/components/MiddleContainer";
 import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants/toast";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { loadFile, saveImage } from "@/utils/fileUtils";
 
 export default function ConvertSection() {
@@ -25,19 +25,17 @@ export default function ConvertSection() {
     loadFile()
       .then((data) => setInput(data))
       .catch(() => {
-        showToast({
+        appToaster.show({
           message: ToastMessages.IMAGE_UPLOAD_FAIL,
-          intent: "danger",
-          isCloseButtonShown: false
+          intent: "danger"
         });
       });
   };
 
   const handleImageError = () => {
-    showToast({
+    appToaster.show({
       message: ToastMessages.INVALID_IMAGE,
-      intent: "danger",
-      isCloseButtonShown: false
+      intent: "danger"
     });
   };
 
