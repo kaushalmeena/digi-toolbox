@@ -100,7 +100,7 @@ The app runs at [localhost:3000](http://localhost:3000/).
 | `npm run lint` | Lint with Biome |
 | `npm run lint:fix` | Lint and auto-fix |
 | `npm run format` | Format with Biome |
-| `npm run check-types` | Type-check with TypeScript |
+| `npm run typecheck` | Type-check with TypeScript |
 | `npm run test` | Run the Vitest suite |
 | `npm run check` | Types + lint + tests in one go |
 
