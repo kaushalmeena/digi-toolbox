@@ -4,18 +4,31 @@ import {
   type ToastProps
 } from "@blueprintjs/core";
 
-// A single app-wide toaster, created lazily on first use and reused thereafter
-// (Blueprint's recommended pattern) instead of an <OverlayToaster> per screen.
-let toasterPromise: Promise<Toaster> | null = null;
+/**
+ * App-wide toaster as a singleton. The underlying Blueprint `Toaster` is
+ * created lazily on first `show` (client-side, appended to `document.body`)
+ * and reused for the lifetime of the app.
+ */
+class AppToaster {
+  private static instance: AppToaster;
+  private toaster: Promise<Toaster> | null = null;
 
-const getToaster = (): Promise<Toaster> => {
-  if (!toasterPromise) {
-    toasterPromise = OverlayToaster.create();
+  private constructor() {}
+
+  static getInstance(): AppToaster {
+    if (!AppToaster.instance) {
+      AppToaster.instance = new AppToaster();
+    }
+    return AppToaster.instance;
   }
-  return toasterPromise;
-};
 
-export const showToast = async (props: ToastProps): Promise<void> => {
-  const toaster = await getToaster();
-  toaster.show(props);
-};
+  async show(props: ToastProps): Promise<void> {
+    if (!this.toaster) {
+      this.toaster = OverlayToaster.create();
+    }
+    const toaster = await this.toaster;
+    toaster.show({ timeout: 3000, ...props });
+  }
+}
+
+export const appToaster = AppToaster.getInstance();

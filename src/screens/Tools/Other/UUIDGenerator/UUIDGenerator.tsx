@@ -7,7 +7,7 @@ import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import HeaderSection from "@/components/HeaderSection";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { saveFile } from "@/utils/fileUtils";
 import { generateUUIDs } from "./utils";
@@ -18,23 +18,19 @@ export default function UUIDGeneratorPage() {
 
   const generate = (total: number) => {
     setOutput(generateUUIDs(total));
-  };
-
-  // Generate an initial batch on mount only (client-side, to avoid a
-  // server/client hydration mismatch). `count` is intentionally omitted so
-  // changing it doesn't auto-regenerate — the user clicks "Regenerate".
-  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only generation
-  useEffect(() => {
-    generate(count);
-  }, []);
+  }
 
   const notify = (message: string) => {
-    showToast({
+    appToaster.show({
       message,
       intent: "primary",
-      isCloseButtonShown: false
     });
   };
+
+  // Generate an initial batch on mount only; `count` is intentionally omitted
+  // so changing it doesn't auto-regenerate — the user clicks "Regenerate".
+  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only generation
+  useEffect(() => generate(count), []);
 
   const outputButtons: ButtonOption[] = [
     {

@@ -10,7 +10,7 @@ import { type ChangeEvent, useMemo } from "react";
 import { MAX_URL_LENGTH } from "@/constants/config";
 import { ToastMessages } from "@/constants/toast";
 import { usePersistedInput } from "@/hooks/usePersistedInput";
-import { showToast } from "@/lib/toaster";
+import { appToaster } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { loadFile, saveFile } from "@/utils/fileUtils";
 import type { ButtonOption } from "../ButtonSection";
@@ -47,7 +47,7 @@ export default function ConvertSection({
   }, [input, convertFunction]);
 
   const notify = (message: string, intent: "primary" | "danger") => {
-    showToast({ message, intent, isCloseButtonShown: false });
+    appToaster.show({ message, intent });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
