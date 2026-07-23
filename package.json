@@ -11,10 +11,10 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "check-types": "tsc --noEmit --incremental",
+    "typecheck": "tsc --noEmit --incremental",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "npm run check-types && npm run lint && npm run test"
+    "check": "npm run typecheck && npm run lint && npm run test"
   },
   "dependencies": {
     "@blueprintjs/core": "^6.17.2",
