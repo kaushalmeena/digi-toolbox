@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Base64ToImagePage from "@/screens/Tools/Other/Base64ToImage";
+import Base64ToImagePage from "@/screens/Tools/Other/Base64ToImage/Base64ToImage";
 
 export const metadata: Metadata = {
   title: "Base64 to Image",

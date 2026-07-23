@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HTMLDecodePage from "@/screens/Tools/Text/HTMLDecode";
+import HTMLDecodePage from "@/screens/Tools/Text/HTMLDecode/HTMLDecode";
 
 export const metadata: Metadata = {
   title: "HTML-decode Text",

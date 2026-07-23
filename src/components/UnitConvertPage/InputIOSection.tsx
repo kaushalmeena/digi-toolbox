@@ -1,6 +1,6 @@
 import { HTMLSelect, InputGroup, Tag } from "@blueprintjs/core";
 import type { ChangeEvent } from "react";
-import type { SelectOption } from "@/types";
+import type { SelectOption } from "@/types/select";
 import IOContainer from "../IOContainer";
 
 export default function InputIOSection({

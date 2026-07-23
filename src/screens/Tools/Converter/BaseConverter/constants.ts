@@ -1,4 +1,4 @@
-import type { SelectOption } from "@/types";
+import type { SelectOption } from "@/types/select";
 
 export const KnownBaseNames: Record<string, string> = {
   "02": "Binary",

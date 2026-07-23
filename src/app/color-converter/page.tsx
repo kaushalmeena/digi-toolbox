@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ColorConverterPage from "@/screens/Tools/Converter/ColorConverter";
+import ColorConverterPage from "@/screens/Tools/Converter/ColorConverter/ColorConverter";
 
 export const metadata: Metadata = {
   title: "Color Converter",

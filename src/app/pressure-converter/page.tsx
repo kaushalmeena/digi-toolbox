@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PressureConverterPage from "@/screens/Tools/Converter/PressureConverter";
+import PressureConverterPage from "@/screens/Tools/Converter/PressureConverter/PressureConverter";
 
 export const metadata: Metadata = {
   title: "Pressure Converter",

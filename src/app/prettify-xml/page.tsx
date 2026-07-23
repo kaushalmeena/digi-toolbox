@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PrettifyXMLPage from "@/screens/Tools/XML/PrettifyXML";
+import PrettifyXMLPage from "@/screens/Tools/XML/PrettifyXML/PrettifyXML";
 
 export const metadata: Metadata = {
   title: "Prettify XML",

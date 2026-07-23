@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import XMLToJSONPage from "@/screens/Tools/XML/XMLToJSON";
+import XMLToJSONPage from "@/screens/Tools/XML/XMLToJSON/XMLToJSON";
 
 export const metadata: Metadata = {
   title: "Convert XML to JSON",

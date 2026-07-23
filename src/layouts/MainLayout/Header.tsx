@@ -8,20 +8,31 @@ import {
   NavbarGroup,
   NavbarHeading
 } from "@blueprintjs/core";
-import { Flash, GitRepo, Moon, Search, Wrench } from "@blueprintjs/icons";
+import {
+  FlashIcon,
+  GitRepoIcon,
+  MoonIcon,
+  SearchIcon,
+  WrenchIcon
+} from "@blueprintjs/icons";
 import Link from "next/link";
-import { useMediaQuery } from "@/hooks";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Header({
-  darkMode,
-  toggleDarkMode,
   openOmnibarSearch
 }: {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
   openOmnibarSearch: () => void;
 }) {
   const showSearchInput = useMediaQuery("(min-width: 500px)");
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
     <Navbar className="p-0! shadow-[0px_0px_0px_1px_#10161a33,0px_0px_0px_#10161a00,0px_1px_1px_#10161a33]!">
@@ -32,7 +43,7 @@ export default function Header({
               href="/"
               className="flex cursor-pointer items-center transition-opacity hover:no-underline hover:opacity-30"
             >
-              <Wrench size={18} />
+              <WrenchIcon size={18} />
               <span className="ml-1.25 text-lg font-semibold">GetThatTool</span>
             </Link>
           </NavbarHeading>
@@ -44,7 +55,7 @@ export default function Header({
                 readOnly
                 type="search"
                 placeholder="Search tools..."
-                leftElement={<Search className="m-2" />}
+                leftElement={<SearchIcon className="m-2" />}
                 onClick={openOmnibarSearch}
               />
               <Divider />
@@ -55,20 +66,20 @@ export default function Header({
               <Button
                 variant="minimal"
                 title="Search tools"
-                icon={<Search />}
+                icon={<SearchIcon />}
                 onClick={openOmnibarSearch}
               />
             )}
             <Button
               variant="minimal"
               title="Toggle dark mode"
-              icon={darkMode ? <Flash /> : <Moon />}
-              onClick={toggleDarkMode}
+              icon={isDark ? <FlashIcon /> : <MoonIcon />}
+              onClick={toggleTheme}
             />
             <AnchorButton
               variant="minimal"
               title="Github repository"
-              icon={<GitRepo />}
+              icon={<GitRepoIcon />}
               href="https://github.com/kaushalmeena/find-that-tool"
             />
           </ButtonGroup>

@@ -1,9 +1,17 @@
 import { Callout, OverlayToaster } from "@blueprintjs/core";
-import { Duplicate, Export, Import, Link, Refresh } from "@blueprintjs/icons";
+import {
+  DuplicateIcon,
+  ExportIcon,
+  ImportIcon,
+  LinkIcon,
+  RefreshIcon
+} from "@blueprintjs/icons";
 import { type ChangeEvent, useMemo, useRef } from "react";
-import { usePersistedInput } from "@/hooks";
-import { copyText, loadFile, saveFile } from "@/utils";
-import { MAX_SHARE_URL_LENGTH, ToastMessages } from "../../constants";
+import { MAX_URL_LENGTH } from "@/constants/config";
+import { ToastMessages } from "@/constants/toast";
+import { usePersistedInput } from "@/hooks/usePersistedInput";
+import { copyText } from "@/utils/copyUtils";
+import { loadFile, saveFile } from "@/utils/fileUtils";
 import type { ButtonOption } from "../ButtonSection";
 import ConvertContainer from "../ConvertContainer";
 import MiddleContainer from "../MiddleContainer";
@@ -58,7 +66,7 @@ export default function ConvertSection({
 
   const handleShare = () => {
     const url = buildShareUrl();
-    if (url.length > MAX_SHARE_URL_LENGTH) {
+    if (url.length > MAX_URL_LENGTH) {
       notify(ToastMessages.SHARE_LINK_TOO_LARGE, "danger");
       return;
     }
@@ -78,17 +86,17 @@ export default function ConvertSection({
   const inputButtons: ButtonOption[] = [
     {
       title: "Clear",
-      icon: <Refresh />,
+      icon: <RefreshIcon />,
       onClick: handleInputClear
     },
     {
       title: "Upload",
-      icon: <Export />,
+      icon: <ExportIcon />,
       onClick: handleInputUpload
     },
     {
       title: "Share",
-      icon: <Link />,
+      icon: <LinkIcon />,
       onClick: handleShare
     }
   ];
@@ -96,12 +104,12 @@ export default function ConvertSection({
   const outputButtons: ButtonOption[] = [
     {
       title: "Copy",
-      icon: <Duplicate />,
+      icon: <DuplicateIcon />,
       onClick: handleOutputCopy
     },
     {
       title: "Download",
-      icon: <Import />,
+      icon: <ImportIcon />,
       onClick: handleOutputDownload
     }
   ];

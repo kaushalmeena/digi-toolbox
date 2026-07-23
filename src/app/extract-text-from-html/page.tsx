@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ExtractTextFromHTMLPage from "@/screens/Tools/Text/ExtractTextFromHTML";
+import ExtractTextFromHTMLPage from "@/screens/Tools/Text/ExtractTextFromHTML/ExtractTextFromHTML";
 
 export const metadata: Metadata = {
   title: "Extract Text from HTML",

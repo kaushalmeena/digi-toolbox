@@ -1,5 +1,5 @@
 import { OverlayToaster } from "@blueprintjs/core";
-import { Duplicate, Export, Import } from "@blueprintjs/icons";
+import { DuplicateIcon, ExportIcon, ImportIcon } from "@blueprintjs/icons";
 import { useRef, useState } from "react";
 import type { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
@@ -7,8 +7,9 @@ import ImageIOSection from "@/components/ImageIOSection";
 import MiddleContainer from "@/components/MiddleContainer";
 import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
-import { ToastMessages } from "@/constants";
-import { copyText, loadFile, saveFile } from "@/utils";
+import { ToastMessages } from "@/constants/toast";
+import { copyText } from "@/utils/copyUtils";
+import { loadFile, saveFile } from "@/utils/fileUtils";
 
 export default function ConvertSection() {
   const [output, setOutput] = useState("");
@@ -51,7 +52,7 @@ export default function ConvertSection() {
   const inputButtons: ButtonOption[] = [
     {
       title: "Upload",
-      icon: <Export />,
+      icon: <ExportIcon />,
       onClick: handleInputUpload
     }
   ];
@@ -59,12 +60,12 @@ export default function ConvertSection() {
   const outputButtons: ButtonOption[] = [
     {
       title: "Copy",
-      icon: <Duplicate />,
+      icon: <DuplicateIcon />,
       onClick: handleOutputCopy
     },
     {
       title: "Download",
-      icon: <Import />,
+      icon: <ImportIcon />,
       onClick: handleOutputDownload
     }
   ];
@@ -75,7 +76,7 @@ export default function ConvertSection() {
         <ImageIOSection
           buttons={inputButtons}
           value={output}
-          handleImageError={handleImageError}
+          onImageError={handleImageError}
         />
         <MiddleContainer>
           <SwitchSection switchURL="/base64-to-image" />

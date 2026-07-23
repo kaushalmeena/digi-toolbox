@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SpeedConverterPage from "@/screens/Tools/Converter/SpeedConverter";
+import SpeedConverterPage from "@/screens/Tools/Converter/SpeedConverter/SpeedConverter";
 
 export const metadata: Metadata = {
   title: "Speed Converter",

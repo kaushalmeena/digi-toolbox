@@ -1,13 +1,16 @@
+import { Classes } from "@blueprintjs/core";
 import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 import type { ReactNode } from "react";
-import ServiceWorkerRegistrar from "@/components/ServiceWorkerRegistrar";
-import { SITE_URL } from "@/constants";
-import MainLayout from "@/layouts/MainLayout";
+import ServiceWorker from "@/components/ServiceWorker";
+import { SITE_BASE_URL } from "@/constants/config";
+import MainLayout from "@/layouts/MainLayout/MainLayout";
 
 import "normalize.css";
 
+// Icons are used as SVG React components (e.g. <Flash />), so the legacy icon
+// *font* stylesheet (blueprint-icons.css) is intentionally not imported.
 import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import "@blueprintjs/select/lib/css/blueprint-select.css";
 
 import "./globals.css";
@@ -17,7 +20,7 @@ const DESCRIPTION =
   "GetThatTool lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place — fast, free and right in your browser.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_BASE_URL),
   title: {
     default: TITLE,
     // Per-page titles (e.g. "JSON to CSV") get this suffix automatically.
@@ -48,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "GetThatTool",
-    url: SITE_URL,
+    url: SITE_BASE_URL,
     title: TITLE,
     description: DESCRIPTION
   },
@@ -67,42 +70,21 @@ export const viewport: Viewport = {
   themeColor: "#2d72d2"
 };
 
-function InitialThemeScript() {
-  const codeToRunOnClient = `
-    (function () {
-      function fetchDarkMode() {
-        let mode = false;
-        const value = localStorage.getItem("darkMode");
-        if (value) {
-          mode = value === "1";
-        } else {
-          const media = window.matchMedia("(prefers-color-scheme: dark)");
-          mode = media.matches;
-        }
-        return mode;
-      }
-      const initialTheme = fetchDarkMode() ? "dark" : "light";
-      document.body.setAttribute("data-initial-theme", initialTheme);
-    })();
-  `;
-
-  return (
-    <script
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: static, non-user inline script that sets the initial theme before hydration to prevent a flash
-      dangerouslySetInnerHTML={{
-        __html: codeToRunOnClient
-      }}
-    />
-  );
-}
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true}>
-        <InitialThemeScript />
-        <ServiceWorkerRegistrar />
-        <MainLayout>{children}</MainLayout>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ServiceWorker />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          // Map next-themes' "dark" onto Blueprint's own dark class.
+          value={{ light: "light", dark: Classes.DARK }}
+          disableTransitionOnChange
+        >
+          <MainLayout>{children}</MainLayout>
+        </ThemeProvider>
       </body>
     </html>
   );

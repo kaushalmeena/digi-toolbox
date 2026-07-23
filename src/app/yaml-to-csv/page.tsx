@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import YAMLToCSVPage from "@/screens/Tools/YAML/YAMLToCSV";
+import YAMLToCSVPage from "@/screens/Tools/YAML/YAMLToCSV/YAMLToCSV";
 
 export const metadata: Metadata = {
   title: "Convert YAML to CSV",

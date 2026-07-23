@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import URLEncodePage from "@/screens/Tools/Text/URLEncode";
+import URLEncodePage from "@/screens/Tools/Text/URLEncode/URLEncode";
 
 export const metadata: Metadata = {
   title: "URL-encode Text",

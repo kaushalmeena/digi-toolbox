@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import EnergyConverterPage from "@/screens/Tools/Converter/EnergyConverter";
+import EnergyConverterPage from "@/screens/Tools/Converter/EnergyConverter/EnergyConverter";
 
 export const metadata: Metadata = {
   title: "Energy Converter",

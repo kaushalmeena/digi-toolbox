@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LengthConverterPage from "@/screens/Tools/Converter/LengthConverter";
+import LengthConverterPage from "@/screens/Tools/Converter/LengthConverter/LengthConverter";
 
 export const metadata: Metadata = {
   title: "Length Converter",

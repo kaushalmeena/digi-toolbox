@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import YAMLToJSONPage from "@/screens/Tools/YAML/YAMLToJSON";
+import YAMLToJSONPage from "@/screens/Tools/YAML/YAMLToJSON/YAMLToJSON";
 
 export const metadata: Metadata = {
   title: "Convert YAML to JSON",
