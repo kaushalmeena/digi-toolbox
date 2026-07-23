@@ -1,4 +1,4 @@
-import { Callout, OverlayToaster } from "@blueprintjs/core";
+import { Callout } from "@blueprintjs/core";
 import {
   DuplicateIcon,
   ExportIcon,
@@ -6,10 +6,11 @@ import {
   LinkIcon,
   RefreshIcon
 } from "@blueprintjs/icons";
-import { type ChangeEvent, useMemo, useRef } from "react";
+import { type ChangeEvent, useMemo } from "react";
 import { MAX_URL_LENGTH } from "@/constants/config";
 import { ToastMessages } from "@/constants/toast";
 import { usePersistedInput } from "@/hooks/usePersistedInput";
+import { showToast } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { loadFile, saveFile } from "@/utils/fileUtils";
 import type { ButtonOption } from "../ButtonSection";
@@ -30,7 +31,6 @@ export default function ConvertSection({
   convertFunction: (input: string) => string;
 }) {
   const { input, setInput, buildShareUrl } = usePersistedInput();
-  const toasterRef = useRef<OverlayToaster>(null);
 
   const { output, error } = useMemo(() => {
     if (!input) {
@@ -47,7 +47,7 @@ export default function ConvertSection({
   }, [input, convertFunction]);
 
   const notify = (message: string, intent: "primary" | "danger") => {
-    toasterRef.current?.show({ message, intent, isCloseButtonShown: false });
+    showToast({ message, intent, isCloseButtonShown: false });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -120,7 +120,7 @@ export default function ConvertSection({
         <TextAreaIOSection
           buttons={inputButtons}
           value={input}
-          handleValueChange={handleInputChange}
+          onValueChange={handleInputChange}
           onFileDrop={setInput}
         />
         <MiddleContainer>
@@ -133,7 +133,6 @@ export default function ConvertSection({
           {error}
         </Callout>
       )}
-      <OverlayToaster ref={toasterRef} />
     </>
   );
 }

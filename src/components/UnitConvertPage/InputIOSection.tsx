@@ -7,14 +7,14 @@ export default function InputIOSection({
   inputValue,
   selectValue,
   selectOptions,
-  handleInputChange,
-  handleSelectChange
+  onInputChange,
+  onSelectChange
 }: {
   inputValue: string;
   selectValue: string;
   selectOptions: SelectOption[];
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onSelectChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }) {
   return (
     <IOContainer>
@@ -23,7 +23,7 @@ export default function InputIOSection({
         size="large"
         value={inputValue}
         rightElement={<Tag minimal>{selectValue}</Tag>}
-        onChange={handleInputChange}
+        onChange={onInputChange}
       />
       <HTMLSelect
         className="mt-2.5"
@@ -31,7 +31,7 @@ export default function InputIOSection({
         large
         options={selectOptions}
         value={selectValue}
-        onChange={handleSelectChange}
+        onChange={onSelectChange}
       />
     </IOContainer>
   );

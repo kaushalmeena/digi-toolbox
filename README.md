@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔧 GetThatTool
+# 🔧 FindThatTool
 
 **Every common developer tool you need — JSON, CSV, YAML, XML, Text and more — in one fast, free place.**
 
@@ -12,7 +12,7 @@
 
 ---
 
-GetThatTool is a collection of **45+ everyday utilities** for developers, all in one place. No sign-up, no ads, no uploads to a server — **everything runs entirely in your browser**. It's installable as an app and works **offline**.
+FindThatTool is a collection of **45+ everyday utilities** for developers, all in one place. No sign-up, no ads, no uploads to a server — **everything runs entirely in your browser**. It's installable as an app and works **offline**.
 
 ## ✨ Highlights
 

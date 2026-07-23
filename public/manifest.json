@@ -1,6 +1,6 @@
 {
-  "short_name": "GetThatTool",
-  "name": "GetThatTool - One place for all common tools",
+  "short_name": "FindThatTool",
+  "name": "FindThatTool - One place for all common tools",
   "description": "All common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
   "icons": [
     {

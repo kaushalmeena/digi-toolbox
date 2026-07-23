@@ -1,10 +1,11 @@
-import { Button, Card, InputGroup, OverlayToaster } from "@blueprintjs/core";
+import { Button, Card, InputGroup } from "@blueprintjs/core";
 import { DuplicateIcon, ExportIcon } from "@blueprintjs/icons";
 import { useRef, useState } from "react";
 import ButtonSection, { type ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import IOContainer from "@/components/IOContainer";
 import { ToastMessages } from "@/constants/toast";
+import { showToast } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { loadFile } from "@/utils/fileUtils";
 import { drawImageInCanvas, getColorFromCanvas } from "./utils";
@@ -13,7 +14,6 @@ export default function PickerSection() {
   const [selectedColor, setSelectedColor] = useState("");
   const currentColorContainerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const toasterRef = useRef<OverlayToaster>(null);
 
   const handleCurrentColorCapture = (
     event: React.MouseEvent<HTMLCanvasElement, MouseEvent>
@@ -24,7 +24,7 @@ export default function PickerSection() {
         currentColorContainerRef.current.style.backgroundColor = color;
       }
     } catch {
-      toasterRef.current?.show({
+      showToast({
         message: ToastMessages.IMAGE_COLOR_CAPTURE_FAIL,
         intent: "danger",
         isCloseButtonShown: false
@@ -45,7 +45,7 @@ export default function PickerSection() {
         drawImageInCanvas(data, canvasRef.current);
       })
       .catch(() => {
-        toasterRef.current?.show({
+        showToast({
           message: ToastMessages.IMAGE_UPLOAD_FAIL,
           intent: "danger",
           isCloseButtonShown: false
@@ -55,7 +55,7 @@ export default function PickerSection() {
 
   const handleColorCopy = () => {
     copyText(selectedColor).then(() => {
-      toasterRef.current?.show({
+      showToast({
         message: ToastMessages.COPY_SUCCESS,
         intent: "primary",
         isCloseButtonShown: false
@@ -72,51 +72,48 @@ export default function PickerSection() {
   ];
 
   return (
-    <>
-      <ConvertContainer>
-        <IOContainer>
-          <Card className="p-0">
-            <div className="flex min-h-[308px] items-center justify-center p-5">
-              <canvas
-                className="h-full max-h-[260px] max-w-full cursor-crosshair"
-                hidden
-                ref={canvasRef}
-                onMouseMove={handleCurrentColorCapture}
-                onClick={handleSelectedColorCapture}
-              />
-            </div>
-            <div className="flex flex-wrap overflow-hidden rounded-b-[3px] border-t border-edge">
+    <ConvertContainer>
+      <IOContainer>
+        <Card className="p-0">
+          <div className="flex min-h-77 items-center justify-center p-5">
+            <canvas
+              className="h-full max-h-65 max-w-full cursor-crosshair"
+              hidden
+              ref={canvasRef}
+              onMouseMove={handleCurrentColorCapture}
+              onClick={handleSelectedColorCapture}
+            />
+          </div>
+          <div className="flex flex-wrap overflow-hidden rounded-b-[3px] border-t border-edge">
+            <div
+              className="flex h-14.75 min-w-60.5 flex-[0.5] items-center justify-center max-sm:flex-1"
+              ref={currentColorContainerRef}
+            />
+            {!!selectedColor && (
               <div
-                className="flex h-[59px] min-w-[242px] flex-[0.5] items-center justify-center max-sm:flex-1"
-                ref={currentColorContainerRef}
-              />
-              {!!selectedColor && (
-                <div
-                  className="flex h-[59px] min-w-[242px] flex-[0.5] items-center justify-center max-sm:flex-1"
-                  style={{ backgroundColor: selectedColor }}
-                >
-                  <InputGroup
-                    size="large"
-                    readOnly
-                    value={selectedColor}
-                    rightElement={
-                      <Button
-                        size="large"
-                        variant="minimal"
-                        title="Copy"
-                        icon={<DuplicateIcon />}
-                        onClick={handleColorCopy}
-                      />
-                    }
-                  />
-                </div>
-              )}
-            </div>
-          </Card>
-          <ButtonSection buttons={convertButtons} />
-        </IOContainer>
-      </ConvertContainer>
-      <OverlayToaster ref={toasterRef} />
-    </>
+                className="flex h-14.75 min-w-60.5 flex-[0.5] items-center justify-center max-sm:flex-1"
+                style={{ backgroundColor: selectedColor }}
+              >
+                <InputGroup
+                  size="large"
+                  readOnly
+                  value={selectedColor}
+                  rightElement={
+                    <Button
+                      size="large"
+                      variant="minimal"
+                      title="Copy"
+                      icon={<DuplicateIcon />}
+                      onClick={handleColorCopy}
+                    />
+                  }
+                />
+              </div>
+            )}
+          </div>
+        </Card>
+        <ButtonSection buttons={convertButtons} />
+      </IOContainer>
+    </ConvertContainer>
   );
 }

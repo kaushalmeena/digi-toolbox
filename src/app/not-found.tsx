@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ErrorFallback from "@/components/ErrorFallback";
 
 export const metadata: Metadata = {
-  title: "Error 400 - GetThatTool"
+  title: "Error 400 - FindThatTool"
 };
 
 export default function RootNotFound() {

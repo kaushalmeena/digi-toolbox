@@ -8,12 +8,12 @@ import IOContainer from "./IOContainer";
 export default function TextAreaIOSection({
   buttons,
   value,
-  handleValueChange,
+  onValueChange,
   onFileDrop
 }: {
   buttons: ButtonOption[];
   value: string;
-  handleValueChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onFileDrop?: (text: string) => void;
 }) {
   const [dragging, setDragging] = useState(false);
@@ -52,8 +52,8 @@ export default function TextAreaIOSection({
         fill
         rows={16}
         value={value}
-        onChange={handleValueChange}
-        readOnly={!handleValueChange}
+        onChange={onValueChange}
+        readOnly={!onValueChange}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}

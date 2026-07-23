@@ -19,7 +19,7 @@ export function usePersistedInput(): {
   buildShareUrl: () => string;
 } {
   const pathname = usePathname();
-  const storageKey = `gtt:input:${pathname}`;
+  const storageKey = `ftt:input:${pathname}`;
   const [input, setInputState] = useState("");
 
   useEffect(() => {

@@ -1,12 +1,12 @@
-import { OverlayToaster } from "@blueprintjs/core";
 import { ExportIcon, RefreshIcon } from "@blueprintjs/icons";
 import type { Change } from "diff";
-import { type ChangeEvent, useRef, useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import type { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import MiddleContainer from "@/components/MiddleContainer";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants/toast";
+import { showToast } from "@/lib/toaster";
 import { loadFile } from "@/utils/fileUtils";
 import OutputSection from "./OutputSection";
 import { getLeftAndRightOutput } from "./utils";
@@ -16,7 +16,6 @@ export default function DiffSection() {
   const [rightInput, setRightInput] = useState("");
   const [leftOutput, setLeftOutput] = useState<Change[]>([]);
   const [rightOutput, setRightOutput] = useState<Change[]>([]);
-  const toasterRef = useRef<OverlayToaster>(null);
 
   const changeLeftInput = (value: string) => {
     const [leftOutput, rightOutput] = getLeftAndRightOutput(value, rightInput);
@@ -60,7 +59,7 @@ export default function DiffSection() {
     loadFile()
       .then((value) => changeLeftInput(value))
       .catch(() => {
-        toasterRef.current?.show({
+        showToast({
           message: ToastMessages.FILE_UPLOAD_FAIL,
           intent: "danger",
           isCloseButtonShown: false
@@ -72,7 +71,7 @@ export default function DiffSection() {
     loadFile()
       .then((value) => changeRightInput(value))
       .catch(() => {
-        toasterRef.current?.show({
+        showToast({
           message: ToastMessages.FILE_UPLOAD_FAIL,
           intent: "danger",
           isCloseButtonShown: false
@@ -112,13 +111,13 @@ export default function DiffSection() {
         <TextAreaIOSection
           buttons={leftInputButtons}
           value={leftInput}
-          handleValueChange={handleLeftInputChange}
+          onValueChange={handleLeftInputChange}
         />
         <MiddleContainer />
         <TextAreaIOSection
           buttons={rightInputButtons}
           value={rightInput}
-          handleValueChange={handleRightInputChange}
+          onValueChange={handleRightInputChange}
         />
       </ConvertContainer>
       {!!leftOutput?.length && !!rightOutput?.length && (
@@ -128,7 +127,6 @@ export default function DiffSection() {
           <OutputSection output={rightOutput} />
         </ConvertContainer>
       )}
-      <OverlayToaster ref={toasterRef} />
     </>
   );
 }

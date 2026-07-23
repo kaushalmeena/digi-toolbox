@@ -32,6 +32,7 @@ export default function Header({
   useEffect(() => setMounted(true), []);
 
   const isDark = mounted && resolvedTheme === "dark";
+
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
@@ -44,7 +45,9 @@ export default function Header({
               className="flex cursor-pointer items-center transition-opacity hover:no-underline hover:opacity-30"
             >
               <WrenchIcon size={18} />
-              <span className="ml-1.25 text-lg font-semibold">GetThatTool</span>
+              <span className="ml-1.25 text-lg font-semibold">
+                FindThatTool
+              </span>
             </Link>
           </NavbarHeading>
         </NavbarGroup>

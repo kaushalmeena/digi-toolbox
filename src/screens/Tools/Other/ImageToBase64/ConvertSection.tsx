@@ -1,6 +1,5 @@
-import { OverlayToaster } from "@blueprintjs/core";
 import { DuplicateIcon, ExportIcon, ImportIcon } from "@blueprintjs/icons";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import type { ButtonOption } from "@/components/ButtonSection";
 import ConvertContainer from "@/components/ConvertContainer";
 import ImageIOSection from "@/components/ImageIOSection";
@@ -8,18 +7,18 @@ import MiddleContainer from "@/components/MiddleContainer";
 import SwitchSection from "@/components/SwitchSection";
 import TextAreaIOSection from "@/components/TextAreaIOSection";
 import { ToastMessages } from "@/constants/toast";
+import { showToast } from "@/lib/toaster";
 import { copyText } from "@/utils/copyUtils";
 import { loadFile, saveFile } from "@/utils/fileUtils";
 
 export default function ConvertSection() {
   const [output, setOutput] = useState("");
-  const toasterRef = useRef<OverlayToaster>(null);
 
   const handleInputUpload = () => {
     loadFile("image/*", "dataURL")
       .then((data) => setOutput(data))
       .catch(() => {
-        toasterRef.current?.show({
+        showToast({
           message: ToastMessages.IMAGE_UPLOAD_FAIL,
           intent: "danger",
           isCloseButtonShown: false
@@ -28,7 +27,7 @@ export default function ConvertSection() {
   };
 
   const handleImageError = () => {
-    toasterRef.current?.show({
+    showToast({
       message: ToastMessages.INVALID_IMAGE,
       intent: "danger",
       isCloseButtonShown: false
@@ -37,7 +36,7 @@ export default function ConvertSection() {
 
   const handleOutputCopy = () => {
     copyText(output).then(() =>
-      toasterRef.current?.show({
+      showToast({
         message: ToastMessages.COPY_SUCCESS,
         intent: "primary",
         isCloseButtonShown: false
@@ -71,19 +70,16 @@ export default function ConvertSection() {
   ];
 
   return (
-    <>
-      <ConvertContainer>
-        <ImageIOSection
-          buttons={inputButtons}
-          value={output}
-          onImageError={handleImageError}
-        />
-        <MiddleContainer>
-          <SwitchSection switchURL="/base64-to-image" />
-        </MiddleContainer>
-        <TextAreaIOSection buttons={outputButtons} value={output} />
-      </ConvertContainer>
-      <OverlayToaster ref={toasterRef} />
-    </>
+    <ConvertContainer>
+      <ImageIOSection
+        buttons={inputButtons}
+        value={output}
+        onImageError={handleImageError}
+      />
+      <MiddleContainer>
+        <SwitchSection switchURL="/base64-to-image" />
+      </MiddleContainer>
+      <TextAreaIOSection buttons={outputButtons} value={output} />
+    </ConvertContainer>
   );
 }

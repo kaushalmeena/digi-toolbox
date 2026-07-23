@@ -12,7 +12,7 @@ export default function ButtonSection({
   buttons: ButtonOption[];
 }) {
   return (
-    <div className="mt-5 flex items-center">
+    <div className="mt-5 flex items-center gap-1">
       {buttons.map((button) => (
         <Button
           className="mr-2.5"
