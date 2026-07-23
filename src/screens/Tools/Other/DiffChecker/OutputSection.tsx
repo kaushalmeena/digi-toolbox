@@ -6,10 +6,10 @@ import IOContainer from "@/components/IOContainer";
 export default function OutputSection({ output }: { output: Change[] }) {
   const renderText = (item: Change) => {
     if (item.added) {
-      return <span className="bg-diff-add">{item.value}</span>;
+      return <span className="bg-success">{item.value}</span>;
     }
     if (item.removed) {
-      return <span className="bg-diff-del">{item.value}</span>;
+      return <span className="bg-destructive">{item.value}</span>;
     }
     return item.value;
   };

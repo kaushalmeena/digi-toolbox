@@ -84,7 +84,7 @@ export default function PickerSection() {
               onClick={handleSelectedColorCapture}
             />
           </div>
-          <div className="flex flex-wrap overflow-hidden rounded-b-[3px] border-t border-edge">
+          <div className="flex flex-wrap overflow-hidden rounded-b-[3px] border-t border-border">
             <div
               className="flex h-14.75 min-w-60.5 flex-[0.5] items-center justify-center max-sm:flex-1"
               ref={currentColorContainerRef}

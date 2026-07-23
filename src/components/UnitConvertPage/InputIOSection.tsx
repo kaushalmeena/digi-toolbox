@@ -21,6 +21,7 @@ export default function InputIOSection({
       <InputGroup
         className="[&_input]:font-mono"
         size="large"
+        placeholder="Enter a value"
         value={inputValue}
         rightElement={<Tag minimal>{selectValue}</Tag>}
         onChange={onInputChange}

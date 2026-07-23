@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@blueprintjs/core";
+import { Button, NonIdealState } from "@blueprintjs/core";
+import { HomeIcon, PathSearchIcon } from "@blueprintjs/icons";
 import Link from "next/link";
-import HeaderSection from "./HeaderSection";
 
 export default function ErrorFallback({
   heading,
@@ -12,11 +12,18 @@ export default function ErrorFallback({
   subHeading: string;
 }) {
   return (
-    <div className="text-center">
-      <HeaderSection heading={heading} subHeading={subHeading} />
-      <Link href="/">
-        <Button size="large">Go to Home</Button>
-      </Link>
-    </div>
+    <NonIdealState
+      className="py-16"
+      icon={<PathSearchIcon />}
+      title={heading}
+      description={subHeading}
+      action={
+        <Link href="/">
+          <Button variant="minimal" intent="primary" icon={<HomeIcon />}>
+            Back to home
+          </Button>
+        </Link>
+      }
+    />
   );
 }

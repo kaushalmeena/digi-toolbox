@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
-/*
- * Breakpoints must stay as Tailwind theme tokens so the `sm:`, `md:` and
- * `max-*` variants are generated. Colors, on the other hand, come straight
- * from Blueprint's palette (see the layers below) — no color tokens needed.
- */
+/* Breakpoints must be Tailwind theme tokens so the `sm:`/`md:`/`max-*`
+ * variants are generated. */
 @theme {
   --breakpoint-sm: 600px;
   --breakpoint-md: 900px;
   --breakpoint-lg: 1200px;
+}
+
+/*
+ * shadcn-style semantic color tokens. `@theme inline` exposes them as real
+ * Tailwind utilities (`bg-background`, `text-foreground`, `border-border`,
+ * `text-muted-foreground`, `bg-primary`, `bg-success`, `bg-destructive`, …)
+ * while the underlying `--background` etc. vars (defined below, sourced from
+ * Blueprint's palette) still flip with the theme.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
 }
 
 @layer base {
@@ -17,42 +31,36 @@
     margin: 0;
   }
 
-  /*
-   * Semantic colors sourced directly from Blueprint's own palette variables,
-   * flipped under `.bp6-dark`. Because the class utilities below read these
-   * vars, `bg-surface`, `border-edge`, etc. switch with the theme for free.
-   */
+  /* Values sourced from Blueprint's palette, flipped under `.bp6-dark`. */
   :root {
-    --surface: var(--bp-palette-light-gray-5);
-    --edge: var(--bp-palette-light-gray-2);
-    --diff-add: var(--bp-palette-green-5);
-    --diff-del: var(--bp-palette-red-5);
+    --background: var(--bp-palette-light-gray-5);
+    --foreground: var(--bp-palette-dark-gray-1);
+    --muted-foreground: var(--bp-palette-gray-2);
+    --border: var(--bp-palette-light-gray-2);
+    --primary: var(--bp-palette-blue-3);
+    --success: var(--bp-palette-green-5);
+    --destructive: var(--bp-palette-red-5);
   }
 
   .bp6-dark {
-    --surface: var(--bp-palette-dark-gray-5);
-    --edge: var(--bp-palette-dark-gray-2);
-    --diff-add: var(--bp-palette-green-3);
-    --diff-del: var(--bp-palette-red-3);
+    --background: var(--bp-palette-dark-gray-5);
+    --foreground: var(--bp-palette-light-gray-5);
+    --muted-foreground: var(--bp-palette-gray-4);
+    --border: var(--bp-palette-dark-gray-2);
+    --primary: var(--bp-palette-blue-3);
+    --success: var(--bp-palette-green-3);
+    --destructive: var(--bp-palette-red-3);
   }
 }
 
-@layer components {
-  .bg-surface {
-    background-color: var(--surface);
-  }
-
-  .border-edge {
-    border-color: var(--edge);
-  }
-
-  .bg-diff-add {
-    background-color: var(--diff-add);
-  }
-
-  .bg-diff-del {
-    background-color: var(--diff-del);
-  }
+/*
+ * Blueprint only colors its own components and sets a fixed (unlayered) base
+ * `body` color, so give plain elements a theme-aware color to inherit. Kept
+ * unlayered and imported after Blueprint so it wins the cascade — otherwise
+ * headings/spans are invisible on the dark background.
+ */
+body {
+  color: var(--foreground);
 }
 
 /*
