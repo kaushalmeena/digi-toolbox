@@ -1,8 +1,8 @@
 {
-  "name": "find-that-tool",
+  "name": "digi-toolbox",
   "version": "1.0.0",
   "description": "A web app that lets you have all common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
-  "repository": "git@github.com:kaushalmeena/find-that-tool.git",
+  "repository": "git@github.com:kaushalmeena/digi-toolbox.git",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

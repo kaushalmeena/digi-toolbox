@@ -18,12 +18,12 @@ export default function UUIDGeneratorPage() {
 
   const generate = (total: number) => {
     setOutput(generateUUIDs(total));
-  }
+  };
 
   const notify = (message: string) => {
     appToaster.show({
       message,
-      intent: "primary",
+      intent: "primary"
     });
   };
 

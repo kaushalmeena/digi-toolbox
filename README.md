@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🔧 FindThatTool
+# 🧰 Digi-Toolbox
 
 **Every common developer tool you need — JSON, CSV, YAML, XML, Text and more — in one fast, free place.**
 
-[**Open the app →**](https://find-that-tool.vercel.app/)
+[**Open the app →**](https://digi-toolbox.vercel.app/)
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-19-149eca?logo=react)](https://react.dev/) [![Blueprint](https://img.shields.io/badge/Blueprint-6-2d72d2)](https://blueprintjs.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -12,7 +12,7 @@
 
 ---
 
-FindThatTool is a collection of **45+ everyday utilities** for developers, all in one place. No sign-up, no ads, no uploads to a server — **everything runs entirely in your browser**. It's installable as an app and works **offline**.
+Digi-Toolbox is a collection of **45+ everyday utilities** for developers, all in one place. No sign-up, no ads, no uploads to a server — **everything runs entirely in your browser**. It's installable as an app and works **offline**.
 
 ## ✨ Highlights
 
@@ -82,8 +82,8 @@ Diff Checker · Image ↔ Base64 · Image Color Picker · **JWT Decoder** · **U
 **Requirements:** [Node.js](https://nodejs.org/) 20.9+ and [git](https://git-scm.com/downloads).
 
 ```bash
-git clone https://github.com/kaushalmeena/find-that-tool.git
-cd find-that-tool
+git clone https://github.com/kaushalmeena/digi-toolbox.git
+cd digi-toolbox
 npm install
 npm run dev
 ```

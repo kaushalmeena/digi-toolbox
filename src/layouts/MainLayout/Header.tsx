@@ -46,7 +46,7 @@ export default function Header({
             >
               <WrenchIcon size={18} />
               <span className="ml-1.25 text-lg font-semibold">
-                FindThatTool
+                Digi-Toolbox
               </span>
             </Link>
           </NavbarHeading>
@@ -83,7 +83,7 @@ export default function Header({
               variant="minimal"
               title="Github repository"
               icon={<GitRepoIcon />}
-              href="https://github.com/kaushalmeena/find-that-tool"
+              href="https://github.com/kaushalmeena/digi-toolbox"
             />
           </ButtonGroup>
         </NavbarGroup>

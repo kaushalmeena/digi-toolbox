@@ -1,7 +1,7 @@
 {
-  "short_name": "FindThatTool",
-  "name": "FindThatTool - One place for all common tools",
-  "description": "All common JSON, CSV, YAML, XML, Text and other tools and converters at one place.",
+  "short_name": "Digi-Toolbox",
+  "name": "Digi-Toolbox — your all-in-one developer toolbox",
+  "description": "A fast, free, in-browser toolbox of 45+ developer utilities — JSON, CSV, YAML, XML and text converters, encoders, formatters, and more.",
   "icons": [
     {
       "src": "favicon.ico",
