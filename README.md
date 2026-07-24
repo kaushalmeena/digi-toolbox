@@ -1,109 +1,122 @@
 <div align="center">
 
-# 🧰 Digi-Toolbox
+<img src="src/app/icon.svg" alt="Digi-Toolbox logo" width="96" height="96" />
 
-**Every common developer tool you need — JSON, CSV, YAML, XML, Text and more — in one fast, free place.**
+# Digi-Toolbox
 
-[**Open the app →**](https://digi-toolbox.vercel.app/)
+**Every common developer tool you need — JSON, CSV, YAML, XML, Text and more —
+in one fast, free place.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-19-149eca?logo=react)](https://react.dev/) [![Blueprint](https://img.shields.io/badge/Blueprint-6-2d72d2)](https://blueprintjs.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+A collection of **45+ everyday utilities** for developers, all in one place. No
+sign-up, no ads, no uploads to a server — everything runs entirely in your
+browser. Installable as a PWA and works offline.
+
+[**Try it live**](https://digi-toolbox.vercel.app/)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639?logo=opensourceinitiative&logoColor=white)](LICENSE) [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)](https://nextjs.org/) [![React](https://img.shields.io/badge/React-19-087EA4?logo=react&logoColor=white)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org) [![PWA](https://img.shields.io/badge/PWA-ready-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 
 </div>
 
 ---
 
-Digi-Toolbox is a collection of **45+ everyday utilities** for developers, all in one place. No sign-up, no ads, no uploads to a server — **everything runs entirely in your browser**. It's installable as an app and works **offline**.
+## Features
 
-## ✨ Highlights
+- **100% client-side** — your data never leaves your machine.
+- **Light and dark mode** — follows your system and remembers your choice.
+- **Instant command-palette search** — the search bar jumps to any tool.
+- **Sticky input** — your work survives a refresh, and every tool has a **Share**
+  button that turns your input into a link.
+- **Drag and drop** — drop a file straight onto the input, or upload / download
+  / copy with one click.
+- **Offline-ready PWA** — install it and use it on a plane.
+- **Accessible UI** — built on [Blueprint](https://blueprintjs.com/) for a clean,
+  accessible interface.
 
-- ⚡ **100% client-side** — your data never leaves your machine.
-- 🌙 **Light & dark mode** that follows your system and remembers your choice.
-- 🔎 **Instant command-palette search** (the search bar) to jump to any tool.
-- 💾 **Sticky input** — your work survives a refresh, and every tool has a **Share** button that turns your input into a link.
-- 🪄 **Drag & drop** a file straight onto the input, or upload / download / copy with one click.
-- 📴 **Offline-ready PWA** — install it and use it on a plane.
-- ♿ Built on [Blueprint](https://blueprintjs.com/) for a clean, accessible UI.
+## Tech Stack
 
-## 🧰 The toolbox
+| Area          | Tools                                                                 |
+| ------------- | --------------------------------------------------------------------- |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, static export)         |
+| **UI**        | [React 19](https://react.dev/) · [Blueprint 6](https://blueprintjs.com/) |
+| **Styling**   | [Tailwind CSS 4](https://tailwindcss.com/)                            |
+| **Testing**   | [Vitest](https://vitest.dev/)                                         |
+| **Tooling**   | [Biome](https://biomejs.dev/) (lint + format) · [TypeScript](https://www.typescriptlang.org/) |
 
-<details open>
-<summary><b>JSON</b></summary>
+## Getting Started
 
-Prettify JSON · Minify JSON · JSON → CSV · JSON → XML · JSON → YAML
-</details>
+These instructions will get you a copy of the project up and running on your
+local machine for development purposes.
 
-<details>
-<summary><b>CSV</b></summary>
+### Requirements
 
-CSV → JSON · CSV → XML · CSV → YAML
-</details>
+To install and run this project you need:
 
-<details>
-<summary><b>XML</b></summary>
+- [Node.js](https://nodejs.org/) 20.9+
+- [git](https://git-scm.com/downloads) (only to clone this repository)
 
-Prettify XML · Minify XML · XML → CSV · XML → JSON · XML → YAML
-</details>
+### Installation
 
-<details>
-<summary><b>YAML</b></summary>
+To set up everything on your local machine, follow these steps:
 
-YAML → CSV · YAML → JSON · YAML → XML
-</details>
-
-<details>
-<summary><b>Text</b></summary>
-
-Base64 Encode / Decode · URL Encode / Decode · HTML Encode / Decode · Slash Escape / Unescape · Text ↔ Hex · Extract text from HTML / XML · **Hash Generator** (SHA-1/256/384/512)
-</details>
-
-<details>
-<summary><b>Converters</b></summary>
-
-Length · Mass · Temperature · Area · Angle · Speed · Pressure · Energy · Color · Base (2–16)
-</details>
-
-<details>
-<summary><b>Other</b></summary>
-
-Diff Checker · Image ↔ Base64 · Image Color Picker · **JWT Decoder** · **UUID Generator**
-</details>
-
-## 🏗️ Tech stack
-
-| | |
-|---|---|
-| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, static export) |
-| **UI** | [React 19](https://react.dev/) + [Blueprint 6](https://blueprintjs.com/) |
-| **Styling** | [Tailwind CSS 4](https://tailwindcss.com/) (theme driven by Blueprint's palette) |
-| **Tooling** | [Biome](https://biomejs.dev/) (lint + format), [Vitest](https://vitest.dev/) (tests), TypeScript |
-
-## 🚀 Getting started
-
-**Requirements:** [Node.js](https://nodejs.org/) 20.9+ and [git](https://git-scm.com/downloads).
+1. Clone this repo and then change directory to the `digi-toolbox` folder:
 
 ```bash
 git clone https://github.com/kaushalmeena/digi-toolbox.git
 cd digi-toolbox
+```
+
+2. Install project dependencies using npm:
+
+```bash
 npm install
+```
+
+### Running
+
+To run the project simply run:
+
+```bash
 npm run dev
 ```
 
-The app runs at [localhost:3000](http://localhost:3000/).
+Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-## 📜 Scripts
+### Testing
 
-| Script | What it does |
-|---|---|
-| `npm run dev` | Start the dev server |
-| `npm run build` | Production build |
-| `npm run start` | Serve the production build |
-| `npm run lint` | Lint with Biome |
-| `npm run lint:fix` | Lint and auto-fix |
-| `npm run format` | Format with Biome |
-| `npm run typecheck` | Type-check with TypeScript |
-| `npm run test` | Run the Vitest suite |
-| `npm run check` | Types + lint + tests in one go |
+To run the unit tests:
 
-## 📄 License
+```bash
+npm run test
+```
 
-Licensed under the MIT License — see [LICENSE](LICENSE) for details.
+To lint the project:
+
+```bash
+npm run lint
+```
+
+To type-check the project:
+
+```bash
+npm run typecheck
+```
+
+### Building
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+## Contributing
+
+Contributions are welcome! If you find a bug or have a feature request, please
+[open an issue](https://github.com/kaushalmeena/digi-toolbox/issues/new/choose)
+first to discuss it. For code changes, fork the repository, create a branch,
+and open a pull request.
+
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE)
+file for details.
