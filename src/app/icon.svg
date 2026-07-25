@@ -1,10 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img">
   <title>Digi-Toolbox</title>
-  <style>
-    path { fill: #2d72d2; }
-    @media (prefers-color-scheme: dark) {
-      path { fill: #8abbff; }
-    }
-  </style>
-  <path d="m15.83 3.7-3.06 3.05-2.84-.7-.7-2.83L12.29.17a5 5 0 0 0-4.83 1.29 4.97 4.97 0 0 0-1.12 5.36L.58 12.58c-.36.36-.58.86-.58 1.41 0 1.1.9 2 2 2 .55 0 1.05-.22 1.41-.59l5.77-5.77c1.79.69 3.91.33 5.35-1.12 1.32-1.3 1.74-3.15 1.3-4.81" />
+  <!-- Toolbox (🧰) drawn from Blueprint's palette so it sits alongside the UI.
+       Full-colour by design, so unlike a glyph it needs no light/dark flip.
+       Also rendered in-app via src/components/ToolboxIcon.tsx, and rasterised
+       into favicon.ico, so this file is the single source for the mark.
+       The handle is deliberately wide and flat: a narrower, taller arch reads
+       as a padlock shackle at favicon sizes. -->
+  <path
+    d="M19 21v-3a13 9 0 0 1 26 0v3"
+    fill="none"
+    stroke="#8f99a8"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <rect x="2" y="34" width="60" height="23" rx="4" fill="#ac2f33" />
+  <rect x="2" y="21" width="60" height="14" rx="3" fill="#cd4246" />
+  <rect x="25" y="30" width="14" height="7" rx="2" fill="#ec9a3c" />
 </svg>

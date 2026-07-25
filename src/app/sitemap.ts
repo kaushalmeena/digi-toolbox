@@ -3,7 +3,7 @@ import { SITE_BASE_URL } from "@/constants/config";
 import { Tools } from "@/constants/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", ...Tools.map((tool) => tool.url)];
+  const routes = ["/", ...Tools.map((tool) => tool.path)];
   return routes.map((route) => ({
     url: `${SITE_BASE_URL}${route}`,
     changeFrequency: "monthly",

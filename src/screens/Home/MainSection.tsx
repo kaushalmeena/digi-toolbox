@@ -1,27 +1,6 @@
 import { Card, Section, SectionCard, Tag } from "@blueprintjs/core";
-import {
-  CalculatorIcon,
-  CodeBlockIcon,
-  CodeIcon,
-  FontIcon,
-  GridViewIcon,
-  ListIcon,
-  ThIcon
-} from "@blueprintjs/icons";
 import Link from "next/link";
-import type { ReactElement } from "react";
-import { GroupedTools } from "@/constants/tools";
-import { ToolCategory } from "@/types/tools";
-
-const CATEGORY_ICONS: Record<ToolCategory, ReactElement> = {
-  [ToolCategory.JSON]: <CodeIcon />,
-  [ToolCategory.CSV]: <ThIcon />,
-  [ToolCategory.XML]: <CodeBlockIcon />,
-  [ToolCategory.YAML]: <ListIcon />,
-  [ToolCategory.TEXT]: <FontIcon />,
-  [ToolCategory.CONVERTER]: <CalculatorIcon />,
-  [ToolCategory.OTHER]: <GridViewIcon />
-};
+import { CATEGORY_ICONS, GroupedTools } from "@/constants/tools";
 
 export default function MainSection() {
   return (
@@ -44,7 +23,7 @@ export default function MainSection() {
             {item.tools.map((tool) => (
               <Link
                 key={tool.name}
-                href={tool.url}
+                href={tool.path}
                 className="hover:no-underline"
               >
                 <Card

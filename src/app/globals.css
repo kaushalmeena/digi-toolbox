@@ -31,7 +31,21 @@
     margin: 0;
   }
 
-  /* Values sourced from Blueprint's palette, flipped under `.bp6-dark`. */
+  /*
+   * Values sourced from Blueprint's palette, flipped under `.bp6-dark`, and
+   * matched to what the Blueprint docs site itself renders so the two read as
+   * the same design system:
+   *
+   *                    light            dark
+   *   app background   #f6f7f9          #1c2127
+   *   text             #1c2127          #f6f7f9
+   *   muted text       #738091          #abb3bf
+   *   link / accent    #2d72d2          #8abbff
+   *
+   * The app background must stay *darker* than Blueprint's own component
+   * surfaces (Navbar, Card, Button) in dark mode — those sit at dark-gray-3
+   * and up, so anything lighter than dark-gray-1 here inverts the elevation.
+   */
   :root {
     --background: var(--bp-palette-light-gray-5);
     --foreground: var(--bp-palette-dark-gray-1);
@@ -43,11 +57,11 @@
   }
 
   .bp6-dark {
-    --background: var(--bp-palette-dark-gray-5);
+    --background: var(--bp-palette-dark-gray-1);
     --foreground: var(--bp-palette-light-gray-5);
     --muted-foreground: var(--bp-palette-gray-4);
-    --border: var(--bp-palette-dark-gray-2);
-    --primary: var(--bp-palette-blue-3);
+    --border: var(--bp-palette-dark-gray-5);
+    --primary: var(--bp-palette-blue-5);
     --success: var(--bp-palette-green-3);
     --destructive: var(--bp-palette-red-3);
   }
@@ -61,6 +75,22 @@
  */
 body {
   color: var(--foreground);
+}
+
+/*
+ * Blueprint's Navbar shadow is a 4-sided ring (an `inset 0 0 0 1px` white ring
+ * in dark mode), which on a full-bleed header reads as a box outlined down both
+ * sides and across the top. Replace it with a single bottom hairline — the same
+ * one-sided treatment the Blueprint docs give their sidebar — driven by
+ * Blueprint's theme-aware border token (#5f6b7c1f light, #ffffff33 dark).
+ *
+ * The `.bp6-dark` variant is needed to outrank Blueprint's own
+ * `.bp6-dark .bp6-navbar` rule; both selectors then win on source order, since
+ * this file is imported after Blueprint's CSS.
+ */
+.app-navbar,
+.bp6-dark .app-navbar {
+  box-shadow: 0 1px 0 0 var(--bp-surface-border-color-default);
 }
 
 /*
