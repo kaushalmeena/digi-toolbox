@@ -3,7 +3,7 @@ import { type ItemRenderer, Omnibar } from "@blueprintjs/select";
 import { useRouter } from "next/navigation";
 import { Tools } from "@/constants/tools";
 import type { Tool } from "@/types/tools";
-import { areToolsEqual, filterTool, getToolItemProps } from "./utils";
+import { areToolsEqual, filterTools, getToolItemProps } from "./utils";
 
 export default function OmnibarSearch({
   isOpen,
@@ -22,7 +22,7 @@ export default function OmnibarSearch({
   };
 
   const handleToolSelect = (item: Tool) => {
-    router.push(item.url);
+    router.push(item.path);
     onClose();
   };
 
@@ -32,9 +32,9 @@ export default function OmnibarSearch({
       resetOnSelect
       isOpen={isOpen}
       inputProps={{ placeholder: "Search tools..." }}
-      noResults={<MenuItem disabled={true} text="No results." />}
+      noResults={<MenuItem disabled={true} text="No matching tools." />}
       items={Tools}
-      itemPredicate={filterTool}
+      itemListPredicate={filterTools}
       itemsEqual={areToolsEqual}
       itemRenderer={renderTool}
       onItemSelect={handleToolSelect}

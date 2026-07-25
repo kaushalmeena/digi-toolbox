@@ -10,7 +10,7 @@ export enum ToolCategory {
 
 export type Tool = {
   name: string;
-  url: string;
+  path: string;
   category: ToolCategory;
 };
 
