@@ -71,6 +71,11 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const { favorites } = useWorkspace();
   const favoriteTools = favorites.flatMap((slug) => getTool(slug) ?? []);
 
+  const handleSearchClick = () => {
+    onNavigate?.();
+    openCommandMenu();
+  };
+
   return (
     <>
       <div className="flex h-12 shrink-0 items-center px-4">
@@ -79,10 +84,7 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       <div className="px-3 pb-2">
         <button
           type="button"
-          onClick={() => {
-            onNavigate?.();
-            openCommandMenu();
-          }}
+          onClick={handleSearchClick}
           className="flex h-8 w-full items-center gap-2 rounded-md border bg-background/60 px-2.5 text-[13px] text-muted-foreground shadow-xs transition-colors hover:bg-background hover:text-foreground"
         >
           <Search className="size-3.5" />

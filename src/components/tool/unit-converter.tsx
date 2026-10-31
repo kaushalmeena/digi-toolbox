@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { type ChangeEvent, useMemo, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { usePersistedInput } from "@/hooks/use-persisted-input";
@@ -30,7 +30,10 @@ export function UnitConverter({
   );
   const invalid = input.trim() !== "" && Number.isNaN(Number.parseFloat(input));
 
-  const promote = (unitId: string) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setInput(event.target.value);
+
+  const handlePromote = (unitId: string) => {
     const value = results.get(unitId);
     setFromId(unitId);
     if (value) {
@@ -51,7 +54,7 @@ export function UnitConverter({
             placeholder="Enter a number"
             className="h-10 flex-1 font-mono text-base"
             value={input}
-            onChange={(event) => setInput(event.target.value)}
+            onChange={handleInputChange}
           />
           <OptionSelect
             label="Source unit"
@@ -70,7 +73,7 @@ export function UnitConverter({
         <PaneHeader title="Conversions" />
         <PaneBody>
           <ResultList
-            onSelect={promote}
+            onSelect={handlePromote}
             items={units.map((unit) => ({
               id: unit.id,
               label: unit.label,

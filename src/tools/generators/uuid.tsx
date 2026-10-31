@@ -1,7 +1,7 @@
 "use client";
 
 import { RefreshCw } from "lucide-react";
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 
 import { CodeEditor } from "@/components/tool/code-editor";
 import { Pane, PaneBody, PaneFooter, PaneHeader } from "@/components/tool/pane";
@@ -19,6 +19,11 @@ export default function UUIDGenerator() {
   const [hyphens, setHyphens] = useState(true);
   // Lazy initial state: generated once on mount, then only on demand.
   const [uuids, setUuids] = useState(() => generateUUIDs(10));
+
+  const handleCountChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setCount(event.target.valueAsNumber || 1);
+
+  const handleGenerate = () => setUuids(generateUUIDs(count));
 
   const output = uuids
     .map((uuid) => {
@@ -41,7 +46,7 @@ export default function UUIDGenerator() {
               max={MAX_UUIDS}
               className="h-8 w-24 font-mono"
               value={count}
-              onChange={(event) => setCount(event.target.valueAsNumber || 1)}
+              onChange={handleCountChange}
             />
           </div>
           <div className="flex items-center gap-2">
@@ -60,10 +65,7 @@ export default function UUIDGenerator() {
             />
             <Label htmlFor="uuid-hyphens">Hyphens</Label>
           </div>
-          <Button
-            className="ml-auto"
-            onClick={() => setUuids(generateUUIDs(count))}
-          >
+          <Button className="ml-auto" onClick={handleGenerate}>
             <RefreshCw /> Generate
           </Button>
         </div>

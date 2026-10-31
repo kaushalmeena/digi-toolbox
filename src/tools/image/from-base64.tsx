@@ -25,6 +25,9 @@ export default function Base64ToImage() {
   const src = toDataUrl(input);
   const failed = !!src && failedSrc === src;
 
+  const handleDownload = () => downloadDataUrl(src, "image");
+  const handleImageError = () => setFailedSrc(src);
+
   return (
     <div className="grid min-h-0 flex-1 gap-3 md:grid-cols-2">
       <Pane>
@@ -49,7 +52,7 @@ export default function Base64ToImage() {
             <IconButton
               label="Download image"
               disabled={!src || failed}
-              onClick={() => downloadDataUrl(src, "image")}
+              onClick={handleDownload}
             >
               <Download />
             </IconButton>
@@ -71,7 +74,7 @@ export default function Base64ToImage() {
               src={src}
               alt="Decoded preview"
               className="max-h-full max-w-full object-contain"
-              onError={() => setFailedSrc(src)}
+              onError={handleImageError}
             />
           )}
         </PaneBody>

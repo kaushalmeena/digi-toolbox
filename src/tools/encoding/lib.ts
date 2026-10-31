@@ -95,3 +95,64 @@ export function decodeJWT(input: string): string {
     throw new Error("Invalid JWT: header or payload is not base64url JSON");
   }
 }
+
+export type URLParts = {
+  parts: { label: string; value: string }[];
+  params: { key: string; value: string }[];
+};
+
+const SCHEME_REGEX = /^[a-z][a-z\d+.-]*:\/\//i;
+const OPAQUE_SCHEME_REGEX =
+  /^(?:mailto|tel|sms|data|urn|blob|about|javascript):/i;
+// A bare host such as "example.com", "localhost:3000" or "[::1]", optionally
+// followed by a path, query or fragment.
+const BARE_HOST_REGEX =
+  /^(?:[^\s/?#@]+@)?(?:localhost|[a-z\d-]+(?:\.[a-z\d-]+)+|\[[\da-f:.]+\])(?::\d+)?(?:[/?#]|$)/i;
+
+/**
+ * Splits a URL into its WHATWG components and decoded query parameters
+ * (duplicates kept, in order). Scheme-less hosts get `https://`.
+ */
+export function parseURL(input: string): URLParts {
+  let value = input.trim();
+  if (!value) {
+    throw new Error("Enter a URL");
+  }
+  if (value.startsWith("//")) {
+    value = `https:${value}`;
+  } else if (!SCHEME_REGEX.test(value) && !OPAQUE_SCHEME_REGEX.test(value)) {
+    if (!BARE_HOST_REGEX.test(value)) {
+      throw new Error(
+        "Not a valid URL. Include a scheme and host, e.g. https://example.com/path?q=1"
+      );
+    }
+    value = `https://${value}`;
+  }
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new Error(
+      "Not a valid URL. Check the host and port, e.g. https://example.com:8080/path"
+    );
+  }
+  return {
+    parts: [
+      { label: "href", value: url.href },
+      { label: "origin", value: url.origin === "null" ? "" : url.origin },
+      { label: "protocol", value: url.protocol },
+      { label: "username", value: url.username },
+      { label: "password", value: url.password },
+      { label: "host", value: url.host },
+      { label: "hostname", value: url.hostname },
+      { label: "port", value: url.port },
+      { label: "pathname", value: url.pathname },
+      { label: "search", value: url.search },
+      { label: "hash", value: url.hash }
+    ],
+    params: [...url.searchParams].map(([key, param]) => ({
+      key,
+      value: param
+    }))
+  };
+}

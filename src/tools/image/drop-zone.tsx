@@ -19,6 +19,19 @@ export function ImageDropZone({
 }) {
   const [dragging, setDragging] = useState(false);
 
+  const handleClick = () => {
+    pickFile("image/*", "dataURL").then(onImage, () => {
+      // Cancelling the picker isn't an error worth reporting.
+    });
+  };
+
+  const handleDragOver = (event: DragEvent) => {
+    event.preventDefault();
+    setDragging(true);
+  };
+
+  const handleDragLeave = () => setDragging(false);
+
   const handleDrop = async (event: DragEvent) => {
     event.preventDefault();
     setDragging(false);
@@ -33,12 +46,9 @@ export function ImageDropZone({
   return (
     <button
       type="button"
-      onClick={() => pickFile("image/*", "dataURL").then(onImage, () => {})}
-      onDragOver={(event) => {
-        event.preventDefault();
-        setDragging(true);
-      }}
-      onDragLeave={() => setDragging(false)}
+      onClick={handleClick}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
       onDrop={handleDrop}
       className={cn(
         "flex min-h-0 flex-1 flex-col items-center justify-center gap-3 p-6 text-center transition-colors hover:bg-muted/40",

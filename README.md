@@ -9,7 +9,7 @@
 **Every common developer tool you need — JSON, CSV, YAML, XML, Text and more —
 in one fast, free place.**
 
-A collection of **45+ everyday utilities** for developers, all in one place. No
+A collection of **55+ everyday utilities** for developers, all in one place. No
 sign-up, no ads, no uploads to a server — everything runs entirely in your
 browser. Installable as a PWA and works offline.
 
@@ -22,25 +22,64 @@ browser. Installable as a PWA and works offline.
 ## Features
 
 - **100% client-side** — your data never leaves your machine.
-- **Light and dark mode** — follows your system and remembers your choice.
-- **Instant command-palette search** — the search bar jumps to any tool.
-- **Sticky input** — your work survives a refresh, and every tool has a **Share**
-  button that turns your input into a link.
-- **Drag and drop** — drop a file straight onto the input, or upload / download
-  / copy with one click.
-- **Offline-ready PWA** — install it and use it on a plane.
-- **Accessible UI** — built on [Blueprint](https://blueprintjs.com/) for a clean,
-  accessible interface.
+- **Desktop-app workbench** — a categorized sidebar, side-by-side editor panes
+  with line numbers, status bars and live validation as you type.
+- **Command menu** — press <kbd>⌘</kbd> <kbd>K</kbd> (or <kbd>Ctrl</kbd>
+  <kbd>K</kbd>) to jump to any tool or switch theme.
+- **Favorites and recents** — pin the tools you use most; recently used tools
+  are one click away.
+- **Sticky input and share links** — your work survives a refresh, and any
+  input can be shared as a link.
+- **One-click workflows** — paste, open or drop a file, load a sample, copy,
+  download, and swap a converter's direction carrying the output across.
+- **See everything at once** — unit converters show every unit, the hash
+  generator every digest, the case converter every case style.
+- **Light, dark or system theme** and an offline-ready, installable PWA.
+
+## Tools
+
+| Category       | Tools                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------- |
+| **JSON**       | Prettify, Minify, JSON to CSV / XML / YAML, JSON to TypeScript                                 |
+| **CSV**        | CSV to JSON / XML / YAML                                                                       |
+| **XML**        | Prettify, Minify, XML to JSON / CSV / YAML                                                     |
+| **YAML**       | YAML to JSON / CSV / XML                                                                       |
+| **Text**       | Diff Checker, Regex Tester, Case Converter, Text Statistics, Sort & Dedupe Lines, Extract Text |
+| **Encoding**   | Base64, URL encode/decode, URL Parser, HTML entities, Slash escape, Hex, JWT Decoder           |
+| **Generators** | UUID, Hash (SHA-1/256/384/512), Password, Lorem Ipsum                                          |
+| **Converters** | Unix Timestamp, Number Base, Color, Data Size, Time, Length, Mass, Temperature, Area, Speed, … |
+| **Image**      | Image to Base64, Base64 to Image, Image Color Picker                                           |
+
+## Project Structure
+
+```text
+src/
+├── app/                  # Next.js routes: home, /[tool], sitemap, robots
+├── components/
+│   ├── ui/               # shadcn/ui primitives (Base UI)
+│   ├── layout/           # app shell, sidebar, command menu, tool header
+│   ├── tool/             # tool building blocks: TransformTool, UnitConverter, panes…
+│   └── home/             # overview page sections
+├── hooks/                # persisted input, workspace (favorites/recents), hotkeys
+├── lib/                  # framework-free helpers (files, clipboard, base64, units…)
+└── tools/
+    ├── registry.ts       # every tool's metadata — routing, nav, search and SEO derive from it
+    ├── loaders.ts        # lazy import of each tool's screen
+    └── <category>/       # one screen per tool + lib.ts (pure logic) + lib.test.ts
+```
+
+Adding a tool means one entry in `registry.ts`, one line in `loaders.ts`, and
+its screen (plus any logic and tests) in the category folder.
 
 ## Tech Stack
 
-| Area          | Tools                                                                                         |
-| ------------- | --------------------------------------------------------------------------------------------- |
-| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, static export)                                 |
-| **UI**        | [React 19](https://react.dev/) · [Blueprint 6](https://blueprintjs.com/)                      |
-| **Styling**   | [Tailwind CSS 4](https://tailwindcss.com/)                                                    |
-| **Testing**   | [Vitest](https://vitest.dev/)                                                                 |
-| **Tooling**   | [Biome](https://biomejs.dev/) (lint + format) · [TypeScript](https://www.typescriptlang.org/) |
+| Area          | Tools                                                                                                                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, statically generated)                                                                                                                                                           |
+| **UI**        | [React 19](https://react.dev/) · [shadcn/ui](https://ui.shadcn.com/) on [Base UI](https://base-ui.com/) · [Lucide](https://lucide.dev/)                                                                                        |
+| **Styling**   | [Tailwind CSS 4](https://tailwindcss.com/)                                                                                                                                                                                     |
+| **Testing**   | [Vitest](https://vitest.dev/)                                                                                                                                                                                                  |
+| **Tooling**   | [Oxlint](https://oxc.rs/docs/guide/usage/linter) + [oxlint-tailwindcss](https://github.com/sergioazoc/oxlint-tailwindcss) · [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) · [TypeScript](https://www.typescriptlang.org/) |
 
 ## Getting Started
 
@@ -89,10 +128,17 @@ To run the unit tests:
 npm run test
 ```
 
-To lint the project:
+To lint and format-check the project:
 
 ```bash
 npm run lint
+npm run format:check
+```
+
+To run every check (types, lint, format, tests):
+
+```bash
+npm run check
 ```
 
 To type-check the project:
@@ -108,6 +154,19 @@ To create a production build:
 ```bash
 npm run build
 ```
+
+## Scripts
+
+| Script              | Description                                  |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Start the development server                 |
+| `npm run build`     | Create a production build                    |
+| `npm run start`     | Serve the production build                   |
+| `npm run lint`      | Lint with Oxlint (`lint:fix` to auto-fix)    |
+| `npm run format`    | Format with Oxfmt (`format:check` to verify) |
+| `npm run typecheck` | Type-check with TypeScript                   |
+| `npm run test`      | Run unit tests (`test:watch` for watch mode) |
+| `npm run check`     | Run typecheck, lint, format check and tests  |
 
 ## Contributing
 

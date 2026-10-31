@@ -27,12 +27,14 @@ export function OptionSelect<T extends string>({
   size?: "sm" | "default";
   className?: string;
 }) {
+  const handleValueChange = (next: T | null) => {
+    if (next !== null) {
+      onValueChange(next);
+    }
+  };
+
   return (
-    <Select
-      items={options}
-      value={value}
-      onValueChange={(next) => next !== null && onValueChange(next as T)}
-    >
+    <Select items={options} value={value} onValueChange={handleValueChange}>
       <SelectTrigger size={size} aria-label={label} className={cn(className)}>
         <SelectValue />
       </SelectTrigger>

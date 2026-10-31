@@ -16,6 +16,8 @@ export function ToolHeader({ tool }: { tool: Tool }) {
 
   useEffect(() => recordVisit(tool.slug), [tool.slug, recordVisit]);
 
+  const handleFavoriteToggle = () => toggleFavorite(tool.slug);
+
   return (
     <header className="flex shrink-0 items-center gap-3 border-b px-4 py-3 md:px-5">
       <CategoryIcon category={tool.category} size="lg" />
@@ -32,7 +34,7 @@ export function ToolHeader({ tool }: { tool: Tool }) {
       </p>
       <IconButton
         label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-        onClick={() => toggleFavorite(tool.slug)}
+        onClick={handleFavoriteToggle}
         aria-pressed={isFavorite}
       >
         <Star className={cn(isFavorite && "fill-amber-400 text-amber-400")} />

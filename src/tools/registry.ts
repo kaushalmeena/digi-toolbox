@@ -141,6 +141,14 @@ export const TOOLS = [
     category: "json",
     inverse: "yaml-to-json"
   },
+  {
+    slug: "json-to-typescript",
+    name: "JSON to TypeScript",
+    description: "Generate TypeScript type definitions from a JSON sample.",
+    category: "json",
+    keywords: ["types", "interface", "ts", "schema"],
+    isNew: true
+  },
   // CSV
   {
     slug: "csv-to-json",
@@ -230,6 +238,38 @@ export const TOOLS = [
     keywords: ["compare", "difference", "changes"]
   },
   {
+    slug: "regex-tester",
+    name: "Regex Tester",
+    description: "Test a regular expression and inspect every match and group.",
+    category: "text",
+    keywords: ["regexp", "regular expression", "match", "pattern"],
+    isNew: true
+  },
+  {
+    slug: "case-converter",
+    name: "Case Converter",
+    description: "Convert text to camelCase, snake_case, kebab-case and more.",
+    category: "text",
+    keywords: ["camel", "snake", "kebab", "pascal", "upper", "lower", "title"],
+    isNew: true
+  },
+  {
+    slug: "text-statistics",
+    name: "Text Statistics",
+    description: "Count characters, words, lines and estimate reading time.",
+    category: "text",
+    keywords: ["word count", "character count", "length", "counter"],
+    isNew: true
+  },
+  {
+    slug: "line-tools",
+    name: "Sort & Dedupe Lines",
+    description: "Sort, deduplicate, trim, reverse and clean up lines of text.",
+    category: "text",
+    keywords: ["sort", "unique", "dedupe", "lines", "reverse", "shuffle"],
+    isNew: true
+  },
+  {
     slug: "extract-text-from-html",
     name: "Extract Text from HTML",
     description: "Strip tags and keep only the text content of HTML.",
@@ -273,6 +313,15 @@ export const TOOLS = [
     category: "encoding",
     keywords: ["percent", "unescape", "uri"],
     inverse: "url-encode"
+  },
+  {
+    slug: "url-parser",
+    name: "URL Parser",
+    description:
+      "Break a URL into protocol, host, path, query params and hash.",
+    category: "encoding",
+    keywords: ["query string", "params", "uri", "link"],
+    isNew: true
   },
   {
     slug: "html-encode",
@@ -342,7 +391,31 @@ export const TOOLS = [
     category: "generators",
     keywords: ["sha", "sha256", "digest", "checksum"]
   },
+  {
+    slug: "password-generator",
+    name: "Password Generator",
+    description: "Generate strong random passwords with the rules you need.",
+    category: "generators",
+    keywords: ["random", "secure", "secret", "passphrase"],
+    isNew: true
+  },
+  {
+    slug: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    description: "Generate placeholder paragraphs, sentences or words.",
+    category: "generators",
+    keywords: ["placeholder", "dummy text", "filler"],
+    isNew: true
+  },
   // Converters
+  {
+    slug: "unix-timestamp-converter",
+    name: "Unix Timestamp Converter",
+    description: "Convert between Unix timestamps and human-readable dates.",
+    category: "converters",
+    keywords: ["epoch", "date", "time", "iso 8601"],
+    isNew: true
+  },
   {
     slug: "base-converter",
     name: "Number Base Converter",
@@ -356,6 +429,23 @@ export const TOOLS = [
     description: "Convert colors between HEX, RGB and HSL.",
     category: "converters",
     keywords: ["hex", "rgb", "hsl", "colour"]
+  },
+  {
+    slug: "data-size-converter",
+    name: "Data Size Converter",
+    description: "Convert between bytes, kilobytes, mebibytes and more.",
+    category: "converters",
+    keywords: ["bytes", "kb", "mb", "gb", "storage"],
+    isNew: true
+  },
+  {
+    slug: "time-converter",
+    name: "Time Converter",
+    description:
+      "Convert durations between milliseconds, hours, days and more.",
+    category: "converters",
+    keywords: ["duration", "seconds", "minutes"],
+    isNew: true
   },
   {
     slug: "length-converter",

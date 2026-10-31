@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import {
   createContext,
+  type ChangeEvent,
   type KeyboardEvent,
   type ReactNode,
   useContext,
@@ -79,6 +80,7 @@ export function CommandMenuProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   useHotkey("mod+k", () => setOpen((value) => !value));
   const openMenu = useMemo(() => () => setOpen(true), []);
+  const closeMenu = () => setOpen(false);
 
   return (
     <CommandMenuContext.Provider value={openMenu}>
@@ -90,10 +92,73 @@ export function CommandMenuProvider({ children }: { children: ReactNode }) {
         >
           <DialogTitle className="sr-only">Search tools</DialogTitle>
           {/* Remounts on every open, so the query and selection start fresh. */}
-          {open && <CommandMenu onDone={() => setOpen(false)} />}
+          {open && <CommandMenu onDone={closeMenu} />}
         </DialogContent>
       </Dialog>
     </CommandMenuContext.Provider>
+  );
+}
+
+function CommandItem({
+  item,
+  index,
+  active,
+  onHover,
+  onRun
+}: {
+  item: Item;
+  index: number;
+  active: boolean;
+  onHover: (index: number) => void;
+  onRun: (item: Item) => void;
+}) {
+  const handleMouseMove = () => {
+    if (!active) {
+      onHover(index);
+    }
+  };
+  const handleClick = () => onRun(item);
+
+  return (
+    // Keyboard users drive the options from the combobox input
+    // (aria-activedescendant), so options only need pointer events.
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events
+    <div
+      id={active ? `command-${item.id}` : undefined}
+      role="option"
+      aria-selected={active}
+      tabIndex={-1}
+      data-index={index}
+      onMouseMove={handleMouseMove}
+      onClick={handleClick}
+      className={cn(
+        "flex h-10 cursor-default items-center gap-3 rounded-md px-2.5 text-sm",
+        active && "bg-accent text-accent-foreground"
+      )}
+    >
+      {item.kind === "tool" ? (
+        <>
+          <CategoryIcon category={item.tool.category} />
+          <span className="truncate font-medium">{item.tool.name}</span>
+          <span className="hidden min-w-0 flex-1 truncate text-xs text-muted-foreground sm:block">
+            {item.tool.description}
+          </span>
+          <span className="ml-auto shrink-0 text-xs text-muted-foreground">
+            {getCategory(item.tool.category).name}
+          </span>
+        </>
+      ) : (
+        <>
+          <span className="flex size-5 items-center justify-center text-muted-foreground [&_svg]:size-3.5">
+            {item.icon}
+          </span>
+          <span>{item.label}</span>
+        </>
+      )}
+      {active && (
+        <CornerDownLeft className="size-3.5 shrink-0 text-muted-foreground" />
+      )}
+    </div>
   );
 }
 
@@ -159,6 +224,11 @@ function CommandMenu({ onDone }: { onDone: () => void }) {
       ?.scrollIntoView({ block: "nearest" });
   };
 
+  const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+    setActiveIndex(0);
+  };
+
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (flat.length === 0) {
       return;
@@ -192,10 +262,7 @@ function CommandMenu({ onDone }: { onDone: () => void }) {
           placeholder="Search tools, formats, actions…"
           className="h-12 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           value={query}
-          onChange={(event) => {
-            setQuery(event.target.value);
-            setActiveIndex(0);
-          }}
+          onChange={handleQueryChange}
           onKeyDown={handleKeyDown}
         />
         <Kbd>Esc</Kbd>
@@ -218,51 +285,15 @@ function CommandMenu({ onDone }: { onDone: () => void }) {
             </p>
             {section.items.map((item) => {
               index += 1;
-              const itemIndex = index;
-              const active = itemIndex === activeIndex;
               return (
-                // Keyboard users drive the options from the combobox input
-                // (aria-activedescendant), so options only need pointer events.
-                // oxlint-disable-next-line jsx-a11y/click-events-have-key-events
-                <div
+                <CommandItem
                   key={`${section.heading}:${item.id}`}
-                  id={active ? `command-${item.id}` : undefined}
-                  role="option"
-                  aria-selected={active}
-                  tabIndex={-1}
-                  data-index={itemIndex}
-                  onMouseMove={() => !active && setActiveIndex(itemIndex)}
-                  onClick={() => run(item)}
-                  className={cn(
-                    "flex h-10 cursor-default items-center gap-3 rounded-md px-2.5 text-sm",
-                    active && "bg-accent text-accent-foreground"
-                  )}
-                >
-                  {item.kind === "tool" ? (
-                    <>
-                      <CategoryIcon category={item.tool.category} />
-                      <span className="truncate font-medium">
-                        {item.tool.name}
-                      </span>
-                      <span className="hidden min-w-0 flex-1 truncate text-xs text-muted-foreground sm:block">
-                        {item.tool.description}
-                      </span>
-                      <span className="ml-auto shrink-0 text-xs text-muted-foreground">
-                        {getCategory(item.tool.category).name}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="flex size-5 items-center justify-center text-muted-foreground [&_svg]:size-3.5">
-                        {item.icon}
-                      </span>
-                      <span>{item.label}</span>
-                    </>
-                  )}
-                  {active && (
-                    <CornerDownLeft className="size-3.5 shrink-0 text-muted-foreground" />
-                  )}
-                </div>
+                  item={item}
+                  index={index}
+                  active={index === activeIndex}
+                  onHover={setActiveIndex}
+                  onRun={run}
+                />
               );
             })}
           </div>

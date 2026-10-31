@@ -34,6 +34,7 @@ describe("searchTools", () => {
   });
 
   it("matches keywords that aren't in the name", () => {
+    expect(search("epoch")).toContain("Unix Timestamp Converter");
     expect(search("weight")).toContain("Mass Converter");
     expect(search("sha256")).toContain("Hash Generator");
   });

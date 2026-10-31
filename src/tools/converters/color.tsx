@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { type ChangeEvent, useMemo } from "react";
 
 import { Pane, PaneBody, PaneHeader } from "@/components/tool/pane";
 import { ResultList } from "@/components/tool/result-list";
@@ -31,6 +31,9 @@ export default function ColorConverter() {
 
   const hex = color ? formatColor(color, "hex") : null;
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setInput(event.target.value);
+
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-3">
       <Pane className="min-h-0">
@@ -45,7 +48,7 @@ export default function ColorConverter() {
               type="color"
               className="absolute inset-0 cursor-pointer opacity-0"
               value={hex ?? "#000000"}
-              onChange={(event) => setInput(event.target.value)}
+              onChange={handleInputChange}
             />
           </label>
           <Input
@@ -55,7 +58,7 @@ export default function ColorConverter() {
             placeholder="#6366f1, rgb(99, 102, 241) or hsl(239, 84%, 67%)"
             className="h-10 flex-1 font-mono text-base"
             value={input}
-            onChange={(event) => setInput(event.target.value)}
+            onChange={handleInputChange}
           />
         </div>
         {error && <p className="px-3 pb-3 text-sm text-destructive">{error}</p>}

@@ -1,7 +1,7 @@
 {
   "short_name": "Digi-Toolbox",
   "name": "Digi-Toolbox — your all-in-one developer toolbox",
-  "description": "A fast, free, in-browser toolbox of 45+ developer utilities — JSON, CSV, YAML, XML and text converters, encoders, formatters, and more.",
+  "description": "A fast, free, in-browser toolbox of 55+ developer utilities — JSON, CSV, YAML, XML and text converters, encoders, formatters, and more.",
   "icons": [
     {
       "src": "/icon.svg",
@@ -17,6 +17,6 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "theme_color": "#2d72d2",
-  "background_color": "#f6f7f9"
+  "theme_color": "#5b5bd6",
+  "background_color": "#f8f9fb"
 }

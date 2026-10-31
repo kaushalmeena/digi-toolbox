@@ -48,6 +48,10 @@ export function InputActions({
       });
   };
 
+  const loadSample = () => onChange(sample ?? "");
+
+  const clear = () => onChange("");
+
   const share = () => {
     const url = buildShareUrl?.();
     if (!url) {
@@ -66,7 +70,7 @@ export function InputActions({
         <FileUp />
       </IconButton>
       {sample !== undefined && (
-        <IconButton label="Load sample" onClick={() => onChange(sample)}>
+        <IconButton label="Load sample" onClick={loadSample}>
           <Sparkles />
         </IconButton>
       )}
@@ -75,7 +79,7 @@ export function InputActions({
           <Link2 />
         </IconButton>
       )}
-      <IconButton label="Clear" onClick={() => onChange("")} disabled={!value}>
+      <IconButton label="Clear" onClick={clear} disabled={!value}>
         <Eraser />
       </IconButton>
     </>
@@ -92,22 +96,22 @@ export function OutputActions({
   filename?: string;
   mimeType?: string;
 }) {
+  const download = () => {
+    if (filename) {
+      downloadText(value, filename, mimeType);
+    }
+  };
+
+  const copy = () => copyToClipboard(value);
+
   return (
     <>
       {filename && (
-        <IconButton
-          label="Download"
-          disabled={!value}
-          onClick={() => downloadText(value, filename, mimeType)}
-        >
+        <IconButton label="Download" disabled={!value} onClick={download}>
           <Download />
         </IconButton>
       )}
-      <IconButton
-        label="Copy"
-        disabled={!value}
-        onClick={() => copyToClipboard(value)}
-      >
+      <IconButton label="Copy" disabled={!value} onClick={copy}>
         <Copy />
       </IconButton>
     </>

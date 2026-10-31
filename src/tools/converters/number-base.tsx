@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { type ChangeEvent, useMemo, useState } from "react";
 
 import { OptionSelect } from "@/components/tool/option-select";
 import { Pane, PaneBody, PaneHeader } from "@/components/tool/pane";
@@ -52,6 +52,19 @@ export default function BaseConverter() {
     }
   }, [input, fromBase]);
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) =>
+    setInput(event.target.value);
+
+  const handleShowAllToggle = () => setShowAll((value) => !value);
+
+  const handlePromote = (id: string) => {
+    const value = results.get(Number(id));
+    setFromBase(id);
+    if (value) {
+      setInput(value);
+    }
+  };
+
   const visibleBases = showAll
     ? BASES
     : BASES.filter((base) => NAMED_BASES[base] || String(base) === fromBase);
@@ -68,7 +81,7 @@ export default function BaseConverter() {
             placeholder="e.g. 255, ff or 0b1010"
             className="h-10 flex-1 font-mono text-base"
             value={input}
-            onChange={(event) => setInput(event.target.value)}
+            onChange={handleInputChange}
           />
           <OptionSelect
             label="Source base"
@@ -88,7 +101,7 @@ export default function BaseConverter() {
             <button
               type="button"
               className="px-2 text-xs text-muted-foreground hover:text-foreground"
-              onClick={() => setShowAll((value) => !value)}
+              onClick={handleShowAllToggle}
             >
               {showAll ? "Common bases" : "All bases 2–36"}
             </button>
@@ -96,11 +109,7 @@ export default function BaseConverter() {
         />
         <PaneBody className="overflow-y-auto">
           <ResultList
-            onSelect={(id) => {
-              const value = results.get(Number(id));
-              setFromBase(id);
-              if (value) setInput(value);
-            }}
+            onSelect={handlePromote}
             items={visibleBases.map((base) => ({
               id: String(base),
               label: NAMED_BASES[base] ?? `Base ${base}`,

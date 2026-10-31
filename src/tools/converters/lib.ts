@@ -123,3 +123,134 @@ export function convertBase(
   const output = result.toString(toBase);
   return negative && result !== 0n ? `-${output}` : output;
 }
+
+export type TimestampUnit =
+  | "seconds"
+  | "milliseconds"
+  | "microseconds"
+  | "nanoseconds"
+  | "date string"
+  | "now";
+
+const NUMERIC_TIMESTAMP_REGEX = /^([+-])?(\d+)(?:\.(\d*))?$/;
+
+// Integer-digit thresholds: up to 11 digits is seconds (until year 5138),
+// then milliseconds, microseconds and nanoseconds every 3 digits.
+const NUMERIC_UNITS: {
+  maxDigits: number;
+  unit: TimestampUnit;
+  perMs: number;
+}[] = [
+  { maxDigits: 11, unit: "seconds", perMs: 1e-3 },
+  { maxDigits: 14, unit: "milliseconds", perMs: 1 },
+  { maxDigits: 17, unit: "microseconds", perMs: 1e3 },
+  { maxDigits: Infinity, unit: "nanoseconds", perMs: 1e6 }
+];
+
+/**
+ * Parses a Unix timestamp — seconds, milliseconds, microseconds or
+ * nanoseconds, detected by magnitude — or any date string `Date` understands
+ * (ISO 8601, RFC 2822). "now" resolves to `now`.
+ */
+export function parseTimestamp(
+  input: string,
+  now: Date = new Date()
+): { date: Date; unit: TimestampUnit } {
+  const value = input.trim().replaceAll("_", "");
+  if (!value) {
+    throw new Error("Enter a timestamp or date");
+  }
+  if (value.toLowerCase() === "now") {
+    return { date: new Date(now.getTime()), unit: "now" };
+  }
+
+  const numeric = NUMERIC_TIMESTAMP_REGEX.exec(value);
+  let date: Date;
+  let unit: TimestampUnit;
+  if (numeric) {
+    const digits = numeric[2].replace(/^0+(?=\d)/, "").length;
+    const match = NUMERIC_UNITS.find((entry) => digits <= entry.maxDigits);
+    // NUMERIC_UNITS ends with an Infinity bound, so there's always a match.
+    const { unit: detected, perMs } = match ?? NUMERIC_UNITS[0];
+    date = new Date(Math.round(Number(value) / perMs));
+    unit = detected;
+  } else {
+    date = new Date(value);
+    unit = "date string";
+    if (Number.isNaN(date.getTime())) {
+      throw new Error(
+        "Unrecognized timestamp. Enter Unix seconds (1700000000), milliseconds (1700000000000) or a date like 2024-01-15T10:30:00Z"
+      );
+    }
+  }
+  if (Number.isNaN(date.getTime())) {
+    throw new Error(
+      "That timestamp is outside the range JavaScript dates support (about ±275,000 years from 1970)"
+    );
+  }
+  return { date, unit };
+}
+
+const RELATIVE_UNITS: [Intl.RelativeTimeFormatUnit, number][] = [
+  ["year", 365.2425 * 86400],
+  ["month", 30.436875 * 86400],
+  ["week", 7 * 86400],
+  ["day", 86400],
+  ["hour", 3600],
+  ["minute", 60],
+  ["second", 1]
+];
+
+/** "3 hours ago", "in 2 days", "yesterday" — relative to `now`. */
+export function formatRelativeTime(
+  date: Date,
+  now: Date,
+  locale?: string
+): string {
+  const seconds = (date.getTime() - now.getTime()) / 1000;
+  const [unit, size] = RELATIVE_UNITS.find(
+    ([, unitSeconds]) => Math.abs(seconds) >= unitSeconds
+  ) ?? ["second", 1];
+  const formatter = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
+  // `|| 0` turns -0 into 0 so "now" isn't rendered as "0 seconds ago".
+  return formatter.format(Math.round(seconds / size) || 0, unit);
+}
+
+/** Calendar fields of `date` in UTC or in the runtime's local time zone. */
+function calendarDate(date: Date, utc: boolean): Date {
+  const result = new Date(0);
+  if (utc) {
+    result.setUTCFullYear(
+      date.getUTCFullYear(),
+      date.getUTCMonth(),
+      date.getUTCDate()
+    );
+  } else {
+    result.setUTCFullYear(date.getFullYear(), date.getMonth(), date.getDate());
+  }
+  return result;
+}
+
+/** ISO 8601 week-numbering year and week (weeks start Monday; week 1 holds Jan 4). */
+export function getISOWeek(
+  date: Date,
+  utc = false
+): { year: number; week: number } {
+  const day = calendarDate(date, utc);
+  // Move to the Thursday of this week; its year is the ISO week-year.
+  day.setUTCDate(day.getUTCDate() + 4 - (day.getUTCDay() || 7));
+  const yearStart = new Date(0);
+  yearStart.setUTCFullYear(day.getUTCFullYear(), 0, 1);
+  const week = Math.ceil(
+    ((day.getTime() - yearStart.getTime()) / 86_400_000 + 1) / 7
+  );
+  return { year: day.getUTCFullYear(), week };
+}
+
+/** 1-based day of the year (1–366). */
+export function getDayOfYear(date: Date, utc = false): number {
+  const day = calendarDate(date, utc);
+  const yearStart = new Date(0);
+  yearStart.setUTCFullYear(day.getUTCFullYear(), 0, 1);
+  return Math.round((day.getTime() - yearStart.getTime()) / 86_400_000) + 1;
+}

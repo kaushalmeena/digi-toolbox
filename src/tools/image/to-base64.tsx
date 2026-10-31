@@ -17,6 +17,11 @@ export default function ImageToBase64() {
   const router = useRouter();
   const [dataUrl, setDataUrl] = useState("");
 
+  const handleSwap = () => {
+    seedPersistedInput("/base64-to-image", dataUrl);
+    router.push("/base64-to-image");
+  };
+
   return (
     <div className="grid min-h-0 flex-1 gap-3 md:grid-cols-2">
       <Pane>
@@ -41,10 +46,7 @@ export default function ImageToBase64() {
               <IconButton
                 label="Swap to Base64 to Image"
                 disabled={!dataUrl}
-                onClick={() => {
-                  seedPersistedInput("/base64-to-image", dataUrl);
-                  router.push("/base64-to-image");
-                }}
+                onClick={handleSwap}
               >
                 <ArrowLeftRight />
               </IconButton>

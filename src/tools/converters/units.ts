@@ -83,6 +83,39 @@ export const ANGLE_UNITS: Unit[] = [
   unit("arcsec", "Second of arc", "″", 1 / 3600)
 ];
 
+export const DATA_SIZE_UNITS: Unit[] = [
+  unit("bit", "Bit", "bit", 1 / 8),
+  unit("b", "Byte", "B", 1),
+  unit("kb", "Kilobyte", "KB", 1e3),
+  unit("mb", "Megabyte", "MB", 1e6),
+  unit("gb", "Gigabyte", "GB", 1e9),
+  unit("tb", "Terabyte", "TB", 1e12),
+  unit("pb", "Petabyte", "PB", 1e15),
+  unit("kib", "Kibibyte", "KiB", 1024),
+  unit("mib", "Mebibyte", "MiB", 1024 ** 2),
+  unit("gib", "Gibibyte", "GiB", 1024 ** 3),
+  unit("tib", "Tebibyte", "TiB", 1024 ** 4),
+  unit("pib", "Pebibyte", "PiB", 1024 ** 5)
+];
+
+const DAY = 86400;
+
+export const TIME_UNITS: Unit[] = [
+  unit("ns", "Nanosecond", "ns", 1e-9),
+  unit("us", "Microsecond", "µs", 1e-6),
+  unit("ms", "Millisecond", "ms", 1e-3),
+  unit("s", "Second", "s", 1),
+  unit("min", "Minute", "min", 60),
+  unit("h", "Hour", "h", 3600),
+  unit("d", "Day", "d", DAY),
+  unit("wk", "Week", "wk", 7 * DAY),
+  // Average Gregorian month and year.
+  unit("mo", "Month", "mo", 30.436875 * DAY),
+  unit("yr", "Year", "yr", 365.2425 * DAY),
+  unit("dec", "Decade", "dec", 3652.425 * DAY),
+  unit("c", "Century", "c", 36524.25 * DAY)
+];
+
 export const TEMPERATURE_UNITS: Unit[] = [
   {
     id: "c",

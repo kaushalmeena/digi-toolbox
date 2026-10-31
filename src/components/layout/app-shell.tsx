@@ -44,6 +44,9 @@ function MobileBar({ onMenu }: { onMenu: () => void }) {
 export function AppShell({ children }: { children: ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const openDrawer = () => setDrawerOpen(true);
+  const closeDrawer = () => setDrawerOpen(false);
+
   return (
     <CommandMenuProvider>
       <div className="flex h-dvh overflow-hidden">
@@ -53,11 +56,11 @@ export function AppShell({ children }: { children: ReactNode }) {
         <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
           <SheetContent>
             <SheetTitle className="sr-only">Navigation</SheetTitle>
-            <SidebarContent onNavigate={() => setDrawerOpen(false)} />
+            <SidebarContent onNavigate={closeDrawer} />
           </SheetContent>
         </Sheet>
         <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-          <MobileBar onMenu={() => setDrawerOpen(true)} />
+          <MobileBar onMenu={openDrawer} />
           <main className="flex min-h-0 flex-1 flex-col">{children}</main>
         </div>
       </div>

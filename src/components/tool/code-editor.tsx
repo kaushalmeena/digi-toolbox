@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  type ChangeEvent,
   type DragEvent,
   type UIEvent,
   useDeferredValue,
@@ -46,6 +47,11 @@ export function CodeEditor({
       gutterRef.current.scrollTop = event.currentTarget.scrollTop;
     }
   };
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) =>
+    onChange?.(event.target.value);
+
+  const handleDragLeave = () => setDragging(false);
 
   const handleDragOver = (event: DragEvent) => {
     if (!onChange) {
@@ -94,10 +100,10 @@ export function CodeEditor({
         autoCorrect="off"
         autoFocus={autoFocus}
         wrap="off"
-        onChange={onChange && ((event) => onChange(event.target.value))}
+        onChange={onChange && handleChange}
         onScroll={syncGutter}
         onDragOver={handleDragOver}
-        onDragLeave={() => setDragging(false)}
+        onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       />
       {dragging && (
