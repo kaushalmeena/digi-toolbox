@@ -85,8 +85,8 @@ export default function BaseConverter() {
           />
           <OptionSelect
             label="Source base"
-            size="default"
-            className="h-10 w-48 max-sm:w-full"
+            size="lg"
+            className="w-48 max-sm:w-full"
             value={fromBase}
             options={BASE_OPTIONS}
             onValueChange={setFromBase}

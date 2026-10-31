@@ -3,7 +3,15 @@ import { parse } from "papaparse";
 import { convertJSONToXML, convertJSONToYAML } from "../json/lib";
 
 export function convertCSVToJSON(input: string): string {
-  const { data, errors } = parse(input, { header: true, skipEmptyLines: true });
+  const { data, errors: parseErrors } = parse(input, {
+    header: true,
+    skipEmptyLines: true
+  });
+  // A single-column CSV has no delimiter to detect; papaparse reports that
+  // but still parses it correctly with the default comma.
+  const errors = parseErrors.filter(
+    (error) => error.code !== "UndetectableDelimiter"
+  );
   if (errors.length) {
     throw new Error(
       errors

@@ -16,7 +16,7 @@ export function OptionSelect<T extends string>({
   options,
   onValueChange,
   label,
-  size = "sm",
+  size = "default",
   className
 }: {
   value: T;
@@ -24,7 +24,8 @@ export function OptionSelect<T extends string>({
   onValueChange: (value: T) => void;
   /** Accessible name for the trigger. */
   label: string;
-  size?: "sm" | "default";
+  /** Matches the Input heights: sm = toolbar, default = form, lg = hero input. */
+  size?: "sm" | "default" | "lg";
   className?: string;
 }) {
   const handleValueChange = (next: T | null) => {

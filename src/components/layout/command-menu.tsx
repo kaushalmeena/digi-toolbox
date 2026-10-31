@@ -88,7 +88,7 @@ export function CommandMenuProvider({ children }: { children: ReactNode }) {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           showCloseButton={false}
-          className="top-[15vh] translate-y-0 gap-0 overflow-hidden p-0 sm:max-w-xl"
+          className="top-[15vh] flex translate-y-0 flex-col gap-0 overflow-hidden p-0 sm:max-w-xl"
         >
           <DialogTitle className="sr-only">Search tools</DialogTitle>
           {/* Remounts on every open, so the query and selection start fresh. */}
@@ -249,7 +249,7 @@ function CommandMenu({ onDone }: { onDone: () => void }) {
   const activeId = flat[activeIndex]?.id;
 
   return (
-    <div className="flex max-h-[min(70vh,560px)] flex-col">
+    <div className="flex max-h-[min(70vh,560px)] w-full min-w-0 flex-col">
       <div className="flex items-center gap-2 border-b px-4">
         <Search className="size-4 shrink-0 text-muted-foreground" />
         <input

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeftRight, CircleAlert, CircleCheck } from "lucide-react";
+import { AnimatePresence, m } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
 import { type ReactNode, useDeferredValue, useMemo } from "react";
 
@@ -146,26 +147,35 @@ export function TransformTool({
             </>
           }
         />
+        <AnimatePresence initial={false}>
+          {error && (
+            <m.div
+              key="error"
+              role="alert"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.18, ease: "easeOut" }}
+              className="shrink-0 overflow-hidden border-b border-destructive/20 bg-destructive/6"
+            >
+              <div className="flex items-start gap-2.5 px-3 py-2.5 text-sm text-destructive">
+                <CircleAlert className="mt-0.5 size-4 shrink-0" />
+                <div className="min-w-0">
+                  <p className="font-medium">Couldn't convert this input</p>
+                  <p className="mt-0.5 font-mono text-xs wrap-break-word whitespace-pre-wrap opacity-90">
+                    {error}
+                  </p>
+                </div>
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
         <PaneBody>
           <CodeEditor
             label={`${outputConfig.label} output`}
             value={output}
-            placeholder="Output appears here as you type."
+            placeholder={error ? "" : "Output appears here as you type."}
           />
-          {error && (
-            <div
-              role="alert"
-              className="absolute inset-x-3 top-3 flex items-start gap-2 rounded-md border border-destructive/30 bg-destructive/8 p-3 text-sm text-destructive"
-            >
-              <CircleAlert className="mt-0.5 size-4 shrink-0" />
-              <div className="min-w-0">
-                <p className="font-medium">Couldn't convert this input</p>
-                <p className="mt-0.5 font-mono text-xs wrap-break-word opacity-90">
-                  {error}
-                </p>
-              </div>
-            </div>
-          )}
         </PaneBody>
         <PaneFooter>
           {error ? (

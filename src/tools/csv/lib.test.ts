@@ -12,6 +12,14 @@ describe("CSV tools", () => {
     ]);
   });
 
+  it("accepts single-column CSV, which has no delimiter to detect", () => {
+    expect(JSON.parse(convertCSVToJSON("name\nada\ngrace"))).toEqual([
+      { name: "ada" },
+      { name: "grace" }
+    ]);
+    expect(convertCSVToJSON("s")).toBe("[]");
+  });
+
   it("surfaces parse errors", () => {
     // Unterminated quoted field triggers a papaparse error.
     expect(() => convertCSVToJSON('a,b\n"unterminated,2')).toThrow();

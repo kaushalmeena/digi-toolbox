@@ -109,7 +109,7 @@ export default function DiffChecker() {
                   value={mode}
                   options={MODE_OPTIONS}
                   onValueChange={setMode}
-                  className="h-7"
+                  size="sm"
                 />
               }
             />

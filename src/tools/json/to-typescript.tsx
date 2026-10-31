@@ -37,7 +37,8 @@ export default function JSONToTypeScript() {
           value={declaration}
           options={DECLARATION_OPTIONS}
           onValueChange={setDeclaration}
-          className="mr-1 h-7 font-mono"
+          size="sm"
+          className="mr-1 font-mono"
         />
       }
     />

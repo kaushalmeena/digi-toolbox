@@ -36,7 +36,8 @@ export default function PrettifyJSON() {
           value={indent}
           options={INDENT_OPTIONS}
           onValueChange={setIndent}
-          className="mr-1 h-7"
+          size="sm"
+          className="mr-1"
         />
       }
     />

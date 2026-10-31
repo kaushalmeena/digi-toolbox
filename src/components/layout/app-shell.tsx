@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, Search } from "lucide-react";
+import { domAnimation, LazyMotion, MotionConfig } from "motion/react";
 import { type ReactNode, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -48,22 +49,28 @@ export function AppShell({ children }: { children: ReactNode }) {
   const closeDrawer = () => setDrawerOpen(false);
 
   return (
-    <CommandMenuProvider>
-      <div className="flex h-dvh overflow-hidden">
-        <aside className="hidden w-64 shrink-0 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground md:flex">
-          <SidebarContent />
-        </aside>
-        <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <SheetContent>
-            <SheetTitle className="sr-only">Navigation</SheetTitle>
-            <SidebarContent onNavigate={closeDrawer} />
-          </SheetContent>
-        </Sheet>
-        <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-          <MobileBar onMenu={openDrawer} />
-          <main className="flex min-h-0 flex-1 flex-col">{children}</main>
-        </div>
-      </div>
-    </CommandMenuProvider>
+    // Motion's animation features load lazily, and animations are skipped
+    // for visitors who ask for reduced motion.
+    <LazyMotion features={domAnimation} strict>
+      <MotionConfig reducedMotion="user">
+        <CommandMenuProvider>
+          <div className="flex h-dvh overflow-hidden">
+            <aside className="hidden w-64 shrink-0 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground md:flex">
+              <SidebarContent />
+            </aside>
+            <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
+              <SheetContent>
+                <SheetTitle className="sr-only">Navigation</SheetTitle>
+                <SidebarContent onNavigate={closeDrawer} />
+              </SheetContent>
+            </Sheet>
+            <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+              <MobileBar onMenu={openDrawer} />
+              <main className="flex min-h-0 flex-1 flex-col">{children}</main>
+            </div>
+          </div>
+        </CommandMenuProvider>
+      </MotionConfig>
+    </LazyMotion>
   );
 }

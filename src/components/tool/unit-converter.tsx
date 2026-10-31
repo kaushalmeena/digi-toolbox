@@ -58,8 +58,8 @@ export function UnitConverter({
           />
           <OptionSelect
             label="Source unit"
-            size="default"
-            className="h-10 w-56 max-sm:w-full"
+            size="lg"
+            className="w-56 max-sm:w-full"
             value={from.id}
             options={units.map((unit) => ({
               value: unit.id,

@@ -115,7 +115,7 @@ export default function LineTools() {
             value={options.sort}
             options={SORT_OPTIONS}
             onValueChange={handleSortChange}
-            className="h-7"
+            size="sm"
           />
           <DropdownMenu>
             <DropdownMenuTrigger

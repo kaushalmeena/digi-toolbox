@@ -1,18 +1,16 @@
 "use client";
 
 import { ChevronRight, House, Search, Star } from "lucide-react";
+import { AnimatePresence, m } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useId, useState } from "react";
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger
-} from "@/components/ui/collapsible";
 import { Kbd } from "@/components/ui/kbd";
 import { useWorkspace } from "@/hooks/use-workspace";
 import { cn } from "@/lib/utils";
 import {
+  type Category,
   getTool,
   type Tool,
   TOOL_GROUPS,
@@ -57,6 +55,75 @@ function NavLink({
         </span>
       )}
     </Link>
+  );
+}
+
+const GROUP_TRANSITION = { duration: 0.2, ease: [0.4, 0, 0.2, 1] } as const;
+
+function NavGroup({
+  category,
+  tools,
+  pathname,
+  onNavigate
+}: {
+  category: Category;
+  tools: Tool[];
+  pathname: string;
+  onNavigate?: () => void;
+}) {
+  const [open, setOpen] = useState(true);
+  const panelId = useId();
+
+  const handleToggle = () => setOpen((value) => !value);
+
+  return (
+    <div>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={handleToggle}
+        className={cn(itemClass, "w-full font-medium text-sidebar-foreground")}
+      >
+        <CategoryIcon category={category.id} />
+        {category.name}
+        <span className="ml-auto text-[11px] font-normal text-muted-foreground tabular-nums">
+          {tools.length}
+        </span>
+        <m.span
+          aria-hidden
+          initial={false}
+          animate={{ rotate: open ? 90 : 0 }}
+          transition={GROUP_TRANSITION}
+          className="flex text-muted-foreground"
+        >
+          <ChevronRight className="size-3.5" />
+        </m.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <m.div
+            id={panelId}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={GROUP_TRANSITION}
+            className="overflow-hidden"
+          >
+            <div className="pb-1">
+              {tools.map((tool) => (
+                <NavLink
+                  key={tool.slug}
+                  tool={tool}
+                  active={pathname === toolHref(tool.slug)}
+                  onNavigate={onNavigate}
+                />
+              ))}
+            </div>
+          </m.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
@@ -138,31 +205,13 @@ export function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           Tools
         </p>
         {TOOL_GROUPS.map(({ category, tools }) => (
-          <Collapsible key={category.id} defaultOpen>
-            <CollapsibleTrigger
-              className={cn(
-                itemClass,
-                "group w-full font-medium text-sidebar-foreground"
-              )}
-            >
-              <CategoryIcon category={category.id} />
-              {category.name}
-              <span className="ml-auto text-[11px] font-normal text-muted-foreground tabular-nums">
-                {tools.length}
-              </span>
-              <ChevronRight className="size-3.5 text-muted-foreground transition-transform group-data-panel-open:rotate-90" />
-            </CollapsibleTrigger>
-            <CollapsibleContent className="mb-1 overflow-hidden">
-              {tools.map((tool) => (
-                <NavLink
-                  key={tool.slug}
-                  tool={tool}
-                  active={pathname === toolHref(tool.slug)}
-                  onNavigate={onNavigate}
-                />
-              ))}
-            </CollapsibleContent>
-          </Collapsible>
+          <NavGroup
+            key={category.id}
+            category={category}
+            tools={tools}
+            pathname={pathname}
+            onNavigate={onNavigate}
+          />
         ))}
       </nav>
       <div className="flex h-12 shrink-0 items-center gap-2 border-t border-sidebar-border px-3">
