@@ -2,7 +2,7 @@
 // Same-origin GET requests are served from cache when available and refreshed
 // in the background (stale-while-revalidate), so the app keeps working offline
 // after the first visit.
-const CACHE_NAME = "gtt-cache-v1";
+const CACHE_NAME = "dtb-cache-v2";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -13,7 +13,9 @@ self.addEventListener("activate", (event) => {
     (async () => {
       const keys = await caches.keys();
       await Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
       );
       await self.clients.claim();
     })()
@@ -38,7 +40,11 @@ self.addEventListener("fetch", (event) => {
       const cached = await cache.match(request);
       const network = fetch(request)
         .then((response) => {
-          if (response && response.status === 200 && response.type === "basic") {
+          if (
+            response &&
+            response.status === 200 &&
+            response.type === "basic"
+          ) {
             cache.put(request, response.clone());
           }
           return response;

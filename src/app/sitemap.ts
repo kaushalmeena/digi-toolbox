@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
-import { SITE_BASE_URL } from "@/constants/config";
-import { Tools } from "@/constants/tools";
+
+import { SITE_URL } from "@/lib/site";
+import { TOOLS, toolHref } from "@/tools/registry";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", ...Tools.map((tool) => tool.path)];
-  return routes.map((route) => ({
-    url: `${SITE_BASE_URL}${route}`,
+  return ["/", ...TOOLS.map((tool) => toolHref(tool.slug))].map((route) => ({
+    url: `${SITE_URL}${route === "/" ? "" : route}`,
     changeFrequency: "monthly",
     priority: route === "/" ? 1 : 0.8
   }));

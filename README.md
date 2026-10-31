@@ -34,12 +34,12 @@ browser. Installable as a PWA and works offline.
 
 ## Tech Stack
 
-| Area          | Tools                                                                 |
-| ------------- | --------------------------------------------------------------------- |
-| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, static export)         |
-| **UI**        | [React 19](https://react.dev/) · [Blueprint 6](https://blueprintjs.com/) |
-| **Styling**   | [Tailwind CSS 4](https://tailwindcss.com/)                            |
-| **Testing**   | [Vitest](https://vitest.dev/)                                         |
+| Area          | Tools                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| **Framework** | [Next.js 16](https://nextjs.org/) (App Router, static export)                                 |
+| **UI**        | [React 19](https://react.dev/) · [Blueprint 6](https://blueprintjs.com/)                      |
+| **Styling**   | [Tailwind CSS 4](https://tailwindcss.com/)                                                    |
+| **Testing**   | [Vitest](https://vitest.dev/)                                                                 |
 | **Tooling**   | [Biome](https://biomejs.dev/) (lint + format) · [TypeScript](https://www.typescriptlang.org/) |
 
 ## Getting Started

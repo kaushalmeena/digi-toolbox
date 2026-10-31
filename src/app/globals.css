@@ -1,108 +1,161 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-/* Breakpoints must be Tailwind theme tokens so the `sm:`/`md:`/`max-*`
- * variants are generated. */
-@theme {
-  --breakpoint-sm: 600px;
-  --breakpoint-md: 900px;
-  --breakpoint-lg: 1200px;
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-editor: var(--editor);
+  --color-gutter: var(--gutter);
+  --color-diff-added: var(--diff-added);
+  --color-diff-removed: var(--diff-removed);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 /*
- * shadcn-style semantic color tokens. `@theme inline` exposes them as real
- * Tailwind utilities (`bg-background`, `text-foreground`, `border-border`,
- * `text-muted-foreground`, `bg-primary`, `bg-success`, `bg-destructive`, …)
- * while the underlying `--background` etc. vars (defined below, sourced from
- * Blueprint's palette) still flip with the theme.
+ * Cool-neutral surfaces with a single indigo accent, in the spirit of native
+ * developer tools: the chrome (sidebar, toolbars) recedes, the editor panes sit
+ * on the brightest surface, and colour is reserved for state and focus.
  */
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
-  --color-primary: var(--primary);
-  --color-success: var(--success);
-  --color-destructive: var(--destructive);
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.985 0.002 264);
+  --foreground: oklch(0.21 0.01 264);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.52 0.21 268);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.955 0.004 264);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.955 0.004 264);
+  --muted-foreground: oklch(0.52 0.015 264);
+  --accent: oklch(0.94 0.012 268);
+  --accent-foreground: oklch(0.3 0.05 268);
+  --destructive: oklch(0.58 0.22 25);
+  --success: oklch(0.6 0.15 155);
+  --warning: oklch(0.72 0.15 70);
+  --border: oklch(0.91 0.005 264);
+  --input: oklch(0.89 0.006 264);
+  --ring: oklch(0.52 0.21 268 / 60%);
+
+  --sidebar: oklch(0.965 0.004 264);
+  --sidebar-foreground: oklch(0.3 0.012 264);
+  --sidebar-accent: oklch(0.915 0.008 264);
+  --sidebar-accent-foreground: oklch(0.18 0.01 264);
+  --sidebar-border: oklch(0.905 0.005 264);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-ring: var(--ring);
+
+  --editor: oklch(1 0 0);
+  --gutter: oklch(0.975 0.003 264);
+  --diff-added: oklch(0.9 0.08 155);
+  --diff-removed: oklch(0.9 0.07 25);
+}
+
+.dark {
+  --background: oklch(0.175 0.006 270);
+  --foreground: oklch(0.94 0.004 264);
+  --card: oklch(0.205 0.007 270);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.22 0.008 270);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.68 0.17 270);
+  --primary-foreground: oklch(0.16 0.02 270);
+  --secondary: oklch(0.25 0.008 270);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.25 0.008 270);
+  --muted-foreground: oklch(0.68 0.012 264);
+  --accent: oklch(0.28 0.03 270);
+  --accent-foreground: oklch(0.92 0.03 270);
+  --destructive: oklch(0.7 0.18 22);
+  --success: oklch(0.74 0.15 155);
+  --warning: oklch(0.8 0.14 75);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.68 0.17 270 / 60%);
+
+  --sidebar: oklch(0.155 0.006 270);
+  --sidebar-foreground: oklch(0.8 0.008 264);
+  --sidebar-accent: oklch(0.24 0.01 270);
+  --sidebar-accent-foreground: oklch(0.97 0.004 264);
+  --sidebar-border: oklch(1 0 0 / 7%);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-ring: var(--ring);
+
+  --editor: oklch(0.195 0.007 270);
+  --gutter: oklch(0.18 0.006 270);
+  --diff-added: oklch(0.42 0.09 155);
+  --diff-removed: oklch(0.42 0.1 25);
 }
 
 @layer base {
-  body,
+  * {
+    @apply border-border outline-ring/50;
+  }
   html {
-    margin: 0;
+    @apply font-sans antialiased;
+    color-scheme: light;
   }
-
-  /*
-   * Values sourced from Blueprint's palette, flipped under `.bp6-dark`, and
-   * matched to what the Blueprint docs site itself renders so the two read as
-   * the same design system:
-   *
-   *                    light            dark
-   *   app background   #f6f7f9          #1c2127
-   *   text             #1c2127          #f6f7f9
-   *   muted text       #738091          #abb3bf
-   *   link / accent    #2d72d2          #8abbff
-   *
-   * The app background must stay *darker* than Blueprint's own component
-   * surfaces (Navbar, Card, Button) in dark mode — those sit at dark-gray-3
-   * and up, so anything lighter than dark-gray-1 here inverts the elevation.
-   */
-  :root {
-    --background: var(--bp-palette-light-gray-5);
-    --foreground: var(--bp-palette-dark-gray-1);
-    --muted-foreground: var(--bp-palette-gray-2);
-    --border: var(--bp-palette-light-gray-2);
-    --primary: var(--bp-palette-blue-3);
-    --success: var(--bp-palette-green-5);
-    --destructive: var(--bp-palette-red-5);
+  html.dark {
+    color-scheme: dark;
   }
-
-  .bp6-dark {
-    --background: var(--bp-palette-dark-gray-1);
-    --foreground: var(--bp-palette-light-gray-5);
-    --muted-foreground: var(--bp-palette-gray-4);
-    --border: var(--bp-palette-dark-gray-5);
-    --primary: var(--bp-palette-blue-5);
-    --success: var(--bp-palette-green-3);
-    --destructive: var(--bp-palette-red-3);
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    @apply bg-primary/25;
   }
 }
 
-/*
- * Blueprint only colors its own components and sets a fixed (unlayered) base
- * `body` color, so give plain elements a theme-aware color to inherit. Kept
- * unlayered and imported after Blueprint so it wins the cascade — otherwise
- * headings/spans are invisible on the dark background.
- */
-body {
-  color: var(--foreground);
-}
-
-/*
- * Blueprint's Navbar shadow is a 4-sided ring (an `inset 0 0 0 1px` white ring
- * in dark mode), which on a full-bleed header reads as a box outlined down both
- * sides and across the top. Replace it with a single bottom hairline — the same
- * one-sided treatment the Blueprint docs give their sidebar — driven by
- * Blueprint's theme-aware border token (#5f6b7c1f light, #ffffff33 dark).
- *
- * The `.bp6-dark` variant is needed to outrank Blueprint's own
- * `.bp6-dark .bp6-navbar` rule; both selectors then win on source order, since
- * this file is imported after Blueprint's CSS.
- */
-.app-navbar,
-.bp6-dark .app-navbar {
-  box-shadow: 0 1px 0 0 var(--bp-surface-border-color-default);
-}
-
-/*
- * Sizing for the omnibar (a stable `app-omnibar` class we pass to <Omnibar>,
- * so this selector doesn't depend on Blueprint's versioned class names).
- * Kept unlayered so it overrides Blueprint's own rules, which are imported
- * outside Tailwind's layers and would otherwise win the cascade.
- */
-.app-omnibar {
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  max-width: 500px;
-  width: calc(100vw - 20px);
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }

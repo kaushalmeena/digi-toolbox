@@ -1,90 +1,86 @@
-import { Classes } from "@blueprintjs/core";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
+import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
-import ServiceWorker from "@/components/ServiceWorker";
-import { SITE_BASE_URL } from "@/constants/config";
-import MainLayout from "@/layouts/MainLayout/MainLayout";
 
-import "normalize.css";
-
-// Icons are used as SVG React components (e.g. <Flash />), so the legacy icon
-// *font* stylesheet (blueprint-icons.css) is intentionally not imported.
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/select/lib/css/blueprint-select.css";
+import { AppShell } from "@/components/layout/app-shell";
+import { ServiceWorker } from "@/components/service-worker";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const TITLE = "Digi-Toolbox — your all-in-one developer toolbox";
-const DESCRIPTION =
-  "Digi-Toolbox is a fast, free, in-browser toolbox of 45+ developer utilities — JSON, CSV, YAML, XML and text converters, encoders, formatters, and more.";
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono"
+});
+
+const TITLE = `${SITE_NAME} — developer tools that run in your browser`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_BASE_URL),
-  title: {
-    default: TITLE,
-    // Per-page titles (e.g. "JSON to CSV") get this suffix automatically.
-    template: "%s - Digi-Toolbox"
-  },
-  description: DESCRIPTION,
-  applicationName: "Digi-Toolbox",
+  metadataBase: new URL(SITE_URL),
+  title: { default: TITLE, template: `%s · ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   authors: [{ name: "Kaushal Meena" }],
   keywords: [
-    "online tools",
     "developer tools",
     "JSON formatter",
     "JSON to CSV",
-    "CSV to JSON",
     "YAML converter",
     "XML formatter",
-    "base64 encode",
+    "base64",
     "JWT decoder",
+    "regex tester",
+    "unix timestamp",
     "hash generator",
     "UUID generator",
     "unit converter",
     "diff checker"
   ],
   manifest: "/manifest.json",
-  alternates: {
-    canonical: "/"
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "Digi-Toolbox",
-    url: SITE_BASE_URL,
+    siteName: SITE_NAME,
+    url: SITE_URL,
     title: TITLE,
-    description: DESCRIPTION
+    description: SITE_DESCRIPTION
   },
-  twitter: {
-    card: "summary",
-    title: TITLE,
-    description: DESCRIPTION
-  },
-  robots: {
-    index: true,
-    follow: true
-  }
+  twitter: { card: "summary", title: TITLE, description: SITE_DESCRIPTION },
+  robots: { index: true, follow: true }
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2d72d2"
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#16171c" }
+  ]
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn(geistSans.variable, geistMono.variable)}
+    >
       <body>
-        <ServiceWorker />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
-          // Map next-themes' "dark" onto Blueprint's own dark class.
-          value={{ light: "light", dark: Classes.DARK }}
           disableTransitionOnChange
         >
-          <MainLayout>{children}</MainLayout>
+          <TooltipProvider delay={400}>
+            <AppShell>{children}</AppShell>
+          </TooltipProvider>
+          <Toaster position="bottom-right" />
         </ThemeProvider>
+        <ServiceWorker />
       </body>
     </html>
   );

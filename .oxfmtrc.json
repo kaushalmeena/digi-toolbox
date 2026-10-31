@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "sortImports": {},
+  "sortTailwindcss": {
+    "stylesheet": "src/app/globals.css",
+    "functions": ["cn", "cva"]
+  },
+  "ignorePatterns": ["src/components/ui/**", "package-lock.json", ".next/**"]
+}

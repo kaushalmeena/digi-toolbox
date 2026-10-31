@@ -1,0 +1,75 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "nextjs",
+    "typescript",
+    "unicorn",
+    "import",
+    "jsx-a11y",
+    "vitest"
+  ],
+  "jsPlugins": ["oxlint-tailwindcss"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "tailwindcss": {
+      "entryPoint": "src/app/globals.css"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-key": "error",
+    "react/no-array-index-key": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "nextjs/no-img-element": "off",
+    "import/no-cycle": "error",
+    "import/no-unassigned-import": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "unicorn/no-array-sort": "off",
+    "unicorn/prefer-add-event-listener": "off",
+    "tailwindcss/no-unknown-classes": "error",
+    "tailwindcss/no-conflicting-classes": "error",
+    "tailwindcss/no-duplicate-classes": "error",
+    "tailwindcss/no-contradicting-variants": "error",
+    "tailwindcss/no-deprecated-classes": "error",
+    "tailwindcss/enforce-canonical": "warn",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "no-underscore-dangle": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/components/ui/**"],
+      "rules": {
+        "tailwindcss/enforce-canonical": "off",
+        "tailwindcss/no-unknown-classes": "off",
+        "tailwindcss/no-conflicting-classes": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-no-constructed-context-values": "off"
+      }
+    },
+    {
+      "files": ["**/*.test.ts"],
+      "rules": {
+        "vitest/require-to-throw-message": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    ".next/**",
+    "node_modules/**",
+    "public/sw.js",
+    "next-env.d.ts"
+  ]
+}
