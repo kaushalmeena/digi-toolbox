@@ -43,13 +43,14 @@
     "tailwindcss/no-deprecated-classes": "error",
     "tailwindcss/enforce-canonical": "warn",
     "jsx-a11y/prefer-tag-over-role": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "tailwindcss/prefer-scale-token": "warn",
+    "tailwindcss/no-unnecessary-arbitrary-value": "warn"
   },
   "overrides": [
     {
       "files": ["src/components/ui/**"],
       "rules": {
-        "tailwindcss/enforce-canonical": "off",
         "tailwindcss/no-unknown-classes": "off",
         "tailwindcss/no-conflicting-classes": "off",
         "jsx-a11y/label-has-associated-control": "off",

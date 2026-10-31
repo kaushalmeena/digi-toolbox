@@ -32,8 +32,8 @@ function DiffView({
           // oxlint-disable-next-line react/no-array-index-key
           key={index}
           className={cn(
-            change.added && "rounded-[2px] bg-diff-added",
-            change.removed && "rounded-[2px] bg-diff-removed",
+            change.added && "rounded-xs bg-diff-added",
+            change.removed && "rounded-xs bg-diff-removed",
             side === "left" &&
               change.removed &&
               "line-through decoration-destructive/40"

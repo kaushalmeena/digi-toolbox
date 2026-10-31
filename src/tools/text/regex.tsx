@@ -95,7 +95,7 @@ function Highlighted({
             key={index}
             title={`Match #${segment.match + 1}`}
             className={cn(
-              "rounded-[2px] text-foreground",
+              "rounded-xs text-foreground",
               segment.match % 2 === 0 ? "bg-primary/15" : "bg-primary/30"
             )}
           >
